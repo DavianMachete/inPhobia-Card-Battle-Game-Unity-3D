@@ -125,9 +125,9 @@ public class Deck : MonoBehaviour
 
     public void StartGame() 
     {
-        while (selectedCardsParent.childCount>0)
+        for (int i = selectedCardsParent.childCount-1; i >=0; i--)
         {
-            selectedCardsParent.GetChild(0).GetComponent<CardGameObject>().DestroyCard();
+            selectedCardsParent.GetChild(i).GetComponent<CardGameObject>().DestroyCard();
         }
         foreach (var item in selectedCards)
         {
