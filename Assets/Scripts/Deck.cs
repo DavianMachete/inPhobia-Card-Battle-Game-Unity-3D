@@ -111,11 +111,6 @@ public class Deck : MonoBehaviour
         threeCardsParent.GetChild(2).GetComponent<CardGameObject>().ApplyToCardGameObject(rightCard);
     }
 
-    public void AddSelectedCardToDeck()
-    {
-
-    }
-
     public void AddCardAsSelected(CardGameObject cardGO)
     {
         Card newSelected = new Card(cardGO.name, cardGO.cardType, cardGO.affect, cardGO.actionPoint, cardGO.rarity);
@@ -123,16 +118,27 @@ public class Deck : MonoBehaviour
         selectedCards.Add(newSelected);
     }
 
-    public void StartGame() 
+    public void StartGame()
     {
-        for (int i = selectedCardsParent.childCount-1; i >=0; i--)
-        {
-            selectedCardsParent.GetChild(i).GetComponent<CardGameObject>().DestroyCard();
-        }
-        foreach (var item in selectedCards)
+        Vector2 stepForSum = new Vector2(320f, 0f);
+        Vector2 firstLeftPos = new Vector2(-160 * (selectedCards.Count - 1),0f);
+
+        for (int i = 0; i < selectedCards.Count; i++)
         {
             var goUI = Instantiate(cardPrefab, selectedCardsParent);
-            goUI.GetComponent<CardGameObject>().ApplyToCardGameObject(item);
+            goUI.GetComponent<CardGameObject>().ApplyToCardGameObject(selectedCards[i]);
+            goUI.GetComponent<RectTransform>().anchoredPosition = firstLeftPos + stepForSum * i;
+            goUI.GetComponent<RectTransform>().localScale = Vector3.one * 0.8f;
+        }
+    }
+
+    public void RestartGame()
+    {
+        selectedCards.Clear();
+
+        for (int i = selectedCardsParent.childCount - 1; i >= 0; i--)
+        {
+            selectedCardsParent.GetChild(i).GetComponent<CardGameObject>().DestroyCard();
         }
     }
 
