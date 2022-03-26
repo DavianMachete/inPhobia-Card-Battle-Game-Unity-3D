@@ -14,6 +14,9 @@ public class Deck : MonoBehaviour
     private List<Card> selectedCards;
     private List<Card> cardsToUnlock;
 
+    private Phobia phobia;
+    private Patient patient;
+
     private void Start()
     {
         selectedCards = new List<Card>();
@@ -22,31 +25,31 @@ public class Deck : MonoBehaviour
 
         cardsToUnlock = new List<Card>();
 
-        cardsToUnlock.Add(new Card("Ram", CardTypes.Attack, "Deal damage equal to your block", 1, Rarity.Rare));
+        cardsToUnlock.Add(new Card("Ram", CardTypes.Attack, Affects.Block(phobia.damage, patient), "Deal damage equal to your block", 1, Rarity.Rare));//"Deal damage equal to your block"
 
-        cardsToUnlock.Add(new Card("Entrench", CardTypes.Skill, "Double your current block", 1, Rarity.Rare));
+        cardsToUnlock.Add(new Card("Entrench", CardTypes.Skill, 2 * Affects.Block(phobia.damage, patient), "Double your current block", 1, Rarity.Rare));//"Double your current block"
 
-        cardsToUnlock.Add(new Card("Shrug it off", CardTypes.Skill, "Gain 8 block, draw 1 card", 0, Rarity.Rare));
+        cardsToUnlock.Add(new Card("Shrug it off", CardTypes.Skill, Affects.Block(8, patient) + new Affect(null, () => patient.SuggestPullCard(1)), "Gain 8 block, draw 1 card", 0, Rarity.Rare));//"Gain 8 block, draw 1 card"
 
-        cardsToUnlock.Add(new Card("Barricade", CardTypes.Equipment, "Block no longer expires at the start of your turn", 0, Rarity.Equipment));
+        cardsToUnlock.Add(new Card("Barricade", CardTypes.Equipment, new Affect(null,()=>patient.SaveBlock()),"Block no longer expires at the start of your turn", 0, Rarity.Equipment));//"Block no longer expires at the start of your turn"
 
-        cardsToUnlock.Add(new Card("Juggernaut", CardTypes.Equipment, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment));
+        //cardsToUnlock.Add(new Card("Juggernaut", CardTypes.Equipment, patient.OnEveryStepStart+= "Each time you gain block - deal 5 damage", 0, Rarity.Equipment));//"Each time you gain block - deal 5 damage"
 
-        cardsToUnlock.Add(new Card("Wall of Steel", CardTypes.Equipment, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment));
+        //cardsToUnlock.Add(new Card("Wall of Steel", CardTypes.Equipment, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment));//"At the end of your turn: Gain 3 block"
 
-        cardsToUnlock.Add(new Card("Second Wind",CardTypes.Skill,"Discard your hand. For each card discarded: Gain 5 block",1, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Second Wind",CardTypes.Skill,"Discard your hand. For each card discarded: Gain 5 block",1, Rarity.Common));//"Discard your hand. For each card discarded: Gain 5 block"
 
-        cardsToUnlock.Add(new Card("Inspiration", CardTypes.Skill, "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Inspiration", CardTypes.Skill, "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common));//"Exhaust. Gain 1 AP, Draw 1 card"
 
-        cardsToUnlock.Add(new Card("Parry", CardTypes.Attack, $" Deal 5 damage \n Gain 5 block", 1, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Parry", CardTypes.Attack, $" Deal 5 damage \n Gain 5 block", 1, Rarity.Common));//$" Deal 5 damage \n Gain 5 block"
 
-        cardsToUnlock.Add(new Card("Dropkick", CardTypes.Attack, "Deal damage equal to your block", 1, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Dropkick", CardTypes.Attack, "Deal damage equal to your block", 1, Rarity.Common));//"Deal damage equal to your block"
 
-        cardsToUnlock.Add(new Card("Wall of Fire", CardTypes.Skill, "Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage", 2, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Wall of Fire", CardTypes.Skill, "Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage", 2, Rarity.Common));//"Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage"
 
-        cardsToUnlock.Add(new Card("Rage", CardTypes.Skill, "Exhaust. Gain 2 AP", 1, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Rage", CardTypes.Skill, "Exhaust. Gain 2 AP", 1, Rarity.Common));//"Exhaust. Gain 2 AP"
 
-        cardsToUnlock.Add(new Card("Invulnerability", CardTypes.Skill, "Exhaust. Gain 30 block", 0, Rarity.Common));
+        //cardsToUnlock.Add(new Card("Invulnerability", CardTypes.Skill, "Exhaust. Gain 30 block", 0, Rarity.Common));//"Exhaust. Gain 30 block"
         #endregion
     }
 
@@ -113,9 +116,9 @@ public class Deck : MonoBehaviour
 
     public void AddCardAsSelected(CardGameObject cardGO)
     {
-        Card newSelected = new Card(cardGO.name, cardGO.cardType, cardGO.affect, cardGO.actionPoint, cardGO.rarity);
+        //Card newSelected = new Card(cardGO.name, cardGO.cardType,cardGO.af, cardGO.affect, cardGO.actionPoint, cardGO.rarity);
 
-        selectedCards.Add(newSelected);
+        //selectedCards.Add(newSelected);
     }
 
     public void StartGame()
@@ -143,5 +146,4 @@ public class Deck : MonoBehaviour
     }
 
     #endregion
-
 }
