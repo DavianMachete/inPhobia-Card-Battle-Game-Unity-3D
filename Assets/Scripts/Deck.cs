@@ -11,31 +11,33 @@ public class Deck : MonoBehaviour
     [SerializeField]
     private GameObject cardPrefab;
 
+    private List<Card> deck;
     private List<Card> selectedCards;
     private List<Card> cardsToUnlock;
 
     private Phobia phobia;
     private Patient patient;
+    private Card cardRage;
 
     private void Start()
     {
+        deck = new List<Card>();
         selectedCards = new List<Card>();
 
         #region CreateCards
 
         cardsToUnlock = new List<Card>();
+        cardsToUnlock.Add(new Card("Ram", CardTypes.Attack, Affects.Block(phobia.AttackForce, patient), "Deal damage equal to your block", 1, Rarity.Rare));//"Deal damage equal to your block"
 
-        cardsToUnlock.Add(new Card("Ram", CardTypes.Attack, Affects.Block(phobia.damage, patient), "Deal damage equal to your block", 1, Rarity.Rare));//"Deal damage equal to your block"
+        cardsToUnlock.Add(new Card("Entrench", CardTypes.Skill, 2 * Affects.Block(phobia.AttackForce, patient), "Double your current block", 1, Rarity.Rare));//"Double your current block"
 
-        cardsToUnlock.Add(new Card("Entrench", CardTypes.Skill, 2 * Affects.Block(phobia.damage, patient), "Double your current block", 1, Rarity.Rare));//"Double your current block"
+        cardsToUnlock.Add(new Card("Shrug it off", CardTypes.Skill, Affects.Block(8, patient) + new Affect(() => patient.SuggestPullCard(1), InPhobiaEventType.OnEveryStepStart), "Gain 8 block, draw 1 card", 0, Rarity.Rare));//"Gain 8 block, draw 1 card"
 
-        cardsToUnlock.Add(new Card("Shrug it off", CardTypes.Skill, Affects.Block(8, patient) + new Affect(null, () => patient.SuggestPullCard(1)), "Gain 8 block, draw 1 card", 0, Rarity.Rare));//"Gain 8 block, draw 1 card"
+        cardsToUnlock.Add(new Card("Barricade", CardTypes.Equipment, new Affect(()=>patient.SaveBlock(),InPhobiaEventType.OnStepEnd),"Block no longer expires at the start of your turn", 0, Rarity.Equipment));//"Block no longer expires at the start of your turn"
 
-        cardsToUnlock.Add(new Card("Barricade", CardTypes.Equipment, new Affect(null,()=>patient.SaveBlock()),"Block no longer expires at the start of your turn", 0, Rarity.Equipment));//"Block no longer expires at the start of your turn"
+        cardsToUnlock.Add(new Card("Juggernaut", CardTypes.Equipment, new Affect(() =>patient.ActivateAttackWhenGetBlock(),InPhobiaEventType.OnEveryStepStart),"Each time you gain block - deal 5 damage", 0, Rarity.Equipment));//"Each time you gain block - deal 5 damage"
 
-        //cardsToUnlock.Add(new Card("Juggernaut", CardTypes.Equipment, patient.OnEveryStepStart+= "Each time you gain block - deal 5 damage", 0, Rarity.Equipment));//"Each time you gain block - deal 5 damage"
-
-        //cardsToUnlock.Add(new Card("Wall of Steel", CardTypes.Equipment, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment));//"At the end of your turn: Gain 3 block"
+        cardsToUnlock.Add(new Card("Wall of Steel", CardTypes.Equipment, new Affect(() => patient.AddBlock(3), InPhobiaEventType.OnEveryStepEnd), "At the end of your turn: Gain 3 block", 0, Rarity.Equipment));//"At the end of your turn: Gain 3 block"
 
         //cardsToUnlock.Add(new Card("Second Wind",CardTypes.Skill,"Discard your hand. For each card discarded: Gain 5 block",1, Rarity.Common));//"Discard your hand. For each card discarded: Gain 5 block"
 
@@ -46,12 +48,24 @@ public class Deck : MonoBehaviour
         //cardsToUnlock.Add(new Card("Dropkick", CardTypes.Attack, "Deal damage equal to your block", 1, Rarity.Common));//"Deal damage equal to your block"
 
         //cardsToUnlock.Add(new Card("Wall of Fire", CardTypes.Skill, "Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage", 2, Rarity.Common));//"Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage"
+        
+        cardRage = new Card("Rage", CardTypes.Skill, Affects.Exhaust(this, cardRage) + new Affect(() => patient.ActionPoints += 2, InPhobiaEventType.OnStepStart), "Exhaust. Gain 2 AP", 1, Rarity.Common);
+        cardsToUnlock.Add(cardRage);//"Exhaust. Add 2 AP"
 
-        //cardsToUnlock.Add(new Card("Rage", CardTypes.Skill, "Exhaust. Gain 2 AP", 1, Rarity.Common));//"Exhaust. Gain 2 AP"
-
-        //cardsToUnlock.Add(new Card("Invulnerability", CardTypes.Skill, "Exhaust. Gain 30 block", 0, Rarity.Common));//"Exhaust. Gain 30 block"
+        cardsToUnlock.Add(new Card("Invulnerability", CardTypes.Skill, Affects.Block(30, patient), "Exhaust. Gain 30 block", 0, Rarity.Common));//"Exhaust. Gain 30 block"
         #endregion
+
+        foreach (var item in cardsToUnlock)
+        {
+            deck.Add(item);
+        }
     }
+
+
+    #region PrivateMethods
+
+
+    #endregion
 
     #region Public Methods
 
@@ -143,6 +157,11 @@ public class Deck : MonoBehaviour
         {
             selectedCardsParent.GetChild(i).GetComponent<CardGameObject>().DestroyCard();
         }
+    }
+
+    public void RemoveCardFromDeck(Card card)
+    {
+        deck.Remove(card);
     }
 
     #endregion

@@ -12,3 +12,11 @@ public enum Rarity
     Equipment,
     Common
 }
+
+public enum InPhobiaEventType
+{
+    OnStepStart,
+    OnStepEnd,
+    OnEveryStepStart,
+    OnEveryStepEnd
+}

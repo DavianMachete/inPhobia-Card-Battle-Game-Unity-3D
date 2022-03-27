@@ -12,16 +12,19 @@ public static class Affects
     public static Affect Vulnerablity(Patient patient,Phobia phobia) 
     {
         //$"Effect: Vulnerable creatures take +50% damage\nNote: Decrease by 1 at end of turn";
-        affect.OnMainAction = () => //+50 % damage
+        affect.inPhobia.OnStepStart = () => //+50 % damage
         {
-            if (phobia.hasVulnerablity)
+            if (phobia.vulnerablityCount>0)
             {
-                patient.damage += patient.damage * 0.5f;
+                patient.AttackForce += patient.AttackForce * 0.5f;
             }
         };
-        affect.OnAdditionalAction = () => //Decrease by 1 at end of turn
+        affect.inPhobia.OnEveryStepEnd = () => //Decrease by 1 at end of turn
         {
-            //ЖЕНЯЯЯЯЯЯЯ
+            if (phobia.vulnerablityCount > 0)
+            {
+                phobia.vulnerablityCount--;
+            }
         };
         return affect;
     }
@@ -30,18 +33,23 @@ public static class Affects
     /// ---Существа со слабостью наносят каждой атакой - x урона․
     /// ---Примичение.---Уменьшается на 1 каждый раз когда наносишь урон․ 
     /// </summary>
-    public static Affect Weakness(int weaknesStack,Patient patient, Phobia phobia) //стак слабости
+    public static Affect Weakness(int weaknesStack, Phobia phobia) //стак слабости
     {
-        affect.OnMainAction = () => 
+        ResetAffect();
+        affect.inPhobia.OnEveryStepStart = () =>
         {
-            if (phobia.hasWeakness)
+            if (phobia.weaknessStack > 0)
             {
-                phobia.damage -= weaknesStack;
+                phobia.AttackForce -= weaknesStack;
             }
         };
-        affect.OnAdditionalAction = () => 
+        affect.inPhobia.OnEveryStepEnd = () =>
         {
-
+            if (phobia.weaknessStack > 0)
+            {
+                phobia.AttackForce += weaknesStack;
+                weaknesStack--;
+            }
         };
         return affect;
     }
@@ -53,14 +61,9 @@ public static class Affects
     /// </summary>
     public static Affect Block(float block, Patient patient)//??
     {
-        affect.OnMainAction = () =>
-        {
-            patient.block += block;
-        };
-        affect.OnAdditionalAction = () =>
-        {
-            patient.block -= block;
-        };
+        ResetAffect();
+        affect.inPhobia.OnStepStart = () => patient.AddBlock(block);
+        affect.inPhobia.OnStepEnd = () => patient.AddBlock(-block);
         return affect;
     }
 
@@ -71,14 +74,7 @@ public static class Affects
     /// </summary>
     public static Affect Armor(Patient patient, Phobia phobia)
     {
-        affect.OnMainAction = () =>
-        {
-
-        };
-        affect.OnAdditionalAction = () =>
-        {
-
-        };
+        ResetAffect();
         return affect;
     }
 
@@ -86,16 +82,10 @@ public static class Affects
     /// <summary>
     /// ---Карта пропадает из игры до конца боя.
     /// </summary>
-    public static Affect Exhaust(Patient patient, Phobia phobia)
+    public static Affect Exhaust(Deck deck,Card card)
     {
-        affect.OnMainAction = () =>
-        {
-
-        };
-        affect.OnAdditionalAction = () =>
-        {
-
-        };
+        ResetAffect();
+        affect.inPhobia.OnStepEnd = () => deck.RemoveCardFromDeck(card);
         return affect;
     }
 
@@ -105,15 +95,15 @@ public static class Affects
     /// </summary>
     public static Affect Power(Patient patient, Phobia phobia)
     {
-        affect.OnMainAction = () =>
-        {
-
-        };
-        affect.OnAdditionalAction = () =>
-        {
-
-        };
+        ResetAffect();
         return affect;
     }
 
+    private static void ResetAffect()
+    {
+        affect.inPhobia.OnStepStart = null;
+        affect.inPhobia.OnStepEnd = null;
+        affect.inPhobia.OnEveryStepStart = null;
+        affect.inPhobia.OnEveryStepEnd = null;
+    }
 }

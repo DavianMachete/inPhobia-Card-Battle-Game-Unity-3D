@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class Patient : NPC
 {
-    public float block;
-
-
-    private float prevBlock;
+    private float block;
     private bool blockSaved;
+
+    private bool blockGot;
+    private bool attackWhenGetBlock;
 
     private void Start()
     {
@@ -23,14 +23,30 @@ public class Patient : NPC
 
     public void PullCard(int count)
     {
-
+        //need add functionality
     }
 
     public void SaveBlock() 
     {
-        block = prevBlock;
         blockSaved = true;
     }
 
+    public void ActivateAttackWhenGetBlock()
+    {
+        attackWhenGetBlock = true;
+    }
 
+    public void AddBlock(float block)
+    {
+        if (block < 0 && blockSaved)
+            return;
+        this.block += block;
+        if (attackWhenGetBlock)
+        {
+            float newAttackForce = AttackForce;
+            AttackForce = 5;
+            Attack();
+            AttackForce = newAttackForce;
+        }
+    }
 }

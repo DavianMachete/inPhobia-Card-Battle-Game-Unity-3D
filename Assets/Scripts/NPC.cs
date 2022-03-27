@@ -1,19 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NPC : MonoBehaviour
+public class NPC : InPhobiaBahaviour
 {
-    public string Name = "George";
-    public int _AP = 12;
-    public float health = 800f;
-    public float damage = 40f;
+    public string Name = "";
+    public int ActionPoints = 12;
+    public float Health = 800f;
+    public float AttackForce = 40f;
 
-    public UnityAction OnDefense;
-    public UnityAction AfterDefenses;
+    public void Attack()
+    {
 
-    public UnityAction OnAttack;
-    public UnityAction AfterAttack;
-
-    public UnityAction OnEveryStepStart;
-    public UnityAction OnEveryStepEnd;
+    }
 }

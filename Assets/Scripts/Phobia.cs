@@ -3,6 +3,6 @@ using UnityEngine.Events;
 
 public class Phobia : NPC
 {
-    public bool hasVulnerablity = false;
-    public bool hasWeakness = false;
+    public int vulnerablityCount = 0;
+    public int weaknessStack = 0;
 }
