@@ -6,7 +6,8 @@ public class CardGameObject : MonoBehaviour
 {
     public string cardName;
     public CardTypes cardType;
-    //public string affect;
+    public Affect affect;
+    public string affectDescription;
     public int actionPoint;
     public Rarity rarity;
 
@@ -15,7 +16,8 @@ public class CardGameObject : MonoBehaviour
     {
         cardName = card.cardName;
         cardType = card.cardType;
-        //affect = card.affect;
+        affect = card.affect;
+        affectDescription = card.affectDescription;
         actionPoint = card.actionPoint;
         rarity = card.rarity;
 
@@ -31,7 +33,7 @@ public class CardGameObject : MonoBehaviour
         transform.GetChild(1).GetComponent<TMPro.TMP_Text>().text = card.cardName;
         //2
         transform.GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
-        //transform.GetChild(4).GetComponent<TMPro.TMP_Text>().text = card.affect;
+        transform.GetChild(4).GetComponent<TMPro.TMP_Text>().text = card.affectDescription;
     }
 
     public void DestroyCard()

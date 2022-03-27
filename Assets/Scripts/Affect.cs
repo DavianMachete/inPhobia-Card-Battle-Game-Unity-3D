@@ -5,8 +5,18 @@ public class Affect
     public InPhobiaBahaviour inPhobia;
 
 
+    public Affect()
+    {
+        if (inPhobia != null)
+            inPhobia = null;
+        inPhobia = new InPhobiaBahaviour();
+    }
     public Affect(UnityAction onAction, InPhobiaEventType eventType)
     {
+        if (inPhobia != null)
+            inPhobia = null;
+        inPhobia = new InPhobiaBahaviour();
+
         switch (eventType)
         {
             case InPhobiaEventType.OnStepStart:
@@ -20,6 +30,24 @@ public class Affect
                 break;
             case InPhobiaEventType.OnEveryStepEnd:
                 inPhobia.OnEveryStepEnd = onAction;
+                break;
+            case InPhobiaEventType.OnEnemyStepStart:
+                inPhobia.OnEnemyStepStart = onAction;
+                break;
+            case InPhobiaEventType.OnEnemyStepEnd:
+                inPhobia.OnEnemyStepEnd = onAction;
+                break;
+            case InPhobiaEventType.OnEnemyEveryStepStart:
+                inPhobia.OnEnemyEveryStepStart = onAction;
+                break;
+            case InPhobiaEventType.OnEnemyEveryStepEnd:
+                inPhobia.OnEnemyEveryStepEnd = onAction;
+                break;
+            case InPhobiaEventType.OnEveryAttack:
+                inPhobia.OnEveryAttack = onAction;
+                break;
+            case InPhobiaEventType.OnEveryDefense:
+                inPhobia.OnEveryDefense = onAction;
                 break;
             default:
                 break;

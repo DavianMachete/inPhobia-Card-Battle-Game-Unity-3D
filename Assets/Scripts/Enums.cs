@@ -18,5 +18,11 @@ public enum InPhobiaEventType
     OnStepStart,
     OnStepEnd,
     OnEveryStepStart,
-    OnEveryStepEnd
+    OnEveryStepEnd,
+    OnEnemyStepStart,
+    OnEnemyStepEnd,
+    OnEnemyEveryStepStart,
+    OnEnemyEveryStepEnd,
+    OnEveryAttack,
+    OnEveryDefense
 }
