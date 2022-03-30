@@ -19,6 +19,7 @@ public class Card
     {
 
     }
+
     public Card(string cardName, CardTypes cardType, Affect affect,string affectDescription, int actionPoint, Rarity rarity)
     {
         this.cardName = cardName;

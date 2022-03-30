@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Patient : NPC
 {
     public Phobia enemy;
+    public Card nextCard;
 
     private float block;
     private bool blockSaved;

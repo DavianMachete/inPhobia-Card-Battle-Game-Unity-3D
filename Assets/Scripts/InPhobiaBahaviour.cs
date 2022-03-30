@@ -15,8 +15,8 @@ public class InPhobiaBahaviour : MonoBehaviour
     public UnityAction OnEnemyEveryStepStart;
     public UnityAction OnEnemyEveryStepEnd;
 
-    public UnityAction OnEveryAttack;
-    public UnityAction OnEveryDefense;
+    public UnityAction OnEveryAttack;//happens before every Attack
+    public UnityAction OnEveryDefense;//happens before every defence
 
 
     public InPhobiaBahaviour(){}
