@@ -2,46 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+public class TherapistDeckController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject cardPrefab;
+    [Space(20f)]
+
+    [Header("Card Collecter Part")]
     [SerializeField]
     private Transform threeCardsParent;
     [SerializeField]
-    private Transform selectedCardsParent;
+    private Phobia phobia;
     [SerializeField]
-    private GameObject cardPrefab;
+    private Patient patient;
+    [SerializeField]
+    private Therapist therapist;
 
-    private List<Card> deck;
+
     private List<Card> selectedCards;
-    private List<Card> cardsToUnlock;
-
-    private void Start()
-    {
-        deck = new List<Card>();
-        selectedCards = new List<Card>();
-
-        foreach (var item in cardsToUnlock)
-        {
-            deck.Add(item);
-        }
-    }
-
-
-    #region PrivateMethods
-
-
-    #endregion
 
     #region Public Methods
 
-    public void RandomizeThreeCards() 
+    public void RandomizeThreeCards()
     {
+        if (selectedCards == null)
+            selectedCards = new List<Card>();
+
         //SelectLeft Card
         List<Card> leftCards = new List<Card>();
-        foreach (var item in cardsToUnlock)
+        foreach (var item in Cards.TherapistCardsToSelect(patient, phobia))
         {
             if (item.rarity == Rarity.Equipment ||
-                item.rarity == Rarity.Rare) 
+                item.rarity == Rarity.Rare)
             {
                 leftCards.Add(item);
             }
@@ -54,7 +46,7 @@ public class Deck : MonoBehaviour
         //Select median card
 
         List<Card> medianCards = new List<Card>();
-        foreach (var item in cardsToUnlock)
+        foreach (var item in Cards.TherapistCardsToSelect(patient,phobia))
         {
             if (item.rarity == Rarity.Common)
             {
@@ -70,7 +62,7 @@ public class Deck : MonoBehaviour
         List<Card> rightCards = new List<Card>();
         int typeForFifty = Random.Range(0, 2);//if 0 then Commo, and if 1 then rare
 
-        foreach (var item in cardsToUnlock)
+        foreach (var item in Cards.TherapistCardsToSelect(patient, phobia))
         {
             if (typeForFifty == 0)
             {
@@ -79,7 +71,7 @@ public class Deck : MonoBehaviour
                     rightCards.Add(item);
                 }
             }
-            else 
+            else
             {
                 if (item.rarity == Rarity.Rare)
                 {
@@ -102,21 +94,13 @@ public class Deck : MonoBehaviour
 
     public void StartGame()
     {
-        Vector2 stepForSum = new Vector2(320f, 0f);
-        Vector2 firstLeftPos = new Vector2(-160 * (selectedCards.Count - 1),0f);
+        List<Card> therStanCards = Cards.TherapistStandartCards(patient, phobia);
+        therapist.staticDeck = new List<Card>(therStanCards.Count + selectedCards.Count);
 
-        for (int i = 0; i < selectedCards.Count; i++)
-        {
-            var goUI = Instantiate(cardPrefab, selectedCardsParent);
-            goUI.GetComponent<CardUI>().ApplyToCardGameObject(selectedCards[i]);
-            goUI.GetComponent<RectTransform>().anchoredPosition = firstLeftPos + stepForSum * i;
-            goUI.GetComponent<RectTransform>().localScale = Vector3.one * 0.8f;
-        }
-    }
+        therapist.staticDeck.AddRange(therStanCards);
+        therapist.staticDeck.AddRange(selectedCards);
 
-    public void RemoveCardFromDeck(Card card)
-    {
-        deck.Remove(card);
+        therapist.InitializeDeck();
     }
 
     #endregion

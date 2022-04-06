@@ -85,10 +85,10 @@ public static class Affects
     /// <summary>
     /// ---Карта пропадает из игры до конца боя.
     /// </summary>
-    public static Affect Exhaust(Deck deck,Card card)
+    public static Affect Exhaust(Patient patient,Card card)
     {
         ResetAffect();
-        affect.inPhobia.OnStepEnd = () => deck.RemoveCardFromDeck(card);
+        affect.inPhobia.OnStepEnd = () => patient.RemoveCardFromDeck(card);
         return affect;
     }
 

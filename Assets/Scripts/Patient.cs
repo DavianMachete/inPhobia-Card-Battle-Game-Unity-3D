@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Patient : NPC
 {
     public Phobia enemy;
+    public List<Card> staticDeck;
     public Card nextCard;
 
     private float block;
@@ -13,11 +14,17 @@ public class Patient : NPC
 
     private bool blockGot;
     private bool attackWhenGetBlock;
+    private List<Card> deck;
 
 
     private void Start()
     {
         
+    }
+
+    public void InitializeDeck()
+    {
+
     }
 
     public void PullCard(int count)
@@ -61,6 +68,19 @@ public class Patient : NPC
             AttackForce = 5;
             //Attack();
             AttackForce = newAttackForce;
+        }
+    }
+
+    public void RemoveCardFromDeck(Card card)
+    {
+        foreach (Card itemCard in staticDeck)
+        {
+            if (itemCard == card)
+            {
+                staticDeck.Remove(itemCard);
+                //Continuted
+                break;
+            }
         }
     }
 }

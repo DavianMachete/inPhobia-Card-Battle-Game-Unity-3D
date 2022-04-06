@@ -7,7 +7,7 @@ public static class Cards
     private static Card cardInspiration;
     private static Card cardRage;
 
-    public static List<Card> TherapistCardsToSelect(Patient patient, Phobia phobia,Deck deck)
+    public static List<Card> TherapistCardsToSelect(Patient patient, Phobia phobia)
     {
         List<Card> cards = new List<Card>();
 
@@ -29,7 +29,7 @@ public static class Cards
         //NEed to change
         cards.Add(new Card("Second Wind", CardTypes.Skill, Affects.Block(5, patient)/*new Affect(())*/, "Discard your hand. For each card discarded: Gain 5 block", 1, Rarity.Common));//"Discard your hand. For each card discarded: Gain 5 block"
 
-        cardInspiration = new Card("Inspiration", CardTypes.Skill, Affects.Exhaust(deck, cardInspiration) + new Affect(() => { patient.ActionPoints++; patient.PullCard(1); }, InPhobiaEventType.OnStepStart), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common);
+        cardInspiration = new Card("Inspiration", CardTypes.Skill, Affects.Exhaust(patient, cardInspiration) + new Affect(() => { patient.ActionPoints++; patient.PullCard(1); }, InPhobiaEventType.OnStepStart), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common);
         cards.Add(cardInspiration);//"Exhaust. Gain 1 AP, Draw 1 card"
 
         cards.Add(new Card("Parry", CardTypes.Attack, Affects.Block(5, patient) + new Affect(() => patient.Attack(5), InPhobiaEventType.OnStepStart), $" Deal 5 damage \n Gain 5 block", 1, Rarity.Common));//$" Deal 5 damage \n Gain 5 block"
@@ -38,7 +38,7 @@ public static class Cards
 
         cards.Add(new Card("Wall of Fire", CardTypes.Skill, Affects.Block(12, patient) + new Affect(() => patient.Attack(4), InPhobiaEventType.OnEveryDefense), "Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage", 2, Rarity.Common));//"Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage"
 
-        cardRage = new Card("Rage", CardTypes.Skill, Affects.Exhaust(deck, cardRage) + new Affect(() => patient.ActionPoints += 2, InPhobiaEventType.OnStepStart), "Exhaust. Gain 2 AP", 1, Rarity.Common);
+        cardRage = new Card("Rage", CardTypes.Skill, Affects.Exhaust(patient, cardRage) + new Affect(() => patient.ActionPoints += 2, InPhobiaEventType.OnStepStart), "Exhaust. Gain 2 AP", 1, Rarity.Common);
         cards.Add(cardRage);//"Exhaust. Add 2 AP"
 
         cards.Add(new Card("Invulnerability", CardTypes.Skill, Affects.Block(30, patient), "Exhaust. Gain 30 block", 0, Rarity.Common));//"Exhaust. Gain 30 block"
