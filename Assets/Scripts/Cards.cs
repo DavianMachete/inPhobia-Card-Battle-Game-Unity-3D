@@ -69,8 +69,18 @@ public static class Cards
     {
         List<Card> cards = new List<Card>();
 
-        /////
-        
+        for (int i = 0; i < 5; i++)
+        {
+            cards.Add(new Card("Hit", CardTypes.Attack, new Affect(() => patient.Attack(5),InPhobiaEventType.OnStepStart), "Deal 5 damage", 1, Rarity.Common));
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            cards.Add(new Card("Shield", CardTypes.Skill,Affects.Block(5,patient), "Gain 5 block", 1, Rarity.Common));
+        }
+
+        cards.Add(new Card("Strong beat", CardTypes.Attack, new Affect(() => patient.Attack(8), InPhobiaEventType.OnStepStart)+(Affects.Vulnerablity(patient,phobia)*2), $"Deal 5 damage \n and 2 vulnerablity", 2, Rarity.Common));
+
         return cards;
     }
 

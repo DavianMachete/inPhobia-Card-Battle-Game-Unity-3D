@@ -9,13 +9,17 @@ public class Therapist : MonoBehaviour
 
     [SerializeField]
     private TMP_Text cardsCountInDeck;
+    [SerializeField]
+    private TMP_Text actionPointsText;
 
 
     private List<Card> deck;
     private List<Card> cardsInHand;
 
+    private int therapistMaxAP = 5;
+    private int therapistCurrentAP = 5;
 
-    public void InitializeDeck()
+    public void InitializeTherapist()
     {
         if (deck == null)
             deck = new List<Card>();
@@ -24,18 +28,26 @@ public class Therapist : MonoBehaviour
 
         deck = staticDeck;
 
-        cardsCountInDeck.text = deck.Count.ToString();
+        
         cardsInHand.Clear();
         for (int i = 0; i < 4; i++)
         {
-            int index=Random.Range(0, deck.Count);
+            int index = Random.Range(0, deck.Count);
             cardsInHand.Add(deck[index]);
             deck.RemoveAt(index);
         }
-        foreach (var card in cardsInHand)
+        for (int i = 0; i < cardsInHand.Count; i++)
         {
-            UIController.instance.AddCardForTherapist(card);
+            int index = i;
+            UIController.instance.AddCardForTherapist(cardsInHand[index], index);
         }
         UIController.instance.UpdateCards();
+        cardsCountInDeck.text = deck.Count.ToString();
+        SetActionPoint(therapistCurrentAP, therapistMaxAP);
+    }
+
+    private void SetActionPoint(int current,int max)
+    {
+        actionPointsText.text = current.ToString() + "/" + max.ToString();
     }
 }

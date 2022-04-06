@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,22 +10,55 @@ public class Patient : NPC
     public List<Card> staticDeck;
     public Card nextCard;
 
+    [SerializeField]
+    private TMP_Text cardsCountInDeck;
+    [SerializeField]
+    private TMP_Text actionPointsText;
+
     private float block;
     private bool blockSaved;
 
     private bool blockGot;
     private bool attackWhenGetBlock;
+
     private List<Card> deck;
+    private List<Card> cardsInHand;
+
+    private int patientMaxAP = 3;
+    private int patientCurrentAP = 3;
 
 
     private void Start()
     {
-        
+        staticDeck = Cards.PatientStandartCards(this,enemy);
+        InitializeDeck();
     }
 
     public void InitializeDeck()
     {
+        if (deck == null)
+            deck = new List<Card>();
+        if (cardsInHand == null)
+            cardsInHand = new List<Card>();
 
+        deck = staticDeck;
+
+
+        cardsInHand.Clear();
+        for (int i = 0; i < 3; i++)
+        {
+            int index = Random.Range(0, deck.Count);
+            cardsInHand.Add(deck[index]);
+            deck.RemoveAt(index);
+        }
+        for (int i = 0; i < cardsInHand.Count; i++)
+        {
+            int index = i;
+            UIController.instance.AddCardForPatient(cardsInHand[index], index);
+        }
+        UIController.instance.UpdateCards();
+        cardsCountInDeck.text = deck.Count.ToString();
+        SetActionPoint(patientCurrentAP, patientMaxAP);
     }
 
     public void PullCard(int count)
@@ -82,5 +116,10 @@ public class Patient : NPC
                 break;
             }
         }
+    }
+
+    private void SetActionPoint(int current, int max)
+    {
+        actionPointsText.text = current.ToString() + "/" + max.ToString();
     }
 }
