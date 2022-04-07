@@ -9,6 +9,8 @@ public class Patient : NPC
     public Phobia enemy;
     public List<Card> staticDeck;
     public Card nextCard;
+    public int patientMaxAP = 3;
+    public int patientCurrentAP = 3;
 
     [SerializeField]
     private TMP_Text cardsCountInDeck;
@@ -23,9 +25,6 @@ public class Patient : NPC
 
     private List<Card> deck;
     private List<Card> cardsInHand;
-
-    private int patientMaxAP = 3;
-    private int patientCurrentAP = 3;
 
 
     private void Start()

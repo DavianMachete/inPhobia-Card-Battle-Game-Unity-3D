@@ -61,13 +61,13 @@ public class CardUI : MonoBehaviour
 
     public void ApplyCardMetrics(int index, Vector2 centeredCardPos, Vector2 highestPosOfCard, Vector2 lowestPosOfCard)
     {
+        cardRect = GetComponent<RectTransform>();
         isUI = true;
         this.index = index;
         this.centeredCardPos = centeredCardPos;
         this.highestPosOfCard = highestPosOfCard;
         this.lowestPosOfCard = lowestPosOfCard;
 
-        cardRect = GetComponent<RectTransform>();
         otherCardsUI = new List<CardUI>();
     }
    
@@ -141,6 +141,7 @@ public class CardUI : MonoBehaviour
     {
         float step = 1f / (transform.parent.childCount - 1f);
         cardRect.anchoredPosition = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step);
+        centeredCardPos = new Vector2(centeredCardPos.x, cardRect.anchoredPosition.y);
     }
     private void SetCardsScales()
     {
@@ -154,6 +155,7 @@ public class CardUI : MonoBehaviour
         while (Vector2.Distance(cardRect.anchoredPosition, centeredCardPos) > 0.002f ||
             Vector3.Distance(cardRect.localScale, cardMaxScale) > 0.002f)
         {
+            cardRect.SetAsLastSibling();//Need to check this in profiler
             cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, centeredCardPos, Time.fixedDeltaTime * cardAnimationSpeed);
             cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMaxScale, Time.fixedDeltaTime * cardAnimationSpeed);
 
@@ -174,6 +176,12 @@ public class CardUI : MonoBehaviour
         }
 
         float step = 1f / (transform.parent.childCount - 1f);
+
+        foreach (var otherC in otherCardsUI)
+        {
+            otherC.cardRect.SetSiblingIndex(otherC.index);
+        }
+        cardRect.SetSiblingIndex(index);
 
         while (Vector2.Distance(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step)) > 0.002f ||
             Vector3.Distance(cardRect.localScale, cardMinScale) > 0.002f)
