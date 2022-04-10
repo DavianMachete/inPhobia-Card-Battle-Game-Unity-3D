@@ -34,6 +34,24 @@ public class CardUI : MonoBehaviour
     private RectTransform cardRect;
     private bool isUI = false;
     private List<CardUI> otherCardsUI;
+    private bool IsBeingDrag = false;
+
+
+    public void SetScreenPartActive(bool value)
+    {
+        IsBeingDrag = value;
+        //UIController.instance.SetScreenPartActive(value);
+    }
+
+    public void OnDrag()
+    {
+        cardRect.position = Input.mousePosition; 
+    }
+
+    public void SetInteractable(bool value)
+    {
+        //interactable = value;
+    }
 
     public void ApplyToCardGameObject(Card card)
     {
@@ -46,17 +64,17 @@ public class CardUI : MonoBehaviour
 
         if (card.cardType == CardTypes.Equipment)
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
         }
         else
         {
-            transform.GetChild(0).gameObject.SetActive(true);
-            transform.GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = $"{card.actionPoint}";
+            transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = $"{card.actionPoint}";
         }
-        transform.GetChild(1).GetComponent<TMPro.TMP_Text>().text = card.cardName;
+        transform.GetChild(1).GetChild(1).GetComponent<TMPro.TMP_Text>().text = card.cardName;
         //2
-        transform.GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
-        transform.GetChild(4).GetComponent<TMPro.TMP_Text>().text = card.affectDescription;
+        transform.GetChild(1).GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
+        transform.GetChild(1).GetChild(4).GetComponent<TMPro.TMP_Text>().text = card.affectDescription;
     }
 
     public void ApplyCardMetrics(int index, Vector2 centeredCardPos, Vector2 highestPosOfCard, Vector2 lowestPosOfCard)
@@ -78,7 +96,8 @@ public class CardUI : MonoBehaviour
 
     public void AnimateZoomIn()
     {
-        if (!isUI)
+
+        if (!isUI)//|| interactable)
             return;
 
         foreach (var item in otherCardsUI)
@@ -102,9 +121,10 @@ public class CardUI : MonoBehaviour
     }
     public void AnimateZoomOut(float seconds = -1f)
     {
+        //interactable = false;
         if (!isUI)
             return;
-        float s = 0;
+        float s;
         if (seconds >= 0)
             s = seconds;
         else
@@ -135,6 +155,15 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    public void OnClicked()
+    {
+        foreach (var cardUI in otherCardsUI)
+        {
+            cardUI.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
+    }
+
 
 
     private void SetCardPosition()
@@ -159,6 +188,7 @@ public class CardUI : MonoBehaviour
             cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, centeredCardPos, Time.fixedDeltaTime * cardAnimationSpeed);
             cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMaxScale, Time.fixedDeltaTime * cardAnimationSpeed);
 
+            yield return new WaitUntil(() => !IsBeingDrag);
             yield return new WaitForFixedUpdate();
         }
         IAnimateZoomInHelper = null;
@@ -168,6 +198,8 @@ public class CardUI : MonoBehaviour
     private Coroutine IAnimateZoomOutHelper;
     private IEnumerator IAnimateZoomOut(float s)
     {
+
+        yield return new WaitUntil(() => !IsBeingDrag);
         yield return new WaitForSeconds(s);
 
         if (IAnimateZoomInHelper != null)
@@ -189,8 +221,12 @@ public class CardUI : MonoBehaviour
             cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step), Time.fixedDeltaTime * cardAnimationSpeed);
             cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMinScale, Time.fixedDeltaTime * cardAnimationSpeed);
 
+
+            yield return new WaitUntil(() => !IsBeingDrag);
             yield return new WaitForFixedUpdate();
         }
+
+        //interactable = true;
         IAnimateZoomOutHelper = null;
     }
 }
