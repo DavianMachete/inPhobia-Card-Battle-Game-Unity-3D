@@ -1041,19 +1041,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8289050252017928913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8289050252017928915}
-        m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
-        m_MethodName: OnClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8289050252017928915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,11 +1054,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afccc4d8e6f67f478b78d5791969196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 0
-  affectDescription: 
-  actionPoint: 0
-  rarity: 0
+  card:
+    cardName: 
+    cardType: 0
+    affectDescription: 
+    actionPoint: 0
+    rarity: 0
+  cardUIType: 0
   index: 0
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
@@ -1130,8 +1120,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 8289050252017928915}
           m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
-          m_MethodName: SetScreenPartActive
-          m_Mode: 6
+          m_MethodName: OnDragBegin
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1162,8 +1152,40 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 8289050252017928915}
           m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
-          m_MethodName: SetScreenPartActive
-          m_Mode: 6
+          m_MethodName: OnDragEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8289050252017928915}
+          m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8289050252017928915}
+          m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
+          m_MethodName: OnPointerUP
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

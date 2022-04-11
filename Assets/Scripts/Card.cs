@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-public class Card
+﻿using System;
+
+[Serializable]
+public class Card 
 {
     public string cardName;
 

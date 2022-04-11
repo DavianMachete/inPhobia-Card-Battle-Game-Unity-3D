@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Therapist : MonoBehaviour
 {
+    public static Therapist instance;
     public List<Card> staticDeck;
+    public int therapistMaxAP = 5;
+    public int therapistCurrentAP = 5;
 
     [SerializeField]
     private TMP_Text cardsCountInDeck;
@@ -16,8 +19,6 @@ public class Therapist : MonoBehaviour
     private List<Card> deck;
     private List<Card> cardsInHand;
 
-    private int therapistMaxAP = 5;
-    private int therapistCurrentAP = 5;
 
     public void InitializeTherapist()
     {
@@ -41,13 +42,28 @@ public class Therapist : MonoBehaviour
             int index = i;
             UIController.instance.AddCardForTherapist(cardsInHand[index], index);
         }
-        UIController.instance.UpdateCards();
         cardsCountInDeck.text = deck.Count.ToString();
-        SetActionPoint(therapistCurrentAP, therapistMaxAP);
+        actionPointsText.text = therapistCurrentAP.ToString() + "/" + therapistMaxAP.ToString();
+        UIController.instance.UpdateCards(true);
     }
 
-    private void SetActionPoint(int current,int max)
+    public void SetActionPoint(int current,int max)
     {
+        therapistCurrentAP = current;
+        therapistMaxAP = max;
         actionPointsText.text = current.ToString() + "/" + max.ToString();
+    }
+
+
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 }

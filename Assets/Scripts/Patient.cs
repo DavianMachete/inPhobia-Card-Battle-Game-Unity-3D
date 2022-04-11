@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class Patient : NPC
 {
+    public static Patient instance;
+
     public Phobia enemy;
     public List<Card> staticDeck;
     public Card nextCard;
@@ -29,6 +31,14 @@ public class Patient : NPC
 
     private void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
         staticDeck = Cards.PatientStandartCards(this,enemy);
         InitializeDeck();
     }
@@ -55,9 +65,9 @@ public class Patient : NPC
             int index = i;
             UIController.instance.AddCardForPatient(cardsInHand[index], index);
         }
-        UIController.instance.UpdateCards();
+        UIController.instance.UpdateCards(true);
         cardsCountInDeck.text = deck.Count.ToString();
-        SetActionPoint(patientCurrentAP, patientMaxAP);
+        actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
     }
 
     public void PullCard(int count)
@@ -117,8 +127,10 @@ public class Patient : NPC
         }
     }
 
-    private void SetActionPoint(int current, int max)
+    public void SetActionPoint(int current, int max)
     {
+        patientCurrentAP = current;
+        patientMaxAP = max;
         actionPointsText.text = current.ToString() + "/" + max.ToString();
     }
 }

@@ -87,7 +87,7 @@ public class TherapistDeckCollecter : MonoBehaviour
 
     public void AddCardAsSelected(CardUI cardGO)
     {
-        Card newSelected = new Card(cardGO.name, cardGO.cardType, cardGO.affect, cardGO.affectDescription, cardGO.actionPoint, cardGO.rarity);
+        Card newSelected = new Card(cardGO.card.cardName, cardGO.card.cardType, cardGO.card.affect, cardGO.card.affectDescription, cardGO.card.actionPoint, cardGO.card.rarity);
 
         selectedCards.Add(newSelected);
     }
@@ -95,6 +95,8 @@ public class TherapistDeckCollecter : MonoBehaviour
     public void StartGame()
     {
         List<Card> therStanCards = Cards.TherapistStandartCards(patient, phobia);
+        if (selectedCards == null)
+            selectedCards = new List<Card>();
         therapist.staticDeck = new List<Card>(therStanCards.Count + selectedCards.Count);
 
         therapist.staticDeck.AddRange(therStanCards);

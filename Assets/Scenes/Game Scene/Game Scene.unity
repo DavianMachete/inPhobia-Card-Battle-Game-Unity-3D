@@ -2023,7 +2023,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488383389}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2673,7 +2673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &661349261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2743,7 +2743,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672465843}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -3267,8 +3267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -926, y: 0}
-  m_SizeDelta: {x: 1287.65, y: 1080}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1127.25, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &904873428
 CanvasGroup:
@@ -3278,7 +3278,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904873426}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -3716,6 +3716,18 @@ MonoBehaviour:
   Health: 0
   AttackForce: 0
   enemy: {fileID: 729546380}
+  staticDeck:
+  - cardName: 
+    cardType: 0
+    affectDescription: 
+    actionPoint: 0
+    rarity: 0
+  nextCard:
+    cardName: 
+    cardType: 0
+    affectDescription: 
+    actionPoint: 0
+    rarity: 0
   patientMaxAP: 3
   patientCurrentAP: 3
   cardsCountInDeck: {fileID: 203533535}
@@ -5564,6 +5576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148f965c0a06ba040a84ab3cfad9fcd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staticDeck: []
+  therapistMaxAP: 5
+  therapistCurrentAP: 5
   cardsCountInDeck: {fileID: 1168943714}
   actionPointsText: {fileID: 337874995}
 --- !u!1 &1713955104
@@ -5863,7 +5878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1851708937}
   m_Layer: 5
-  m_Name: Cards
+  m_Name: Therapist Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6065,6 +6080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229492c8e45ff524ea3afdf6255970c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  therapistCards: []
+  patientCards: []
   cardPrefab: {fileID: 8289050252017928917, guid: 293b50cd28742d943af0beaa97c74225, type: 3}
   therapistCardsParent: {fileID: 1851708937}
   patientCardsParent: {fileID: 2127752455}
@@ -6077,6 +6094,8 @@ MonoBehaviour:
   screenPartBoundsOnX:
   - -560
   - 560
+  firstSelectedCard: {fileID: 0}
+  secondSelectedCard: {fileID: 0}
 --- !u!1 &1972276754
 GameObject:
   m_ObjectHideFlags: 0
@@ -6505,7 +6524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2127752455}
   m_Layer: 5
-  m_Name: Cards
+  m_Name: Patient Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8493,11 +8512,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afccc4d8e6f67f478b78d5791969196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 0
-  affectDescription: 
-  actionPoint: 0
-  rarity: 0
+  card:
+    cardName: 
+    cardType: 0
+    affectDescription: 
+    actionPoint: 0
+    rarity: 0
+  cardUIType: 0
   index: 0
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
@@ -9419,11 +9440,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afccc4d8e6f67f478b78d5791969196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 0
-  affectDescription: 
-  actionPoint: 0
-  rarity: 0
+  card:
+    cardName: 
+    cardType: 0
+    affectDescription: 
+    actionPoint: 0
+    rarity: 0
+  cardUIType: 0
   index: 0
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
@@ -9738,11 +9761,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afccc4d8e6f67f478b78d5791969196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 0
-  affectDescription: 
-  actionPoint: 0
-  rarity: 0
+  card:
+    cardName: 
+    cardType: 0
+    affectDescription: 
+    actionPoint: 0
+    rarity: 0
+  cardUIType: 0
   index: 0
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
