@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,9 +15,7 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance;
 
-    [HideInInspector]
     public List<RectTransform> therapistCards;
-    [HideInInspector]
     public List<RectTransform> patientCards;
 
     #region Serialized Fields 
@@ -58,13 +57,16 @@ public class UIController : MonoBehaviour
 
     #endregion
 
+
     #region Public Methods
 
     public ScreenPart GetScreenPart(Vector2 mousePosition)
     {
         float leftBound, rightBound;
+
         float mouseX = mousePosition.x * 1920f / (float)Screen.width;
         mouseX -= 1920f / 2f;
+
         int index = 0; 
         for (int i = 0; i < screenPartBoundsOnX.Count+1; i++)
         {
@@ -136,7 +138,17 @@ public class UIController : MonoBehaviour
     {
         if (Therapist.instance.therapistCurrentAP - 1 < 0)
         {
+            cardUI.AnimateZoomOut(0);
             return;
+        }
+
+        therapistCards.Remove(cardUI.GetComponent<RectTransform>());
+
+        int tookCardIndex = cardUI.index;
+        foreach (var cardT in therapistCards)
+        {
+            if (cardT.GetComponent<CardUI>().index > tookCardIndex)
+                cardT.GetComponent<CardUI>().index--;
         }
 
         int index = Random.Range(0, patientCardsParent.childCount+1);
@@ -162,8 +174,18 @@ public class UIController : MonoBehaviour
             patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
             patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
         }
+
+        for (int i = 0; i < therapistCardsParent.childCount; i++)
+        {
+            therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
+            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+        }
         //Need to Insert and remove card in nessary abstract holders
-        //............
+
+        patientCards.Add(cardUI.GetComponent<RectTransform>());
+        List<RectTransform> sortedPatientCardsList = patientCards.OrderBy(o => o.GetComponent<CardUI>().index).ToList();
+        patientCards = sortedPatientCardsList;
+
         //Update TherapistActionPoints
         if (cardUI.card.cardType == CardTypes.Equipment)
         {
@@ -197,11 +219,20 @@ public class UIController : MonoBehaviour
                 }
             }
 
+            if (firstSelectedCard.cardUIType == CardUIType.PatientCard && secondSelectedCard.cardUIType == CardUIType.TherapistCard)
+            {
+                therapistCards.Remove(secondSelectedCard.GetComponent<RectTransform>());
+                therapistCards.Add(firstSelectedCard.GetComponent<RectTransform>());
+
+                patientCards.Add(secondSelectedCard.GetComponent<RectTransform>());
+                patientCards.Remove(firstSelectedCard.GetComponent<RectTransform>());
+            }
+
+
             int indexHolder = firstSelectedCard.index;
             Vector2 centerPosHolder = firstSelectedCard.centeredCardPos;
             Vector2 lowestPosHolder = firstSelectedCard.lowestPosOfCard;
             Vector2 highestPosHolder = firstSelectedCard.highestPosOfCard;
-            RectTransform transformHolder = firstSelectedCard.GetComponent<RectTransform>();
 
             /////Set Patient card settings as Therapist
             firstSelectedCard.ApplyToCardGameObject(firstSelectedCard.card, secondSelectedCard.cardUIType);
@@ -227,7 +258,7 @@ public class UIController : MonoBehaviour
             if (firstSelectedCard.cardUIType != CardUIType.PatientCard)
             {
                 Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 3, Therapist.instance.therapistMaxAP);
-                //change deck belonging
+                //NEED TO change deck belonging
             }
             else
             {
@@ -236,6 +267,22 @@ public class UIController : MonoBehaviour
 
             //reset selectedes
             ResetSelectedes();
+        }
+    }
+
+    public void AnimatePatientCardsBeforeDrop(float mouseY) 
+    {
+        float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, mouseY);
+        //float indexByT = t * patientCards.Count;
+
+        float step = 1f / patientCards.Count;
+
+        for (int i = 0; i < patientCards.Count; i++)
+        {
+            float tForCard = step * i;
+            if (tForCard > t)
+                tForCard += step;
+            patientCards[i].GetComponent<CardUI>().MoveCardToPlace(tForCard);
         }
     }
 

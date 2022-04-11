@@ -69,7 +69,19 @@ public class CardUI : MonoBehaviour
         if (cardUIType != CardUIType.TherapistCard)
             return;
 
-        cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f); 
+        cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f);
+
+        ScreenPart screenPart = UIController.instance.GetScreenPart(Input.mousePosition);
+
+        if(screenPart == ScreenPart.PatientHand)
+        {
+            float mouseY = Input.mousePosition.y * 1080f / (float)Screen.height;
+            mouseY -= 1080f / 2f;
+
+            //Debug.Log(mouseY);
+
+            UIController.instance.AnimatePatientCardsBeforeDrop(mouseY);
+        }
     }
 
     public void OnDragBegin()
@@ -215,7 +227,10 @@ public class CardUI : MonoBehaviour
         MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step));
     }
 
-
+    public void MoveCardToPlace(float t)
+    {
+        MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t));
+    }
 
     private void OnClicked()
     {
