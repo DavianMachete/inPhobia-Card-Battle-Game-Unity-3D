@@ -8,7 +8,6 @@ public class Patient : NPC
 {
     public static Patient instance;
 
-    public Phobia enemy;
     public List<Card> staticDeck;
     public Card nextCard;
     public int patientMaxAP = 3;
@@ -29,18 +28,16 @@ public class Patient : NPC
     private List<Card> cardsInHand;
 
 
-    private void Start()
+    public void InitializePatient()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-        staticDeck = Cards.PatientStandartCards(this,enemy);
+        MakeInstance();
+
+        patientMaxAP = 3;
+        patientCurrentAP = 3;
+
         InitializeDeck();
+
+        SetActionPoint(patientCurrentAP, patientMaxAP);
     }
 
     public void InitializeDeck()
@@ -50,8 +47,8 @@ public class Patient : NPC
         if (cardsInHand == null)
             cardsInHand = new List<Card>();
 
+        staticDeck = Cards.PatientStandartCards();
         deck = staticDeck;
-
 
         cardsInHand.Clear();
         for (int i = 0; i < 3; i++)
@@ -65,9 +62,8 @@ public class Patient : NPC
             int index = i;
             UIController.instance.AddCardForPatient(cardsInHand[index], index);
         }
-        UIController.instance.UpdateCards(true);
+        UIController.instance.UpdateCardsUI(true);
         cardsCountInDeck.text = deck.Count.ToString();
-        actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
     }
 
     public void PullCard(int count)
@@ -95,8 +91,8 @@ public class Patient : NPC
         for (int i = 0; i < countInStep; i++)
         {
             OnEveryAttack.Invoke();
-            enemy.OnEveryDefense.Invoke();
-            enemy.Health -= damage;
+            Phobia.instance.OnEveryDefense.Invoke();
+            Phobia.instance.Health -= damage;
         }
     }
 
@@ -132,5 +128,15 @@ public class Patient : NPC
         patientCurrentAP = current;
         patientMaxAP = max;
         actionPointsText.text = current.ToString() + "/" + max.ToString();
+    }
+
+
+
+    private void MakeInstance()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 }

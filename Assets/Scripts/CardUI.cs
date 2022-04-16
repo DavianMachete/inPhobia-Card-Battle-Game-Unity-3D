@@ -33,20 +33,28 @@ public class CardUI : MonoBehaviour
     private float secondsForZoomOut = 1f;
 
     private RectTransform cardRect;
-    private bool isUI = false;
+    //private bool enableActions = false;
     private List<CardUI> otherCardsUI;
     private bool IsBeingDrag = false;
     private float draggedTime = 0;
+    private Vector2 startDragPos;
+
+
 
     public void OnPointerDown()
     {
+        //if (!enableActions)
+        //    return;
         draggedTime = Time.time;
+        startDragPos = cardRect.anchoredPosition;
     }
 
     public void OnPointerUP()
     {
+        //if (!enableActions)
+        //    return;
         float deltaT = Mathf.Abs(Time.time - draggedTime);
-        if (deltaT < 0.5f)
+        if (deltaT < 0.3f&& Vector2.Distance(startDragPos, cardRect.anchoredPosition)<20f)
             OnClicked();
         else
         {
@@ -66,6 +74,8 @@ public class CardUI : MonoBehaviour
 
     public void OnDrag()
     {
+        //if (!enableActions)
+        //    return;
         if (cardUIType != CardUIType.TherapistCard)
             return;
 
@@ -86,21 +96,34 @@ public class CardUI : MonoBehaviour
 
     public void OnDragBegin()
     {
+        //if (!enableActions)
+        //    return;
         if (cardUIType != CardUIType.TherapistCard)
             return;
         IsBeingDrag = true;
+        //foreach (var cUI in otherCardsUI)
+        //{
+        //    cUI.EnableActions();
+        //}
     }
+
     public void OnDragEnd()
     {
+        //if (!enableActions)
+        //    return;
         if (cardUIType != CardUIType.TherapistCard)
             return;
         IsBeingDrag = false;
 
         ScreenPart screenPart = UIController.instance.GetScreenPart(Input.mousePosition);
-
+        //foreach (var cUI in otherCardsUI)
+        //{
+        //    cUI.EnableActions();
+        //}
         switch (screenPart)
         {
             case ScreenPart.PatientHand:
+                UIController.instance.DropCardToPatientHand(this);
                 break;
             case ScreenPart.Middle:
                 UIController.instance.PutCardInRandomPlace(this);
@@ -114,6 +137,7 @@ public class CardUI : MonoBehaviour
 
     public void ApplyToCardGameObject(Card card,CardUIType cardUIType = CardUIType.defaultCard)
     {
+        this.gameObject.name = card.cardName;
         this.card = card;
         this.cardUIType = cardUIType;
 
@@ -140,7 +164,7 @@ public class CardUI : MonoBehaviour
     public void ApplyCardMetrics(int index, Vector2 centeredCardPos, Vector2 highestPosOfCard, Vector2 lowestPosOfCard)
     {
         cardRect = GetComponent<RectTransform>();
-        isUI = true;
+        //enableActions = true;
         this.index = index;
         this.centeredCardPos = centeredCardPos;
         this.highestPosOfCard = highestPosOfCard;
@@ -151,14 +175,13 @@ public class CardUI : MonoBehaviour
    
     public void DestroyCard()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     public void AnimateZoomIn()
     {
-
-        if (!isUI)//|| interactable)
-            return;
+        //if (!enableActions)//|| interactable)
+        //    return;
 
         foreach (var item in otherCardsUI)
         {
@@ -183,8 +206,8 @@ public class CardUI : MonoBehaviour
     public void AnimateZoomOut(float seconds = -1f)
     {
         //interactable = false;
-        if (!isUI)
-            return;
+        //if (!enableActions)
+        //    return;
         float s;
         if (seconds >= 0)
             s = seconds;
@@ -209,6 +232,11 @@ public class CardUI : MonoBehaviour
         {
             SetCardPosition();
         }
+        else
+        {
+            Vector2 anchPos = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
+            centeredCardPos = new Vector2(centeredCardPos.x, anchPos.y);
+        }
         SetCardsScales();
 
         cardRect.SetSiblingIndex(index);
@@ -220,17 +248,22 @@ public class CardUI : MonoBehaviour
         }
     }
 
-
     public void MoveCardToPlace()
     {
-        float step = 1f / (transform.parent.childCount - 1f);
-        MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step));
+        //if (!enableActions)
+        //    return;
+        MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT()));
     }
 
     public void MoveCardToPlace(float t)
     {
+        //if (!enableActions)
+        //    return;
         MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t));
     }
+
+
+
 
     private void OnClicked()
     {
@@ -311,15 +344,27 @@ public class CardUI : MonoBehaviour
 
     private void SetCardPosition()
     {
-        float step = 1f / (transform.parent.childCount - 1f);
         //MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step));
-        cardRect.anchoredPosition = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step);
+        cardRect.anchoredPosition = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
         centeredCardPos = new Vector2(centeredCardPos.x, cardRect.anchoredPosition.y);
     }
 
     private void SetCardsScales()
     {
         cardRect.localScale = cardMinScale;
+    }
+
+    private float GetCardT()
+    {
+        float step, t;
+        if (transform.parent.childCount > 1)
+        {
+            step = 1f / (transform.parent.childCount - 1f);
+            t = index * step;
+        }
+        else
+            t = 0.5f;
+        return t;
     }
 
     private void MoveCardToPlace(Vector2 anchoredPosition, UnityAction OnMoved = null)
@@ -335,21 +380,25 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    
+
     private Coroutine IAnimateZoomInHelper;
     private IEnumerator IAnimateZoomIn()
     {
         while (Vector2.Distance(cardRect.anchoredPosition, centeredCardPos) > 0.002f &&
             Vector3.Distance(cardRect.localScale, cardMaxScale) > 0.002f)
         {
+            yield return new WaitUntil(() => !IsBeingDrag);
+
             cardRect.SetAsLastSibling();//Need to check this in profiler
             cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, centeredCardPos, Time.fixedDeltaTime * cardAnimationSpeed);
             cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMaxScale, Time.fixedDeltaTime * cardAnimationSpeed);
 
-            yield return new WaitUntil(() => !IsBeingDrag);
             yield return new WaitForFixedUpdate();
         }
         IAnimateZoomInHelper = null;
     }
+
 
 
     private Coroutine IAnimateZoomOutHelper;
@@ -364,8 +413,6 @@ public class CardUI : MonoBehaviour
             StopCoroutine(IAnimateZoomInHelper);
         }
 
-        float step = 1f / (transform.parent.childCount - 1f);
-
         foreach (var otherC in otherCardsUI)
         {
             otherC.cardRect.SetSiblingIndex(otherC.index);
@@ -377,14 +424,14 @@ public class CardUI : MonoBehaviour
         //    transform.parent.GetChild(i).SetSiblingIndex(i);
         //}
 
-        while (Vector2.Distance(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step)) > 0.002f &&
+        while (Vector2.Distance(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT())) > 0.002f &&
             Vector3.Distance(cardRect.localScale, cardMinScale) > 0.002f)
         {
-            cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step), Time.fixedDeltaTime * cardAnimationSpeed);
+            yield return new WaitUntil(() => !IsBeingDrag);
+            
+            cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT()), Time.fixedDeltaTime * cardAnimationSpeed);
             cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMinScale, Time.fixedDeltaTime * cardAnimationSpeed);
 
-
-            yield return new WaitUntil(() => !IsBeingDrag);
             yield return new WaitForFixedUpdate();
         }
 
@@ -399,6 +446,7 @@ public class CardUI : MonoBehaviour
     {
         while (Vector2.Distance(cardRect.anchoredPosition, anchoredPosition) > 0.002f)
         {
+            yield return new WaitUntil(() => !IsBeingDrag);
             cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, anchoredPosition, Time.fixedDeltaTime * cardAnimationSpeed * 2f);
             yield return new WaitForFixedUpdate();
         }

@@ -11,12 +11,6 @@ public class TherapistDeckCollecter : MonoBehaviour
     [Header("Card Collecter Part")]
     [SerializeField]
     private Transform threeCardsParent;
-    [SerializeField]
-    private Phobia phobia;
-    [SerializeField]
-    private Patient patient;
-    [SerializeField]
-    private Therapist therapist;
 
 
     private List<Card> selectedCards;
@@ -27,10 +21,11 @@ public class TherapistDeckCollecter : MonoBehaviour
     {
         if (selectedCards == null)
             selectedCards = new List<Card>();
+        selectedCards.Clear();
 
         //SelectLeft Card
         List<Card> leftCards = new List<Card>();
-        foreach (var item in Cards.TherapistCardsToSelect(patient, phobia))
+        foreach (var item in Cards.TherapistCardsToSelect())
         {
             if (item.rarity == Rarity.Equipment ||
                 item.rarity == Rarity.Rare)
@@ -46,7 +41,7 @@ public class TherapistDeckCollecter : MonoBehaviour
         //Select median card
 
         List<Card> medianCards = new List<Card>();
-        foreach (var item in Cards.TherapistCardsToSelect(patient,phobia))
+        foreach (var item in Cards.TherapistCardsToSelect())
         {
             if (item.rarity == Rarity.Common)
             {
@@ -62,7 +57,7 @@ public class TherapistDeckCollecter : MonoBehaviour
         List<Card> rightCards = new List<Card>();
         int typeForFifty = Random.Range(0, 2);//if 0 then Commo, and if 1 then rare
 
-        foreach (var item in Cards.TherapistCardsToSelect(patient, phobia))
+        foreach (var item in Cards.TherapistCardsToSelect())
         {
             if (typeForFifty == 0)
             {
@@ -94,15 +89,15 @@ public class TherapistDeckCollecter : MonoBehaviour
 
     public void StartGame()
     {
-        List<Card> therStanCards = Cards.TherapistStandartCards(patient, phobia);
+        List<Card> therStanCards = Cards.TherapistStandartCards();
         if (selectedCards == null)
             selectedCards = new List<Card>();
-        therapist.staticDeck = new List<Card>(therStanCards.Count + selectedCards.Count);
+        List<Card>  staticDeck = new List<Card>(therStanCards.Count + selectedCards.Count);
 
-        therapist.staticDeck.AddRange(therStanCards);
-        therapist.staticDeck.AddRange(selectedCards);
+        staticDeck.AddRange(therStanCards);
+        staticDeck.AddRange(selectedCards);
 
-        therapist.InitializeTherapist();
+        Therapist.instance.InitializeTherapistDeck(staticDeck);
     }
 
     #endregion

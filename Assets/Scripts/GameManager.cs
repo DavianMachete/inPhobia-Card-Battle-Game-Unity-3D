@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private Phobia phobia;
+    [SerializeField]
+    private Patient patient;
+    [SerializeField]
+    private Therapist therapist;
+    [SerializeField]
+    private UIController _UIcontroller;
+
+
     public void QuitFromGame()
     {
         Application.Quit();
@@ -15,5 +25,19 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void InitialiseGame()
+    {
+        _UIcontroller.InitializeUIController();
+
+        patient.InitializePatient();
+        phobia.InitializePhobia();
+        therapist.InitializeTherapist();
+    }
+
+    private void Awake()
+    {
+        InitialiseGame();
     }
 }

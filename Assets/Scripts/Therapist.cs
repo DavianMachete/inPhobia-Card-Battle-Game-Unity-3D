@@ -6,6 +6,7 @@ using UnityEngine;
 public class Therapist : MonoBehaviour
 {
     public static Therapist instance;
+
     public List<Card> staticDeck;
     public int therapistMaxAP = 5;
     public int therapistCurrentAP = 5;
@@ -19,17 +20,25 @@ public class Therapist : MonoBehaviour
     private List<Card> deck;
     private List<Card> cardsInHand;
 
-
     public void InitializeTherapist()
+    {
+        MakeInstance();
+    }
+
+    public void InitializeTherapistDeck(List<Card> staticDeck)
     {
         if (deck == null)
             deck = new List<Card>();
         if (cardsInHand == null)
             cardsInHand = new List<Card>();
 
-        deck = staticDeck;
+        this.staticDeck = staticDeck;
 
-        
+        deck = this.staticDeck;
+
+        therapistMaxAP = 5;
+        therapistCurrentAP = 5;
+
         cardsInHand.Clear();
         for (int i = 0; i < 4; i++)
         {
@@ -44,7 +53,7 @@ public class Therapist : MonoBehaviour
         }
         cardsCountInDeck.text = deck.Count.ToString();
         actionPointsText.text = therapistCurrentAP.ToString() + "/" + therapistMaxAP.ToString();
-        UIController.instance.UpdateCards(true);
+        UIController.instance.UpdateCardsUI(true);
     }
 
     public void SetActionPoint(int current,int max)
@@ -55,15 +64,11 @@ public class Therapist : MonoBehaviour
     }
 
 
-    private void Start()
+    private void MakeInstance()
     {
         if (instance == null)
         {
             instance = this;
-        }
-        else
-        {
-            Destroy(this);
         }
     }
 }

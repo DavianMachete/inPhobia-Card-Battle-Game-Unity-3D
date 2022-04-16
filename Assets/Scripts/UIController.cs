@@ -20,6 +20,15 @@ public class UIController : MonoBehaviour
 
     #region Serialized Fields 
 
+    [Header("                Before Main Game Game UIs            ")]
+    [SerializeField]
+    private GameObject backGroundUI;
+    [SerializeField]
+    private GameObject beforStartUI;
+    [SerializeField]
+    private GameObject mainGameUI;
+
+
     [Header("                The Main Game UIs            ")]
     [SerializeField]
     private GameObject cardPrefab;
@@ -59,6 +68,29 @@ public class UIController : MonoBehaviour
 
 
     #region Public Methods
+
+    public void InitializeUIController()
+    {
+        MakeInstance();
+        UpdateCardsUI(false);
+        foreach (var card in therapistCards)
+        {
+            card.GetComponent<CardUI>().DestroyCard();
+        }
+        therapistCards.Clear();
+        foreach (var card in patientCards)
+        {
+            card.GetComponent<CardUI>().DestroyCard();
+        }
+        patientCards.Clear();
+
+        mainGameUI.SetActive(false);
+        beforStartUI.SetActive(true);
+        backGroundUI.SetActive(true);
+
+        therapistCards = new List<RectTransform>();
+        patientCards = new List<RectTransform>();
+    }
 
     public ScreenPart GetScreenPart(Vector2 mousePosition)
     {
@@ -101,7 +133,7 @@ public class UIController : MonoBehaviour
         return ScreenPart.Therapist;
     }
 
-    public void UpdateCards(bool setPosition = true)
+    public void UpdateCardsUI(bool setPosition = true)
     {
         therapistCards.Clear();
         patientCards.Clear();
@@ -115,6 +147,10 @@ public class UIController : MonoBehaviour
             patientCards.Add(patientCardsParent.GetChild(i) as RectTransform);
             patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(setPosition);
         }
+        List<RectTransform> sortedPatientCardsList = patientCards.OrderBy(o => o.GetComponent<CardUI>().index).ToList();
+        patientCards = sortedPatientCardsList;
+        List<RectTransform> sortedTherapistCardsList = therapistCards.OrderBy(o => o.GetComponent<CardUI>().index).ToList();
+        therapistCards= sortedTherapistCardsList;
     }
 
     public void AddCardForTherapist(Card card,int index)
@@ -142,7 +178,7 @@ public class UIController : MonoBehaviour
             return;
         }
 
-        therapistCards.Remove(cardUI.GetComponent<RectTransform>());
+        UpdateCardsUI(false);
 
         int tookCardIndex = cardUI.index;
         foreach (var cardT in therapistCards)
@@ -182,9 +218,7 @@ public class UIController : MonoBehaviour
         }
         //Need to Insert and remove card in nessary abstract holders
 
-        patientCards.Add(cardUI.GetComponent<RectTransform>());
-        List<RectTransform> sortedPatientCardsList = patientCards.OrderBy(o => o.GetComponent<CardUI>().index).ToList();
-        patientCards = sortedPatientCardsList;
+        UpdateCardsUI(false);
 
         //Update TherapistActionPoints
         if (cardUI.card.cardType == CardTypes.Equipment)
@@ -219,14 +253,7 @@ public class UIController : MonoBehaviour
                 }
             }
 
-            if (firstSelectedCard.cardUIType == CardUIType.PatientCard && secondSelectedCard.cardUIType == CardUIType.TherapistCard)
-            {
-                therapistCards.Remove(secondSelectedCard.GetComponent<RectTransform>());
-                therapistCards.Add(firstSelectedCard.GetComponent<RectTransform>());
-
-                patientCards.Add(secondSelectedCard.GetComponent<RectTransform>());
-                patientCards.Remove(firstSelectedCard.GetComponent<RectTransform>());
-            }
+            UpdateCardsUI(false);
 
 
             int indexHolder = firstSelectedCard.index;
@@ -286,10 +313,62 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void PutCardInPlace(CardUI cardUI)
+    //Добавить свою карту в руку пациента в любое место, по желанию игрока
+    public void DropCardToPatientHand(CardUI cardUI)
     {
+        if (Therapist.instance.therapistCurrentAP - 2 < 0)
+        {
+            cardUI.AnimateZoomOut(0);
+            return;
+        }
 
+
+        UpdateCardsUI(false);
+
+
+        //detect index
+        float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, cardUI.GetComponent<RectTransform>().anchoredPosition.y);
+        float step = 1f / patientCards.Count;
+        int index = 0;
+        for (int i = 0; i < patientCards.Count; i++)
+        {
+            float tForCard = step * i;
+            if (t >= tForCard && t < tForCard + step)
+                index = i + 1;
+        }
+        cardUI.ApplyToCardGameObject(cardUI.card, CardUIType.PatientCard);
+        cardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        //
+        for (int i = 0; i < patientCardsParent.childCount; i++)
+        {
+            int indexnow = patientCardsParent.GetChild(i).GetComponent<CardUI>().index;
+            if (indexnow >= index)
+            {
+                indexnow++;
+            }
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().ApplyCardMetrics(indexnow, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        }
+
+        cardUI.transform.SetParent(patientCardsParent);
+
+        for (int i = 0; i < patientCardsParent.childCount; i++)
+        {
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+        }
+
+        for (int i = 0; i < therapistCardsParent.childCount; i++)
+        {
+            therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
+            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+        }
+        //Need to Insert and remove card in nessary abstract holders
+
+        UpdateCardsUI(false);
+
+        Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 2, Therapist.instance.therapistMaxAP);
     }
+
     #endregion
 
 
@@ -312,20 +391,11 @@ public class UIController : MonoBehaviour
     #endregion
 
 
-    #region Unity Monobehaviour
-
-    private void Awake()
+    private void MakeInstance()
     {
         if (instance == null)
+        {
             instance = this;
-        else
-            Destroy(this);
-
-        therapistCards = new List<RectTransform>();
-        patientCards = new List<RectTransform>();
-
-        //PrepareScreenParts();
+        }
     }
-
-    #endregion
 }
