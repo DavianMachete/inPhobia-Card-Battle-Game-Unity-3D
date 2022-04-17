@@ -2,13 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-public enum CardUIType 
-{
-    TherapistCard,
-    PatientCard,
-    defaultCard
-}
+using UnityEngine.EventSystems;
 
 
 public class CardUI : MonoBehaviour
@@ -38,6 +32,7 @@ public class CardUI : MonoBehaviour
     private bool IsBeingDrag = false;
     private float draggedTime = 0;
     private Vector2 startDragPos;
+    private bool rightButtonClicked;
 
 
 
@@ -47,6 +42,8 @@ public class CardUI : MonoBehaviour
         //    return;
         draggedTime = Time.time;
         startDragPos = cardRect.anchoredPosition;
+        if (Input.GetMouseButton(1))
+            rightButtonClicked = true;
     }
 
     public void OnPointerUP()
@@ -55,7 +52,7 @@ public class CardUI : MonoBehaviour
         //    return;
         float deltaT = Mathf.Abs(Time.time - draggedTime);
         if (deltaT < 0.3f&& Vector2.Distance(startDragPos, cardRect.anchoredPosition)<20f)
-            OnClicked();
+            OnClicked(rightButtonClicked);
         else
         {
             if(UIController.instance.firstSelectedCard != null)
@@ -226,7 +223,7 @@ public class CardUI : MonoBehaviour
         }
     }
 
-    public void UpdateCard(bool setPosition)
+    public void UpdateCard(bool setPosition,bool setScale = true)
     {
         if (setPosition)
         {
@@ -237,7 +234,10 @@ public class CardUI : MonoBehaviour
             Vector2 anchPos = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
             centeredCardPos = new Vector2(centeredCardPos.x, anchPos.y);
         }
-        SetCardsScales();
+        if (setScale)
+        {
+            SetCardsScales();
+        }
 
         cardRect.SetSiblingIndex(index);
         otherCardsUI.Clear();
@@ -265,28 +265,37 @@ public class CardUI : MonoBehaviour
 
 
 
-    private void OnClicked()
+    private void OnClicked(bool isRightButton)
     {
-        if(cardUIType== CardUIType.TherapistCard)
+        if(!isRightButton)
         {
-            foreach (var cardUI in otherCardsUI)
+            if (cardUIType == CardUIType.TherapistCard)
             {
-                cardUI.transform.GetChild(0).gameObject.SetActive(false);
+                foreach (var cardUI in otherCardsUI)
+                {
+                    cardUI.transform.GetChild(0).gameObject.SetActive(false);
+                }
             }
-        }
 
-        bool active = !transform.GetChild(0).gameObject.activeSelf;
-        transform.GetChild(0).gameObject.SetActive(active);
+            bool active = !transform.GetChild(0).gameObject.activeSelf;
+            transform.GetChild(0).gameObject.SetActive(active);
 
-        if (active)
-        {
-            SetAsSelectedCardUI(this, index);
-            UIController.instance.CheckSelectedCardUIs();
+            if (active)
+            {
+                SetAsSelectedCardUI(this, index);
+                UIController.instance.CheckSelectedCardUIs();
+            }
+            else
+            {
+                SetAsSelectedCardUI(null, index);
+            }
         }
         else
         {
-            SetAsSelectedCardUI(null, index);
+            UIController.instance.bigCardUI.SetActive(true);
+            UIController.instance.bigCardUI.transform.GetChild(0).GetComponent<CardUI>().ApplyToCardGameObject(card);
         }
+        rightButtonClicked = false;
     }
 
     private void SetAsSelectedCardUI(CardUI cardUI, int index)

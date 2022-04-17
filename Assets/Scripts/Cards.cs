@@ -84,4 +84,13 @@ public static class Cards
         return cards;
     }
 
+    public static Card Psychosis
+    {
+        get
+        {
+            Card card = new Card("Psychosis", CardTypes.Curse, null, "Psychosis", 1, Rarity.Common);
+
+            return card;
+        }
+    }
 }

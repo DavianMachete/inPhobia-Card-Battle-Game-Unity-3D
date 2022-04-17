@@ -26,3 +26,22 @@ public enum InPhobiaEventType
     OnEveryAttack,
     OnEveryDefense
 }
+
+public enum CardUIType
+{
+    TherapistCard,
+    PatientCard,
+    defaultCard
+}
+public enum ScreenPart
+{
+    PatientHand,
+    Middle,
+    Therapist
+}
+
+public enum PhobiaPhase
+{
+    FirstPhase,
+    SecondPhase
+}

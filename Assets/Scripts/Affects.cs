@@ -103,7 +103,19 @@ public static class Affects
         return affect;
     }
 
+    //Phobia
 
+    /// <summary>
+    /// PHOBIA---Увеличивает урон на x, где x - значение силы.
+    /// </summary>
+    public static Affect PhobiaAttack(float damage, Phobia phobia)
+    {
+        ResetAffect();
+        affect.inPhobia.OnStepStart = () => phobia.AttackForce = damage;
+        return affect;
+    }
+
+    //Common
     private static void ResetAffect()
     {
         if (affect != null)

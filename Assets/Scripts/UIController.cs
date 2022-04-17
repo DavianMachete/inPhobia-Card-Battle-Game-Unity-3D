@@ -4,12 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum ScreenPart
-{
-    PatientHand,
-    Middle,
-    Therapist
-}
 
 public class UIController : MonoBehaviour
 {
@@ -17,6 +11,8 @@ public class UIController : MonoBehaviour
 
     public List<RectTransform> therapistCards;
     public List<RectTransform> patientCards;
+
+    public GameObject bigCardUI;
 
     #region Serialized Fields 
 
@@ -367,6 +363,40 @@ public class UIController : MonoBehaviour
         UpdateCardsUI(false);
 
         Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 2, Therapist.instance.therapistMaxAP);
+    }
+
+    public void AddPsychosisToPatient()
+    {
+        UpdateCardsUI(false);
+
+        int index = Random.Range(0, patientCardsParent.childCount + 1);
+
+        GameObject newCard = Instantiate(cardPrefab, patientCardsParent);
+        newCard.GetComponent<RectTransform>().localScale = 0.4f * Vector3.one;
+        CardUI newCardUI = newCard.GetComponent<CardUI>();
+        newCardUI.ApplyToCardGameObject(Cards.Psychosis, CardUIType.PatientCard);
+        newCardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+
+        //Debug.Log($"index = {index}");
+
+        for (int i = 0; i < patientCardsParent.childCount; i++)
+        {
+            int indexnow = patientCardsParent.GetChild(i).GetComponent<CardUI>().index;
+            if (indexnow >= index)
+            {
+                indexnow++;
+            }
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().ApplyCardMetrics(indexnow, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        }
+
+        for (int i = 0; i < patientCardsParent.childCount; i++)
+        {
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false,false);
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().AnimateZoomOut(0f);
+        }
+        //Need to Insert and remove card in nessary abstract holders
+
+        UpdateCardsUI(false);
     }
 
     #endregion
