@@ -15,16 +15,12 @@ public enum Rarity
 
 public enum InPhobiaEventType
 {
+    OnTurnStart,
+    OnTurnEnd,
     OnStepStart,
     OnStepEnd,
-    OnEveryStepStart,
-    OnEveryStepEnd,
-    OnEnemyStepStart,
-    OnEnemyStepEnd,
-    OnEnemyEveryStepStart,
-    OnEnemyEveryStepEnd,
-    OnEveryAttack,
-    OnEveryDefense
+    OnAttack,
+    OnDefense
 }
 
 public enum CardUIType

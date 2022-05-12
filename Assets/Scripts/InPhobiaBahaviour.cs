@@ -3,49 +3,36 @@ using UnityEngine.Events;
 
 public class InPhobiaBahaviour : MonoBehaviour
 {
-    public UnityAction OnStepStart;
-    public UnityAction OnStepEnd;
+    public UnityAction OnTurnStart;//For example before Patient play the first card
 
-    public UnityAction OnEveryStepStart;
-    public UnityAction OnEveryStepEnd;
+    public UnityAction OnStepStart;//For example before Patient play any card
 
-    public UnityAction OnEnemyStepStart;
-    public UnityAction OnEnemyStepEnd;
+    public UnityAction OnStepEnd;//For example after Patient play any card
 
-    public UnityAction OnEnemyEveryStepStart;
-    public UnityAction OnEnemyEveryStepEnd;
+    public UnityAction OnTurnEnd;//For example after Patient play the last card
 
-    public UnityAction OnEveryAttack;//happens before every Attack
-    public UnityAction OnEveryDefense;//happens before every defence
+    public UnityAction OnAttack;//When NPC attacks enamy (Called before main action)
+
+    public UnityAction OnDefense;//When NPC attacked(do defense) (Called before main action)
 
 
     public InPhobiaBahaviour(){}
     private InPhobiaBahaviour(
+        UnityAction OnTurnStart, UnityAction OnTurnEnd,
         UnityAction OnStepStart, UnityAction OnStepEnd,
-        UnityAction OnEveryStepStart, UnityAction OnEveryStepEnd,
-        UnityAction OnEnemyStepStart, UnityAction OnEnemyStepEnd,
-        UnityAction OnEnemyEveryStepStart, UnityAction OnEnemyEveryStepEnd,
-        UnityAction OnEveryAttack, UnityAction OnEveryDefense)
+        UnityAction OnAttack, UnityAction OnDefense)
     {
+        this.OnTurnStart = OnTurnStart;
+        this.OnTurnEnd = OnTurnEnd;
         this.OnStepStart = OnStepStart;
         this.OnStepEnd = OnStepEnd;
-        this.OnEveryStepStart = OnEveryStepStart;
-        this.OnEveryStepEnd = OnEveryStepEnd;
-
-        this.OnEnemyStepStart = OnEnemyStepStart;
-        this.OnEnemyStepEnd = OnEnemyStepEnd;
-        this.OnEnemyEveryStepStart = OnEnemyEveryStepStart;
-        this.OnEnemyEveryStepEnd = OnEnemyEveryStepEnd;
-
-        this.OnEveryAttack = OnEveryAttack;
-        this.OnEveryDefense = OnEveryDefense;
+        this.OnAttack = OnAttack;
+        this.OnDefense = OnDefense;
     }
 
     public static InPhobiaBahaviour operator +(InPhobiaBahaviour first, InPhobiaBahaviour second) =>
         new InPhobiaBahaviour(
+            first.OnTurnStart + second.OnTurnStart, first.OnTurnEnd + second.OnTurnEnd,
             first.OnStepStart + second.OnStepStart, first.OnStepEnd + second.OnStepEnd,
-            first.OnEveryStepStart + second.OnEveryStepStart, first.OnEveryStepEnd + second.OnEveryStepEnd,
-            first.OnEnemyStepStart + second.OnEnemyStepStart, first.OnEnemyStepEnd + second.OnEnemyStepEnd,
-            first.OnEnemyEveryStepStart + second.OnEnemyEveryStepStart, first.OnEnemyEveryStepEnd + second.OnEnemyEveryStepEnd,
-            first.OnEveryAttack + second.OnEveryAttack, first.OnEveryDefense + second.OnEveryDefense);
+            first.OnAttack + second.OnAttack, first.OnDefense + second.OnDefense);
 }

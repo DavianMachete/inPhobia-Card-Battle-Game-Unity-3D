@@ -9,18 +9,12 @@ public static class Affects
     /// ---Существа с уязвимостью получают +50% урона․
     /// ---Примичение.---В конце хода снижается на 1․
     /// </summary>
-    public static Affect Vulnerablity(Patient patient,Phobia phobia) 
+    public static Affect Vulnerablity(Phobia phobia)//Patient Affect
     {
         ResetAffect();
         //$"Effect: Vulnerable creatures take +50% damage\nNote: Decrease by 1 at end of turn";
-        affect.inPhobia.OnStepStart = () => //+50 % damage
-        {
-            if (phobia.vulnerablityCount>0)
-            {
-                patient.AttackForce += patient.AttackForce * 0.5f;
-            }
-        };
-        affect.inPhobia.OnEveryStepEnd = () => //Decrease by 1 at end of turn
+        affect.inPhobia.OnStepStart = () => phobia.vulnerablityCount++;
+        affect.inPhobia.OnTurnEnd = () => //Decrease by 1 at end of turn
         {
             if (phobia.vulnerablityCount > 0)
             {
@@ -35,17 +29,13 @@ public static class Affects
     /// ---Существа со слабостью наносят каждой атакой - x урона․
     /// ---Примичение.---Уменьшается на 1 каждый раз когда наносишь урон․ 
     /// </summary>
-    public static Affect Weakness(int weaknesStack, Phobia phobia) //стак слабости
+    public static Affect Weakness(int weaknesStack, Phobia phobia)//Patient Affect //стак слабости
     {
         ResetAffect();
-        affect.inPhobia.OnEveryStepStart = () =>
-        {
-            if (phobia.weaknessStack > 0)
-            {
-                phobia.weaknessStack = weaknesStack+1;
-            }
-        };
-        affect.inPhobia.OnEveryAttack = () =>
+
+        affect.inPhobia.OnStepStart = () => phobia.weaknessStack += weaknesStack;
+
+        affect.inPhobia.OnDefense = () =>
         {
             if (phobia.weaknessStack > 0)
             {
@@ -63,8 +53,8 @@ public static class Affects
     public static Affect Block(float block, Patient patient)//??
     {
         ResetAffect();
-        affect.inPhobia.OnStepStart = () => patient.AddBlock(-block);
-        affect.inPhobia.OnStepEnd = () => patient.AddBlock(block);
+        affect.inPhobia.OnStepStart = () => patient.AddBlock(block);
+        affect.inPhobia.OnTurnStart = () => patient.AddBlock(-block);
         return affect;
     }
 
@@ -73,11 +63,11 @@ public static class Affects
     /// ---Снижает урон на свое количество.
     /// ---Примичение.---Снижается на 1 каждый раз, когда получаешь урон по хп.
     /// </summary>
-    public static Affect Armor(float block, Patient patient)
+    public static Affect Armor(float block, Phobia phobia)
     {
         ResetAffect();
-        affect.inPhobia.OnStepEnd = () => patient.AddBlock(block);
-        affect.inPhobia.OnEveryDefense = () => { if (block > 0) block--; };
+        //affect.inPhobia.OnTurnStart = () => patient.AddBlock(block);
+        affect.inPhobia.OnStepEnd = () => { if (block > 0) block--; };
         return affect;
     }
 
@@ -99,7 +89,7 @@ public static class Affects
     public static Affect Power(float damage, Patient patient)
     {
         ResetAffect();
-        affect.inPhobia.OnStepStart = () => patient.AttackForce += damage;
+        //affect.inPhobia.OnStep = () => patient.AttackForce += damage;
         return affect;
     }
 
@@ -111,7 +101,7 @@ public static class Affects
     public static Affect PhobiaAttack(float damage, Phobia phobia)
     {
         ResetAffect();
-        affect.inPhobia.OnStepStart = () => phobia.AttackForce = damage;
+        //affect.inPhobia.OnStep = () => phobia.AttackForce = damage;
         return affect;
     }
 

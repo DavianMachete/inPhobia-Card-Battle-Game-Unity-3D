@@ -90,8 +90,8 @@ public class Patient : NPC
 
         for (int i = 0; i < countInStep; i++)
         {
-            OnEveryAttack.Invoke();
-            Phobia.instance.OnEveryDefense.Invoke();
+            OnAttack.Invoke();
+            //Phobia.instance.OnEveryDefense.Invoke();
             Phobia.instance.Health -= damage;
         }
     }

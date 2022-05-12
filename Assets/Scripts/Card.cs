@@ -1,7 +1,11 @@
 ﻿using System;
+using UnityEditor;
+using UnityEngine;
 
+
+[CreateAssetMenu(fileName ="New card",menuName ="Card")]
 [Serializable]
-public class Card 
+public class Card : ScriptableObject
 {
     public string cardName;
 

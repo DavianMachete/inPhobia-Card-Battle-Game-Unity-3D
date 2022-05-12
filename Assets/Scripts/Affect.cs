@@ -19,35 +19,23 @@ public class Affect
 
         switch (eventType)
         {
+            case InPhobiaEventType.OnTurnStart:
+                inPhobia.OnTurnStart = onAction;
+                break;
+            case InPhobiaEventType.OnTurnEnd:
+                inPhobia.OnTurnEnd = onAction;
+                break;
             case InPhobiaEventType.OnStepStart:
                 inPhobia.OnStepStart = onAction;
                 break;
             case InPhobiaEventType.OnStepEnd:
                 inPhobia.OnStepEnd = onAction;
                 break;
-            case InPhobiaEventType.OnEveryStepStart:
-                inPhobia.OnEveryStepStart = onAction;
+            case InPhobiaEventType.OnAttack:
+                inPhobia.OnAttack = onAction;
                 break;
-            case InPhobiaEventType.OnEveryStepEnd:
-                inPhobia.OnEveryStepEnd = onAction;
-                break;
-            case InPhobiaEventType.OnEnemyStepStart:
-                inPhobia.OnEnemyStepStart = onAction;
-                break;
-            case InPhobiaEventType.OnEnemyStepEnd:
-                inPhobia.OnEnemyStepEnd = onAction;
-                break;
-            case InPhobiaEventType.OnEnemyEveryStepStart:
-                inPhobia.OnEnemyEveryStepStart = onAction;
-                break;
-            case InPhobiaEventType.OnEnemyEveryStepEnd:
-                inPhobia.OnEnemyEveryStepEnd = onAction;
-                break;
-            case InPhobiaEventType.OnEveryAttack:
-                inPhobia.OnEveryAttack = onAction;
-                break;
-            case InPhobiaEventType.OnEveryDefense:
-                inPhobia.OnEveryDefense = onAction;
+            case InPhobiaEventType.OnDefense:
+                inPhobia.OnDefense = onAction;
                 break;
             default:
                 break;

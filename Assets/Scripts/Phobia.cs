@@ -33,8 +33,7 @@ public class Phobia : NPC
         phobiaPhase = PhobiaPhase.FirstPhase;
         Health = 120;
         maxHealth = Health;
-        healthBarImage.fillAmount = Health / maxHealth;
-        healthTxtp.text = Mathf.RoundToInt(Health).ToString();
+        UpdateHealthBar();
 
         PrepareAttack();
 
@@ -42,6 +41,21 @@ public class Phobia : NPC
         weaknessStack = 0;
     }
 
+    public void SetDamage(float damage)
+    {
+        if (vulnerablityCount > 0)
+        {
+            damage += damage * 0.5f;
+        }
+        Health -= damage;
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBarImage.fillAmount = Health / maxHealth;
+        healthTxtp.text = Mathf.RoundToInt(Health).ToString();
+    }
 
     private void PrepareAttack()
     {
