@@ -575,7 +575,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 72839762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1102467458}
+        m_TargetAssemblyTypeName: Patient, Assembly-CSharp
+        m_MethodName: StartTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &72839762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2960,6 +2972,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6e0a1bed37f4043afec53b9022e897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveOnTurnStart: 0
+  saveOnTurnEnd: 0
+  saveOnStepStart: 0
+  saveOnStepEnd: 0
+  saveOnAttack: 0
+  saveOnDefense: 0
   Name: Phobia
   Health: 0
   AttackForce: 0
@@ -4117,16 +4135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac55448ed72362048b096cfce880b81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveOnTurnStart: 0
+  saveOnTurnEnd: 0
+  saveOnStepStart: 0
+  saveOnStepEnd: 0
+  saveOnAttack: 0
+  saveOnDefense: 0
   Name: 
   Health: 0
   AttackForce: 0
-  staticDeck:
-  - cardName: 
-    cardType: 0
-    affectDescription: 
-    actionPoint: 0
-    rarity: 0
-  nextCard:
+  nextAttackCard:
+    cardID: 
     cardName: 
     cardType: 0
     affectDescription: 
@@ -4136,6 +4155,7 @@ MonoBehaviour:
   patientCurrentAP: 3
   cardsCountInDeck: {fileID: 203533535}
   actionPointsText: {fileID: 50021790}
+  cardsInHand: []
 --- !u!1 &1137548788
 GameObject:
   m_ObjectHideFlags: 0
@@ -8051,6 +8071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    cardID: 
     cardName: 
     cardType: 0
     affectDescription: 
@@ -9519,6 +9540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    cardID: 
     cardName: 
     cardType: 0
     affectDescription: 
@@ -10581,6 +10603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    cardID: 
     cardName: 
     cardType: 0
     affectDescription: 
@@ -10901,6 +10924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    cardID: 
     cardName: 
     cardType: 0
     affectDescription: 
