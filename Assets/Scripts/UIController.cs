@@ -214,6 +214,7 @@ public class UIController : MonoBehaviour
         }
         //Need to Insert and remove card in nessary abstract holders
 
+        Patient.instance.AddCardToHand(cardUI.card, index);
         UpdateCardsUI(false);
 
         //Update TherapistActionPoints
@@ -227,7 +228,8 @@ public class UIController : MonoBehaviour
         }
     }
 
-    //Поменять местами 2 карты (в руке пациента или одиниз руки пациентаа другой из руки игрока)
+    //Поменять местами 2 карты (в руке пациента или один из руки пациентаа другой из руки игрока,
+    //firstSelectedCard всегда находится в руке пациента, secondSelectedCard может быть или из руки пацента, или из руки теропевта)
     public void CheckSelectedCardUIs()
     {
         if (firstSelectedCard != null && secondSelectedCard != null)
@@ -251,6 +253,13 @@ public class UIController : MonoBehaviour
 
             UpdateCardsUI(false);
 
+            Patient.instance.RemoveCardFromHand(firstSelectedCard.index);
+            if (secondSelectedCard.cardUIType == CardUIType.PatientCard)
+            {
+                Patient.instance.AddCardToHand(firstSelectedCard.card, secondSelectedCard.index);
+                Patient.instance.RemoveCardFromHand(secondSelectedCard.index);
+            }
+            Patient.instance.AddCardToHand(secondSelectedCard.card, firstSelectedCard.index);
 
             int indexHolder = firstSelectedCard.index;
             Vector2 centerPosHolder = firstSelectedCard.centeredCardPos;
@@ -288,6 +297,7 @@ public class UIController : MonoBehaviour
                 Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 1, Therapist.instance.therapistMaxAP);
             }
 
+            UpdateCardsUI(false);
             //reset selectedes
             ResetSelectedes();
         }
@@ -321,7 +331,6 @@ public class UIController : MonoBehaviour
 
         UpdateCardsUI(false);
 
-
         //detect index
         float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, cardUI.GetComponent<RectTransform>().anchoredPosition.y);
         float step = 1f / patientCards.Count;
@@ -334,6 +343,7 @@ public class UIController : MonoBehaviour
         }
         cardUI.ApplyToCardGameObject(cardUI.card, CardUIType.PatientCard);
         cardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        
         //
         for (int i = 0; i < patientCardsParent.childCount; i++)
         {
@@ -344,6 +354,7 @@ public class UIController : MonoBehaviour
             }
             patientCardsParent.GetChild(i).GetComponent<CardUI>().ApplyCardMetrics(indexnow, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
         }
+
 
         cardUI.transform.SetParent(patientCardsParent);
 
@@ -361,6 +372,7 @@ public class UIController : MonoBehaviour
         //Need to Insert and remove card in nessary abstract holders
 
         UpdateCardsUI(false);
+        Patient.instance.AddCardToHand(cardUI.card, index);
 
         Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 2, Therapist.instance.therapistMaxAP);
     }

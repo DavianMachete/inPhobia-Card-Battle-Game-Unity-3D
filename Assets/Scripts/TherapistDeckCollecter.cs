@@ -15,6 +15,9 @@ public class TherapistDeckCollecter : MonoBehaviour
 
     private List<Card> selectedCards;
 
+    private List<Card> therapistCardsToSelect;
+    private List<Card> therapistStandartCards;
+
     #region Public Methods
 
     public void RandomizeThreeCards()
@@ -25,7 +28,10 @@ public class TherapistDeckCollecter : MonoBehaviour
 
         //SelectLeft Card
         List<Card> leftCards = new List<Card>();
-        foreach (var item in Cards.TherapistCardsToSelect())
+
+        if(therapistCardsToSelect==null)
+            therapistCardsToSelect = Cards.TherapistCardsToSelect();
+        foreach (var item in therapistCardsToSelect)
         {
             if (item.rarity == Rarity.Equipment ||
                 item.rarity == Rarity.Rare)
@@ -89,12 +95,13 @@ public class TherapistDeckCollecter : MonoBehaviour
 
     public void StartGame()
     {
-        List<Card> therStanCards = Cards.TherapistStandartCards();
+        if(therapistStandartCards==null)
+            therapistStandartCards = Cards.TherapistStandartCards();
         if (selectedCards == null)
             selectedCards = new List<Card>();
-        List<Card>  staticDeck = new List<Card>(therStanCards.Count + selectedCards.Count);
+        List<Card>  staticDeck = new List<Card>(therapistStandartCards.Count + selectedCards.Count);
 
-        staticDeck.AddRange(therStanCards);
+        staticDeck.AddRange(therapistStandartCards);
         staticDeck.AddRange(selectedCards);
 
         Therapist.instance.InitializeTherapistDeck(staticDeck);

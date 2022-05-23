@@ -41,6 +41,12 @@ public class Phobia : NPC
         weaknessStack = 0;
     }
 
+    public void MakeTheDamage(int damage)
+    {
+        Health = Health - damage * Mathf.Pow(1.5f, vulnerablityCount);
+        UpdateHealthBar();
+    }
+
     public void SetDamage(float damage)
     {
         if (vulnerablityCount > 0)
@@ -49,6 +55,36 @@ public class Phobia : NPC
         }
         Health -= damage;
         UpdateHealthBar();
+    }
+
+    public void AddVulnerablity(int value)
+    {
+        if (vulnerablityCount <= 0)
+        {
+            Debug.Log($"<color=#ffa500ff>phobia's</color> vulnerablity count is less or equal to 0 ");
+            vulnerablityCount = 0;
+            return;
+        }
+        vulnerablityCount += value;
+    }
+
+    public bool IsPhobiaHaveVulnerablity()
+    {
+        if (vulnerablityCount > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public void AddWeakness(int value)
+    {
+        if (weaknessStack <= 0)
+        {
+            Debug.Log($"<color=#ffa500ff>phobia's</color> weakness stack is less or equal to 0 ");
+            weaknessStack = 0;
+            return;
+        }
+        weaknessStack += value;
     }
 
     private void UpdateHealthBar()

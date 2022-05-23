@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+#if UNITY_EDITOR
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Break();
+        }
+#endif
     }
 
     public void InitialiseGame()

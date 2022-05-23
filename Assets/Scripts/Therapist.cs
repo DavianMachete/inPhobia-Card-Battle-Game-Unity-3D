@@ -63,7 +63,6 @@ public class Therapist : MonoBehaviour
         actionPointsText.text = current.ToString() + "/" + max.ToString();
     }
 
-
     private void MakeInstance()
     {
         if (instance == null)

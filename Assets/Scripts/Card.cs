@@ -1,12 +1,13 @@
 ﻿using System;
-using UnityEditor;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName ="New card",menuName ="Card")]
+//[CreateAssetMenu(fileName ="New card",menuName ="Card")]
 [Serializable]
-public class Card : ScriptableObject
+public class Card //: ScriptableObject
 {
+    public string cardID;
+
     public string cardName;
 
     public CardTypes cardType;
@@ -19,13 +20,13 @@ public class Card : ScriptableObject
 
     public Rarity rarity;
 
-    public Card()
-    {
+    private static int id;
 
-    }
-
-    public Card(string cardName, CardTypes cardType, Affect affect,string affectDescription, int actionPoint, Rarity rarity)
+    public Card( string cardName, CardTypes cardType, Affect affect,string affectDescription, int actionPoint, Rarity rarity)
     {
+        id++;
+        cardID = cardName + $" ({id})";//Guid.NewGuid().ToString("N");
+        Debug.Log(cardID);
         this.cardName = cardName;
         this.cardType = cardType;
         this.affect = affect;

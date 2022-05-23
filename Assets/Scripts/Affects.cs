@@ -1,6 +1,4 @@
-﻿using UnityEngine.Events;
-
-public static class Affects
+﻿public static class Affects
 {
     private static Affect affect;
 
@@ -13,14 +11,8 @@ public static class Affects
     {
         ResetAffect();
         //$"Effect: Vulnerable creatures take +50% damage\nNote: Decrease by 1 at end of turn";
-        affect.inPhobia.OnStepStart = () => phobia.vulnerablityCount++;
-        affect.inPhobia.OnTurnEnd = () => //Decrease by 1 at end of turn
-        {
-            if (phobia.vulnerablityCount > 0)
-            {
-                phobia.vulnerablityCount--;
-            }
-        };
+        affect.inPhobia.OnStepStart = () => phobia.AddVulnerablity(1);
+        affect.inPhobia.OnTurnEnd = () => phobia.AddVulnerablity(-1);//Decrease by 1 at end of turn
         return affect;
     }
 
@@ -33,15 +25,8 @@ public static class Affects
     {
         ResetAffect();
 
-        affect.inPhobia.OnStepStart = () => phobia.weaknessStack += weaknesStack;
-
-        affect.inPhobia.OnDefense = () =>
-        {
-            if (phobia.weaknessStack > 0)
-            {
-                phobia.weaknessStack--;
-            }
-        };
+        affect.inPhobia.OnStepStart = () => phobia.AddWeakness(weaknesStack);
+        affect.inPhobia.OnAttack = () => phobia.AddWeakness(-1);
         return affect;
     }
 
@@ -54,7 +39,7 @@ public static class Affects
     {
         ResetAffect();
         affect.inPhobia.OnStepStart = () => patient.AddBlock(block);
-        affect.inPhobia.OnTurnStart = () => patient.AddBlock(-block);
+        affect.inPhobia.OnTurnEnd = () => patient.AddBlock(-block);
         return affect;
     }
 
@@ -63,11 +48,11 @@ public static class Affects
     /// ---Снижает урон на свое количество.
     /// ---Примичение.---Снижается на 1 каждый раз, когда получаешь урон по хп.
     /// </summary>
-    public static Affect Armor(float block, Phobia phobia)
+    public static Affect Armor(float block, Patient patient)
     {
         ResetAffect();
         //affect.inPhobia.OnTurnStart = () => patient.AddBlock(block);
-        affect.inPhobia.OnStepEnd = () => { if (block > 0) block--; };
+        affect.inPhobia.OnStepEnd = () => { if (block > 0) block--; };//
         return affect;
     }
 
@@ -89,7 +74,7 @@ public static class Affects
     public static Affect Power(float damage, Patient patient)
     {
         ResetAffect();
-        //affect.inPhobia.OnStep = () => patient.AttackForce += damage;
+        affect.inPhobia.OnStepStart = () => patient.AttackForce += damage;
         return affect;
     }
 
