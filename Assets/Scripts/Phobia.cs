@@ -20,10 +20,10 @@ public class Phobia : NPC
     [SerializeField]
     private TMP_Text phobiaNextAction;
 
-    private PhobiaPhase phobiaPhase;
-    private float maxHealth;
-    private bool isFirstStepAtPhaseTwo = true;
-    private int attackCountInAStep = 0;
+    [SerializeField] private PhobiaPhase phobiaPhase;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private bool isFirstStepAtPhaseTwo = true;
+    [SerializeField] private int attackCountInAStep = 0;
 
 
     public void InitializePhobia()

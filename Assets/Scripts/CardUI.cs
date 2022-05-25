@@ -16,20 +16,17 @@ public class CardUI : MonoBehaviour
     public Vector2 highestPosOfCard;
     public Vector2 centeredCardPos;
 
-    [SerializeField]
-    private Vector3 cardMaxScale = Vector3.one * 0.8f;
-    [SerializeField]
-    private Vector3 cardMinScale = Vector3.one * 0.5f;
+    [SerializeField] private CanvasGroup canvasGroup;
 
-    [SerializeField]
-    private float cardAnimationSpeed;
-    [SerializeField]
-    private float secondsForZoomOut = 1f;
+    [SerializeField] private Vector3 cardMaxScale = Vector3.one * 0.8f;
+    [SerializeField] private Vector3 cardMinScale = Vector3.one * 0.5f;
+
+    [SerializeField] private float cardAnimationSpeed;
+
+    [SerializeField] private float animDuration = 2f;
 
     private RectTransform cardRect;
-    //private bool enableActions = false;
     private List<CardUI> otherCardsUI;
-    private bool IsBeingDrag = false;
     private float draggedTime = 0;
     private Vector2 startDragPos;
     private bool rightButtonClicked;
@@ -38,8 +35,6 @@ public class CardUI : MonoBehaviour
 
     public void OnPointerDown()
     {
-        //if (!enableActions)
-        //    return;
         draggedTime = Time.time;
         startDragPos = cardRect.anchoredPosition;
         if (Input.GetMouseButton(1))
@@ -48,8 +43,6 @@ public class CardUI : MonoBehaviour
 
     public void OnPointerUP()
     {
-        //if (!enableActions)
-        //    return;
         float deltaT = Mathf.Abs(Time.time - draggedTime);
         if (deltaT < 0.3f&& Vector2.Distance(startDragPos, cardRect.anchoredPosition)<20f)
             OnClicked(rightButtonClicked);
@@ -71,8 +64,6 @@ public class CardUI : MonoBehaviour
 
     public void OnDrag()
     {
-        //if (!enableActions)
-        //    return;
         if (cardUIType != CardUIType.TherapistCard)
             return;
 
@@ -85,38 +76,24 @@ public class CardUI : MonoBehaviour
             float mouseY = Input.mousePosition.y * 1080f / (float)Screen.height;
             mouseY -= 1080f / 2f;
 
-            //Debug.Log(mouseY);
-
             UIController.instance.AnimatePatientCardsBeforeDrop(mouseY);
         }
     }
 
     public void OnDragBegin()
     {
-        //if (!enableActions)
-        //    return;
         if (cardUIType != CardUIType.TherapistCard)
             return;
-        IsBeingDrag = true;
-        //foreach (var cUI in otherCardsUI)
-        //{
-        //    cUI.EnableActions();
-        //}
+        StopCardMoving();
     }
 
     public void OnDragEnd()
     {
-        //if (!enableActions)
-        //    return;
         if (cardUIType != CardUIType.TherapistCard)
             return;
-        IsBeingDrag = false;
 
         ScreenPart screenPart = UIController.instance.GetScreenPart(Input.mousePosition);
-        //foreach (var cUI in otherCardsUI)
-        //{
-        //    cUI.EnableActions();
-        //}
+
         switch (screenPart)
         {
             case ScreenPart.PatientHand:
@@ -177,50 +154,27 @@ public class CardUI : MonoBehaviour
 
     public void AnimateZoomIn()
     {
-        //if (!enableActions)//|| interactable)
-        //    return;
-
         foreach (var item in otherCardsUI)
         {
-            item.AnimateZoomOut(0);
+            item.AnimateZoomOut();
         }
 
-        if (IAnimateZoomOutHelper != null)
-        {
-            StopCoroutine(IAnimateZoomOutHelper);
-        }
-        if (IAnimateZoomInHelper == null)
-        {
-            IAnimateZoomInHelper = StartCoroutine(IAnimateZoomIn());
-        }
-        else
-        {
-            StopCoroutine(IAnimateZoomInHelper);
-            IAnimateZoomInHelper = StartCoroutine(IAnimateZoomIn());
-        }
+        float tPart = Mathf.InverseLerp(cardMinScale.magnitude, cardMaxScale.magnitude, cardRect.localScale.magnitude);
+        float duration = animDuration - tPart / animDuration;
+
+        Debug.Log("");///////asdasds\fsdfghjskj dfgasldjfhgasldfgaslwdfhygalkgelaweygkjggkhgahgasfrlagkaehaflsakjfgasdjfghhhhhhhhhhhhhhhhhhhhhhljkkkkkkkkkkkkkkkkkkasdffffffffffffff
+
+        ScaleCardIn(duration);
+        MoveCardTo(duration, centeredCardPos);
     }
 
-    public void AnimateZoomOut(float seconds = -1f)
+    public void AnimateZoomOut()
     {
-        //interactable = false;
-        //if (!enableActions)
-        //    return;
-        float s;
-        if (seconds >= 0)
-            s = seconds;
-        else
-            s = secondsForZoomOut;
+        float tPart = Mathf.InverseLerp(cardMaxScale.magnitude, cardMinScale.magnitude, cardRect.localScale.magnitude);
+        float duration = animDuration - tPart / animDuration;
 
-
-        if (IAnimateZoomOutHelper == null)
-        {
-            IAnimateZoomOutHelper = StartCoroutine(IAnimateZoomOut(s));
-        }
-        else
-        {
-            StopCoroutine(IAnimateZoomOutHelper);
-            IAnimateZoomOutHelper = StartCoroutine(IAnimateZoomOut(s));
-        }
+        ScaleCardOut(duration);
+        MoveCardToPlace(duration);
     }
 
     public void UpdateCard(bool setPosition,bool setScale = true)
@@ -248,18 +202,18 @@ public class CardUI : MonoBehaviour
         }
     }
 
-    public void MoveCardToPlace()
+
+    public void MoveCardToPlace(float duration, float t = -1f)
     {
-        //if (!enableActions)
-        //    return;
-        MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT()));
+        if (t <= 0)
+            t = GetCardT();
+        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t));
     }
 
-    public void MoveCardToPlace(float t)
+    public void MoveCardToCenter(UnityAction onDone)
     {
-        //if (!enableActions)
-        //    return;
-        MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t));
+        SetInteractable(false);
+        MoveCardTo(animDuration, new Vector2(800, 0), onDone);
     }
 
 
@@ -353,7 +307,6 @@ public class CardUI : MonoBehaviour
 
     private void SetCardPosition()
     {
-        //MoveCardToPlace(Vector2.Lerp(highestPosOfCard, lowestPosOfCard, index * step));
         cardRect.anchoredPosition = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
         centeredCardPos = new Vector2(centeredCardPos.x, cardRect.anchoredPosition.y);
     }
@@ -376,93 +329,108 @@ public class CardUI : MonoBehaviour
         return t;
     }
 
-    private void MoveCardToPlace(Vector2 anchoredPosition, UnityAction OnMoved = null)
+    private void MoveCardTo(float duration, Vector2 anchoredPosition, UnityAction OnDone = null)
     {
-        if (IMoveCardToPlaceHelper == null)
-        {
-            IMoveCardToPlaceHelper = StartCoroutine(IMoveCardToPlace(anchoredPosition, OnMoved));
-        }
-        else
-        {
-            StopCoroutine(IMoveCardToPlaceHelper);
-            IMoveCardToPlaceHelper = StartCoroutine(IMoveCardToPlace(anchoredPosition, OnMoved));
-        }
+        StopCardMoving();
+        isCardMoving = true;
+        IMoveCardToHelper = StartCoroutine(IMoveCardTo(anchoredPosition, duration, OnDone));
     }
 
-    
-
-    private Coroutine IAnimateZoomInHelper;
-    private IEnumerator IAnimateZoomIn()
+    private void StopCardMoving()
     {
-        while (Vector2.Distance(cardRect.anchoredPosition, centeredCardPos) > 0.002f &&
-            Vector3.Distance(cardRect.localScale, cardMaxScale) > 0.002f)
-        {
-            yield return new WaitUntil(() => !IsBeingDrag);
-
-            cardRect.SetAsLastSibling();//Need to check this in profiler
-            cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, centeredCardPos, Time.fixedDeltaTime * cardAnimationSpeed);
-            cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMaxScale, Time.fixedDeltaTime * cardAnimationSpeed);
-
-            yield return new WaitForFixedUpdate();
-        }
-        IAnimateZoomInHelper = null;
+        isCardMoving = false;
+        if (IMoveCardToHelper != null)
+            StopCoroutine(IMoveCardToHelper);
     }
 
-
-
-    private Coroutine IAnimateZoomOutHelper;
-    private IEnumerator IAnimateZoomOut(float s)
+    private void ScaleCardIn(float duration, UnityAction onDone = null)
     {
+        StopCardScaling();
+        isCardScaling = true;
 
-        yield return new WaitUntil(() => !IsBeingDrag);
-        yield return new WaitForSeconds(s);
+        cardRect.SetAsLastSibling();
 
-        if (IAnimateZoomInHelper != null)
+        IScaleCardToHelper = StartCoroutine(IScaleCardTo(cardMaxScale, duration, onDone));
+    }
+
+    private void ScaleCardOut(float duration, UnityAction onDone = null)
+    {
+        StopCardScaling();
+        isCardScaling = true;
+
+        foreach (CardUI cardUI in otherCardsUI)
         {
-            StopCoroutine(IAnimateZoomInHelper);
-        }
-
-        foreach (var otherC in otherCardsUI)
-        {
-            otherC.cardRect.SetSiblingIndex(otherC.index);
+            cardUI.cardRect.SetSiblingIndex(cardUI.index);
         }
         cardRect.SetSiblingIndex(index);
 
-        //for (int i = 0; i < transform.parent.childCount; i++)
-        //{
-        //    transform.parent.GetChild(i).SetSiblingIndex(i);
-        //}
+        IScaleCardToHelper = StartCoroutine(IScaleCardTo(cardMinScale, duration, onDone));
+    }
 
-        while (Vector2.Distance(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT())) > 0.002f &&
-            Vector3.Distance(cardRect.localScale, cardMinScale) > 0.002f)
-        {
-            yield return new WaitUntil(() => !IsBeingDrag);
-            
-            cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT()), Time.fixedDeltaTime * cardAnimationSpeed);
-            cardRect.localScale = Vector3.Lerp(cardRect.localScale, cardMinScale, Time.fixedDeltaTime * cardAnimationSpeed);
+    private void StopCardScaling()
+    {
+        isCardScaling = false;
+        if (IScaleCardToHelper != null)
+            StopCoroutine(IScaleCardToHelper);
+    } 
 
-            yield return new WaitForFixedUpdate();
-        }
-
-        //interactable = true;
-        IAnimateZoomOutHelper = null;
+    private void SetInteractable(bool value)
+    {
+        canvasGroup.interactable = value;
     }
 
 
-
-    private Coroutine IMoveCardToPlaceHelper;
-    private IEnumerator IMoveCardToPlace(Vector2 anchoredPosition, UnityAction OnMoved)
+    private bool isCardScaling = false;
+    private Coroutine IScaleCardToHelper;
+    private IEnumerator IScaleCardTo(Vector3 scale, float duration, UnityAction onDone = null)
     {
-        while (Vector2.Distance(cardRect.anchoredPosition, anchoredPosition) > 0.002f)
+        if (duration <= 0f)
+            duration = Time.fixedDeltaTime;
+
+        float t = 0f;
+
+        Vector3 startScale = cardRect.localScale;
+
+        while (isCardScaling)
         {
-            yield return new WaitUntil(() => !IsBeingDrag);
-            cardRect.anchoredPosition = Vector2.Lerp(cardRect.anchoredPosition, anchoredPosition, Time.fixedDeltaTime * cardAnimationSpeed * 2f);
+            //yield return new WaitUntil(() => !IsBeingDrag);
+            cardRect.localScale = Vector2.Lerp(startScale, scale, t / duration);
+
+            if (t / duration >= 1f)
+                isCardMoving = false;
+            t += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
-        if (OnMoved != null)
+
+        if (onDone != null)
+            onDone();
+        IScaleCardToHelper = null;
+    }
+
+
+    private bool isCardMoving = false;
+    private Coroutine IMoveCardToHelper;
+    private IEnumerator IMoveCardTo(Vector2 anchoredPosition, float duration, UnityAction onDone = null)
+    {
+        if (duration <= 0f)
+            duration = Time.fixedDeltaTime;
+
+        float t = 0f;
+        Vector2 startPos = cardRect.anchoredPosition;
+
+        while (isCardMoving)
         {
-            OnMoved();
+            //yield return new WaitUntil(() => !IsBeingDrag);
+            cardRect.anchoredPosition = Vector2.Lerp(startPos, anchoredPosition, t/ duration);
+
+            if (t / duration >= 1f)
+                isCardMoving = false;
+            t += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
-        IMoveCardToPlaceHelper = null;
+
+        if (onDone != null)
+            onDone();
+        IMoveCardToHelper = null;
     }
 }

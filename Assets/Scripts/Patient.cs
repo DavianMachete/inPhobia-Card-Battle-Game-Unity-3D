@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Patient : NPC
 {
@@ -12,33 +13,43 @@ public class Patient : NPC
     public int patientMaxAP = 3;
     public int patientCurrentAP = 3;
 
-    [SerializeField]
-    private TMP_Text cardsCountInDeck;
-    [SerializeField]
-    private TMP_Text actionPointsText;
+
 
     private Affect affect;
 
-    private float block;
-    private bool blockSaved;
 
-    private bool blockGot;
-    private bool attackWhenGetBlock;
 
-    private List<Card> deck;
-    [SerializeField]private List<Card> cardsInHand;
+    [SerializeField] private TMP_Text cardsCountInDeck;
+    [SerializeField] private TMP_Text actionPointsText;
 
-    private List<Card> patientStandartCards;
+    [SerializeField] private TMP_Text healthTxtp;
+
+    [SerializeField] private Image healthBarImage;
+
+    [SerializeField] private float maxHealth;
+
+    [SerializeField] private float block;
+    [SerializeField] private bool blockSaved;
+
+    [SerializeField] private bool blockGot;
+    [SerializeField] private bool attackWhenGetBlock;
+
+    [SerializeField] private List<Card> deck;
+    [SerializeField] private List<Card> cardsInHand;
+
+    [SerializeField] private List<Card> patientStandartCards;
 
     public void InitializePatient()
     {
         MakeInstance();
 
+
+
         patientMaxAP = 3;
         patientCurrentAP = 3;
 
         InitializeDeck();
-
+        UpdateHealthBar();
         SetActionPoint(patientCurrentAP, patientMaxAP);
     }
 
@@ -58,8 +69,9 @@ public class Patient : NPC
         if (cardsInHand == null)
             cardsInHand = new List<Card>();
 
-        if(patientStandartCards==null)
+        if (patientStandartCards == null || patientStandartCards.Count < 1)
             patientStandartCards = Cards.PatientStandartCards();
+
         deck = patientStandartCards;
 
         cardsInHand.Clear();
@@ -164,6 +176,15 @@ public class Patient : NPC
         actionPointsText.text = current.ToString() + "/" + max.ToString();
     }
 
+
+
+
+    private void UpdateHealthBar()
+    {
+        healthBarImage.fillAmount = Health / maxHealth;
+        healthTxtp.text = Mathf.RoundToInt(Health).ToString();
+    }
+
     private Card GetNextAttackCard()
     {
         foreach (var card in cardsInHand)
@@ -185,14 +206,22 @@ public class Patient : NPC
 
         Debug.Log($"<color=cyan>Turn Started</color>");
 
-        foreach (var card in cardsInHand)
+        foreach (Card card in cardsInHand)
         {
-            affect = card.affect;
+            if (patientCurrentAP < card.actionPoint)
+                break;
+            patientCurrentAP -= card.actionPoint;
+            actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
 
+            affect = card.affect;
             affect.inPhobia.OnStepStart?.Invoke();
             Debug.Log($"<color=cyan>Step Started </color>_{card.cardID}_");
+            bool patientCardPlayed = false;
+            UIController.instance.PlayPatientTopCard(() => { patientCardPlayed = true; });
 
-            yield return new WaitForSeconds(2f);//only for testing. the time will be controled in future
+
+
+            yield return new WaitUntil(()=>patientCardPlayed);//only for testing. the time will be controled in future
                                                 //by patient animation and(or) card animation durations;
 
             if (card.cardType == CardTypes.Attack)
@@ -204,11 +233,12 @@ public class Patient : NPC
 
             affect.inPhobia.OnStepEnd?.Invoke();
 
-            yield return new WaitForSeconds(2f);//only for testing. the time will be controled in future
+            //yield return new WaitForSeconds(2f);//only for testing. the time will be controled in future
                                                 //by patient animation and(or) card animation durations;
 
             Debug.Log($"<color=cyan>Step Ended</color>_{card.cardID}_");
-            Debug.Break();
+            cardsInHand.Remove(card);
+            //Debug.Break();
         }
 
         affect.inPhobia.OnTurnEnd?.Invoke();

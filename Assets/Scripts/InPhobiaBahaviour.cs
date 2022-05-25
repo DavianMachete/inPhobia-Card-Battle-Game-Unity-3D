@@ -3,23 +3,23 @@ using UnityEngine.Events;
 
 public class InPhobiaBahaviour : MonoBehaviour
 {
-    public UnityAction OnTurnStart;//For example before Patient play the first card
-    public bool saveOnTurnStart = false;
+    [HideInInspector] public UnityAction OnTurnStart;//For example before Patient play the first card
+    [HideInInspector] public bool saveOnTurnStart = false;
 
-    public UnityAction OnTurnEnd;//For example after Patient play the last card
-    public bool saveOnTurnEnd = false;
+    [HideInInspector] public UnityAction OnTurnEnd;//For example after Patient play the last card
+    [HideInInspector] public bool saveOnTurnEnd = false;
 
-    public UnityAction OnStepStart;//For example before Patient play any card
-    public bool saveOnStepStart = false;
+    [HideInInspector] public UnityAction OnStepStart;//For example before Patient play any card
+    [HideInInspector] public bool saveOnStepStart = false;
 
-    public UnityAction OnStepEnd;//For example after Patient play any card
-    public bool saveOnStepEnd = false;
+    [HideInInspector] public UnityAction OnStepEnd;//For example after Patient play any card
+    [HideInInspector] public bool saveOnStepEnd = false;
 
-    public UnityAction OnAttack;//When NPC attacks enamy (Called before main action)
-    public bool saveOnAttack = false;
+    [HideInInspector] public UnityAction OnAttack;//When NPC attacks enamy (Called before main action)
+    [HideInInspector] public bool saveOnAttack = false;
 
-    public UnityAction OnDefense;//When NPC attacked(do defense) (Called before main action)
-    public bool saveOnDefense = false;
+    [HideInInspector] public UnityAction OnDefense;//When NPC attacked(do defense) (Called before main action)
+    [HideInInspector] public bool saveOnDefense = false;
 
 
 

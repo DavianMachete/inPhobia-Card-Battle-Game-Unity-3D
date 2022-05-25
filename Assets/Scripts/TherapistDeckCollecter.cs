@@ -88,9 +88,9 @@ public class TherapistDeckCollecter : MonoBehaviour
 
     public void AddCardAsSelected(CardUI cardGO)
     {
-        Card newSelected = new Card(cardGO.card.cardName, cardGO.card.cardType, cardGO.card.affect, cardGO.card.affectDescription, cardGO.card.actionPoint, cardGO.card.rarity);
+        //Card newSelected = new Card(cardGO.card.cardName, cardGO.card.cardType, cardGO.card.affect, cardGO.card.affectDescription, cardGO.card.actionPoint, cardGO.card.rarity);
 
-        selectedCards.Add(newSelected);
+        selectedCards.Add(cardGO.card);
     }
 
     public void StartGame()

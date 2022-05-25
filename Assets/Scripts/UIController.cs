@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
@@ -50,6 +51,8 @@ public class UIController : MonoBehaviour
     [Header("            Card Movement settings        ")]
     [SerializeField]
     private List<float> screenPartBoundsOnX;
+    [SerializeField]
+    private float patientAnimationDuration = 1f;
    
     public CardUI firstSelectedCard;
     public CardUI secondSelectedCard;
@@ -129,6 +132,12 @@ public class UIController : MonoBehaviour
         return ScreenPart.Therapist;
     }
 
+    public void PlayPatientTopCard(UnityAction onDone)
+    {
+        if (IPlayPatientTopCardHelper == null)
+            IPlayPatientTopCardHelper = StartCoroutine(IPlayPatientTopCard(onDone));
+    }
+
     public void UpdateCardsUI(bool setPosition = true)
     {
         therapistCards.Clear();
@@ -170,7 +179,7 @@ public class UIController : MonoBehaviour
     {
         if (Therapist.instance.therapistCurrentAP - 1 < 0)
         {
-            cardUI.AnimateZoomOut(0);
+            cardUI.AnimateZoomOut();
             return;
         }
 
@@ -204,13 +213,13 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < patientCardsParent.childCount; i++)
         {
             patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
         }
 
         for (int i = 0; i < therapistCardsParent.childCount; i++)
         {
             therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
         }
         //Need to Insert and remove card in nessary abstract holders
 
@@ -274,7 +283,7 @@ public class UIController : MonoBehaviour
             firstSelectedCard.transform.SetParent(secondSelectedCard.transform.parent);
 
             firstSelectedCard.UpdateCard(false);
-            firstSelectedCard.MoveCardToPlace();
+            firstSelectedCard.MoveCardToPlace(0.5f);
 
 
             /////Set Therapist card settings as Patient
@@ -285,7 +294,7 @@ public class UIController : MonoBehaviour
             secondSelectedCard.transform.SetParent(patientCardsParent);
 
             secondSelectedCard.UpdateCard(false);
-            secondSelectedCard.MoveCardToPlace();
+            secondSelectedCard.MoveCardToPlace(0.5f);
 
             if (firstSelectedCard.cardUIType != CardUIType.PatientCard)
             {
@@ -324,7 +333,7 @@ public class UIController : MonoBehaviour
     {
         if (Therapist.instance.therapistCurrentAP - 2 < 0)
         {
-            cardUI.AnimateZoomOut(0);
+            cardUI.AnimateZoomOut();
             return;
         }
 
@@ -361,13 +370,13 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < patientCardsParent.childCount; i++)
         {
             patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
         }
 
         for (int i = 0; i < therapistCardsParent.childCount; i++)
         {
             therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace();
+            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
         }
         //Need to Insert and remove card in nessary abstract holders
 
@@ -404,7 +413,7 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < patientCardsParent.childCount; i++)
         {
             patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false,false);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().AnimateZoomOut(0f);
+            patientCardsParent.GetChild(i).GetComponent<CardUI>().AnimateZoomOut();
         }
         //Need to Insert and remove card in nessary abstract holders
 
@@ -428,6 +437,23 @@ public class UIController : MonoBehaviour
         }
         secondSelectedCard = null;
         firstSelectedCard = null;
+    }
+
+    private Coroutine IPlayPatientTopCardHelper;
+    private IEnumerator IPlayPatientTopCard(UnityAction onDone)
+    {
+        if (patientCards.Count <= 0)
+            yield break;
+        RectTransform patientTopCard = patientCards[0];
+        patientTopCard.SetParent(patientCardsParent.parent);
+        patientCards.RemoveAt(0);
+        UpdateCardsUI();
+
+        patientTopCard.GetComponent<CardUI>().MoveCardToCenter(() => 
+        {
+            onDone();
+            IPlayPatientTopCardHelper = null;
+        });
     }
 
     #endregion

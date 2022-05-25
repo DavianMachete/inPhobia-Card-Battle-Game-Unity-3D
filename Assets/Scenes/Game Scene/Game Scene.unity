@@ -2987,6 +2987,10 @@ MonoBehaviour:
   healthTxtp: {fileID: 179661923}
   healthBarImage: {fileID: 1713955106}
   phobiaNextAction: {fileID: 1905456241}
+  phobiaPhase: 0
+  maxHealth: 0
+  isFirstStepAtPhaseTwo: 1
+  attackCountInAStep: 0
 --- !u!1 &742807350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,7 +4146,7 @@ MonoBehaviour:
   saveOnAttack: 0
   saveOnDefense: 0
   Name: 
-  Health: 0
+  Health: 120
   AttackForce: 0
   nextAttackCard:
     cardID: 
@@ -4155,7 +4159,16 @@ MonoBehaviour:
   patientCurrentAP: 3
   cardsCountInDeck: {fileID: 203533535}
   actionPointsText: {fileID: 50021790}
+  healthTxtp: {fileID: 2036265763}
+  healthBarImage: {fileID: 262691387}
+  maxHealth: 0
+  block: 0
+  blockSaved: 0
+  blockGot: 0
+  attackWhenGetBlock: 0
+  deck: []
   cardsInHand: []
+  patientStandartCards: []
 --- !u!1 &1137548788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6600,6 +6613,7 @@ MonoBehaviour:
   screenPartBoundsOnX:
   - -560
   - 560
+  patientAnimationDuration: 1
   firstSelectedCard: {fileID: 0}
   secondSelectedCard: {fileID: 0}
 --- !u!1 &1972276754
