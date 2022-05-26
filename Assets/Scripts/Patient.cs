@@ -36,6 +36,7 @@ public class Patient : NPC
 
     [SerializeField] private List<Card> deck;
     [SerializeField] private List<Card> cardsInHand;
+    [SerializeField] private List<Card> playedCards;
 
     [SerializeField] private List<Card> patientStandartCards;
 
@@ -59,7 +60,6 @@ public class Patient : NPC
         {
             IStartTurnHelper = StartCoroutine(IStartTurn());
         }
-        //cardsInHand = UIController.instance.patientCards;
     }
 
     public void InitializeDeck()
@@ -68,12 +68,15 @@ public class Patient : NPC
             deck = new List<Card>();
         if (cardsInHand == null)
             cardsInHand = new List<Card>();
+        if (playedCards == null)
+            playedCards = new List<Card>();
+
 
         if (patientStandartCards == null || patientStandartCards.Count < 1)
             patientStandartCards = Cards.PatientStandartCards();
 
         deck = patientStandartCards;
-
+        playedCards.Clear();
         cardsInHand.Clear();
         for (int i = 0; i < 3; i++)
         {
@@ -114,7 +117,7 @@ public class Patient : NPC
 
         if (damage < 0)
             damage = Mathf.RoundToInt(AttackForce);
-        Debug.Log($"AttackForce = {AttackForce}, damage = {damage}");
+        //Debug.Log($"AttackForce = {AttackForce}, damage = {damage}");
 
         for (int i = 0; i < countInStep; i++)
         {
@@ -176,6 +179,25 @@ public class Patient : NPC
         actionPointsText.text = current.ToString() + "/" + max.ToString();
     }
 
+    public void SetAttackForce(float force)
+    {
+        AttackForce = force;
+        //Debug.Log($"<color=teal>NPC:</color> attackForce =  {force}");
+    }
+
+    public void MakeTheDamage(float damage)
+    {
+        affect.inPhobia.OnDefense();
+
+        if (block > 0)
+        {
+            damage -= block;
+        }
+        if (damage < 0)
+            damage = 0f;
+        Health -= damage;
+        UpdateHealthBar();
+    }
 
 
 
@@ -187,7 +209,7 @@ public class Patient : NPC
 
     private Card GetNextAttackCard()
     {
-        foreach (var card in cardsInHand)
+        foreach (Card card in cardsInHand)
         {
             if (card.cardType == CardTypes.Attack)
                 return card;
@@ -195,9 +217,12 @@ public class Patient : NPC
         return null;
     }
 
+
+
     private Coroutine IStartTurnHelper;
     private IEnumerator IStartTurn()
     {
+        playedCards.Clear();
         if (affect != null && affect.inPhobia != null && affect.inPhobia.OnTurnStart != null)
             affect.inPhobia.OnTurnStart.Invoke();
 
@@ -237,13 +262,20 @@ public class Patient : NPC
                                                 //by patient animation and(or) card animation durations;
 
             Debug.Log($"<color=cyan>Step Ended</color>_{card.cardID}_");
-            cardsInHand.Remove(card);
+            playedCards.Add(card);
+            //cardsInHand.Remove(card);
             //Debug.Break();
         }
 
         affect.inPhobia.OnTurnEnd?.Invoke();
+
         Debug.Log($"<color=cyan>Turn Ended</color>");
+
+        Phobia.instance.StartTurn();
+        IStartTurnHelper = null;
     }
+
+
 
     private void MakeInstance()
     {

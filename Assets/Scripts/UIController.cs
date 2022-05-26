@@ -324,7 +324,7 @@ public class UIController : MonoBehaviour
             float tForCard = step * i;
             if (tForCard > t)
                 tForCard += step;
-            patientCards[i].GetComponent<CardUI>().MoveCardToPlace(tForCard);
+            patientCards[i].GetComponent<CardUI>().MoveCardToPlace(0.5f,tForCard);
         }
     }
 

@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.738
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -4161,13 +4161,14 @@ MonoBehaviour:
   actionPointsText: {fileID: 50021790}
   healthTxtp: {fileID: 2036265763}
   healthBarImage: {fileID: 262691387}
-  maxHealth: 0
+  maxHealth: 120
   block: 0
   blockSaved: 0
   blockGot: 0
   attackWhenGetBlock: 0
   deck: []
   cardsInHand: []
+  playedCards: []
   patientStandartCards: []
 --- !u!1 &1137548788
 GameObject:
@@ -8096,10 +8097,11 @@ MonoBehaviour:
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
   centeredCardPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   cardMaxScale: {x: 0.8, y: 0.8, z: 0.8}
   cardMinScale: {x: 0.5, y: 0.5, z: 0.5}
   cardAnimationSpeed: 2
-  secondsForZoomOut: 1
+  animDuration: 2
 --- !u!222 &8289050250115106354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9565,10 +9567,11 @@ MonoBehaviour:
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
   centeredCardPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   cardMaxScale: {x: 0.8, y: 0.8, z: 0.8}
   cardMinScale: {x: 0.5, y: 0.5, z: 0.5}
   cardAnimationSpeed: 2
-  secondsForZoomOut: 1
+  animDuration: 2
 --- !u!114 &8289050250906384550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10628,10 +10631,11 @@ MonoBehaviour:
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
   centeredCardPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   cardMaxScale: {x: 0.8, y: 0.8, z: 0.8}
   cardMinScale: {x: 0.5, y: 0.5, z: 0.5}
   cardAnimationSpeed: 2
-  secondsForZoomOut: 1
+  animDuration: 2
 --- !u!224 &8289050251559649433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10949,10 +10953,11 @@ MonoBehaviour:
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}
   centeredCardPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   cardMaxScale: {x: 0.8, y: 0.8, z: 0.8}
   cardMinScale: {x: 0.5, y: 0.5, z: 0.5}
   cardAnimationSpeed: 2
-  secondsForZoomOut: 1
+  animDuration: 2
 --- !u!224 &8289050251734343763
 RectTransform:
   m_ObjectHideFlags: 0

@@ -59,7 +59,7 @@ public static class Cards
 
         for (int i = 0; i < 5; i++)
         {
-            _TherapistStandartCards.Add(new Card("Helplessness", CardTypes.Skill, Affects.Weakness(2, Phobia.instance), "Weakens the enemy", 1, Rarity.Common));
+            _TherapistStandartCards.Add(new Card("Helplessness", CardTypes.Skill, Affects.Weakness(2), "Weakens the enemy", 1, Rarity.Common));
         }
 
         for (int i = 0; i < 4; i++)
@@ -67,7 +67,7 @@ public static class Cards
             _TherapistStandartCards.Add(new Card("Support", CardTypes.Skill, new Affect(()=> { if (Patient.instance.nextAttackCard.cardType == CardTypes.Attack) Patient.instance.nextAttackCard.affect *= 2; }, InPhobiaEventType.OnStepStart), "Doubles the next attack", 1, Rarity.Common));//???ЖЕНЯ
         }
 
-        _TherapistStandartCards.Add(new Card("Steel wall", CardTypes.Skill, Affects.Armor(3, Patient.instance), "Add Armor by 3 points", 2, Rarity.Common));
+        _TherapistStandartCards.Add(new Card("Steel wall", CardTypes.Skill, Affects.Armor(3f), "Add Armor by 3 points", 2, Rarity.Common));
 
         return _TherapistStandartCards;
     }
@@ -91,7 +91,7 @@ public static class Cards
             _PatientStandartCards.Add(new Card("Shield", CardTypes.Skill,Affects.Block(5, Patient.instance), "Gain 5 block", 1, Rarity.Common));
         }
 
-        _PatientStandartCards.Add(new Card("Strong beat", CardTypes.Attack, new Affect(() => Patient.instance.SetAttackForce(5f), InPhobiaEventType.OnStepStart) + (Affects.Vulnerablity(Phobia.instance) * 2), $"Deal 5 damage \n and 2 vulnerablity", 2, Rarity.Common));
+        _PatientStandartCards.Add(new Card("Strong beat", CardTypes.Attack, new Affect(() => Patient.instance.SetAttackForce(8f), InPhobiaEventType.OnStepStart) + (Affects.Vulnerablity() * 2), $"Deal 8 damage and 2 vulnerablity", 2, Rarity.Common));
 
         return _PatientStandartCards;
     }

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -29,6 +30,7 @@ public class Phobia : NPC
     public void InitializePhobia()
     {
         MakeInstance();
+
         isFirstStepAtPhaseTwo = true;
         phobiaPhase = PhobiaPhase.FirstPhase;
         Health = 120;
@@ -41,13 +43,15 @@ public class Phobia : NPC
         weaknessStack = 0;
     }
 
-    public void MakeTheDamage(int damage)
+    public void StartTurn()
     {
-        Health = Health - damage * Mathf.Pow(1.5f, vulnerablityCount);
-        UpdateHealthBar();
+        if (IStartTurnHelper == null)
+        {
+            IStartTurnHelper = StartCoroutine(IStartTurn());
+        }
     }
 
-    public void SetDamage(float damage)
+    public void MakeTheDamage(float damage)
     {
         if (vulnerablityCount > 0)
         {
@@ -86,6 +90,8 @@ public class Phobia : NPC
         }
         weaknessStack += value;
     }
+
+
 
     private void UpdateHealthBar()
     {
@@ -158,6 +164,28 @@ public class Phobia : NPC
             }
         }
     }
+
+    private void AttackATime()
+    {
+        Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {AttackForce} attack force");
+        Patient.instance.MakeTheDamage(AttackForce);
+    }
+
+
+    private Coroutine IStartTurnHelper;
+    private IEnumerator IStartTurn()
+    {
+        Debug.Log($"<color=orange>Turn Started</color>");
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < attackCountInAStep; i++)
+        {
+            AttackATime();
+            yield return new WaitForSeconds(0.5f);
+        }
+        IStartTurnHelper = null;
+    }
+
 
     private void MakeInstance()
     {

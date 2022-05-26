@@ -159,22 +159,14 @@ public class CardUI : MonoBehaviour
             item.AnimateZoomOut();
         }
 
-        float tPart = Mathf.InverseLerp(cardMinScale.magnitude, cardMaxScale.magnitude, cardRect.localScale.magnitude);
-        float duration = animDuration - tPart / animDuration;
-
-        Debug.Log("");///////asdasds\fsdfghjskj dfgasldjfhgasldfgaslwdfhygalkgelaweygkjggkhgahgasfrlagkaehaflsakjfgasdjfghhhhhhhhhhhhhhhhhhhhhhljkkkkkkkkkkkkkkkkkkasdffffffffffffff
-
-        ScaleCardIn(duration);
-        MoveCardTo(duration, centeredCardPos);
+        ScaleCardIn(animDuration);
+        MoveCardTo(animDuration, centeredCardPos, () => { });
     }
 
     public void AnimateZoomOut()
     {
-        float tPart = Mathf.InverseLerp(cardMaxScale.magnitude, cardMinScale.magnitude, cardRect.localScale.magnitude);
-        float duration = animDuration - tPart / animDuration;
-
-        ScaleCardOut(duration);
-        MoveCardToPlace(duration);
+        ScaleCardOut(animDuration);
+        MoveCardToPlace(animDuration);
     }
 
     public void UpdateCard(bool setPosition,bool setScale = true)
@@ -207,13 +199,29 @@ public class CardUI : MonoBehaviour
     {
         if (t <= 0)
             t = GetCardT();
-        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t));
+        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t), () => { });
     }
 
     public void MoveCardToCenter(UnityAction onDone)
     {
         SetInteractable(false);
-        MoveCardTo(animDuration, new Vector2(800, 0), onDone);
+        MoveCardTo(animDuration, new Vector2(800, 0),()=> 
+        {
+            FadeCardIn();
+            if (onDone != null)
+                onDone();
+        });
+    }
+
+    public void FadeCardIn()
+    {
+        isCardFading = true;
+        if (IFadeCardHelper == null)
+            IFadeCardHelper = StartCoroutine(IFadeCard(0f, animDuration, () =>
+            {
+                isCardFading = false;
+                DestroyCard();
+            }));
     }
 
 
@@ -329,7 +337,7 @@ public class CardUI : MonoBehaviour
         return t;
     }
 
-    private void MoveCardTo(float duration, Vector2 anchoredPosition, UnityAction OnDone = null)
+    private void MoveCardTo(float duration, Vector2 anchoredPosition, UnityAction OnDone)
     {
         StopCardMoving();
         isCardMoving = true;
@@ -402,6 +410,8 @@ public class CardUI : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        cardRect.localScale = scale;
+
         if (onDone != null)
             onDone();
         IScaleCardToHelper = null;
@@ -413,7 +423,10 @@ public class CardUI : MonoBehaviour
     private IEnumerator IMoveCardTo(Vector2 anchoredPosition, float duration, UnityAction onDone = null)
     {
         if (duration <= 0f)
+        {
+            Debug.Log($"<color=yellow>Card {card.cardID}'s MoveCardTo animation duration = {duration}</color>");
             duration = Time.fixedDeltaTime;
+        }
 
         float t = 0f;
         Vector2 startPos = cardRect.anchoredPosition;
@@ -429,8 +442,38 @@ public class CardUI : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        cardRect.anchoredPosition = anchoredPosition;
+
         if (onDone != null)
             onDone();
         IMoveCardToHelper = null;
+    }
+
+
+    private bool isCardFading = false;
+    private Coroutine IFadeCardHelper;
+    private IEnumerator IFadeCard(float value, float duration, UnityAction onDone = null)
+    {
+        if (duration <= 0f)
+            duration = Time.fixedDeltaTime;
+
+        float t = 0f;
+        float startFadeValue = canvasGroup.alpha;
+
+        while (isCardFading)
+        {
+            canvasGroup.alpha = Mathf.Lerp(startFadeValue, value, t / duration);
+
+            if (t / duration >= 1f)
+                isCardFading = false;
+            t += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        canvasGroup.alpha = value;
+
+        if (onDone != null)
+            onDone();
+        IFadeCardHelper = null;
     }
 }

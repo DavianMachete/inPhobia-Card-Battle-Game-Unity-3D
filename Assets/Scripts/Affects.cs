@@ -7,12 +7,12 @@
     /// ---Существа с уязвимостью получают +50% урона․
     /// ---Примичение.---В конце хода снижается на 1․
     /// </summary>
-    public static Affect Vulnerablity(Phobia phobia)//Patient Affect
+    public static Affect Vulnerablity()//Patient Affect
     {
         ResetAffect();
         //$"Effect: Vulnerable creatures take +50% damage\nNote: Decrease by 1 at end of turn";
-        affect.inPhobia.OnStepStart = () => phobia.AddVulnerablity(1);
-        affect.inPhobia.OnTurnEnd = () => phobia.AddVulnerablity(-1);//Decrease by 1 at end of turn
+        affect.inPhobia.OnStepStart = () => Phobia.instance.AddVulnerablity(1);
+        affect.inPhobia.OnTurnEnd = () => Phobia.instance.AddVulnerablity(-1);//Decrease by 1 at end of turn
         return affect;
     }
 
@@ -21,12 +21,12 @@
     /// ---Существа со слабостью наносят каждой атакой - x урона․
     /// ---Примичение.---Уменьшается на 1 каждый раз когда наносишь урон․ 
     /// </summary>
-    public static Affect Weakness(int weaknesStack, Phobia phobia)//Patient Affect //стак слабости
+    public static Affect Weakness(int weaknesStack)//Patient Affect //стак слабости
     {
         ResetAffect();
 
-        affect.inPhobia.OnStepStart = () => phobia.AddWeakness(weaknesStack);
-        affect.inPhobia.OnAttack = () => phobia.AddWeakness(-1);
+        affect.inPhobia.OnStepStart = () => Phobia.instance.AddWeakness(weaknesStack);
+        affect.inPhobia.OnDefense = () => Phobia.instance.AddWeakness(-1);
         return affect;
     }
 
@@ -48,11 +48,11 @@
     /// ---Снижает урон на свое количество.
     /// ---Примичение.---Снижается на 1 каждый раз, когда получаешь урон по хп.
     /// </summary>
-    public static Affect Armor(float block, Patient patient)
+    public static Affect Armor(float block)
     {
         ResetAffect();
-        //affect.inPhobia.OnTurnStart = () => patient.AddBlock(block);
-        affect.inPhobia.OnStepEnd = () => { if (block > 0) block--; };//
+        affect.inPhobia.OnTurnStart = () => Patient.instance.AddBlock(block);
+        affect.inPhobia.OnStepEnd = () => { Patient.instance.AddBlock(-1); };//
         return affect;
     }
 

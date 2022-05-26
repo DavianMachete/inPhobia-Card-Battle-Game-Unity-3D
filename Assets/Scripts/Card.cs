@@ -26,7 +26,7 @@ public class Card //: ScriptableObject
     {
         id++;
         cardID = cardName + $" ({id})";//Guid.NewGuid().ToString("N");
-        Debug.Log(cardID);
+        //Debug.Log(cardID);
         this.cardName = cardName;
         this.cardType = cardType;
         this.affect = affect;
