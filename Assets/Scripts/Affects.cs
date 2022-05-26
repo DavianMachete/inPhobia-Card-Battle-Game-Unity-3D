@@ -35,11 +35,11 @@
     /// ---Снижает урон на свое количество.
     /// ---Примичение.---Полностью пропадает в начале хода.
     /// </summary>
-    public static Affect Block(float block, Patient patient)//??
+    public static Affect Block(float block)//??
     {
         ResetAffect();
-        affect.inPhobia.OnStepStart = () => patient.AddBlock(block);
-        affect.inPhobia.OnTurnEnd = () => patient.AddBlock(-block);
+        affect.inPhobia.OnStepStart = () => Patient.instance.AddBlock(block);
+        affect.inPhobia.OnTurnEnd = () => Patient.instance.AddBlock(-block);
         return affect;
     }
 
@@ -52,7 +52,7 @@
     {
         ResetAffect();
         affect.inPhobia.OnTurnStart = () => Patient.instance.AddBlock(block);
-        affect.inPhobia.OnStepEnd = () => { Patient.instance.AddBlock(-1); };//
+        affect.inPhobia.OnStepEnd = () => Patient.instance.AddBlock(-1);//
         return affect;
     }
 
@@ -60,10 +60,10 @@
     /// <summary>
     /// ---Карта пропадает из игры до конца боя.
     /// </summary>
-    public static Affect Exhaust(Patient patient,Card card)
+    public static Affect Exhaust(Card card)
     {
         ResetAffect();
-        affect.inPhobia.OnStepEnd = () => patient.RemoveCardFromDeck(card);
+        affect.inPhobia.OnStepEnd = () => Patient.instance.RemoveCardFromDeck(card);
         return affect;
     }
 
@@ -71,22 +71,10 @@
     /// <summary>
     /// ---Увеличивает урон на x, где x - значение силы.
     /// </summary>
-    public static Affect Power(float damage, Patient patient)
+    public static Affect Power(float damage)
     {
         ResetAffect();
-        affect.inPhobia.OnStepStart = () => patient.AttackForce += damage;
-        return affect;
-    }
-
-    //Phobia
-
-    /// <summary>
-    /// PHOBIA---Увеличивает урон на x, где x - значение силы.
-    /// </summary>
-    public static Affect PhobiaAttack(float damage, Phobia phobia)
-    {
-        ResetAffect();
-        //affect.inPhobia.OnStep = () => phobia.AttackForce = damage;
+        affect.inPhobia.OnStepStart = () => Patient.instance.AttackForce += damage;
         return affect;
     }
 

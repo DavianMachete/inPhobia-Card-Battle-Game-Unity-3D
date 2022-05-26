@@ -9,13 +9,14 @@ public class Patient : NPC
 {
     public static Patient instance;
 
-    public Card nextAttackCard;
+    //public Card nextAttackCard;
     public int patientMaxAP = 3;
     public int patientCurrentAP = 3;
 
 
 
     private Affect affect;
+    private bool patientCardPlayed = false;
 
 
 
@@ -27,6 +28,8 @@ public class Patient : NPC
     [SerializeField] private Image healthBarImage;
 
     [SerializeField] private float maxHealth;
+
+    [SerializeField] private int nextAttackCount = 1;
 
     [SerializeField] private float block;
     [SerializeField] private bool blockSaved;
@@ -108,22 +111,14 @@ public class Patient : NPC
         attackWhenGetBlock = true;
     }
 
-    private void Attack(int damage=-20, int countInStep = 1)
+    public void DoubleNextAttack()
     {
-        if (countInStep < 1)
-        {
-            countInStep = 1;
-        }
+        nextAttackCount *= 2;
+    }
 
-        if (damage < 0)
-            damage = Mathf.RoundToInt(AttackForce);
-        //Debug.Log($"AttackForce = {AttackForce}, damage = {damage}");
-
-        for (int i = 0; i < countInStep; i++)
-        {
-            //Phobia.instance.OnEveryDefense.Invoke();
-            Phobia.instance.MakeTheDamage(damage);
-        }
+    private void Attack()
+    {
+        Phobia.instance.MakeTheDamage(Mathf.RoundToInt(AttackForce));
     }
 
     public void AddBlock(float block)
@@ -187,7 +182,7 @@ public class Patient : NPC
 
     public void MakeTheDamage(float damage)
     {
-        affect.inPhobia.OnDefense();
+        affect.inPhobia.OnDefense?.Invoke();
 
         if (block > 0)
         {
@@ -201,20 +196,12 @@ public class Patient : NPC
 
 
 
+
+
     private void UpdateHealthBar()
     {
         healthBarImage.fillAmount = Health / maxHealth;
         healthTxtp.text = Mathf.RoundToInt(Health).ToString();
-    }
-
-    private Card GetNextAttackCard()
-    {
-        foreach (Card card in cardsInHand)
-        {
-            if (card.cardType == CardTypes.Attack)
-                return card;
-        }
-        return null;
     }
 
 
@@ -227,7 +214,7 @@ public class Patient : NPC
             affect.inPhobia.OnTurnStart.Invoke();
 
         //Get nextAttackCard
-        nextAttackCard = GetNextAttackCard();
+        //nextAttackCard = GetNextAttackCard();
 
         Debug.Log($"<color=cyan>Turn Started</color>");
 
@@ -239,9 +226,11 @@ public class Patient : NPC
             actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
 
             affect = card.affect;
+
             affect.inPhobia.OnStepStart?.Invoke();
             Debug.Log($"<color=cyan>Step Started </color>_{card.cardID}_");
-            bool patientCardPlayed = false;
+
+            patientCardPlayed = false;
             UIController.instance.PlayPatientTopCard(() => { patientCardPlayed = true; });
 
 
@@ -251,9 +240,14 @@ public class Patient : NPC
 
             if (card.cardType == CardTypes.Attack)
             {
-                affect.inPhobia.OnAttack();
-                Attack();
-                Debug.Log($"<color=cyan>Attacked</color>_{card.cardID}_");
+                affect.inPhobia.OnAttack?.Invoke();
+                for (int i = 0; i < nextAttackCount; i++)
+                {
+                    Attack();
+                    Debug.Log($"<color=cyan>Attacked</color>_{card.cardID}_");
+                    yield return new WaitForSeconds(1f);
+                }
+                nextAttackCount = 1;//is Next Attack count saved, when turn ended?
             }
 
             affect.inPhobia.OnStepEnd?.Invoke();
@@ -267,14 +261,34 @@ public class Patient : NPC
             //Debug.Break();
         }
 
-        affect.inPhobia.OnTurnEnd?.Invoke();
 
         Debug.Log($"<color=cyan>Turn Ended</color>");
 
-        Phobia.instance.StartTurn();
+        RemovePlayedCards();
+
+        Phobia.instance.StartTurn(()=>
+        {
+            affect.inPhobia.OnTurnEnd?.Invoke();
+        });
+
         IStartTurnHelper = null;
     }
 
+
+    private void RemovePlayedCards()
+    {
+        foreach (var playedCard in playedCards)
+        {
+            foreach (var cardInHand in cardsInHand)
+            {
+                if (playedCard.cardID == cardInHand.cardID)
+                {
+                    cardsInHand.Remove(playedCard);
+                    break;
+                }
+            }
+        }
+    }
 
 
     private void MakeInstance()

@@ -208,8 +208,7 @@ public class CardUI : MonoBehaviour
         MoveCardTo(animDuration, new Vector2(800, 0),()=> 
         {
             FadeCardIn();
-            if (onDone != null)
-                onDone();
+            onDone();
         });
     }
 

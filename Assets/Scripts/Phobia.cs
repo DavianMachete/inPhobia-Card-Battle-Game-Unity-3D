@@ -43,11 +43,11 @@ public class Phobia : NPC
         weaknessStack = 0;
     }
 
-    public void StartTurn()
+    public void StartTurn(UnityAction onDone)
     {
         if (IStartTurnHelper == null)
         {
-            IStartTurnHelper = StartCoroutine(IStartTurn());
+            IStartTurnHelper = StartCoroutine(IStartTurn(onDone));
         }
     }
 
@@ -57,19 +57,19 @@ public class Phobia : NPC
         {
             damage += damage * 0.5f;
         }
+        Debug.Log($"<color=#ffa500ff>phobia's</color> gotten damage is {damage} =>  vulnerablityCount = {vulnerablityCount}");
         Health -= damage;
         UpdateHealthBar();
     }
 
     public void AddVulnerablity(int value)
     {
-        if (vulnerablityCount <= 0)
+        vulnerablityCount += value;
+        if (vulnerablityCount < 0)
         {
             Debug.Log($"<color=#ffa500ff>phobia's</color> vulnerablity count is less or equal to 0 ");
             vulnerablityCount = 0;
-            return;
         }
-        vulnerablityCount += value;
     }
 
     public bool IsPhobiaHaveVulnerablity()
@@ -82,13 +82,12 @@ public class Phobia : NPC
 
     public void AddWeakness(int value)
     {
-        if (weaknessStack <= 0)
+        weaknessStack += value;
+        if (weaknessStack < 0)
         {
             Debug.Log($"<color=#ffa500ff>phobia's</color> weakness stack is less or equal to 0 ");
             weaknessStack = 0;
-            return;
         }
-        weaknessStack += value;
     }
 
 
@@ -167,13 +166,13 @@ public class Phobia : NPC
 
     private void AttackATime()
     {
-        Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {AttackForce} attack force");
-        Patient.instance.MakeTheDamage(AttackForce);
+        Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {AttackForce} attack force and {weaknessStack} weaknessStack");
+        Patient.instance.MakeTheDamage(AttackForce - weaknessStack);
     }
 
 
     private Coroutine IStartTurnHelper;
-    private IEnumerator IStartTurn()
+    private IEnumerator IStartTurn(UnityAction onDone)
     {
         Debug.Log($"<color=orange>Turn Started</color>");
         yield return new WaitForSeconds(1f);
@@ -183,7 +182,10 @@ public class Phobia : NPC
             AttackATime();
             yield return new WaitForSeconds(0.5f);
         }
+        onDone();
         IStartTurnHelper = null;
+
+        Debug.Log($"<color=orange>Turn Ended</color>");
     }
 
 
