@@ -13,12 +13,13 @@ public class Patient : NPC
     public int patientMaxAP = 3;
     public int patientCurrentAP = 3;
 
+    public List<Card> deck;
+    public List<Card> Hand;
+    public List<Card> discard;
 
 
-    private Affect affect;
-    private bool patientCardPlayed = false;
 
-
+    [SerializeField]private Affect affect;
 
     [SerializeField] private TMP_Text cardsCountInDeck;
     [SerializeField] private TMP_Text actionPointsText;
@@ -31,26 +32,28 @@ public class Patient : NPC
 
     [SerializeField] private int nextAttackCount = 1;
 
+    [SerializeField] private float armor = 0;
+
     [SerializeField] private float block;
     [SerializeField] private bool blockSaved;
 
-    [SerializeField] private bool blockGot;
+    [SerializeField] private bool attackWhenDamaged;
     [SerializeField] private bool attackWhenGetBlock;
 
-    [SerializeField] private List<Card> deck;
-    [SerializeField] private List<Card> cardsInHand;
-    [SerializeField] private List<Card> playedCards;
-
-    [SerializeField] private List<Card> patientStandartCards;
+    private bool patientCardPlayed = false;
 
     public void InitializePatient()
     {
         MakeInstance();
 
-
+        if (affect == null)
+            affect = new Affect();
+        affect.Clear();
 
         patientMaxAP = 3;
         patientCurrentAP = 3;
+
+        Health = maxHealth;
 
         InitializeDeck();
         UpdateHealthBar();
@@ -69,36 +72,62 @@ public class Patient : NPC
     {
         if (deck == null)
             deck = new List<Card>();
-        if (cardsInHand == null)
-            cardsInHand = new List<Card>();
-        if (playedCards == null)
-            playedCards = new List<Card>();
+        deck.Clear();
+
+        if (Hand == null)
+            Hand = new List<Card>();
+        Hand.Clear();
+
+        if (discard == null)
+            discard = new List<Card>();
+        discard.Clear();
+        
+        deck = new List<Card>(Cards.PatientStandartCards());
 
 
-        if (patientStandartCards == null || patientStandartCards.Count < 1)
-            patientStandartCards = Cards.PatientStandartCards();
+        PrepareNewTurn();
+    }
 
-        deck = patientStandartCards;
-        playedCards.Clear();
-        cardsInHand.Clear();
-        for (int i = 0; i < 3; i++)
-        {
-            int index = Random.Range(0, deck.Count);
-            cardsInHand.Add(deck[index]);
-            deck.RemoveAt(index);
-        }
-        for (int i = 0; i < cardsInHand.Count; i++)
-        {
-            int index = i;
-            UIController.instance.AddCardForPatient(cardsInHand[index], index);
-        }
-        UIController.instance.UpdateCardsUI(true);
-        cardsCountInDeck.text = deck.Count.ToString();
+    public void PrepareNewTurn()
+    {
+        SetActionPoint(patientMaxAP, patientMaxAP);
+
+        Discard();
+        PullCard(3);
+
+        UIController.instance.UpdateCards(true);
     }
 
     public void PullCard(int count)
     {
-        //need add functionality
+        if (deck.Count >= count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                PullACard();
+            }
+        }
+        else
+        {
+            int deckCount = deck.Count;
+            for (int i = 0; i < deckCount; i++)
+            {
+                PullACard();
+            }
+            Cards.SortDiscards();
+            for (int i = 0; i < count - deckCount; i++)
+            {
+                PullACard();
+            }
+        }
+
+    }
+
+    public void Discard()
+    {
+        discard.AddRange(Hand);
+        Hand.Clear();
+        UIController.instance.Discard(CardUIType.PatientCard);
     }
 
     public void SaveBlock() 
@@ -109,6 +138,10 @@ public class Patient : NPC
     public void ActivateAttackWhenGetBlock()
     {
         attackWhenGetBlock = true;
+    }
+    public void ActivateAttackWhenDamaged()
+    {
+        attackWhenDamaged = true;
     }
 
     public void DoubleNextAttack()
@@ -123,44 +156,55 @@ public class Patient : NPC
 
     public void AddBlock(float block)
     {
-        if (block < 0 && this.block<=0)
-            return;
-        if (block < 0 && blockSaved)
-            return;
+        Debug.Log($"<color=cyan>Block added </color>value = {block} ");
         this.block += block;
 
         if (attackWhenGetBlock)
         {
-            float newAttackForce = AttackForce;
-            AttackForce = 5;
-            //Attack();
-            AttackForce = newAttackForce;
+            SetAttackForce(5);
+            Attack();
         }
     }
 
-    public void AddCardToHand(Card card,int index = -2)
+    public int GetBlock()
     {
-        if (index < 0)
-            index = Random.Range(0, cardsInHand.Count + 1);
-        cardsInHand.Insert(index, card);
+        return Mathf.RoundToInt(block);
     }
 
-    public void RemoveCardFromHand(int index)
+    public void AddArmor(float armor)
     {
-        if (index < 0||index>=cardsInHand.Count)
+        Debug.Log($"<color=cyan>Armor added </color>value = {armor} ");
+        this.armor += armor;
+        if (this.armor < 0)
+            this.armor = 0;
+    }
+
+    public void RemoveCardFromHand(Card card)
+    {
+        if (!Hand.Contains(card))
         {
-            Debug.Log($"<color=red>Can't</color> remove patient in hand card by index {index}");
+            Debug.Log($"<color=red>Can't</color> remove card({card.cardID}) from patient in hand cards cause it doesnt contain that");
+            return;
         }
-        cardsInHand.RemoveAt(index);   
+        Hand.Remove(card);   
     }
 
-    public void RemoveCardFromDeck(Card card)
+    public void AddCardToHand(int index, Card card)
     {
-        foreach (Card itemCard in deck)
+        if (index < 0 || index >= Hand.Count+1)
+        {
+            Debug.Log($"<color=red>Can't</color> add card ({card.cardID}) to patient in hand cards by index {index}");
+        }
+        Hand.Insert(index,card);
+    }
+
+    public void RemoveCardFromDeck(Card card)//callonly after played
+    {
+        foreach (Card itemCard in discard)
         {
             if (itemCard == card)
             {
-                deck.Remove(itemCard);
+                discard.Remove(itemCard);
                 //Continuted
                 break;
             }
@@ -182,22 +226,33 @@ public class Patient : NPC
 
     public void MakeTheDamage(float damage)
     {
-        affect.inPhobia.OnDefense?.Invoke();
+        affect.Invoke(affect.OnDefense);
 
-        if (block > 0)
+        damage -= block;
+        damage -= armor;
+
+        if (damage > 0)
         {
-            damage -= block;
+            Health -= damage;
+            UpdateHealthBar();
+            if (attackWhenDamaged)
+            {
+                Attack();
+            }
         }
-        if (damage < 0)
-            damage = 0f;
-        Health -= damage;
-        UpdateHealthBar();
     }
 
 
 
 
+    private void PullACard()
+    {
+        int index = Random.Range(0, deck.Count);
 
+        UIController.instance.PullCardForPatient(deck[index]);
+        deck.RemoveAt(index);
+        cardsCountInDeck.text = deck.Count.ToString();
+    }
     private void UpdateHealthBar()
     {
         healthBarImage.fillAmount = Health / maxHealth;
@@ -209,38 +264,44 @@ public class Patient : NPC
     private Coroutine IStartTurnHelper;
     private IEnumerator IStartTurn()
     {
-        playedCards.Clear();
-        if (affect != null && affect.inPhobia != null && affect.inPhobia.OnTurnStart != null)
-            affect.inPhobia.OnTurnStart.Invoke();
+        discard.Clear();
 
-        //Get nextAttackCard
-        //nextAttackCard = GetNextAttackCard();
+        if (!blockSaved)
+        {
+            block = 0;
+        }
 
         Debug.Log($"<color=cyan>Turn Started</color>");
 
-        foreach (Card card in cardsInHand)
+        foreach (Card card in Hand)
         {
             if (patientCurrentAP < card.actionPoint)
                 break;
+
+            affect.Invoke(affect.OnTurnStart);
+
+            affect += card.affect;
+            affect.Update();
+
+            Debug.Log($"<color=cyan>Step Started </color>with card -> {card.cardID}");
+
             patientCurrentAP -= card.actionPoint;
             actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
 
-            affect = card.affect;
-
-            affect.inPhobia.OnStepStart?.Invoke();
-            Debug.Log($"<color=cyan>Step Started </color>_{card.cardID}_");
+            affect.Invoke(affect.OnStepStart);
 
             patientCardPlayed = false;
-            UIController.instance.PlayPatientTopCard(() => { patientCardPlayed = true; });
+            UIController.instance.PlayPatientTopCard(() => 
+            { 
+                patientCardPlayed = true; 
+            });
 
+            yield return new WaitUntil(()=>patientCardPlayed);
 
-
-            yield return new WaitUntil(()=>patientCardPlayed);//only for testing. the time will be controled in future
-                                                //by patient animation and(or) card animation durations;
 
             if (card.cardType == CardTypes.Attack)
             {
-                affect.inPhobia.OnAttack?.Invoke();
+                affect.Invoke(affect.OnAttack);
                 for (int i = 0; i < nextAttackCount; i++)
                 {
                     Attack();
@@ -249,18 +310,11 @@ public class Patient : NPC
                 }
                 nextAttackCount = 1;//is Next Attack count saved, when turn ended?
             }
-
-            affect.inPhobia.OnStepEnd?.Invoke();
-
-            //yield return new WaitForSeconds(2f);//only for testing. the time will be controled in future
-                                                //by patient animation and(or) card animation durations;
+            affect.Invoke(affect.OnStepEnd);
 
             Debug.Log($"<color=cyan>Step Ended</color>_{card.cardID}_");
-            playedCards.Add(card);
-            //cardsInHand.Remove(card);
-            //Debug.Break();
+            discard.Add(card);
         }
-
 
         Debug.Log($"<color=cyan>Turn Ended</color>");
 
@@ -268,7 +322,8 @@ public class Patient : NPC
 
         Phobia.instance.StartTurn(()=>
         {
-            affect.inPhobia.OnTurnEnd?.Invoke();
+            affect.Invoke(affect.OnTurnEnd);
+            GameManager.instance.PlayNextTurn();
         });
 
         IStartTurnHelper = null;
@@ -277,13 +332,13 @@ public class Patient : NPC
 
     private void RemovePlayedCards()
     {
-        foreach (var playedCard in playedCards)
+        foreach (var playedCard in discard)
         {
-            foreach (var cardInHand in cardsInHand)
+            foreach (var cardInHand in Hand)
             {
                 if (playedCard.cardID == cardInHand.cardID)
                 {
-                    cardsInHand.Remove(playedCard);
+                    Hand.Remove(playedCard);
                     break;
                 }
             }

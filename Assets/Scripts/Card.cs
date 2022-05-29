@@ -6,9 +6,9 @@ using UnityEngine;
 [Serializable]
 public class Card //: ScriptableObject
 {
+    public string name;
+ 
     public string cardID;
-
-    public string cardName;
 
     public CardTypes cardType;
 
@@ -20,18 +20,21 @@ public class Card //: ScriptableObject
 
     public Rarity rarity;
 
+    public CardUIType cardBelonging = CardUIType.defaultCard;
+
     private static int id;
 
-    public Card( string cardName, CardTypes cardType, Affect affect,string affectDescription, int actionPoint, Rarity rarity)
+    public Card(string cardName, CardTypes cardType, Affect affect, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
     {
         id++;
-        cardID = cardName + $" ({id})";//Guid.NewGuid().ToString("N");
+        cardID = cardName.ToLower() + $"_{id}";//Guid.NewGuid().ToString("N");
         //Debug.Log(cardID);
-        this.cardName = cardName;
+        name = cardName;
         this.cardType = cardType;
         this.affect = affect;
         this.affectDescription = affectDescription;
         this.actionPoint = actionPoint;
         this.rarity = rarity;
+        this.cardBelonging = cardBelonging;
     }
 }

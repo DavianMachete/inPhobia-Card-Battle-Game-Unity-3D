@@ -5,11 +5,11 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
-public class CardUI : MonoBehaviour
+public class CardController : MonoBehaviour
 {
     public Card card;
     [Space(40f)]
-    public CardUIType cardUIType;
+    public CardUIType cardCurrentType = CardUIType.defaultCard;
     public int index;//first card is 0
 
     public Vector2 lowestPosOfCard;
@@ -26,7 +26,7 @@ public class CardUI : MonoBehaviour
     [SerializeField] private float animDuration = 2f;
 
     private RectTransform cardRect;
-    private List<CardUI> otherCardsUI;
+    private List<CardController> otherCardsUI;
     private float draggedTime = 0;
     private Vector2 startDragPos;
     private bool rightButtonClicked;
@@ -44,16 +44,16 @@ public class CardUI : MonoBehaviour
     public void OnPointerUP()
     {
         float deltaT = Mathf.Abs(Time.time - draggedTime);
-        if (deltaT < 0.3f&& Vector2.Distance(startDragPos, cardRect.anchoredPosition)<20f)
+        if (deltaT < 0.3f && Vector2.Distance(startDragPos, cardRect.anchoredPosition) < 18f)
             OnClicked(rightButtonClicked);
         else
         {
-            if(UIController.instance.firstSelectedCard != null)
+            if (UIController.instance.firstSelectedCard != null)
             {
                 UIController.instance.firstSelectedCard.transform.GetChild(0).gameObject.SetActive(false);
                 UIController.instance.firstSelectedCard = null;
             }
-            if(UIController.instance.secondSelectedCard != null)
+            if (UIController.instance.secondSelectedCard != null)
             {
                 UIController.instance.secondSelectedCard.transform.GetChild(0).gameObject.SetActive(false);
                 UIController.instance.secondSelectedCard = null;
@@ -64,8 +64,11 @@ public class CardUI : MonoBehaviour
 
     public void OnDrag()
     {
-        if (cardUIType != CardUIType.TherapistCard)
+        if (cardCurrentType != CardUIType.TherapistCard)
             return;
+
+        //Debug.Log($"{card.cardID} Draging");
+        StopCardMoving();
 
         cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f);
 
@@ -82,15 +85,19 @@ public class CardUI : MonoBehaviour
 
     public void OnDragBegin()
     {
-        if (cardUIType != CardUIType.TherapistCard)
+        if (cardCurrentType != CardUIType.TherapistCard)
             return;
+
+        //Debug.Log($"{card.cardID} Drag Begin");
         StopCardMoving();
     }
 
     public void OnDragEnd()
     {
-        if (cardUIType != CardUIType.TherapistCard)
+        if (cardCurrentType != CardUIType.TherapistCard)
             return;
+
+        //Debug.Log($"{card.cardID} Drag End");
 
         ScreenPart screenPart = UIController.instance.GetScreenPart(Input.mousePosition);
 
@@ -109,11 +116,10 @@ public class CardUI : MonoBehaviour
         }
     }
 
-    public void ApplyToCardGameObject(Card card,CardUIType cardUIType = CardUIType.defaultCard)
+    public void SetCardParametrsToGameObject(Card card)
     {
-        this.gameObject.name = card.cardName;
+        this.gameObject.name = card.name;
         this.card = card;
-        this.cardUIType = cardUIType;
 
         if (card.cardType == CardTypes.Equipment)
         {
@@ -124,27 +130,31 @@ public class CardUI : MonoBehaviour
             transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = $"{card.actionPoint}";
         }
-        transform.GetChild(1).GetChild(1).GetComponent<TMPro.TMP_Text>().text = card.cardName;
+        transform.GetChild(1).GetChild(1).GetComponent<TMPro.TMP_Text>().text = card.name;
         //2
         transform.GetChild(1).GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
         transform.GetChild(1).GetChild(4).GetComponent<TMPro.TMP_Text>().text = card.affectDescription;
     }
 
-    public void ApplyCardMetrics(CardUI newCardUI)
+    public void SetCardCurrentType(CardUIType cardUIType)
     {
-        ApplyCardMetrics(newCardUI.index, newCardUI.centeredCardPos, newCardUI.highestPosOfCard, newCardUI.lowestPosOfCard);
+        cardCurrentType = cardUIType;
     }
 
-    public void ApplyCardMetrics(int index, Vector2 centeredCardPos, Vector2 highestPosOfCard, Vector2 lowestPosOfCard)
+    public void SetCardMetrics(CardController newCardUI)
+    {
+        SetCardMetrics(newCardUI.index, newCardUI.centeredCardPos, newCardUI.highestPosOfCard, newCardUI.lowestPosOfCard);
+    }
+
+    public void SetCardMetrics(int index, Vector2 centeredCardPos, Vector2 highestPosOfCard, Vector2 lowestPosOfCard)
     {
         cardRect = GetComponent<RectTransform>();
+        cardRect.SetSiblingIndex(index);
         //enableActions = true;
         this.index = index;
         this.centeredCardPos = centeredCardPos;
         this.highestPosOfCard = highestPosOfCard;
         this.lowestPosOfCard = lowestPosOfCard;
-
-        otherCardsUI = new List<CardUI>();
     }
    
     public void DestroyCard()
@@ -160,7 +170,7 @@ public class CardUI : MonoBehaviour
         }
 
         ScaleCardIn(animDuration);
-        MoveCardTo(animDuration, centeredCardPos, () => { });
+        MoveCardTo(animDuration, centeredCardPos);
     }
 
     public void AnimateZoomOut()
@@ -169,37 +179,57 @@ public class CardUI : MonoBehaviour
         MoveCardToPlace(animDuration);
     }
 
-    public void UpdateCard(bool setPosition,bool setScale = true)
+    public void UpdateCard(bool smoothly)
     {
-        if (setPosition)
+        if(otherCardsUI==null)
+            otherCardsUI = new List<CardController>();
+        otherCardsUI.Clear();
+
+        List<CardController> currentCards = cardCurrentType == CardUIType.PatientCard ? UIController.instance.patientCardsInHand : UIController.instance.therapistCardsInHand;
+        foreach (CardController cardC in currentCards)
         {
-            SetCardPosition();
+            if (cardC.index != index)
+                otherCardsUI.Add(cardC);
+        }
+
+        UpdateCardPosition(smoothly);
+        UpdateCardScale(smoothly);
+    }
+
+    public void UpdateCardPosition(bool smoothly)
+    {
+        Vector2 anchPos = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
+        centeredCardPos = new Vector2(centeredCardPos.x, anchPos.y);
+
+        if (smoothly)
+        {
+            MoveCardToPlace(animDuration);
         }
         else
         {
-            Vector2 anchPos = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
-            centeredCardPos = new Vector2(centeredCardPos.x, anchPos.y);
-        }
-        if (setScale)
-        {
-            SetCardsScales();
-        }
-
-        cardRect.SetSiblingIndex(index);
-        otherCardsUI.Clear();
-        for (int i = 0; i < transform.parent.childCount; i++)
-        {
-            if (transform.parent.GetChild(i).GetComponent<CardUI>().index != index)
-                otherCardsUI.Add(transform.parent.GetChild(i).GetComponent<CardUI>());
+            MoveCardToPlace(0);
         }
     }
 
-
-    public void MoveCardToPlace(float duration, float t = -1f)
+    public void UpdateCardScale(bool smoothly)
     {
-        if (t <= 0)
-            t = GetCardT();
-        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t), () => { });
+        if (smoothly)
+        {
+            ScaleCardOut(animDuration);
+        }
+        else
+        {
+            ScaleCardOut(0);
+        }
+    }
+
+    public void MoveCardToPlace(float duration, UnityAction onDone = null)
+    {
+        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT()), onDone);
+    }
+    public void MoveCardToPlace(float duration,float t, UnityAction onDone = null)
+    {
+        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t), onDone);
     }
 
     public void MoveCardToCenter(UnityAction onDone)
@@ -209,6 +239,14 @@ public class CardUI : MonoBehaviour
         {
             FadeCardIn();
             onDone();
+        });
+    }
+    public void MoveCardToDiscard(Vector2 toPos)
+    {
+        SetInteractable(false);
+        MoveCardTo(animDuration, toPos, () =>
+        {
+            FadeCardIn();
         });
     }
 
@@ -230,7 +268,7 @@ public class CardUI : MonoBehaviour
     {
         if(!isRightButton)
         {
-            if (cardUIType == CardUIType.TherapistCard)
+            if (cardCurrentType == CardUIType.TherapistCard)
             {
                 foreach (var cardUI in otherCardsUI)
                 {
@@ -254,16 +292,16 @@ public class CardUI : MonoBehaviour
         else
         {
             UIController.instance.bigCardUI.SetActive(true);
-            UIController.instance.bigCardUI.transform.GetChild(0).GetComponent<CardUI>().ApplyToCardGameObject(card);
+            UIController.instance.bigCardUI.transform.GetChild(0).GetComponent<CardController>().SetCardParametrsToGameObject(card);
         }
         rightButtonClicked = false;
     }
 
-    private void SetAsSelectedCardUI(CardUI cardUI, int index)
+    private void SetAsSelectedCardUI(CardController cardUI, int index)
     {
         if (cardUI == null)
         {
-            if (cardUIType == CardUIType.PatientCard)
+            if (cardCurrentType == CardUIType.PatientCard)
             {
                 if (UIController.instance.firstSelectedCard != null)
                 {
@@ -285,7 +323,7 @@ public class CardUI : MonoBehaviour
             {
                 if (UIController.instance.secondSelectedCard != null)
                 {
-                    if (UIController.instance.secondSelectedCard.cardUIType == CardUIType.TherapistCard)
+                    if (UIController.instance.secondSelectedCard.cardCurrentType == CardUIType.TherapistCard)
                     {
                         UIController.instance.secondSelectedCard = null;
                     }
@@ -294,7 +332,7 @@ public class CardUI : MonoBehaviour
         }
         else
         {
-            if (cardUIType == CardUIType.PatientCard)
+            if (cardCurrentType == CardUIType.PatientCard)
             {
                 if (UIController.instance.firstSelectedCard == null)
                 {
@@ -312,17 +350,6 @@ public class CardUI : MonoBehaviour
         }
     }
 
-    private void SetCardPosition()
-    {
-        cardRect.anchoredPosition = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
-        centeredCardPos = new Vector2(centeredCardPos.x, cardRect.anchoredPosition.y);
-    }
-
-    private void SetCardsScales()
-    {
-        cardRect.localScale = cardMinScale;
-    }
-
     private float GetCardT()
     {
         float step, t;
@@ -336,11 +363,15 @@ public class CardUI : MonoBehaviour
         return t;
     }
 
-    private void MoveCardTo(float duration, Vector2 anchoredPosition, UnityAction OnDone)
+    private void MoveCardTo(float duration, Vector2 anchoredPosition, UnityAction OnDone=null)
     {
         StopCardMoving();
         isCardMoving = true;
-        IMoveCardToHelper = StartCoroutine(IMoveCardTo(anchoredPosition, duration, OnDone));
+
+        if (gameObject.activeInHierarchy)
+            IMoveCardToHelper = StartCoroutine(IMoveCardTo(anchoredPosition, duration, OnDone));
+        else
+            cardRect.anchoredPosition = anchoredPosition;
     }
 
     private void StopCardMoving()
@@ -365,13 +396,16 @@ public class CardUI : MonoBehaviour
         StopCardScaling();
         isCardScaling = true;
 
-        foreach (CardUI cardUI in otherCardsUI)
+        foreach (CardController cardUI in otherCardsUI)
         {
             cardUI.cardRect.SetSiblingIndex(cardUI.index);
         }
         cardRect.SetSiblingIndex(index);
 
-        IScaleCardToHelper = StartCoroutine(IScaleCardTo(cardMinScale, duration, onDone));
+        if (gameObject.activeInHierarchy)
+            IScaleCardToHelper = StartCoroutine(IScaleCardTo(cardMinScale, duration, onDone));
+        else
+            cardRect.localScale = cardMinScale;
     }
 
     private void StopCardScaling()
@@ -392,7 +426,10 @@ public class CardUI : MonoBehaviour
     private IEnumerator IScaleCardTo(Vector3 scale, float duration, UnityAction onDone = null)
     {
         if (duration <= 0f)
-            duration = Time.fixedDeltaTime;
+        {
+            //Debug.Log($"<color=yellow>Card {card.cardID}'s MoveCardTo animation duration = {duration}</color>");
+            duration = 0.1f;
+        }
 
         float t = 0f;
 
@@ -403,9 +440,11 @@ public class CardUI : MonoBehaviour
             //yield return new WaitUntil(() => !IsBeingDrag);
             cardRect.localScale = Vector2.Lerp(startScale, scale, t / duration);
 
-            if (t / duration >= 1f)
-                isCardMoving = false;
             t += Time.fixedDeltaTime;
+
+            if (t / duration >= 1f)
+                isCardScaling = false;
+
             yield return new WaitForFixedUpdate();
         }
 
@@ -423,8 +462,8 @@ public class CardUI : MonoBehaviour
     {
         if (duration <= 0f)
         {
-            Debug.Log($"<color=yellow>Card {card.cardID}'s MoveCardTo animation duration = {duration}</color>");
-            duration = Time.fixedDeltaTime;
+            //Debug.Log($"<color=yellow>Card {card.cardID}'s MoveCardTo animation duration = {duration}</color>");
+            duration = 0.1f;
         }
 
         float t = 0f;
@@ -435,9 +474,10 @@ public class CardUI : MonoBehaviour
             //yield return new WaitUntil(() => !IsBeingDrag);
             cardRect.anchoredPosition = Vector2.Lerp(startPos, anchoredPosition, t/ duration);
 
+            t += Time.fixedDeltaTime;
+
             if (t / duration >= 1f)
                 isCardMoving = false;
-            t += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
 
@@ -463,9 +503,11 @@ public class CardUI : MonoBehaviour
         {
             canvasGroup.alpha = Mathf.Lerp(startFadeValue, value, t / duration);
 
+            t += Time.fixedDeltaTime;
+
             if (t / duration >= 1f)
                 isCardFading = false;
-            t += Time.fixedDeltaTime;
+
             yield return new WaitForFixedUpdate();
         }
 

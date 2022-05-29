@@ -2972,12 +2972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6e0a1bed37f4043afec53b9022e897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveOnTurnStart: 0
-  saveOnTurnEnd: 0
-  saveOnStepStart: 0
-  saveOnStepEnd: 0
-  saveOnAttack: 0
-  saveOnDefense: 0
   Name: Phobia
   Health: 0
   AttackForce: 0
@@ -4139,37 +4133,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac55448ed72362048b096cfce880b81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveOnTurnStart: 0
-  saveOnTurnEnd: 0
-  saveOnStepStart: 0
-  saveOnStepEnd: 0
-  saveOnAttack: 0
-  saveOnDefense: 0
   Name: 
   Health: 120
   AttackForce: 0
-  nextAttackCard:
-    cardID: 
-    cardName: 
-    cardType: 0
-    affectDescription: 
-    actionPoint: 0
-    rarity: 0
   patientMaxAP: 3
   patientCurrentAP: 3
+  affect:
+    OnTurnStart: []
+    OnTurnEnd: []
+    OnStepStart: []
+    OnStepEnd: []
+    OnAttack: []
+    OnDefense: []
   cardsCountInDeck: {fileID: 203533535}
   actionPointsText: {fileID: 50021790}
   healthTxtp: {fileID: 2036265763}
   healthBarImage: {fileID: 262691387}
   maxHealth: 120
+  nextAttackCount: 1
+  armor: 0
   block: 0
   blockSaved: 0
-  blockGot: 0
+  attackWhenDamaged: 0
   attackWhenGetBlock: 0
   deck: []
   cardsInHand: []
   playedCards: []
-  patientStandartCards: []
 --- !u!1 &1137548788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6596,8 +6585,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229492c8e45ff524ea3afdf6255970c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  therapistCards: []
-  patientCards: []
+  therapistCardsInHand: []
+  patientCardsInHand: []
+  firstSelectedCard: {fileID: 0}
+  secondSelectedCard: {fileID: 0}
   bigCardUI: {fileID: 1490211374}
   backGroundUI: {fileID: 242403684}
   beforStartUI: {fileID: 494361197}
@@ -6615,8 +6606,6 @@ MonoBehaviour:
   - -560
   - 560
   patientAnimationDuration: 1
-  firstSelectedCard: {fileID: 0}
-  secondSelectedCard: {fileID: 0}
 --- !u!1 &1972276754
 GameObject:
   m_ObjectHideFlags: 0
@@ -8086,9 +8075,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    name: 
     cardID: 
-    cardName: 
     cardType: 0
+    affect:
+      OnTurnStart: []
+      OnTurnEnd: []
+      OnStepStart: []
+      OnStepEnd: []
+      OnAttack: []
+      OnDefense: []
     affectDescription: 
     actionPoint: 0
     rarity: 0
@@ -9556,9 +9552,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    name: 
     cardID: 
-    cardName: 
     cardType: 0
+    affect:
+      OnTurnStart: []
+      OnTurnEnd: []
+      OnStepStart: []
+      OnStepEnd: []
+      OnAttack: []
+      OnDefense: []
     affectDescription: 
     actionPoint: 0
     rarity: 0
@@ -10620,9 +10623,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    name: 
     cardID: 
-    cardName: 
     cardType: 0
+    affect:
+      OnTurnStart: []
+      OnTurnEnd: []
+      OnStepStart: []
+      OnStepEnd: []
+      OnAttack: []
+      OnDefense: []
     affectDescription: 
     actionPoint: 0
     rarity: 0
@@ -10942,9 +10952,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    name: 
     cardID: 
-    cardName: 
     cardType: 0
+    affect:
+      OnTurnStart: []
+      OnTurnEnd: []
+      OnStepStart: []
+      OnStepEnd: []
+      OnAttack: []
+      OnDefense: []
     affectDescription: 
     actionPoint: 0
     rarity: 0

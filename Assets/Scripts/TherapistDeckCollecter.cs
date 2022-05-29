@@ -30,7 +30,7 @@ public class TherapistDeckCollecter : MonoBehaviour
         List<Card> leftCards = new List<Card>();
 
         if(therapistCardsToSelect==null)
-            therapistCardsToSelect = Cards.TherapistCardsToSelect();
+            therapistCardsToSelect = new List<Card>(Cards.TherapistCardsToSelect());
         foreach (var item in therapistCardsToSelect)
         {
             if (item.rarity == Rarity.Equipment ||
@@ -42,7 +42,7 @@ public class TherapistDeckCollecter : MonoBehaviour
         int index = Random.Range(0, 6);
         Card leftCard = leftCards[index];
 
-        threeCardsParent.GetChild(0).GetComponent<CardUI>().ApplyToCardGameObject(leftCard);
+        threeCardsParent.GetChild(0).GetComponent<CardController>().SetCardParametrsToGameObject(leftCard);
 
         //Select median card
 
@@ -56,7 +56,7 @@ public class TherapistDeckCollecter : MonoBehaviour
         }
         Card medianCard = medianCards[Random.Range(0, 7)];
 
-        threeCardsParent.GetChild(1).GetComponent<CardUI>().ApplyToCardGameObject(medianCard);
+        threeCardsParent.GetChild(1).GetComponent<CardController>().SetCardParametrsToGameObject(medianCard);
 
         //Select median card
 
@@ -83,10 +83,10 @@ public class TherapistDeckCollecter : MonoBehaviour
 
         Card rightCard = rightCards[Random.Range(0, rightCards.Count)];
 
-        threeCardsParent.GetChild(2).GetComponent<CardUI>().ApplyToCardGameObject(rightCard);
+        threeCardsParent.GetChild(2).GetComponent<CardController>().SetCardParametrsToGameObject(rightCard);
     }
 
-    public void AddCardAsSelected(CardUI cardGO)
+    public void AddCardAsSelected(CardController cardGO)
     {
         //Card newSelected = new Card(cardGO.card.cardName, cardGO.card.cardType, cardGO.card.affect, cardGO.card.affectDescription, cardGO.card.actionPoint, cardGO.card.rarity);
 
@@ -96,7 +96,7 @@ public class TherapistDeckCollecter : MonoBehaviour
     public void StartGame()
     {
         if(therapistStandartCards==null)
-            therapistStandartCards = Cards.TherapistStandartCards();
+            therapistStandartCards = new List<Card>(Cards.TherapistStandartCards());
         if (selectedCards == null)
             selectedCards = new List<Card>();
         List<Card>  staticDeck = new List<Card>(therapistStandartCards.Count + selectedCards.Count);

@@ -10,8 +10,11 @@ public class UIController : MonoBehaviour
 {
     public static UIController instance;
 
-    public List<RectTransform> therapistCards;
-    public List<RectTransform> patientCards;
+    public List<CardController> therapistCardsInHand;
+    public List<CardController> patientCardsInHand;
+
+    public CardController firstSelectedCard;
+    public CardController secondSelectedCard;
 
     public GameObject bigCardUI;
 
@@ -53,9 +56,6 @@ public class UIController : MonoBehaviour
     private List<float> screenPartBoundsOnX;
     [SerializeField]
     private float patientAnimationDuration = 1f;
-   
-    public CardUI firstSelectedCard;
-    public CardUI secondSelectedCard;
 
 
     #endregion
@@ -71,24 +71,30 @@ public class UIController : MonoBehaviour
     public void InitializeUIController()
     {
         MakeInstance();
-        UpdateCardsUI(false);
-        foreach (var card in therapistCards)
+
+        //UpdateCards(false);
+
+
+        if (therapistCardsInHand == null)
+            therapistCardsInHand = new List<CardController>();
+        if (patientCardsInHand == null)
+            patientCardsInHand = new List<CardController>();
+
+        foreach (CardController card in therapistCardsInHand)
         {
-            card.GetComponent<CardUI>().DestroyCard();
+            card.DestroyCard();
         }
-        therapistCards.Clear();
-        foreach (var card in patientCards)
+        therapistCardsInHand.Clear();
+
+        foreach (CardController card in patientCardsInHand)
         {
-            card.GetComponent<CardUI>().DestroyCard();
+            card.DestroyCard();
         }
-        patientCards.Clear();
+        patientCardsInHand.Clear();
 
         mainGameUI.SetActive(false);
         beforStartUI.SetActive(true);
         backGroundUI.SetActive(true);
-
-        therapistCards = new List<RectTransform>();
-        patientCards = new List<RectTransform>();
     }
 
     public ScreenPart GetScreenPart(Vector2 mousePosition)
@@ -138,96 +144,140 @@ public class UIController : MonoBehaviour
             IPlayPatientTopCardHelper = StartCoroutine(IPlayPatientTopCard(onDone));
     }
 
-    public void UpdateCardsUI(bool setPosition = true)
+    public void UpdateCards(bool smoothly)
     {
-        therapistCards.Clear();
-        patientCards.Clear();
-        for (int i = 0; i < therapistCardsParent.childCount; i++)
+        List<CardController> sortedPatientCardsList = patientCardsInHand.OrderBy(o => o.index).ToList();
+        patientCardsInHand = sortedPatientCardsList;
+
+        List<CardController> sortedTherapistCardsList = therapistCardsInHand.OrderBy(o => o.index).ToList();
+        therapistCardsInHand = sortedTherapistCardsList;
+
+        foreach (CardController cardT in therapistCardsInHand)
         {
-            therapistCards.Add(therapistCardsParent.GetChild(i) as RectTransform);
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(setPosition);
+            cardT.UpdateCard(smoothly);
         }
-        for (int i = 0; i < patientCardsParent.childCount; i++)
+        foreach (CardController cardP in patientCardsInHand)
         {
-            patientCards.Add(patientCardsParent.GetChild(i) as RectTransform);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(setPosition);
+            cardP.UpdateCard(smoothly);
         }
-        List<RectTransform> sortedPatientCardsList = patientCards.OrderBy(o => o.GetComponent<CardUI>().index).ToList();
-        patientCards = sortedPatientCardsList;
-        List<RectTransform> sortedTherapistCardsList = therapistCards.OrderBy(o => o.GetComponent<CardUI>().index).ToList();
-        therapistCards= sortedTherapistCardsList;
     }
 
-    public void AddCardForTherapist(Card card,int index)
+    public void UpdateCardsPosition(bool smoothly)
     {
-        GameObject newCard = (GameObject)Instantiate(cardPrefab, therapistCardsParent);
-        CardUI newCardUI = newCard.GetComponent<CardUI>();
-        newCardUI.ApplyToCardGameObject(card, CardUIType.TherapistCard);
-        newCardUI.ApplyCardMetrics(index, therapistCenteredCardPos, therapistHighestPosOfCard, therapistLowestPosOfCard);
+        foreach (CardController cardT in therapistCardsInHand)
+        {
+            cardT.UpdateCardPosition(smoothly);
+        }
+        foreach (CardController cardP in patientCardsInHand)
+        {
+            cardP.UpdateCardPosition(smoothly);
+        }
     }
 
-    public void AddCardForPatient(Card card,int index)
+    public void UpdateCardsScale(bool smoothly)
     {
+        foreach (CardController cardT in therapistCardsInHand)
+        {
+            cardT.UpdateCardScale(smoothly);
+        }
+        foreach (CardController cardP in patientCardsInHand)
+        {
+            cardP.UpdateCardScale(smoothly);
+        }
+    }
+
+    public void PullCardForTherapist(Card card)
+    {
+        // int rIndex = Random.Range(0, therapistCardsInHand.Count + 1);
+        int rIndex = therapistCardsInHand.Count;
+
+        GameObject newCard = Instantiate(cardPrefab, therapistCardsParent);
+        CardController newCardController = newCard.GetComponent<CardController>();
+
+
+        foreach (CardController cardT in therapistCardsInHand)
+        {
+            if (cardT.index >= rIndex)
+                cardT.index++;
+        }
+
+        //therapistCardsInHand.Insert(rIndex, newCardController);
+        therapistCardsInHand.Add(newCardController);
+
+
+        newCardController.SetCardParametrsToGameObject(card);
+        newCardController.SetCardCurrentType(CardUIType.TherapistCard);
+        newCardController.SetCardMetrics(rIndex, therapistCenteredCardPos, therapistHighestPosOfCard, therapistLowestPosOfCard);
+        Therapist.instance.AddCardToHand(rIndex, newCardController.card);
+
+        //UpdateCards(true);
+    }
+
+    public void PullCardForPatient(Card card)
+    {
+        //int rIndex = Random.Range(0, patientCardsInHand.Count + 1);
+        int rIndex = patientCardsInHand.Count;
+
         GameObject newCard = Instantiate(cardPrefab, patientCardsParent);
-        CardUI newCardUI = newCard.GetComponent<CardUI>();
-        newCardUI.ApplyToCardGameObject(card, CardUIType.PatientCard);
-        newCardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        CardController newCardController = newCard.GetComponent<CardController>();
+
+
+        foreach (CardController cardP in patientCardsInHand)
+        {
+            if (cardP.index >= rIndex)
+                cardP.index++;
+        }
+
+        // patientCardsInHand.Insert(rIndex, newCardController);
+        patientCardsInHand.Add(newCardController);
+
+        newCardController.SetCardParametrsToGameObject(card);
+        newCardController.SetCardCurrentType(CardUIType.PatientCard);
+        newCardController.SetCardMetrics(rIndex, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        Patient.instance.AddCardToHand(rIndex, newCardController.card);
+
+        //UpdateCards(true);
     }
 
     //Поставить свою карту в случайное место в руке пациента
-    public void PutCardInRandomPlace(CardUI cardUI)
+    public void PutCardInRandomPlace(CardController cardController)
     {
         if (Therapist.instance.therapistCurrentAP - 1 < 0)
         {
-            cardUI.AnimateZoomOut();
+            cardController.UpdateCard(true);
             return;
         }
 
-        UpdateCardsUI(false);
+        int tookCardIndex = cardController.index;
 
-        int tookCardIndex = cardUI.index;
-        foreach (var cardT in therapistCards)
+        therapistCardsInHand.Remove(cardController);
+        Therapist.instance.RemoveCardFromHand(cardController.card);
+
+        foreach (CardController cardT in therapistCardsInHand)
         {
-            if (cardT.GetComponent<CardUI>().index > tookCardIndex)
-                cardT.GetComponent<CardUI>().index--;
+            if (cardT.index > tookCardIndex)
+                cardT.index--;
         }
 
-        int index = Random.Range(0, patientCardsParent.childCount+1);
-        cardUI.ApplyToCardGameObject(cardUI.card, CardUIType.PatientCard);
-        cardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        int rIndex = Random.Range(0, patientCardsInHand.Count + 1);
 
-        //Debug.Log($"index = {index}");
-
-        for (int i = 0; i < patientCardsParent.childCount; i++)
+        foreach (CardController cardP in patientCardsInHand)
         {
-            int indexnow = patientCardsParent.GetChild(i).GetComponent<CardUI>().index;
-            if (indexnow>= index)
-            {
-                indexnow++;
-            }
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().ApplyCardMetrics(indexnow, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+            if (cardP.index >= rIndex)
+                cardP.index++;
         }
 
-        cardUI.transform.SetParent(patientCardsParent);
+        patientCardsInHand.Insert(rIndex, cardController);
 
-        for (int i = 0; i < patientCardsParent.childCount; i++)
-        {
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
-        }
+        cardController.transform.SetParent(patientCardsParent);
+        cardController.SetCardCurrentType(CardUIType.PatientCard);
+        cardController.SetCardMetrics(rIndex, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        Patient.instance.AddCardToHand(rIndex, cardController.card);
 
-        for (int i = 0; i < therapistCardsParent.childCount; i++)
-        {
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
-        }
-        //Need to Insert and remove card in nessary abstract holders
-
-        Patient.instance.AddCardToHand(cardUI.card, index);
-        UpdateCardsUI(false);
+        UpdateCards(true);
 
         //Update TherapistActionPoints
-        if (cardUI.card.cardType == CardTypes.Equipment)
+        if (cardController.card.cardType == CardTypes.Equipment)
         {
             Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 1, Therapist.instance.therapistMaxAP - 1);
         }
@@ -243,7 +293,7 @@ public class UIController : MonoBehaviour
     {
         if (firstSelectedCard != null && secondSelectedCard != null)
         {
-            if (firstSelectedCard.cardUIType != secondSelectedCard.cardUIType)
+            if (firstSelectedCard.cardCurrentType != secondSelectedCard.cardCurrentType)
             {
                 if (Therapist.instance.therapistCurrentAP - 3 < 0)
                 {
@@ -260,15 +310,30 @@ public class UIController : MonoBehaviour
                 }
             }
 
-            UpdateCardsUI(false);
+            //UpdateCardsUI(false);
 
-            Patient.instance.RemoveCardFromHand(firstSelectedCard.index);
-            if (secondSelectedCard.cardUIType == CardUIType.PatientCard)
+            patientCardsInHand.Remove(firstSelectedCard);
+            Patient.instance.RemoveCardFromHand(firstSelectedCard.card);
+
+            if (secondSelectedCard.cardCurrentType == CardUIType.PatientCard)
             {
-                Patient.instance.AddCardToHand(firstSelectedCard.card, secondSelectedCard.index);
-                Patient.instance.RemoveCardFromHand(secondSelectedCard.index);
+                patientCardsInHand.Insert(secondSelectedCard.index, firstSelectedCard);
+                Patient.instance.AddCardToHand(secondSelectedCard.index, firstSelectedCard.card);
+
+                patientCardsInHand.Remove(secondSelectedCard);
+                Patient.instance.RemoveCardFromHand(secondSelectedCard.card);
             }
-            Patient.instance.AddCardToHand(secondSelectedCard.card, firstSelectedCard.index);
+            else
+            {
+                therapistCardsInHand.Insert(secondSelectedCard.index, firstSelectedCard);
+                Therapist.instance.AddCardToHand(secondSelectedCard.index, firstSelectedCard.card);
+
+                therapistCardsInHand.Remove(secondSelectedCard);
+                Therapist.instance.RemoveCardFromHand(secondSelectedCard.card);
+            }
+
+            patientCardsInHand.Insert(firstSelectedCard.index, secondSelectedCard);
+            Patient.instance.AddCardToHand(firstSelectedCard.index, secondSelectedCard.card);
 
             int indexHolder = firstSelectedCard.index;
             Vector2 centerPosHolder = firstSelectedCard.centeredCardPos;
@@ -276,27 +341,23 @@ public class UIController : MonoBehaviour
             Vector2 highestPosHolder = firstSelectedCard.highestPosOfCard;
 
             /////Set Patient card settings as Therapist
-            firstSelectedCard.ApplyToCardGameObject(firstSelectedCard.card, secondSelectedCard.cardUIType);
-            firstSelectedCard.ApplyCardMetrics(secondSelectedCard.index, secondSelectedCard.centeredCardPos, secondSelectedCard.highestPosOfCard, secondSelectedCard.lowestPosOfCard);
+            firstSelectedCard.SetCardParametrsToGameObject(firstSelectedCard.card);
+            firstSelectedCard.SetCardCurrentType(secondSelectedCard.cardCurrentType);
+            firstSelectedCard.SetCardMetrics(secondSelectedCard.index, secondSelectedCard.centeredCardPos, secondSelectedCard.highestPosOfCard, secondSelectedCard.lowestPosOfCard);
 
             //Debug.Log($"secondSelectedCard.transform.parent name is {transformHolder.parent.gameObject.name}");
             firstSelectedCard.transform.SetParent(secondSelectedCard.transform.parent);
 
-            firstSelectedCard.UpdateCard(false);
-            firstSelectedCard.MoveCardToPlace(0.5f);
-
 
             /////Set Therapist card settings as Patient
-            secondSelectedCard.ApplyToCardGameObject(secondSelectedCard.card, CardUIType.PatientCard);
-            secondSelectedCard.ApplyCardMetrics(indexHolder,centerPosHolder,highestPosHolder,lowestPosHolder);
+            secondSelectedCard.SetCardParametrsToGameObject(secondSelectedCard.card);
+            secondSelectedCard.SetCardCurrentType(CardUIType.PatientCard);
+            secondSelectedCard.SetCardMetrics(indexHolder, centerPosHolder, highestPosHolder, lowestPosHolder);
 
             //Debug.Log($"transformHolder.parent name is {transformHolder.parent.gameObject.name}");
             secondSelectedCard.transform.SetParent(patientCardsParent);
 
-            secondSelectedCard.UpdateCard(false);
-            secondSelectedCard.MoveCardToPlace(0.5f);
-
-            if (firstSelectedCard.cardUIType != CardUIType.PatientCard)
+            if (firstSelectedCard.cardCurrentType != CardUIType.PatientCard)
             {
                 Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 3, Therapist.instance.therapistMaxAP);
                 //NEED TO change deck belonging
@@ -306,7 +367,7 @@ public class UIController : MonoBehaviour
                 Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 1, Therapist.instance.therapistMaxAP);
             }
 
-            UpdateCardsUI(false);
+            UpdateCards(true);
             //reset selectedes
             ResetSelectedes();
         }
@@ -317,107 +378,107 @@ public class UIController : MonoBehaviour
         float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, mouseY);
         //float indexByT = t * patientCards.Count;
 
-        float step = 1f / patientCards.Count;
+        float step = 1f / patientCardsInHand.Count;
 
-        for (int i = 0; i < patientCards.Count; i++)
+        for (int i = 0; i < patientCardsInHand.Count; i++)
         {
             float tForCard = step * i;
             if (tForCard > t)
                 tForCard += step;
-            patientCards[i].GetComponent<CardUI>().MoveCardToPlace(0.5f,tForCard);
+            patientCardsInHand[i].MoveCardToPlace(0.5f, tForCard, () => { });
         }
     }
 
     //Добавить свою карту в руку пациента в любое место, по желанию игрока
-    public void DropCardToPatientHand(CardUI cardUI)
+    public void DropCardToPatientHand(CardController cardController)
     {
         if (Therapist.instance.therapistCurrentAP - 2 < 0)
         {
-            cardUI.AnimateZoomOut();
+            cardController.UpdateCard(true); 
             return;
         }
 
-
-        UpdateCardsUI(false);
+        therapistCardsInHand.Remove(cardController);
+        Therapist.instance.RemoveCardFromHand(cardController.card);
 
         //detect index
-        float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, cardUI.GetComponent<RectTransform>().anchoredPosition.y);
-        float step = 1f / patientCards.Count;
+        float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, cardController.GetComponent<RectTransform>().anchoredPosition.y);
+        float step = 1f / patientCardsInHand.Count;
         int index = 0;
-        for (int i = 0; i < patientCards.Count; i++)
+        for (int i = 0; i < patientCardsInHand.Count; i++)
         {
             float tForCard = step * i;
             if (t >= tForCard && t < tForCard + step)
-                index = i + 1;
+                index = i;
         }
-        cardUI.ApplyToCardGameObject(cardUI.card, CardUIType.PatientCard);
-        cardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
-        
+        cardController.SetCardParametrsToGameObject(cardController.card);
+        cardController.SetCardCurrentType(CardUIType.PatientCard);
+        cardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+
         //
-        for (int i = 0; i < patientCardsParent.childCount; i++)
+
+        foreach (CardController cardP in patientCardsInHand)
         {
-            int indexnow = patientCardsParent.GetChild(i).GetComponent<CardUI>().index;
-            if (indexnow >= index)
-            {
-                indexnow++;
-            }
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().ApplyCardMetrics(indexnow, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+            if (cardP.index >= index)
+                cardP.index++;
         }
 
+        patientCardsInHand.Insert(index, cardController);
+        Patient.instance.AddCardToHand(index, cardController.card);
 
-        cardUI.transform.SetParent(patientCardsParent);
+        cardController.transform.SetParent(patientCardsParent);
 
-        for (int i = 0; i < patientCardsParent.childCount; i++)
-        {
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
-        }
-
-        for (int i = 0; i < therapistCardsParent.childCount; i++)
-        {
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false);
-            therapistCardsParent.GetChild(i).GetComponent<CardUI>().MoveCardToPlace(0.5f);
-        }
-        //Need to Insert and remove card in nessary abstract holders
-
-        UpdateCardsUI(false);
-        Patient.instance.AddCardToHand(cardUI.card, index);
+        UpdateCards(true);
 
         Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 2, Therapist.instance.therapistMaxAP);
     }
 
     public void AddPsychosisToPatient()
     {
-        UpdateCardsUI(false);
+        //UpdateCardsUI(false);
 
-        int index = Random.Range(0, patientCardsParent.childCount + 1);
+        int index = Random.Range(0, patientCardsInHand.Count + 1);
 
         GameObject newCard = Instantiate(cardPrefab, patientCardsParent);
         newCard.GetComponent<RectTransform>().localScale = 0.4f * Vector3.one;
-        CardUI newCardUI = newCard.GetComponent<CardUI>();
-        newCardUI.ApplyToCardGameObject(Cards.Psychosis, CardUIType.PatientCard);
-        newCardUI.ApplyCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        CardController newCardController = newCard.GetComponent<CardController>();
+        newCardController.SetCardParametrsToGameObject(Cards.Psychosis);
+        newCardController.SetCardCurrentType(CardUIType.PatientCard);
+        newCardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
 
         //Debug.Log($"index = {index}");
-
-        for (int i = 0; i < patientCardsParent.childCount; i++)
+        foreach (CardController cardP in patientCardsInHand)
         {
-            int indexnow = patientCardsParent.GetChild(i).GetComponent<CardUI>().index;
-            if (indexnow >= index)
-            {
-                indexnow++;
-            }
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().ApplyCardMetrics(indexnow, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+            if (cardP.index >= index)
+                cardP.index++;
         }
 
-        for (int i = 0; i < patientCardsParent.childCount; i++)
-        {
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().UpdateCard(false,false);
-            patientCardsParent.GetChild(i).GetComponent<CardUI>().AnimateZoomOut();
-        }
+        patientCardsInHand.Insert(index, newCardController);
+        Patient.instance.AddCardToHand(index, newCardController.card);
+
         //Need to Insert and remove card in nessary abstract holders
 
-        UpdateCardsUI(false);
+        UpdateCards(true);
+    }
+
+    public void Discard(CardUIType cardUIType)
+    {
+        if(cardUIType == CardUIType.PatientCard)
+        {
+            foreach (CardController cardC in patientCardsInHand)
+            {
+                cardC.MoveCardToDiscard(new Vector2(80, -580));
+            }
+            patientCardsInHand.Clear();
+        }
+        if(cardUIType == CardUIType.TherapistCard)
+        {
+            foreach (CardController cardC in therapistCardsInHand)
+            {
+                cardC.MoveCardToDiscard(new Vector2(-80, -580));
+            }
+            therapistCardsInHand.Clear();
+        }
     }
 
     #endregion
@@ -427,14 +488,15 @@ public class UIController : MonoBehaviour
 
     private void ResetSelectedes() 
     {
-        for (int i = 0; i < patientCardsParent.childCount; i++)
+        foreach (CardController card in patientCardsInHand)
         {
-            patientCardsParent.GetChild(i).GetChild(0).gameObject.SetActive(false);
+            card.transform.GetChild(0).gameObject.SetActive(false);
         }
-        for (int i = 0; i < therapistCardsParent.childCount; i++)
+        foreach (CardController card in therapistCardsInHand)
         {
-            therapistCardsParent.GetChild(i).GetChild(0).gameObject.SetActive(false);
+            card.transform.GetChild(0).gameObject.SetActive(false);
         }
+
         secondSelectedCard = null;
         firstSelectedCard = null;
     }
@@ -442,14 +504,20 @@ public class UIController : MonoBehaviour
     private Coroutine IPlayPatientTopCardHelper;
     private IEnumerator IPlayPatientTopCard(UnityAction onDone)
     {
-        if (patientCards.Count <= 0)
+        if (patientCardsInHand.Count <= 0)
             yield break;
-        RectTransform patientTopCard = patientCards[0];
-        patientTopCard.SetParent(patientCardsParent.parent);
-        patientCards.RemoveAt(0);
-        UpdateCardsUI();
+        CardController patientTopCard = patientCardsInHand[0];
+        patientTopCard.transform.SetParent(patientCardsParent.parent);
+        patientCardsInHand.RemoveAt(0);
 
-        patientTopCard.GetComponent<CardUI>().MoveCardToCenter(() => 
+        foreach (CardController card in patientCardsInHand)
+        {
+            card.index--;
+        }
+
+        UpdateCards(true);
+
+        patientTopCard.MoveCardToCenter(() => 
         {
             onDone();
             IPlayPatientTopCardHelper = null;

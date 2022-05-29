@@ -22,7 +22,7 @@ public class Phobia : NPC
     private TMP_Text phobiaNextAction;
 
     [SerializeField] private PhobiaPhase phobiaPhase;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private float maxHealth = 120;
     [SerializeField] private bool isFirstStepAtPhaseTwo = true;
     [SerializeField] private int attackCountInAStep = 0;
 
@@ -32,9 +32,11 @@ public class Phobia : NPC
         MakeInstance();
 
         isFirstStepAtPhaseTwo = true;
+
         phobiaPhase = PhobiaPhase.FirstPhase;
-        Health = 120;
-        maxHealth = Health;
+        maxHealth = 120;
+        Health = maxHealth;
+
         UpdateHealthBar();
 
         PrepareAttack();
@@ -43,7 +45,7 @@ public class Phobia : NPC
         weaknessStack = 0;
     }
 
-    public void StartTurn(UnityAction onDone)
+    public void StartTurn(UnityAction onDone =null)
     {
         if (IStartTurnHelper == null)
         {
@@ -82,6 +84,7 @@ public class Phobia : NPC
 
     public void AddWeakness(int value)
     {
+        Debug.Log($"<color=#ffa500ff>phobia: </color> AddWeakness called. Value = {value}");
         weaknessStack += value;
         if (weaknessStack < 0)
         {
@@ -175,6 +178,7 @@ public class Phobia : NPC
     private IEnumerator IStartTurn(UnityAction onDone)
     {
         Debug.Log($"<color=orange>Turn Started</color>");
+
         yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < attackCountInAStep; i++)
@@ -182,7 +186,9 @@ public class Phobia : NPC
             AttackATime();
             yield return new WaitForSeconds(0.5f);
         }
-        onDone();
+
+        onDone?.Invoke();
+        
         IStartTurnHelper = null;
 
         Debug.Log($"<color=orange>Turn Ended</color>");
