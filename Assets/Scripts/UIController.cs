@@ -58,6 +58,10 @@ public class UIController : MonoBehaviour
     private float patientAnimationDuration = 1f;
 
 
+    [Space(40f)]
+    [Header("            Game Endings        ")]
+    [SerializeField] GameObject endPanel;
+    [SerializeField] TMPro.TMP_Text levelinfoTxt;
     #endregion
 
     #region Private Fields
@@ -73,6 +77,16 @@ public class UIController : MonoBehaviour
         MakeInstance();
 
         //UpdateCards(false);
+
+
+        if (IFadeMainGameUIHelper != null)
+            StopCoroutine(IFadeMainGameUIHelper);
+
+        CanvasGroup cg = mainGameUI.GetComponent<CanvasGroup>();
+        cg.alpha = 1f;
+
+        endPanel.gameObject.SetActive(false);
+
 
 
         if (therapistCardsInHand == null)
@@ -310,8 +324,6 @@ public class UIController : MonoBehaviour
                 }
             }
 
-            //UpdateCardsUI(false);
-
             patientCardsInHand.Remove(firstSelectedCard);
             Patient.instance.RemoveCardFromHand(firstSelectedCard.card);
 
@@ -481,6 +493,17 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void OpenEndGamePanel(bool levelCompleted)
+    {
+        if (IFadeMainGameUIHelper != null)
+            StopCoroutine(IFadeMainGameUIHelper);
+
+        IFadeMainGameUIHelper = StartCoroutine(IFadeMainGameUI());
+
+        levelinfoTxt.text = levelCompleted ? "Level Completed!!!" : "Level Faild(((";
+        endPanel.gameObject.SetActive(true);
+    }
+
     #endregion
 
 
@@ -522,6 +545,26 @@ public class UIController : MonoBehaviour
             onDone();
             IPlayPatientTopCardHelper = null;
         });
+    }
+
+    private Coroutine IFadeMainGameUIHelper;
+    private IEnumerator IFadeMainGameUI()
+    {
+        CanvasGroup cg = mainGameUI.GetComponent<CanvasGroup>();
+        cg.alpha = 1f;
+
+        float t = 0;
+        float duration = 0.5f;
+
+        while (t / duration < 1f)
+        {
+            cg.alpha = Mathf.Lerp(1f, 0f, t / duration);
+            t += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        cg.alpha = 0f;
+        IFadeMainGameUIHelper = null;
     }
 
     #endregion

@@ -53,6 +53,16 @@ public class GameManager : MonoBehaviour
         therapist.PrepareNewTurn();
     }
 
+    public void LevelCompleted()
+    {
+        _UIcontroller.OpenEndGamePanel(true);
+    }
+
+    public void LevelFailed()
+    {
+        _UIcontroller.OpenEndGamePanel(false);
+    }
+
     private void Awake()
     {
         InitialiseGame();

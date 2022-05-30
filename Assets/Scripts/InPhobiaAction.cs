@@ -5,11 +5,18 @@ using UnityEngine;
 [Serializable]
 public class InPhobiaAction
 {
-    [SerializeField] private UnityAction onAction;
-    [SerializeField] private bool saveAction;
-    [SerializeField] private string id;
+    public UnityAction onAction;
+    //public UnityAction OnAction { get { return onAction; } }
 
-    private bool invoked;
+    public bool saveAction;
+    //public bool SaveAction { get { return saveAction; } }
+
+    public string id;
+    //public string ID { get { return id; } }
+
+    public bool invoked;
+    //public bool Invoked { get { return invoked; } }
+
 
     public InPhobiaAction(string id, UnityAction onAction, bool saveAction)
     {
@@ -22,28 +29,11 @@ public class InPhobiaAction
     public void Invoke()
     {
         onAction();
-        invoked = true;
+        if (!saveAction)
+            invoked = true;
     }
 
-    public string ID
-    {
-        get { return id; }
-    }
 
-    public UnityAction OnAction
-    {
-        get { return onAction; }
-    }
-
-    public bool Invoked
-    {
-        get { return invoked; }
-    }
-
-    public bool SaveAction
-    {
-        get { return saveAction; }
-    }
 
     private bool EqualsP(InPhobiaAction obj)
     {

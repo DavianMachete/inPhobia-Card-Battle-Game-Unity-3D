@@ -237,8 +237,7 @@ public class CardController : MonoBehaviour
         SetInteractable(false);
         MoveCardTo(animDuration, new Vector2(800, 0),()=> 
         {
-            FadeCardIn();
-            onDone();
+            FadeCardIn(onDone);
         });
     }
     public void MoveCardToDiscard(Vector2 toPos)
@@ -250,13 +249,14 @@ public class CardController : MonoBehaviour
         });
     }
 
-    public void FadeCardIn()
+    public void FadeCardIn(UnityAction onDone = null)
     {
         isCardFading = true;
         if (IFadeCardHelper == null)
             IFadeCardHelper = StartCoroutine(IFadeCard(0f, animDuration, () =>
             {
                 isCardFading = false;
+                onDone?.Invoke();
                 DestroyCard();
             }));
     }
@@ -353,9 +353,10 @@ public class CardController : MonoBehaviour
     private float GetCardT()
     {
         float step, t;
-        if (transform.parent.childCount > 1)
+        int currentCardsCount = cardCurrentType == CardUIType.PatientCard ? UIController.instance.patientCardsInHand.Count : UIController.instance.therapistCardsInHand.Count;
+        if (currentCardsCount > 1)
         {
-            step = 1f / (transform.parent.childCount - 1f);
+            step = 1f / (currentCardsCount - 1f);
             t = index * step;
         }
         else
@@ -452,6 +453,7 @@ public class CardController : MonoBehaviour
 
         if (onDone != null)
             onDone();
+        yield return null;
         IScaleCardToHelper = null;
     }
 
@@ -485,6 +487,7 @@ public class CardController : MonoBehaviour
 
         if (onDone != null)
             onDone();
+        yield return null;
         IMoveCardToHelper = null;
     }
 
@@ -494,7 +497,10 @@ public class CardController : MonoBehaviour
     private IEnumerator IFadeCard(float value, float duration, UnityAction onDone = null)
     {
         if (duration <= 0f)
-            duration = Time.fixedDeltaTime;
+        {
+            //Debug.Log($"<color=yellow>Card {card.cardID}'s IFadeCard animation duration = {duration}</color>");
+            duration = 0.1f;
+        }
 
         float t = 0f;
         float startFadeValue = canvasGroup.alpha;
@@ -515,6 +521,7 @@ public class CardController : MonoBehaviour
 
         if (onDone != null)
             onDone();
+        yield return null;
         IFadeCardHelper = null;
     }
 }

@@ -14,19 +14,30 @@ public class Affect
     public List<InPhobiaAction> OnAttack;//The act before Patient attack
     public List<InPhobiaAction> OnDefense;//The act before patient attacted by enamy
 
+    private string name;
+    private int index;
+
     public Affect()
     {
-        CheckNullables();
+        CheckForNulls();
     }
 
     public void Update()
     {
-        OnTurnStart = Update(OnTurnStart);
-        OnTurnEnd = Update(OnTurnEnd);
-        OnStepStart = Update(OnStepStart);
-        OnStepEnd = Update(OnStepEnd);
-        OnAttack = Update(OnAttack);
-        OnDefense = Update(OnDefense);
+        Debug.Log($"<color=green>Affect: </color>Affect Update Started");
+
+        name = "";
+        index = 0;
+
+        UpdateActionList(OnTurnStart);
+        UpdateActionList(OnTurnEnd);
+        UpdateActionList(OnStepStart);
+        UpdateActionList(OnStepEnd);
+        UpdateActionList(OnAttack);
+        UpdateActionList(OnDefense);
+
+
+        Debug.Log($"<color=green>Affect: </color>Affect Updated {name}");
     }
 
     public void Clear()
@@ -47,36 +58,61 @@ public class Affect
         }
     }
 
-    private List<InPhobiaAction> Update(List<InPhobiaAction> inPhobiaActions)
+    private void UpdateActionList(List<InPhobiaAction> inPhobiaActions)
     {
-        List<InPhobiaAction> newInPhobiaActions = new List<InPhobiaAction>();
+        int length = inPhobiaActions.Count;
 
+        Debug.Log($"<color=green>Affect: </color>{GetActionsListName(index)} Updating");
         //remove nulls
-        foreach (InPhobiaAction action in inPhobiaActions)
+        for (int i = 0; i < length; i++)
         {
-            if (!string.IsNullOrEmpty(action.ID))
-                newInPhobiaActions.Add(action);
+            //if (string.IsNullOrEmpty(inPhobiaActions[i].ID)) 
+            if (string.IsNullOrEmpty(inPhobiaActions[i].id))
+            {
+                inPhobiaActions.RemoveAt(i);
+                i--;
+                length--;
+            }
         }
-        inPhobiaActions = new List<InPhobiaAction>(newInPhobiaActions);
-        newInPhobiaActions.Clear();
-
 
         //remove invoked actions that not set to save
-        foreach (InPhobiaAction action in inPhobiaActions)
+        for (int i = 0; i < length; i++)
         {
-            if (action.SaveAction || !action.Invoked)
-                newInPhobiaActions.Add(action);
+            //if (inPhobiaActions[i].Invoked)
+            if (inPhobiaActions[i].invoked)
+            {
+                inPhobiaActions.RemoveAt(i);
+                i--;
+                length--;
+            }
         }
-        inPhobiaActions = new List<InPhobiaAction>(newInPhobiaActions);
-        newInPhobiaActions.Clear();
-
         //remove similars
-        newInPhobiaActions = inPhobiaActions.Distinct().ToList();
+        //inPhobiaActions.Distinct().ToList();
+        for (int i = 0; i < length-1; i++)
+        {
+            for (int j = i+1; j < length; j++)
+            {
+                if(inPhobiaActions[i]== inPhobiaActions[j])
+                {
+                    inPhobiaActions.RemoveAt(i);
+                    i--;
+                    j--;
+                    length--;
+                }
+            }
+        }
 
-        return newInPhobiaActions;
+
+        Debug.Log($"<color=green>Affect: </color>{GetActionsListName(index)} Updated. Actions count {inPhobiaActions.Count}");
+        index++;
+        foreach (InPhobiaAction action in inPhobiaActions)//this is only for debug
+        {
+            //name += action.ID + " ";
+            name += action.id + " ";
+        }
     }
 
-    private void CheckNullables()
+    private void CheckForNulls()
     {
         if (OnTurnStart == null)
             OnTurnStart = new List<InPhobiaAction>();
@@ -90,6 +126,27 @@ public class Affect
             OnAttack = new List<InPhobiaAction>();
         if (OnDefense == null)
             OnDefense = new List<InPhobiaAction>();
+    }
+
+    private string GetActionsListName(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return "OnTurnStart";
+            case 1:
+                return "OnTurnEnd";
+            case 2:
+                return "OnStepStart";
+            case 3:
+                return "OnStepEnd";
+            case 4:
+                return "OnAttack";
+            case 5:
+                return "OnDefense";
+            default:
+                return "Wrong index";
+        }
     }
 
     public static Affect operator +(Affect a, Affect b)

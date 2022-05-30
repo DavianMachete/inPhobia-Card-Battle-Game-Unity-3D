@@ -70,10 +70,6 @@ public class Patient : NPC
 
     public void InitializeDeck()
     {
-        if (deck == null)
-            deck = new List<Card>();
-        deck.Clear();
-
         if (Hand == null)
             Hand = new List<Card>();
         Hand.Clear();
@@ -234,12 +230,16 @@ public class Patient : NPC
         if (damage > 0)
         {
             Health -= damage;
-            UpdateHealthBar();
             if (attackWhenDamaged)
             {
                 Attack();
             }
         }
+        if (Health <= 0)
+        {
+            GameManager.instance.LevelFailed();
+        }
+        UpdateHealthBar();
     }
 
 
@@ -264,13 +264,12 @@ public class Patient : NPC
     private Coroutine IStartTurnHelper;
     private IEnumerator IStartTurn()
     {
-        discard.Clear();
-
         if (!blockSaved)
         {
             block = 0;
         }
 
+        affect.Invoke(affect.OnTurnStart);
         Debug.Log($"<color=cyan>Turn Started</color>");
 
         foreach (Card card in Hand)
@@ -278,10 +277,11 @@ public class Patient : NPC
             if (patientCurrentAP < card.actionPoint)
                 break;
 
-            affect.Invoke(affect.OnTurnStart);
-
             affect += card.affect;
+            //Debug.Break();
             affect.Update();
+            yield return new WaitForFixedUpdate();
+            //Debug.Break();
 
             Debug.Log($"<color=cyan>Step Started </color>with card -> {card.cardID}");
 
@@ -297,7 +297,7 @@ public class Patient : NPC
             });
 
             yield return new WaitUntil(()=>patientCardPlayed);
-
+            yield return new WaitForFixedUpdate();
 
             if (card.cardType == CardTypes.Attack)
             {

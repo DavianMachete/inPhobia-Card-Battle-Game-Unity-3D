@@ -10,7 +10,7 @@ public class Phobia : NPC
 
     public int vulnerablityCount = 0;
     public int weaknessStack = 0;
-    public int power = 0;
+    public int power = -1;
 
     [SerializeField]
     private TMP_Text healthTxtp;
@@ -47,6 +47,20 @@ public class Phobia : NPC
 
     public void StartTurn(UnityAction onDone =null)
     {
+        if (phobiaPhase == PhobiaPhase.SecondPhase)
+        {
+            if (isFirstStepAtPhaseTwo)
+            {
+                maxHealth = 320;
+                Health = maxHealth;
+
+                UpdateHealthBar();
+
+                isFirstStepAtPhaseTwo = false;
+
+                return;
+            }
+        }
         if (IStartTurnHelper == null)
         {
             IStartTurnHelper = StartCoroutine(IStartTurn(onDone));
@@ -61,6 +75,22 @@ public class Phobia : NPC
         }
         Debug.Log($"<color=#ffa500ff>phobia's</color> gotten damage is {damage} =>  vulnerablityCount = {vulnerablityCount}");
         Health -= damage;
+
+        if (Health <= 0)
+        {
+            Health = 0;
+            if (IStartTurnHelper != null)
+            {
+                StopCoroutine(IStartTurnHelper);
+            }
+            if (phobiaPhase == PhobiaPhase.FirstPhase)
+                phobiaPhase = PhobiaPhase.SecondPhase;
+            else
+            {
+                GameManager.instance.LevelCompleted();
+            }
+        }
+
         UpdateHealthBar();
     }
 
@@ -169,8 +199,8 @@ public class Phobia : NPC
 
     private void AttackATime()
     {
-        Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {AttackForce} attack force and {weaknessStack} weaknessStack");
-        Patient.instance.MakeTheDamage(AttackForce - weaknessStack);
+        Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {AttackForce} attack force, {weaknessStack} weaknessStack aaand {power} power");
+        Patient.instance.MakeTheDamage(AttackForce - weaknessStack + power);
     }
 
 
