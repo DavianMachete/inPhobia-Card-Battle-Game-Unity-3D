@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 59901633}
   - component: {fileID: 59901632}
   - component: {fileID: 59901631}
+  - component: {fileID: 59901635}
   m_Layer: 5
   m_Name: ------------Canvas----------------
   m_TagString: Untagged
@@ -494,6 +495,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &59901635
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59901630}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &72839759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4390,7 @@ MonoBehaviour:
   actionPointsText: {fileID: 50021790}
   healthTxtp: {fileID: 2036265763}
   healthBarImage: {fileID: 262691387}
-  maxHealth: 120
+  maxHealth: 500
   nextAttackCount: 1
   armor: 0
   block: 0
@@ -7102,6 +7115,7 @@ MonoBehaviour:
   patientAnimationDuration: 1
   endPanel: {fileID: 816044700}
   levelinfoTxt: {fileID: 1032057694}
+  canvasCG: {fileID: 59901635}
 --- !u!1 &1972276754
 GameObject:
   m_ObjectHideFlags: 0

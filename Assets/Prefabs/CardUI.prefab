@@ -1056,13 +1056,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card:
+    name: 
     cardID: 
-    cardName: 
     cardType: 0
+    affect:
+      OnTurnStart: []
+      OnTurnEnd: []
+      OnStepStart: []
+      OnStepEnd: []
+      OnAttack: []
+      OnDefense: []
     affectDescription: 
     actionPoint: 0
     rarity: 0
-  cardUIType: 0
+    cardBelonging: 0
+  cardCurrentType: 2
   index: 0
   lowestPosOfCard: {x: 52, y: -253}
   highestPosOfCard: {x: 52, y: 248}

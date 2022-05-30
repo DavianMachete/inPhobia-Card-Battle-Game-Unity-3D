@@ -62,6 +62,7 @@ public class Patient : NPC
 
     public void StartTurn()
     {
+        UIController.instance.SetInteractable(false);
         if (IStartTurnHelper == null)
         {
             IStartTurnHelper = StartCoroutine(IStartTurn());
@@ -272,20 +273,30 @@ public class Patient : NPC
         affect.Invoke(affect.OnTurnStart);
         Debug.Log($"<color=cyan>Turn Started</color>");
 
-        foreach (Card card in Hand)
+
+
+        //foreach (Card card in Hand)
+        int cardCountInHand = Hand.Count;
+        for (int i = 0; i < cardCountInHand; i++)
         {
-            if (patientCurrentAP < card.actionPoint)
+            if (patientCurrentAP < Hand[i].actionPoint)//card.actionPoint)
                 break;
 
-            affect += card.affect;
+            Debug.Log($"Current card is {Hand[i].cardID}");
+            if (i + 1 < cardCountInHand)
+                Debug.Log($"Next card will be {Hand[i + 1].cardID}");
+            else
+                Debug.Log($"And itsthe last card in Hand");
+
+            affect += Hand[i].affect;// card.affect;
             //Debug.Break();
             affect.Update();
             yield return new WaitForFixedUpdate();
             //Debug.Break();
 
-            Debug.Log($"<color=cyan>Step Started </color>with card -> {card.cardID}");
+            Debug.Log($"<color=cyan>Step Started </color>with card -> {Hand[i].cardID}");// card.cardID}");
 
-            patientCurrentAP -= card.actionPoint;
+            patientCurrentAP -= Hand[i].actionPoint;// card.actionPoint;
             actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
 
             affect.Invoke(affect.OnStepStart);
@@ -299,21 +310,21 @@ public class Patient : NPC
             yield return new WaitUntil(()=>patientCardPlayed);
             yield return new WaitForFixedUpdate();
 
-            if (card.cardType == CardTypes.Attack)
+            if (Hand[i].cardType /*card.cardType*/ == CardTypes.Attack)
             {
                 affect.Invoke(affect.OnAttack);
-                for (int i = 0; i < nextAttackCount; i++)
+                for (int j = 0; j < nextAttackCount; j++)
                 {
                     Attack();
-                    Debug.Log($"<color=cyan>Attacked</color>_{card.cardID}_");
+                    Debug.Log($"<color=cyan>Attacked</color>_{Hand[i].cardID/*card.cardID*/}_");
                     yield return new WaitForSeconds(1f);
                 }
                 nextAttackCount = 1;//is Next Attack count saved, when turn ended?
             }
             affect.Invoke(affect.OnStepEnd);
 
-            Debug.Log($"<color=cyan>Step Ended</color>_{card.cardID}_");
-            discard.Add(card);
+            Debug.Log($"<color=cyan>Step Ended</color>_{Hand[i].cardID/*card.cardID*/}_");
+            discard.Add(Hand[i]);
         }
 
         Debug.Log($"<color=cyan>Turn Ended</color>");
@@ -323,8 +334,12 @@ public class Patient : NPC
         Phobia.instance.StartTurn(()=>
         {
             affect.Invoke(affect.OnTurnEnd);
+
+            UIController.instance.SetInteractable(true);
+
             GameManager.instance.PlayNextTurn();
         });
+
 
         IStartTurnHelper = null;
     }

@@ -62,6 +62,7 @@ public class UIController : MonoBehaviour
     [Header("            Game Endings        ")]
     [SerializeField] GameObject endPanel;
     [SerializeField] TMPro.TMP_Text levelinfoTxt;
+    [SerializeField] CanvasGroup canvasCG;
     #endregion
 
     #region Private Fields
@@ -111,6 +112,16 @@ public class UIController : MonoBehaviour
         backGroundUI.SetActive(true);
     }
 
+    public void SetInteractable(bool value)
+    {
+        canvasCG.interactable = value;
+        canvasCG.blocksRaycasts = value;
+    }
+    public bool GetCanvasInteractable()
+    {
+        //Debug.Log(canvasCG.interactable);
+        return canvasCG.interactable;
+    }
     public ScreenPart GetScreenPart(Vector2 mousePosition)
     {
         float leftBound, rightBound;
@@ -118,11 +129,11 @@ public class UIController : MonoBehaviour
         float mouseX = mousePosition.x * 1920f / (float)Screen.width;
         mouseX -= 1920f / 2f;
 
-        int index = 0; 
-        for (int i = 0; i < screenPartBoundsOnX.Count+1; i++)
+        int index = 0;
+        for (int i = 0; i < screenPartBoundsOnX.Count + 1; i++)
         {
             if (i == 0)
-                leftBound = -1920f / 2f; 
+                leftBound = -1920f / 2f;
             else
                 leftBound = screenPartBoundsOnX[i - 1];
 

@@ -24,7 +24,7 @@ public class Affect
 
     public void Update()
     {
-        Debug.Log($"<color=green>Affect: </color>Affect Update Started");
+        //Debug.Log($"<color=green>Affect: </color>Affect Update Started");
 
         name = "";
         index = 0;
@@ -37,7 +37,7 @@ public class Affect
         UpdateActionList(OnDefense);
 
 
-        Debug.Log($"<color=green>Affect: </color>Affect Updated {name}");
+        //Debug.Log($"<color=green>Affect: </color>Affect Updated {name}");
     }
 
     public void Clear()
@@ -62,7 +62,6 @@ public class Affect
     {
         int length = inPhobiaActions.Count;
 
-        Debug.Log($"<color=green>Affect: </color>{GetActionsListName(index)} Updating");
         //remove nulls
         for (int i = 0; i < length; i++)
         {
@@ -103,7 +102,7 @@ public class Affect
         }
 
 
-        Debug.Log($"<color=green>Affect: </color>{GetActionsListName(index)} Updated. Actions count {inPhobiaActions.Count}");
+        //Debug.Log($"<color=green>Affect: </color>{GetActionsListName(index)} Updated. Actions count {inPhobiaActions.Count}");
         index++;
         foreach (InPhobiaAction action in inPhobiaActions)//this is only for debug
         {

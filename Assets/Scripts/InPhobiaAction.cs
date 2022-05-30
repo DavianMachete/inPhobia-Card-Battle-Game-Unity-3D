@@ -75,9 +75,9 @@ public class InPhobiaAction
         }
         return EqualsP((InPhobiaAction)obj);
     }
-    public static bool operator ==(InPhobiaAction a, InPhobiaAction b)
+    public static bool operator == (InPhobiaAction a, InPhobiaAction b)
     {
-        if (a == null || b == null)
+        if (a is null || b is null)
             return false;
         return a.id == b.id;
     }

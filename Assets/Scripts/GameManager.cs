@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public void InitialiseGame()
     {
         _UIcontroller.InitializeUIController();
+        _UIcontroller.SetInteractable(true);
 
         patient.InitializePatient();
         phobia.InitializePhobia();

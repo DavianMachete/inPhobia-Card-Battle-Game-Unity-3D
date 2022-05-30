@@ -35,6 +35,9 @@ public class CardController : MonoBehaviour
 
     public void OnPointerDown()
     {
+        if (!UIController.instance.GetCanvasInteractable())
+            return;
+
         draggedTime = Time.time;
         startDragPos = cardRect.anchoredPosition;
         if (Input.GetMouseButton(1))
@@ -43,6 +46,9 @@ public class CardController : MonoBehaviour
 
     public void OnPointerUP()
     {
+        if (!UIController.instance.GetCanvasInteractable())
+            return;
+
         float deltaT = Mathf.Abs(Time.time - draggedTime);
         if (deltaT < 0.3f && Vector2.Distance(startDragPos, cardRect.anchoredPosition) < 18f)
             OnClicked(rightButtonClicked);
@@ -64,7 +70,8 @@ public class CardController : MonoBehaviour
 
     public void OnDrag()
     {
-        if (cardCurrentType != CardUIType.TherapistCard)
+        if (cardCurrentType != CardUIType.TherapistCard ||
+            !UIController.instance.GetCanvasInteractable())
             return;
 
         //Debug.Log($"{card.cardID} Draging");
@@ -85,7 +92,8 @@ public class CardController : MonoBehaviour
 
     public void OnDragBegin()
     {
-        if (cardCurrentType != CardUIType.TherapistCard)
+        if (cardCurrentType != CardUIType.TherapistCard ||
+            !UIController.instance.GetCanvasInteractable())
             return;
 
         //Debug.Log($"{card.cardID} Drag Begin");
@@ -94,7 +102,8 @@ public class CardController : MonoBehaviour
 
     public void OnDragEnd()
     {
-        if (cardCurrentType != CardUIType.TherapistCard)
+        if (cardCurrentType != CardUIType.TherapistCard ||
+            !UIController.instance.GetCanvasInteractable())
             return;
 
         //Debug.Log($"{card.cardID} Drag End");
@@ -164,6 +173,9 @@ public class CardController : MonoBehaviour
 
     public void AnimateZoomIn()
     {
+        if (!UIController.instance.GetCanvasInteractable())
+            return;
+
         foreach (var item in otherCardsUI)
         {
             item.AnimateZoomOut();
@@ -175,6 +187,9 @@ public class CardController : MonoBehaviour
 
     public void AnimateZoomOut()
     {
+        if (!UIController.instance.GetCanvasInteractable())
+            return;
+
         ScaleCardOut(animDuration);
         MoveCardToPlace(animDuration);
     }
