@@ -13,15 +13,15 @@ public enum Rarity
     Common
 }
 
-//public enum InPhobiaEventType
-//{
-//    OnTurnStart,
-//    OnTurnEnd,
-//    OnStepStart,
-//    OnStepEnd,
-//    OnAttack,
-//    OnDefense
-//}
+public enum InPhobiaEventType
+{
+    OnTurnStart,
+    OnTurnEnd,
+    OnStepStart,
+    OnStepEnd,
+    OnAttack,
+    OnDefense
+}
 
 public enum CardUIType
 {

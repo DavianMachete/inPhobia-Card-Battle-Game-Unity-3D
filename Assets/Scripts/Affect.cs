@@ -50,6 +50,33 @@ public class Affect
         OnDefense.Clear();
     }
 
+    public void Invoke(InPhobiaEventType type)
+    {
+        switch (type)
+        {
+            case InPhobiaEventType.OnTurnStart:
+                Invoke(OnTurnStart);
+                break;
+            case InPhobiaEventType.OnTurnEnd:
+                Invoke(OnTurnEnd);
+                break;
+            case InPhobiaEventType.OnStepStart:
+                Invoke(OnStepStart);
+                break;
+            case InPhobiaEventType.OnStepEnd:
+                Invoke(OnStepEnd);
+                break;
+            case InPhobiaEventType.OnAttack:
+                Invoke(OnAttack);
+                break;
+            case InPhobiaEventType.OnDefense:
+                Invoke(OnDefense);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void Invoke(List<InPhobiaAction> inPhobiaActions)
     {
         foreach (InPhobiaAction action in inPhobiaActions)

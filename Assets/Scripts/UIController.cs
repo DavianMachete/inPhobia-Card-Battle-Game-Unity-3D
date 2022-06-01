@@ -406,7 +406,7 @@ public class UIController : MonoBehaviour
         for (int i = 0; i < patientCardsInHand.Count; i++)
         {
             float tForCard = step * i;
-            if (tForCard > t)
+            if (tForCard >= t)
                 tForCard += step;
             patientCardsInHand[i].MoveCardToPlace(0.5f, tForCard, () => { });
         }
@@ -423,17 +423,28 @@ public class UIController : MonoBehaviour
 
         therapistCardsInHand.Remove(cardController);
         Therapist.instance.RemoveCardFromHand(cardController.card);
+        foreach (CardController cardT in therapistCardsInHand)
+        {
+            if (cardT.index > cardController.index)
+                cardT.index--;
+        }
 
         //detect index
         float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, cardController.GetComponent<RectTransform>().anchoredPosition.y);
+        //Debug.Log($"<color=maroon>UIController: </color> t of current card = {t} ");
         float step = 1f / patientCardsInHand.Count;
         int index = 0;
-        for (int i = 0; i < patientCardsInHand.Count; i++)
+        for (int i = 0; i < patientCardsInHand.Count+1; i++)
         {
             float tForCard = step * i;
-            if (t >= tForCard && t < tForCard + step)
-                index = i;
+            //Debug.Log($"<color=maroon>UIController: </color> t For {i}-th Card = {tForCard} ");
+            if (t > tForCard && t <= tForCard + step)
+            {
+                index = i+1;
+                //Debug.Log($"<color=maroon>UIController: </color> index of current card = {index} ");
+            }
         }
+
         cardController.SetCardParametersToGameObject(cardController.card);
         cardController.SetCardCurrentType(CardUIType.PatientCard);
         cardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);

@@ -56,10 +56,10 @@
     /// <summary>
     /// ---Карта пропадает из игры до конца боя.
     /// </summary>
-    public static Affect Exhaust(Card card)
+    public static Affect Exhaust()
     {
         Affect affect = new Affect();
-        affect.OnStepEnd.Add(new InPhobiaAction($"Exhaust".ToLower(), () => Patient.instance.RemoveCardFromDeck(card), false));
+        affect.OnStepEnd.Add(new InPhobiaAction($"Exhaust".ToLower(), () => Patient.instance.RemoveCardFromDeck(), false));
         return affect;
     }
 

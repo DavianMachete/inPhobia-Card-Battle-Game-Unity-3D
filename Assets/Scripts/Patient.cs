@@ -41,6 +41,7 @@ public class Patient : NPC
     [SerializeField] private bool attackWhenGetBlock;
 
     private bool patientCardPlayed = false;
+    private bool removeCurrentCardFromDeck = false;
 
     public void InitializePatient()
     {
@@ -195,17 +196,9 @@ public class Patient : NPC
         Hand.Insert(index,card);
     }
 
-    public void RemoveCardFromDeck(Card card)//callonly after played
+    public void RemoveCardFromDeck()//callonly after played
     {
-        foreach (Card itemCard in discard)
-        {
-            if (itemCard == card)
-            {
-                discard.Remove(itemCard);
-                //Continuted
-                break;
-            }
-        }
+        removeCurrentCardFromDeck = true;
     }
 
     public void SetActionPoint(int current, int max)
@@ -270,21 +263,24 @@ public class Patient : NPC
             block = 0;
         }
 
-        affect.Invoke(affect.OnTurnStart);
+        affect.Invoke(InPhobiaEventType.OnTurnStart);
         Debug.Log($"<color=cyan>Turn Started</color>");
 
 
 
         //foreach (Card card in Hand)
         int cardCountInHand = Hand.Count;
+        //while()
         for (int i = 0; i < cardCountInHand; i++)
         {
             if (patientCurrentAP < Hand[i].actionPoint)//card.actionPoint)
                 break;
 
-            Debug.Log($"Current card is {Hand[i].cardID}");
+            string currentCardID = Hand[i].cardID;
+
+            Debug.Log($"Current card is {currentCardID}");
             if (i + 1 < cardCountInHand)
-                Debug.Log($"Next card will be {Hand[i + 1].cardID}");
+                Debug.Log($"Next card will be {currentCardID}");
             else
                 Debug.Log($"And itsthe last card in Hand");
 
@@ -294,12 +290,10 @@ public class Patient : NPC
             yield return new WaitForFixedUpdate();
             //Debug.Break();
 
-            Debug.Log($"<color=cyan>Step Started </color>with card -> {Hand[i].cardID}");// card.cardID}");
+            Debug.Log($"<color=cyan>Step Started </color>with card -> {currentCardID}");// card.cardID}");
 
             patientCurrentAP -= Hand[i].actionPoint;// card.actionPoint;
             actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
-
-            affect.Invoke(affect.OnStepStart);
 
             patientCardPlayed = false;
             UIController.instance.PlayPatientTopCard(() => 
@@ -307,24 +301,35 @@ public class Patient : NPC
                 patientCardPlayed = true; 
             });
 
+
             yield return new WaitUntil(()=>patientCardPlayed);
             yield return new WaitForFixedUpdate();
 
-            if (Hand[i].cardType /*card.cardType*/ == CardTypes.Attack)
-            {
-                affect.Invoke(affect.OnAttack);
-                for (int j = 0; j < nextAttackCount; j++)
-                {
-                    Attack();
-                    Debug.Log($"<color=cyan>Attacked</color>_{Hand[i].cardID/*card.cardID*/}_");
-                    yield return new WaitForSeconds(1f);
-                }
-                nextAttackCount = 1;//is Next Attack count saved, when turn ended?
-            }
-            affect.Invoke(affect.OnStepEnd);
 
-            Debug.Log($"<color=cyan>Step Ended</color>_{Hand[i].cardID/*card.cardID*/}_");
-            discard.Add(Hand[i]);
+            affect.Invoke(InPhobiaEventType.OnStepStart);
+            cardCountInHand = Hand.Count;
+
+            if (Hand.Count > 0)
+            {
+                if (Hand[i].cardType /*card.cardType*/ == CardTypes.Attack)
+                {
+                    affect.Invoke(InPhobiaEventType.OnAttack);
+                    for (int j = 0; j < nextAttackCount; j++)
+                    {
+                        Attack();
+                        Debug.Log($"<color=cyan>Attacked</color>_{currentCardID/*card.cardID*/}_");
+                        yield return new WaitForSeconds(1f);
+                    }
+                    nextAttackCount = 1;//is Next Attack count saved, when turn ended?
+                }
+            }
+            affect.Invoke(InPhobiaEventType.OnStepEnd);
+
+            Debug.Log($"<color=cyan>Step Ended</color>_{currentCardID/*card.cardID*/}_");
+            if (!removeCurrentCardFromDeck && Hand.Count > 0)
+                discard.Add(Hand[i]);
+            else
+                removeCurrentCardFromDeck = false;
         }
 
         Debug.Log($"<color=cyan>Turn Ended</color>");
@@ -333,7 +338,7 @@ public class Patient : NPC
 
         Phobia.instance.StartTurn(()=>
         {
-            affect.Invoke(affect.OnTurnEnd);
+            affect.Invoke(InPhobiaEventType.OnTurnEnd);
 
             UIController.instance.SetInteractable(true);
 
