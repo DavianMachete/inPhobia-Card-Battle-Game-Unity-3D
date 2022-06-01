@@ -6,14 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField]
-    private Phobia phobia;
-    [SerializeField]
-    private Patient patient;
-    [SerializeField]
-    private Therapist therapist;
-    [SerializeField]
-    private UIController _UIcontroller;
+    [SerializeField] private Phobia phobia;
+    [SerializeField] private Patient patient;
+    [SerializeField] private Therapist therapist;
+    [SerializeField] private UIController _UIcontroller;
+
+    [SerializeField] private TherapistDeckCollecter therapistDeckCollecter;
 
 
 
@@ -46,6 +44,8 @@ public class GameManager : MonoBehaviour
         phobia.InitializePhobia();
 
         therapist.InitializeTherapist();
+
+        therapistDeckCollecter.InitializeCollecter();
     }
 
     public void PlayNextTurn()

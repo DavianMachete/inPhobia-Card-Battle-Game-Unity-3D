@@ -5090,9 +5090,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1565016130}
-        m_TargetAssemblyTypeName: TherapistDeckCollecter, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1687906387}
+        m_TargetAssemblyTypeName: Therapist, Assembly-CSharp
+        m_MethodName: PrepareNewTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5941,6 +5941,7 @@ MonoBehaviour:
   patient: {fileID: 1102467458}
   therapist: {fileID: 1687906387}
   _UIcontroller: {fileID: 1935349384}
+  therapistDeckCollecter: {fileID: 1565016130}
 --- !u!1 &1490211374
 GameObject:
   m_ObjectHideFlags: 0
@@ -6199,6 +6200,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 8289050252017928917, guid: 293b50cd28742d943af0beaa97c74225, type: 3}
   threeCardsParent: {fileID: 806453933}
+  therapistCardsToSelect: []
+  rareCards: []
+  equipmentCards: []
+  commonCards: []
 --- !u!1 &1573568175
 GameObject:
   m_ObjectHideFlags: 0
@@ -10155,13 +10160,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TherapistDeckController, Assembly-CSharp
-        m_MethodName: AddCardAsSelected
+      - m_Target: {fileID: 1565016130}
+        m_TargetAssemblyTypeName: TherapistDeckCollecter, Assembly-CSharp
+        m_MethodName: AddCardToTherapistDeck
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8289050250906384549}
-          m_ObjectArgumentAssemblyTypeName: CardUI, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CardController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11278,13 +11283,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TherapistDeckController, Assembly-CSharp
-        m_MethodName: AddCardAsSelected
+      - m_Target: {fileID: 1565016130}
+        m_TargetAssemblyTypeName: TherapistDeckCollecter, Assembly-CSharp
+        m_MethodName: AddCardToTherapistDeck
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8289050251559649432}
-          m_ObjectArgumentAssemblyTypeName: CardUI, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CardController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11428,13 +11433,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TherapistDeckController, Assembly-CSharp
-        m_MethodName: AddCardAsSelected
+      - m_Target: {fileID: 1565016130}
+        m_TargetAssemblyTypeName: TherapistDeckCollecter, Assembly-CSharp
+        m_MethodName: AddCardToTherapistDeck
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8289050251734343762}
-          m_ObjectArgumentAssemblyTypeName: CardUI, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: CardController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

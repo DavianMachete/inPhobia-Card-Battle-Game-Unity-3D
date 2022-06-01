@@ -27,15 +27,16 @@ public class CardController : MonoBehaviour
 
     private RectTransform cardRect;
     private List<CardController> otherCardsUI;
-    private float draggedTime = 0;
     private Vector2 startDragPos;
+    private float draggedTime = 0;
     private bool rightButtonClicked;
+    private bool interactable = true;
 
 
 
     public void OnPointerDown()
     {
-        if (!UIController.instance.GetCanvasInteractable())
+        if (!UIController.instance.GetCanvasInteractable() || !interactable)
             return;
 
         draggedTime = Time.time;
@@ -46,7 +47,7 @@ public class CardController : MonoBehaviour
 
     public void OnPointerUP()
     {
-        if (!UIController.instance.GetCanvasInteractable())
+        if (!UIController.instance.GetCanvasInteractable() || !interactable)
             return;
 
         float deltaT = Mathf.Abs(Time.time - draggedTime);
@@ -71,7 +72,7 @@ public class CardController : MonoBehaviour
     public void OnDrag()
     {
         if (cardCurrentType != CardUIType.TherapistCard ||
-            !UIController.instance.GetCanvasInteractable())
+            !UIController.instance.GetCanvasInteractable() || !interactable)
             return;
 
         //Debug.Log($"{card.cardID} Draging");
@@ -93,7 +94,7 @@ public class CardController : MonoBehaviour
     public void OnDragBegin()
     {
         if (cardCurrentType != CardUIType.TherapistCard ||
-            !UIController.instance.GetCanvasInteractable())
+            !UIController.instance.GetCanvasInteractable() || !interactable)
             return;
 
         //Debug.Log($"{card.cardID} Drag Begin");
@@ -103,7 +104,7 @@ public class CardController : MonoBehaviour
     public void OnDragEnd()
     {
         if (cardCurrentType != CardUIType.TherapistCard ||
-            !UIController.instance.GetCanvasInteractable())
+            !UIController.instance.GetCanvasInteractable() || !interactable)
             return;
 
         //Debug.Log($"{card.cardID} Drag End");
@@ -125,8 +126,35 @@ public class CardController : MonoBehaviour
         }
     }
 
-    public void SetCardParametrsToGameObject(Card card)
+    public void AnimateZoomIn()
     {
+        if (!UIController.instance.GetCanvasInteractable() || !interactable)
+            return;
+
+        foreach (var item in otherCardsUI)
+        {
+            item.AnimateZoomOut();
+        }
+
+        ScaleCardIn(animDuration);
+        MoveCardTo(animDuration, centeredCardPos);
+    }
+
+    public void AnimateZoomOut()
+    {
+        if (!UIController.instance.GetCanvasInteractable() || !interactable)
+            return;
+
+        ScaleCardOut(animDuration);
+        MoveCardToPlace(animDuration);
+    }
+
+
+
+
+    public void SetCardParametersToGameObject(Card card)
+    {
+        SetInteractable(true);
         this.gameObject.name = card.name;
         this.card = card;
 
@@ -169,29 +197,6 @@ public class CardController : MonoBehaviour
     public void DestroyCard()
     {
         Destroy(this.gameObject);
-    }
-
-    public void AnimateZoomIn()
-    {
-        if (!UIController.instance.GetCanvasInteractable())
-            return;
-
-        foreach (var item in otherCardsUI)
-        {
-            item.AnimateZoomOut();
-        }
-
-        ScaleCardIn(animDuration);
-        MoveCardTo(animDuration, centeredCardPos);
-    }
-
-    public void AnimateZoomOut()
-    {
-        if (!UIController.instance.GetCanvasInteractable())
-            return;
-
-        ScaleCardOut(animDuration);
-        MoveCardToPlace(animDuration);
     }
 
     public void UpdateCard(bool smoothly)
@@ -307,7 +312,7 @@ public class CardController : MonoBehaviour
         else
         {
             UIController.instance.bigCardUI.SetActive(true);
-            UIController.instance.bigCardUI.transform.GetChild(0).GetComponent<CardController>().SetCardParametrsToGameObject(card);
+            UIController.instance.bigCardUI.transform.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(card);
         }
         rightButtonClicked = false;
     }
@@ -433,7 +438,7 @@ public class CardController : MonoBehaviour
 
     private void SetInteractable(bool value)
     {
-        canvasGroup.interactable = value;
+        interactable = value;
     }
 
 

@@ -230,7 +230,7 @@ public class UIController : MonoBehaviour
         therapistCardsInHand.Add(newCardController);
 
 
-        newCardController.SetCardParametrsToGameObject(card);
+        newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.TherapistCard);
         newCardController.SetCardMetrics(rIndex, therapistCenteredCardPos, therapistHighestPosOfCard, therapistLowestPosOfCard);
         Therapist.instance.AddCardToHand(rIndex, newCardController.card);
@@ -256,7 +256,7 @@ public class UIController : MonoBehaviour
         // patientCardsInHand.Insert(rIndex, newCardController);
         patientCardsInHand.Add(newCardController);
 
-        newCardController.SetCardParametrsToGameObject(card);
+        newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
         newCardController.SetCardMetrics(rIndex, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
         Patient.instance.AddCardToHand(rIndex, newCardController.card);
@@ -364,7 +364,7 @@ public class UIController : MonoBehaviour
             Vector2 highestPosHolder = firstSelectedCard.highestPosOfCard;
 
             /////Set Patient card settings as Therapist
-            firstSelectedCard.SetCardParametrsToGameObject(firstSelectedCard.card);
+            firstSelectedCard.SetCardParametersToGameObject(firstSelectedCard.card);
             firstSelectedCard.SetCardCurrentType(secondSelectedCard.cardCurrentType);
             firstSelectedCard.SetCardMetrics(secondSelectedCard.index, secondSelectedCard.centeredCardPos, secondSelectedCard.highestPosOfCard, secondSelectedCard.lowestPosOfCard);
 
@@ -373,7 +373,7 @@ public class UIController : MonoBehaviour
 
 
             /////Set Therapist card settings as Patient
-            secondSelectedCard.SetCardParametrsToGameObject(secondSelectedCard.card);
+            secondSelectedCard.SetCardParametersToGameObject(secondSelectedCard.card);
             secondSelectedCard.SetCardCurrentType(CardUIType.PatientCard);
             secondSelectedCard.SetCardMetrics(indexHolder, centerPosHolder, highestPosHolder, lowestPosHolder);
 
@@ -434,7 +434,7 @@ public class UIController : MonoBehaviour
             if (t >= tForCard && t < tForCard + step)
                 index = i;
         }
-        cardController.SetCardParametrsToGameObject(cardController.card);
+        cardController.SetCardParametersToGameObject(cardController.card);
         cardController.SetCardCurrentType(CardUIType.PatientCard);
         cardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
 
@@ -465,7 +465,7 @@ public class UIController : MonoBehaviour
         GameObject newCard = Instantiate(cardPrefab, patientCardsParent);
         newCard.GetComponent<RectTransform>().localScale = 0.4f * Vector3.one;
         CardController newCardController = newCard.GetComponent<CardController>();
-        newCardController.SetCardParametrsToGameObject(Cards.Psychosis);
+        newCardController.SetCardParametersToGameObject(Cards.Psychosis);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
         newCardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
 

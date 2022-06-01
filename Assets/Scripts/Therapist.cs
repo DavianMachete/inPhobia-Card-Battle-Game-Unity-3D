@@ -22,9 +22,11 @@ public class Therapist : MonoBehaviour
     public void InitializeTherapist()
     {
         MakeInstance();
+
+        InitializeTherapistDeck();
     }
 
-    public void InitializeTherapistDeck(List<Card> staticDeck)
+    public void InitializeTherapistDeck()
     {
         if (deck == null)
             deck = new List<Card>();
@@ -38,12 +40,15 @@ public class Therapist : MonoBehaviour
             discard = new List<Card>();
         discard.Clear();
 
-        deck = staticDeck;
+        deck = new List<Card>(Cards.TherapistStandartCards());
 
         therapistMaxAP = 5;
         therapistCurrentAP = 5;
+    }
 
-        PrepareNewTurn();
+    public void AddToDeck(Card card)
+    {
+        deck.Add(card);
     }
 
     public void PrepareNewTurn()
@@ -51,7 +56,7 @@ public class Therapist : MonoBehaviour
         SetActionPoint(therapistMaxAP, therapistMaxAP);
 
         Discard();
-        PullCard(5);
+        PullCard(4);
 
         UIController.instance.UpdateCards(true);
     }
@@ -72,7 +77,7 @@ public class Therapist : MonoBehaviour
             {
                 PullACard();
             }
-            Cards.SortDiscards();
+            Cards.SortDiscards(true);
             for (int i = 0; i < count - deckCount; i++)
             {
                 PullACard();
@@ -117,10 +122,23 @@ public class Therapist : MonoBehaviour
     private void PullACard()
     {
         int index = Random.Range(0, deck.Count);
-
+        ShuffleDeck();
+        //Debug.Log(index);
         UIController.instance.PullCardForTherapist(deck[index]);
         deck.RemoveAt(index);
         cardsCountInDeck.text = deck.Count.ToString();
+    }
+
+    private void ShuffleDeck()
+    {
+        for (int i = 0; i < deck.Count; i++)
+        {
+            Card temp = deck[i];
+            int randomIndex = Random.Range(i, deck.Count);
+            deck[i] = deck[randomIndex];
+            deck[randomIndex] = temp;
+        }
+
     }
 
     private void MakeInstance()

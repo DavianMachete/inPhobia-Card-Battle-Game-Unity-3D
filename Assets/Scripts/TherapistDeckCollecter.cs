@@ -15,97 +15,109 @@ public class TherapistDeckCollecter : MonoBehaviour
 
     private List<Card> selectedCards;
 
-    private List<Card> therapistCardsToSelect;
-    private List<Card> therapistStandartCards;
+    [SerializeField] private List<Card> therapistCardsToSelect;
+
+    [SerializeField] private List<Card> rareCards;
+    [SerializeField] private List<Card> equipmentCards;
+    [SerializeField] private List<Card> commonCards;
 
     #region Public Methods
 
-    public void RandomizeThreeCards()
+    public void InitializeCollecter()
     {
-        if (selectedCards == null)
-            selectedCards = new List<Card>();
-        selectedCards.Clear();
+        therapistCardsToSelect = new List<Card>(Cards.TherapistCardsToSelect());
 
-        //SelectLeft Card
-        List<Card> leftCards = new List<Card>();
+        PrepareCardsToSelect();
+    }
 
-        if(therapistCardsToSelect==null)
-            therapistCardsToSelect = new List<Card>(Cards.TherapistCardsToSelect());
-        foreach (var item in therapistCardsToSelect)
+    public void PrepareCardsToSelect()
+    {
+        if (rareCards == null)
+            rareCards = new List<Card>();
+        if (equipmentCards == null)
+            equipmentCards = new List<Card>();
+        if (commonCards == null)
+            commonCards = new List<Card>();
+
+        rareCards.Clear();
+        equipmentCards.Clear();
+        commonCards.Clear();
+
+        foreach (Card card in therapistCardsToSelect)
         {
-            if (item.rarity == Rarity.Equipment ||
-                item.rarity == Rarity.Rare)
+            if (card.rarity == Rarity.Rare)
             {
-                leftCards.Add(item);
+                rareCards.Add(card);
             }
-        }
-        int index = Random.Range(0, 6);
-        Card leftCard = leftCards[index];
-
-        threeCardsParent.GetChild(0).GetComponent<CardController>().SetCardParametrsToGameObject(leftCard);
-
-        //Select median card
-
-        List<Card> medianCards = new List<Card>();
-        foreach (var item in Cards.TherapistCardsToSelect())
-        {
-            if (item.rarity == Rarity.Common)
+            else if (card.rarity == Rarity.Equipment)
             {
-                medianCards.Add(item);
-            }
-        }
-        Card medianCard = medianCards[Random.Range(0, 7)];
-
-        threeCardsParent.GetChild(1).GetComponent<CardController>().SetCardParametrsToGameObject(medianCard);
-
-        //Select median card
-
-        List<Card> rightCards = new List<Card>();
-        int typeForFifty = Random.Range(0, 2);//if 0 then Commo, and if 1 then rare
-
-        foreach (var item in Cards.TherapistCardsToSelect())
-        {
-            if (typeForFifty == 0)
-            {
-                if (item.rarity == Rarity.Common)
-                {
-                    rightCards.Add(item);
-                }
+                equipmentCards.Add(card);
             }
             else
             {
-                if (item.rarity == Rarity.Rare)
-                {
-                    rightCards.Add(item);
-                }
+                commonCards.Add(card);
             }
         }
-
-        Card rightCard = rightCards[Random.Range(0, rightCards.Count)];
-
-        threeCardsParent.GetChild(2).GetComponent<CardController>().SetCardParametrsToGameObject(rightCard);
     }
 
-    public void AddCardAsSelected(CardController cardGO)
+    public void RandomizeThreeCards()
     {
-        //Card newSelected = new Card(cardGO.card.cardName, cardGO.card.cardType, cardGO.card.affect, cardGO.card.affectDescription, cardGO.card.actionPoint, cardGO.card.rarity);
+        List<Card> rareAndEquipment = new List<Card>();
+        rareAndEquipment.AddRange(rareCards);
+        rareAndEquipment.AddRange(equipmentCards);
 
-        selectedCards.Add(cardGO.card);
+        Card leftCard = rareAndEquipment[Random.Range(0, rareAndEquipment.Count)];
+        if (leftCard.rarity == Rarity.Rare)
+        {
+            rareCards.Remove(leftCard);
+        }
+        else if(leftCard.rarity==Rarity.Equipment)
+        {
+            equipmentCards.Remove(leftCard);
+        }
+        threeCardsParent.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(leftCard);
+
+        Card medianCard = commonCards[Random.Range(0, commonCards.Count)];
+        commonCards.Remove(medianCard);
+        threeCardsParent.GetChild(1).GetComponent<CardController>().SetCardParametersToGameObject(medianCard);
+
+        Card rightCard;
+        if (rareCards.Count > 0)
+        {
+            int ff = Random.Range(0, 2);
+            if (ff == 0)
+            {
+                rightCard = rareCards[Random.Range(0, rareCards.Count)];
+                rareCards.Remove(rightCard);
+            }
+            else
+            {
+                rightCard = commonCards[Random.Range(0, commonCards.Count)];
+                commonCards.Remove(rightCard);
+            }
+        }
+        else
+        {
+            rightCard = commonCards[Random.Range(0, commonCards.Count)];
+            commonCards.Remove(rightCard);
+        }
+        threeCardsParent.GetChild(2).GetComponent<CardController>().SetCardParametersToGameObject(rightCard);
     }
 
-    public void StartGame()
+    public void AddCardToTherapistDeck(CardController cardGameObject)
     {
-        if(therapistStandartCards==null)
-            therapistStandartCards = new List<Card>(Cards.TherapistStandartCards());
-        if (selectedCards == null)
-            selectedCards = new List<Card>();
-        List<Card>  staticDeck = new List<Card>(therapistStandartCards.Count + selectedCards.Count);
+        Card selectedCard = cardGameObject.card;
 
-        staticDeck.AddRange(therapistStandartCards);
-        staticDeck.AddRange(selectedCards);
+        therapistCardsToSelect.Remove(selectedCard);
 
-        Therapist.instance.InitializeTherapistDeck(staticDeck);
+        Therapist.instance.AddToDeck(selectedCard);
+
+        PrepareCardsToSelect();
     }
+
+    #endregion
+
+    #region Private Methods
 
     #endregion
 }

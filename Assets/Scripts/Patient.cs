@@ -111,7 +111,7 @@ public class Patient : NPC
             {
                 PullACard();
             }
-            Cards.SortDiscards();
+            Cards.SortDiscards(false);
             for (int i = 0; i < count - deckCount; i++)
             {
                 PullACard();

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public static class Cards 
 {
@@ -107,32 +108,38 @@ public static class Cards
     }
 
 
-    public static void SortDiscards()
+    public static void SortDiscards(bool forTherapist)
     {
-        foreach (Card card in Patient.instance.discard)
+        string forWho = forTherapist ? "Therapist" : "Patient";
+        Debug.Log($"<color=lightblue>SortDiscardCalled for {forWho}</color>");
+        List<Card> patientDiscard = new List<Card>(Patient.instance.discard);
+        foreach (Card card in patientDiscard)
         {
-            if (card.cardBelonging == CardUIType.PatientCard)
+            if (card.cardBelonging == CardUIType.PatientCard && !forTherapist)
             {
                 Patient.instance.deck.Add(card);
+                Patient.instance.discard.Remove(card);
             }
-            else if (card.cardBelonging == CardUIType.TherapistCard)
+            else if (card.cardBelonging == CardUIType.TherapistCard && forTherapist)
             {
                 Therapist.instance.deck.Add(card);
+                Patient.instance.discard.Remove(card);
             }
         }
-        Patient.instance.discard.Clear();
 
-        foreach (Card card in Therapist.instance.discard)
+        List<Card> therapistDiscard = new List<Card>(Therapist.instance.discard);
+        foreach (Card card in therapistDiscard)
         {
-            if (card.cardBelonging == CardUIType.PatientCard)
+            if (card.cardBelonging == CardUIType.PatientCard && !forTherapist)
             {
                 Patient.instance.deck.Add(card);
+                Therapist.instance.discard.Remove(card);
             }
-            else if (card.cardBelonging == CardUIType.TherapistCard)
+            else if (card.cardBelonging == CardUIType.TherapistCard && forTherapist)
             {
                 Therapist.instance.deck.Add(card);
+                Therapist.instance.discard.Remove(card);
             }
         }
-        Patient.instance.discard.Clear();
     }
 }
