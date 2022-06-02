@@ -396,8 +396,10 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void AnimatePatientCardsBeforeDrop(float mouseY) 
+    public void AnimatePatientCardsBeforeDrop(float mouseY, CardController cardController) 
     {
+        if (cardController.card.cardType == CardTypes.Equipment)
+            return;
         float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, mouseY);
         //float indexByT = t * patientCards.Count;
 

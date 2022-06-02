@@ -87,7 +87,7 @@ public class CardController : MonoBehaviour
             float mouseY = Input.mousePosition.y * 1080f / (float)Screen.height;
             mouseY -= 1080f / 2f;
 
-            UIController.instance.AnimatePatientCardsBeforeDrop(mouseY);
+            UIController.instance.AnimatePatientCardsBeforeDrop(mouseY,this);
         }
     }
 

@@ -334,7 +334,8 @@ public class Patient : NPC
             else
             {
                 Debug.Log($"<color=cyan>Patient: </color> The card <color=red>({currentCardID/*card.cardID*/})</color> removed from deck(not discard)");
-                Hand.RemoveAt(i);
+                if (Hand.Count > 0)
+                    Hand.RemoveAt(i);
                 removeCurrentCardFromDeck = false;
             }
         }
