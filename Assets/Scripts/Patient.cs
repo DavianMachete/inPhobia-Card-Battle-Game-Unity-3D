@@ -327,9 +327,16 @@ public class Patient : NPC
 
             Debug.Log($"<color=cyan>Step Ended</color>_{currentCardID/*card.cardID*/}_");
             if (!removeCurrentCardFromDeck && Hand.Count > 0)
+            {
+                Debug.Log($"<color=cyan>Patient: </color> The card <color=green>({currentCardID/*card.cardID*/})</color> discarded");
                 discard.Add(Hand[i]);
+            }
             else
+            {
+                Debug.Log($"<color=cyan>Patient: </color> The card <color=red>({currentCardID/*card.cardID*/})</color> removed from deck(not discard)");
+                Hand.RemoveAt(i);
                 removeCurrentCardFromDeck = false;
+            }
         }
 
         Debug.Log($"<color=cyan>Turn Ended</color>");

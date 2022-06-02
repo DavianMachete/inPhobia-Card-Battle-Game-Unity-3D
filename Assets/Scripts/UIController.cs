@@ -77,7 +77,7 @@ public class UIController : MonoBehaviour
     {
         MakeInstance();
 
-        //UpdateCards(false);
+        SetInteractable(true);
 
 
         if (IFadeMainGameUIHelper != null)
@@ -415,10 +415,18 @@ public class UIController : MonoBehaviour
     //Добавить свою карту в руку пациента в любое место, по желанию игрока
     public void DropCardToPatientHand(CardController cardController)
     {
-        if (Therapist.instance.therapistCurrentAP - 2 < 0)
+        if (cardController.card.cardType == CardTypes.Equipment)
         {
-            cardController.UpdateCard(true); 
+            cardController.UpdateCard(true);
             return;
+        }
+        else
+        {
+            if (Therapist.instance.therapistCurrentAP - 2 < 0)
+            {
+                cardController.UpdateCard(true);
+                return;
+            }
         }
 
         therapistCardsInHand.Remove(cardController);
@@ -524,6 +532,7 @@ public class UIController : MonoBehaviour
 
         levelinfoTxt.text = levelCompleted ? "Level Completed!!!" : "Level Faild(((";
         endPanel.gameObject.SetActive(true);
+        SetInteractable(true);
     }
 
     #endregion

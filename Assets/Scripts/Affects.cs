@@ -77,13 +77,13 @@
     public static Affect SaveBlock()
     {
         Affect affect = new Affect();
-        affect.OnStepStart.Add(new InPhobiaAction($"SaveBlock".ToLower(), () => Patient.instance.SaveBlock(), false));
+        affect.OnStepStart.Add(new InPhobiaAction($"SaveBlock".ToLower(), () => Patient.instance.SaveBlock(), true));
         return affect;
     }
     public static Affect AttackWhenGetBlock()
     {
         Affect affect = new Affect();
-        affect.OnStepStart.Add(new InPhobiaAction($"AttackWhenGetBlock".ToLower(), () => Patient.instance.ActivateAttackWhenGetBlock(), false));
+        affect.OnStepStart.Add(new InPhobiaAction($"AttackWhenGetBlock".ToLower(), () => Patient.instance.ActivateAttackWhenGetBlock(), true));
         return affect;
     }
 
