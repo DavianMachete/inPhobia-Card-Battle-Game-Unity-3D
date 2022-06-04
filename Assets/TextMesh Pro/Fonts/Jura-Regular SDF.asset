@@ -2648,8 +2648,8 @@ MonoBehaviour:
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 11400000, guid: d6fc91acbb1c93c4a824a3f89b8ec1df, type: 2}
+    italicTypeface: {fileID: 11400000, guid: d6fc91acbb1c93c4a824a3f89b8ec1df, type: 2}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
