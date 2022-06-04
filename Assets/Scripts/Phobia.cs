@@ -83,12 +83,11 @@ public class Phobia : NPC
             {
                 StopCoroutine(IStartTurnHelper);
             }
-            if (phobiaPhase == PhobiaPhase.FirstPhase)
+
+            if (phobiaPhase == PhobiaPhase.FirstPhase)//Error
                 phobiaPhase = PhobiaPhase.SecondPhase;
             else
-            {
                 GameManager.instance.LevelCompleted();
-            }
         }
 
         UpdateHealthBar();
@@ -218,7 +217,7 @@ public class Phobia : NPC
         }
 
         onDone?.Invoke();
-        
+        PrepareAttack();
         IStartTurnHelper = null;
 
         Debug.Log($"<color=orange>Turn Ended</color>");

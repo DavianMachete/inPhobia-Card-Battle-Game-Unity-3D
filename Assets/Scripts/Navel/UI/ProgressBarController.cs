@@ -45,9 +45,9 @@ public class ProgressBarController : MonoBehaviour
         for (int i = 0; i < pointsGO.Count; i++)
         {
             if (i < currentPointsCoint)
-                pointsGO[i].GetChild(0).gameObject.SetActive(true);
+                pointsGO[i].gameObject.SetActive(true);
             else
-                pointsGO[i].GetChild(0).gameObject.SetActive(false);
+                pointsGO[i].gameObject.SetActive(false);
         }
     }
 }
