@@ -5,7 +5,7 @@ using System;
 using UnityEngine.Events;
 
 [Serializable]
-public class Diolog 
+public class Dialog 
 {
     public string Persion;
     public string text;
