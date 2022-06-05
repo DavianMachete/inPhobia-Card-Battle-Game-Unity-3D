@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 using UnityEngine.EventSystems;
 
 
 public class CardController : MonoBehaviour
 {
-    public Card card;
-    [Space(40f)]
-    public CardUIType cardCurrentType = CardUIType.defaultCard;
-    public int index;//first card is 0
+    #region Serialized Fields
 
-    public Vector2 lowestPosOfCard;
-    public Vector2 highestPosOfCard;
-    public Vector2 centeredCardPos;
+    [SerializeField] private GameObject bgOutline;
+    [SerializeField] private List<GameObject> bgs;
+    [SerializeField] private TMP_Text ap;
+    [SerializeField] private TMP_Text cardName;
+    [SerializeField] private TMP_Text description;
 
     [SerializeField] private CanvasGroup canvasGroup;
 
@@ -24,6 +24,16 @@ public class CardController : MonoBehaviour
     [SerializeField] private float cardAnimationSpeed;
 
     [SerializeField] private float animDuration = 2f;
+
+    #endregion
+
+    public Card card;
+    [Space(40f)]
+    public CardUIType cardCurrentType = CardUIType.defaultCard;
+    public int index;//first card is 0
+
+    public UISpline handSpline;
+
 
     private RectTransform cardRect;
     private List<CardController> otherCardsUI;
@@ -84,10 +94,15 @@ public class CardController : MonoBehaviour
 
         if(screenPart == ScreenPart.PatientHand)
         {
-            float mouseY = Input.mousePosition.y * 1080f / (float)Screen.height;
-            mouseY -= 1080f / 2f;
+            Vector2 ap = Input.mousePosition;
+            Debug.Log($"ap before = { ap }");
+            ap.y *=  1080f / (float)Screen.height;
+            ap.y -= 1080f / 2f;
+            ap.x *= 1920f / (float)Screen.width;
+            ap.x -= 1920f / 2f;
+            Debug.Log($"ap after = {ap }");
 
-            UIController.instance.AnimatePatientCardsBeforeDrop(mouseY,this);
+            UIController.instance.AnimatePatientCardsBeforeDrop(ap,this);
         }
     }
 
@@ -137,7 +152,8 @@ public class CardController : MonoBehaviour
         }
 
         ScaleCardIn(animDuration);
-        MoveCardTo(animDuration, centeredCardPos);
+        SplinePoint sp = handSpline.GetSplinePoint(GetCardT());
+        MoveCardTo(animDuration, sp.Position + sp.Normal * 40f);
     }
 
     public void AnimateZoomOut()
@@ -160,17 +176,37 @@ public class CardController : MonoBehaviour
 
         if (card.cardType == CardTypes.Equipment)
         {
-            transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+            ap.text = "";
         }
         else
         {
-            transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
-            transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TMPro.TMP_Text>().text = $"{card.actionPoint}";
+            ap.text = $"{card.actionPoint}";
         }
-        transform.GetChild(1).GetChild(1).GetComponent<TMPro.TMP_Text>().text = card.name;
+        cardName.text = card.name;
         //2
-        transform.GetChild(1).GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
-        transform.GetChild(1).GetChild(4).GetComponent<TMPro.TMP_Text>().text = card.affectDescription;
+        foreach (GameObject bg in bgs)
+        {
+            bg.SetActive(false);
+        }
+        switch (card.cardType)
+        {
+            case CardTypes.Attack:
+                bgs[1].SetActive(true);
+                break;
+            case CardTypes.Skill:
+                bgs[0].SetActive(true);
+                break;
+            case CardTypes.Equipment:
+                bgs[2].SetActive(true);
+                break;
+            case CardTypes.Curse:
+                bgs[3].SetActive(true);
+                break;
+            default:
+                break;
+        }
+        //transform.GetChild(1).GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
+        description.text = card.affectDescription;
     }
 
     public void SetCardCurrentType(CardUIType cardUIType)
@@ -180,18 +216,16 @@ public class CardController : MonoBehaviour
 
     public void SetCardMetrics(CardController newCardUI)
     {
-        SetCardMetrics(newCardUI.index, newCardUI.centeredCardPos, newCardUI.highestPosOfCard, newCardUI.lowestPosOfCard);
+        SetCardMetrics(newCardUI.index, newCardUI.handSpline);
     }
 
-    public void SetCardMetrics(int index, Vector2 centeredCardPos, Vector2 highestPosOfCard, Vector2 lowestPosOfCard)
+    public void SetCardMetrics(int index, UISpline handSpline)
     {
         cardRect = GetComponent<RectTransform>();
         cardRect.SetSiblingIndex(index);
         //enableActions = true;
         this.index = index;
-        this.centeredCardPos = centeredCardPos;
-        this.highestPosOfCard = highestPosOfCard;
-        this.lowestPosOfCard = lowestPosOfCard;
+        this.handSpline = handSpline;
     }
    
     public void DestroyCard()
@@ -218,9 +252,6 @@ public class CardController : MonoBehaviour
 
     public void UpdateCardPosition(bool smoothly)
     {
-        Vector2 anchPos = Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT());
-        centeredCardPos = new Vector2(centeredCardPos.x, anchPos.y);
-
         if (smoothly)
         {
             MoveCardToPlace(animDuration);
@@ -245,11 +276,12 @@ public class CardController : MonoBehaviour
 
     public void MoveCardToPlace(float duration, UnityAction onDone = null)
     {
-        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, GetCardT()), onDone);
+        MoveCardTo(duration, handSpline.GetSplinePoint(GetCardT()).Position, onDone);
     }
+
     public void MoveCardToPlace(float duration,float t, UnityAction onDone = null)
     {
-        MoveCardTo(duration, Vector2.Lerp(highestPosOfCard, lowestPosOfCard, t), onDone);
+        MoveCardTo(duration, handSpline.GetSplinePoint(t).Position, onDone);
     }
 
     public void MoveCardToCenter(UnityAction onDone)

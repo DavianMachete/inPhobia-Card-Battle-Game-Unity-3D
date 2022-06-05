@@ -41,3 +41,9 @@ public enum PhobiaPhase
     FirstPhase,
     SecondPhase
 }
+
+public enum CurveType
+{
+    Parabola,
+    Bezier
+}

@@ -15,8 +15,8 @@ public class Phobia : NPC
     [SerializeField]
     private TMP_Text healthTxtp;
 
-    [SerializeField]
-    private Image healthBarImage;
+    //[SerializeField]
+    //private Image healthBarImage;
 
     [SerializeField]
     private TMP_Text phobiaNextAction;
@@ -126,8 +126,8 @@ public class Phobia : NPC
 
     private void UpdateHealthBar()
     {
-        healthBarImage.fillAmount = Health / maxHealth;
-        healthTxtp.text = Mathf.RoundToInt(Health).ToString();
+        //healthBarImage.fillAmount = Health / maxHealth;
+        healthTxtp.text = $"{Mathf.RoundToInt(Health)}/{Mathf.RoundToInt(maxHealth)}";
     }
 
     private void PrepareAttack()
@@ -142,8 +142,6 @@ public class Phobia : NPC
                     {
                         AttackForce = 4;
                         attackCountInAStep = 6;
-                        //меч и 10x3
-                        phobiaNextAction.text = "sword + 6x4";
                     }
                     break;
                 case 1:
@@ -152,7 +150,6 @@ public class Phobia : NPC
                     {
                         AttackForce = 20;
                         attackCountInAStep = 1;
-                        phobiaNextAction.text = "sword + 1x20";
                     }
                     break;
                 default:
@@ -166,7 +163,6 @@ public class Phobia : NPC
                 AttackForce = 40;
                 attackCountInAStep = 1;
                 isFirstStepAtPhaseTwo = false;
-                phobiaNextAction.text = "sword + 1x40";
             }
             else
             {
@@ -177,7 +173,6 @@ public class Phobia : NPC
                         {
                             AttackForce = 3;
                             attackCountInAStep = 10;
-                            phobiaNextAction.text = "sword + 10x3";
                         }
                         break;
                     case 2:
@@ -185,8 +180,7 @@ public class Phobia : NPC
                         {
                             AttackForce = 18;
                             attackCountInAStep = 1;
-                            //UIController.instance.AddPsychosisToPatient();
-                            phobiaNextAction.text = "sword + 1x18 + ?";
+                            UIController.instance.AddPsychosisToPatient();
                         }
                         break;
                     default:
@@ -194,6 +188,8 @@ public class Phobia : NPC
                 }
             }
         }
+
+        phobiaNextAction.text = $"{attackCountInAStep}<color=#6b61fe>X</color>{AttackForce}";
     }
 
     private void AttackATime()

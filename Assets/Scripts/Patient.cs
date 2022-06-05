@@ -26,7 +26,7 @@ public class Patient : NPC
 
     [SerializeField] private TMP_Text healthTxtp;
 
-    [SerializeField] private Image healthBarImage;
+    //[SerializeField] private Image healthBarImage;
 
     [SerializeField] private float maxHealth;
 
@@ -247,10 +247,11 @@ public class Patient : NPC
         deck.RemoveAt(index);
         cardsCountInDeck.text = deck.Count.ToString();
     }
+
     private void UpdateHealthBar()
     {
-        healthBarImage.fillAmount = Health / maxHealth;
-        healthTxtp.text = Mathf.RoundToInt(Health).ToString();
+        //healthBarImage.fillAmount = Health / maxHealth;
+        healthTxtp.text = $"{Mathf.RoundToInt(Health)}/{Mathf.RoundToInt(maxHealth)}";
     }
 
 

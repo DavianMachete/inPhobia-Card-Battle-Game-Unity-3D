@@ -21,15 +21,15 @@ public class UIController : MonoBehaviour
     #region Serialized Fields 
 
     [Header("                Before Main Game Game UIs            ")]
-    [SerializeField]
-    private GameObject backGroundUI;
+    //[SerializeField]
+    //private GameObject backGroundUI;
     [SerializeField]
     private GameObject beforStartUI;
     [SerializeField]
     private GameObject mainGameUI;
 
 
-    [Header("                The Main Game UIs            ")]
+    [Header("                The Fight Game UIs            ")]
     [SerializeField]
     private GameObject cardPrefab;
     [SerializeField]
@@ -37,18 +37,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private RectTransform patientCardsParent;
     [SerializeField]
-    private Vector2 patientLowestPosOfCard;
+    private UISpline therapistHandSpline;
     [SerializeField]
-    private Vector2 patientHighestPosOfCard;
-    [SerializeField]
-    private Vector2 therapistLowestPosOfCard;
-    [SerializeField]
-    private Vector2 therapistHighestPosOfCard;
-
-    [SerializeField]
-    private Vector2 therapistCenteredCardPos;
-    [SerializeField]
-    private Vector2 patientCenteredCardPos;
+    private UISpline patientHandSpline;
 
     [Space(40f)]
     [Header("            Card Movement settings        ")]
@@ -109,7 +100,7 @@ public class UIController : MonoBehaviour
 
         mainGameUI.SetActive(false);
         beforStartUI.SetActive(true);
-        backGroundUI.SetActive(true);
+        //backGroundUI.SetActive(true);
     }
 
     public void SetInteractable(bool value)
@@ -232,7 +223,7 @@ public class UIController : MonoBehaviour
 
         newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.TherapistCard);
-        newCardController.SetCardMetrics(rIndex, therapistCenteredCardPos, therapistHighestPosOfCard, therapistLowestPosOfCard);
+        newCardController.SetCardMetrics(rIndex, therapistHandSpline);
         Therapist.instance.AddCardToHand(rIndex, newCardController.card);
 
         //UpdateCards(true);
@@ -258,7 +249,7 @@ public class UIController : MonoBehaviour
 
         newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
-        newCardController.SetCardMetrics(rIndex, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        newCardController.SetCardMetrics(rIndex, patientHandSpline);
         Patient.instance.AddCardToHand(rIndex, newCardController.card);
 
         //UpdateCards(true);
@@ -296,7 +287,7 @@ public class UIController : MonoBehaviour
 
         cardController.transform.SetParent(patientCardsParent);
         cardController.SetCardCurrentType(CardUIType.PatientCard);
-        cardController.SetCardMetrics(rIndex, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        cardController.SetCardMetrics(rIndex, patientHandSpline);
         Patient.instance.AddCardToHand(rIndex, cardController.card);
 
         UpdateCards(true);
@@ -359,14 +350,12 @@ public class UIController : MonoBehaviour
             Patient.instance.AddCardToHand(firstSelectedCard.index, secondSelectedCard.card);
 
             int indexHolder = firstSelectedCard.index;
-            Vector2 centerPosHolder = firstSelectedCard.centeredCardPos;
-            Vector2 lowestPosHolder = firstSelectedCard.lowestPosOfCard;
-            Vector2 highestPosHolder = firstSelectedCard.highestPosOfCard;
+            UISpline handSpline = firstSelectedCard.handSpline;
 
             /////Set Patient card settings as Therapist
             firstSelectedCard.SetCardParametersToGameObject(firstSelectedCard.card);
             firstSelectedCard.SetCardCurrentType(secondSelectedCard.cardCurrentType);
-            firstSelectedCard.SetCardMetrics(secondSelectedCard.index, secondSelectedCard.centeredCardPos, secondSelectedCard.highestPosOfCard, secondSelectedCard.lowestPosOfCard);
+            firstSelectedCard.SetCardMetrics(secondSelectedCard.index, secondSelectedCard.handSpline);
 
             //Debug.Log($"secondSelectedCard.transform.parent name is {transformHolder.parent.gameObject.name}");
             firstSelectedCard.transform.SetParent(secondSelectedCard.transform.parent);
@@ -375,7 +364,7 @@ public class UIController : MonoBehaviour
             /////Set Therapist card settings as Patient
             secondSelectedCard.SetCardParametersToGameObject(secondSelectedCard.card);
             secondSelectedCard.SetCardCurrentType(CardUIType.PatientCard);
-            secondSelectedCard.SetCardMetrics(indexHolder, centerPosHolder, highestPosHolder, lowestPosHolder);
+            secondSelectedCard.SetCardMetrics(indexHolder, handSpline);
 
             //Debug.Log($"transformHolder.parent name is {transformHolder.parent.gameObject.name}");
             secondSelectedCard.transform.SetParent(patientCardsParent);
@@ -396,11 +385,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void AnimatePatientCardsBeforeDrop(float mouseY, CardController cardController) 
+    public void AnimatePatientCardsBeforeDrop(Vector2 anchoredPosition, CardController cardController) 
     {
         if (cardController.card.cardType == CardTypes.Equipment)
             return;
-        float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, mouseY);
+        float t = patientHandSpline.GetClosestT(anchoredPosition, patientCardsInHand.Count + 3);
         //float indexByT = t * patientCards.Count;
 
         float step = 1f / patientCardsInHand.Count;
@@ -440,7 +429,7 @@ public class UIController : MonoBehaviour
         }
 
         //detect index
-        float t = Mathf.InverseLerp(patientHighestPosOfCard.y, patientLowestPosOfCard.y, cardController.GetComponent<RectTransform>().anchoredPosition.y);
+        float t = patientHandSpline.GetClosestT(cardController.GetComponent<RectTransform>().anchoredPosition, patientCardsInHand.Count+3);
         //Debug.Log($"<color=maroon>UIController: </color> t of current card = {t} ");
         float step = 1f / patientCardsInHand.Count;
         int index = 0;
@@ -457,7 +446,7 @@ public class UIController : MonoBehaviour
 
         cardController.SetCardParametersToGameObject(cardController.card);
         cardController.SetCardCurrentType(CardUIType.PatientCard);
-        cardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        cardController.SetCardMetrics(index, patientHandSpline);
 
         //
 
@@ -488,7 +477,7 @@ public class UIController : MonoBehaviour
         CardController newCardController = newCard.GetComponent<CardController>();
         newCardController.SetCardParametersToGameObject(Cards.Psychosis);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
-        newCardController.SetCardMetrics(index, patientCenteredCardPos, patientHighestPosOfCard, patientLowestPosOfCard);
+        newCardController.SetCardMetrics(index, patientHandSpline);
 
         //Debug.Log($"index = {index}");
         foreach (CardController cardP in patientCardsInHand)
