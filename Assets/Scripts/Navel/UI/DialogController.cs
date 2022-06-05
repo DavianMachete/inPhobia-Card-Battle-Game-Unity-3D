@@ -23,8 +23,9 @@ public class DialogController : MonoBehaviour
     private void OnEnable()
     {
         dialogIndex = 0;
-        PrepareNextDialog();
         OnDialogsStarts?.Invoke();
+        PrepareNextDialog();
+        
     }
 
     public void PrepareNextDialog()
@@ -45,6 +46,9 @@ public class DialogController : MonoBehaviour
         persionTmp.text = dialog[dialogIndex].Persion;
         textTMP.text = dialog[dialogIndex].text;
 
+        nextButton.onClick.RemoveAllListeners();
+        nextButton.onClick.AddListener(PrepareNextDialog);
+
         if (dialog[dialogIndex].hasQuestion)
         {
             skipButton.interactable = false;
@@ -59,6 +63,11 @@ public class DialogController : MonoBehaviour
                 questions[i].transform.parent.GetComponent<Button>().onClick.AddListener(PrepareNextDialog);
             }
         }
+        else
+        {
+            nextButton.onClick.AddListener(dialog[dialogIndex].onClick.Invoke);
+
+        }
         dialogIndex++;
     }
 
@@ -66,6 +75,9 @@ public class DialogController : MonoBehaviour
     {
         for (int i = dialogIndex; i < dialog.Count; i++)
         {
+            dialogIndex = dialog.Count; 
+            PrepareNextDialog();
+
             if (dialog[i].hasQuestion)
             {
                 dialogIndex = i;
@@ -73,8 +85,7 @@ public class DialogController : MonoBehaviour
                 break;
             }
         }
-        dialogIndex = dialog.Count;
-        PrepareNextDialog();
+        
     }
 
     public void AddBranch(DialogBranch dialogBrach)

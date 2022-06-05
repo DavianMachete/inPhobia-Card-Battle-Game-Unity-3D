@@ -11,7 +11,9 @@ public class Dialog
     public string text;
     public bool hasQuestion;
     public List<Question> questions;
+    public UnityEvent onClick;
 }
+
 
 [Serializable]
 public class Question
