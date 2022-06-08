@@ -224,7 +224,7 @@ public class UIController : MonoBehaviour
         newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.TherapistCard);
         newCardController.SetCardMetrics(rIndex, therapistHandSpline);
-        Therapist.instance.AddCardToHand(rIndex, newCardController.card);
+        TherapistManager.instance.AddCardToHand(rIndex, newCardController.card);
 
         //UpdateCards(true);
     }
@@ -250,7 +250,7 @@ public class UIController : MonoBehaviour
         newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
         newCardController.SetCardMetrics(rIndex, patientHandSpline);
-        Patient.instance.AddCardToHand(rIndex, newCardController.card);
+        PatientManager.instance.AddCardToHand(rIndex, newCardController.card);
 
         //UpdateCards(true);
     }
@@ -258,7 +258,7 @@ public class UIController : MonoBehaviour
     //Поставить свою карту в случайное место в руке пациента
     public void PutCardInRandomPlace(CardController cardController)
     {
-        if (Therapist.instance.therapistCurrentAP - 1 < 0)
+        if (TherapistManager.instance.therapistCurrentAP - 1 < 0)
         {
             cardController.UpdateCard(true);
             return;
@@ -267,7 +267,7 @@ public class UIController : MonoBehaviour
         int tookCardIndex = cardController.index;
 
         therapistCardsInHand.Remove(cardController);
-        Therapist.instance.RemoveCardFromHand(cardController.card);
+        TherapistManager.instance.RemoveCardFromHand(cardController.card);
 
         foreach (CardController cardT in therapistCardsInHand)
         {
@@ -288,18 +288,18 @@ public class UIController : MonoBehaviour
         cardController.transform.SetParent(patientCardsParent);
         cardController.SetCardCurrentType(CardUIType.PatientCard);
         cardController.SetCardMetrics(rIndex, patientHandSpline);
-        Patient.instance.AddCardToHand(rIndex, cardController.card);
+        PatientManager.instance.AddCardToHand(rIndex, cardController.card);
 
         UpdateCards(true);
 
         //Update TherapistActionPoints
         if (cardController.card.cardType == CardTypes.Equipment)
         {
-            Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 1, Therapist.instance.therapistMaxAP - 1);
+            TherapistManager.instance.SetActionPoint(TherapistManager.instance.therapistCurrentAP - 1, TherapistManager.instance.therapistMaxAP - 1);
         }
         else
         {
-            Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 1, Therapist.instance.therapistMaxAP);
+            TherapistManager.instance.SetActionPoint(TherapistManager.instance.therapistCurrentAP - 1, TherapistManager.instance.therapistMaxAP);
         }
     }
 
@@ -311,7 +311,7 @@ public class UIController : MonoBehaviour
         {
             if (firstSelectedCard.cardCurrentType != secondSelectedCard.cardCurrentType)
             {
-                if (Therapist.instance.therapistCurrentAP - 3 < 0)
+                if (TherapistManager.instance.therapistCurrentAP - 3 < 0)
                 {
                     ResetSelectedes();
                     return;
@@ -319,7 +319,7 @@ public class UIController : MonoBehaviour
             }
             else
             {
-                if (Therapist.instance.therapistCurrentAP - 1 < 0)
+                if (TherapistManager.instance.therapistCurrentAP - 1 < 0)
                 {
                     ResetSelectedes();
                     return;
@@ -327,27 +327,27 @@ public class UIController : MonoBehaviour
             }
 
             patientCardsInHand.Remove(firstSelectedCard);
-            Patient.instance.RemoveCardFromHand(firstSelectedCard.card);
+            PatientManager.instance.RemoveCardFromHand(firstSelectedCard.card);
 
             if (secondSelectedCard.cardCurrentType == CardUIType.PatientCard)
             {
                 patientCardsInHand.Insert(secondSelectedCard.index, firstSelectedCard);
-                Patient.instance.AddCardToHand(secondSelectedCard.index, firstSelectedCard.card);
+                PatientManager.instance.AddCardToHand(secondSelectedCard.index, firstSelectedCard.card);
 
                 patientCardsInHand.Remove(secondSelectedCard);
-                Patient.instance.RemoveCardFromHand(secondSelectedCard.card);
+                PatientManager.instance.RemoveCardFromHand(secondSelectedCard.card);
             }
             else
             {
                 therapistCardsInHand.Insert(secondSelectedCard.index, firstSelectedCard);
-                Therapist.instance.AddCardToHand(secondSelectedCard.index, firstSelectedCard.card);
+                TherapistManager.instance.AddCardToHand(secondSelectedCard.index, firstSelectedCard.card);
 
                 therapistCardsInHand.Remove(secondSelectedCard);
-                Therapist.instance.RemoveCardFromHand(secondSelectedCard.card);
+                TherapistManager.instance.RemoveCardFromHand(secondSelectedCard.card);
             }
 
             patientCardsInHand.Insert(firstSelectedCard.index, secondSelectedCard);
-            Patient.instance.AddCardToHand(firstSelectedCard.index, secondSelectedCard.card);
+            PatientManager.instance.AddCardToHand(firstSelectedCard.index, secondSelectedCard.card);
 
             int indexHolder = firstSelectedCard.index;
             UISpline handSpline = firstSelectedCard.handSpline;
@@ -371,12 +371,12 @@ public class UIController : MonoBehaviour
 
             if (firstSelectedCard.cardCurrentType != CardUIType.PatientCard)
             {
-                Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 3, Therapist.instance.therapistMaxAP);
+                TherapistManager.instance.SetActionPoint(TherapistManager.instance.therapistCurrentAP - 3, TherapistManager.instance.therapistMaxAP);
                 //NEED TO change deck belonging
             }
             else
             {
-                Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 1, Therapist.instance.therapistMaxAP);
+                TherapistManager.instance.SetActionPoint(TherapistManager.instance.therapistCurrentAP - 1, TherapistManager.instance.therapistMaxAP);
             }
 
             UpdateCards(true);
@@ -413,7 +413,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            if (Therapist.instance.therapistCurrentAP - 2 < 0)
+            if (TherapistManager.instance.therapistCurrentAP - 2 < 0)
             {
                 cardController.UpdateCard(true);
                 return;
@@ -421,7 +421,7 @@ public class UIController : MonoBehaviour
         }
 
         therapistCardsInHand.Remove(cardController);
-        Therapist.instance.RemoveCardFromHand(cardController.card);
+        TherapistManager.instance.RemoveCardFromHand(cardController.card);
         foreach (CardController cardT in therapistCardsInHand)
         {
             if (cardT.index > cardController.index)
@@ -457,13 +457,13 @@ public class UIController : MonoBehaviour
         }
 
         patientCardsInHand.Insert(index, cardController);
-        Patient.instance.AddCardToHand(index, cardController.card);
+        PatientManager.instance.AddCardToHand(index, cardController.card);
 
         cardController.transform.SetParent(patientCardsParent);
 
         UpdateCards(true);
 
-        Therapist.instance.SetActionPoint(Therapist.instance.therapistCurrentAP - 2, Therapist.instance.therapistMaxAP);
+        TherapistManager.instance.SetActionPoint(TherapistManager.instance.therapistCurrentAP - 2, TherapistManager.instance.therapistMaxAP);
     }
 
     public void AddPsychosisToPatient()
@@ -487,7 +487,7 @@ public class UIController : MonoBehaviour
         }
 
         patientCardsInHand.Insert(index, newCardController);
-        Patient.instance.AddCardToHand(index, newCardController.card);
+        PatientManager.instance.AddCardToHand(index, newCardController.card);
 
         //Need to Insert and remove card in nessary abstract holders
 

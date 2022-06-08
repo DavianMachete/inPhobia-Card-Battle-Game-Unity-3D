@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Therapist : MonoBehaviour
+public class TherapistManager: MonoBehaviour
 {
-    public static Therapist instance;
+    public static TherapistManager instance;
 
     public int therapistMaxAP = 5;
     public int therapistCurrentAP = 5;

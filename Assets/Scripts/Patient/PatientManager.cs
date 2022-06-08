@@ -5,19 +5,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Patient : NPC
+public class PatientManager : MonoBehaviour
 {
-    public static Patient instance;
+    public static PatientManager instance;
 
-    //public Card nextAttackCard;
-    public int patientMaxAP = 3;
-    public int patientCurrentAP = 3;
+    public Patient patient;
 
     public List<Card> deck;
     public List<Card> Hand;
     public List<Card> discard;
-
-
 
     [SerializeField]private Affect affect;
 
@@ -26,13 +22,9 @@ public class Patient : NPC
 
     [SerializeField] private TMP_Text healthTxtp;
 
-    //[SerializeField] private Image healthBarImage;
-
-    [SerializeField] private float maxHealth;
-
     [SerializeField] private int nextAttackCount = 1;
 
-    [SerializeField] private float armor = 0;
+    [SerializeField] private float armor;
 
     [SerializeField] private float block;
     [SerializeField] private bool blockSaved;
@@ -40,7 +32,6 @@ public class Patient : NPC
     [SerializeField] private bool attackWhenDamaged;
     [SerializeField] private bool attackWhenGetBlock;
 
-    private bool patientCardPlayed = false;
     private bool removeCurrentCardFromDeck = false;
 
     public void InitializePatient()
@@ -51,14 +42,11 @@ public class Patient : NPC
             affect = new Affect();
         affect.Clear();
 
-        patientMaxAP = 3;
-        patientCurrentAP = 3;
-
-        Health = maxHealth;
+        patient.Initialize();
 
         InitializeDeck();
         UpdateHealthBar();
-        SetActionPoint(patientCurrentAP, patientMaxAP);
+        SetActionPoint();
     }
 
     public void StartTurn()
@@ -88,7 +76,7 @@ public class Patient : NPC
 
     public void PrepareNewTurn()
     {
-        SetActionPoint(patientMaxAP, patientMaxAP);
+        SetActionPoint();
 
         Discard();
         PullCard(3);
@@ -149,7 +137,7 @@ public class Patient : NPC
 
     private void Attack()
     {
-        Phobia.instance.MakeTheDamage(Mathf.RoundToInt(AttackForce));
+        PhobiaManager.instance.MakeTheDamage(Mathf.RoundToInt(patient.attackForce));
     }
 
     public void AddBlock(float block)
@@ -201,16 +189,14 @@ public class Patient : NPC
         removeCurrentCardFromDeck = true;
     }
 
-    public void SetActionPoint(int current, int max)
+    public void SetActionPoint()
     {
-        patientCurrentAP = current;
-        patientMaxAP = max;
-        actionPointsText.text = current.ToString() + "/" + max.ToString();
+        actionPointsText.text = patient.patientActionPoints.ToString() + "/" + patient.patientMaximumActionPoints.ToString();
     }
 
     public void SetAttackForce(float force)
     {
-        AttackForce = force;
+        patient.attackForce = force;
         //Debug.Log($"<color=teal>NPC:</color> attackForce =  {force}");
     }
 
@@ -223,13 +209,13 @@ public class Patient : NPC
 
         if (damage > 0)
         {
-            Health -= damage;
+            patient.health -= damage;
             if (attackWhenDamaged)
             {
                 Attack();
             }
         }
-        if (Health <= 0)
+        if (patient.health <= 0)
         {
             GameManager.instance.LevelFailed();
         }
@@ -251,7 +237,7 @@ public class Patient : NPC
     private void UpdateHealthBar()
     {
         //healthBarImage.fillAmount = Health / maxHealth;
-        healthTxtp.text = $"{Mathf.RoundToInt(Health)}/{Mathf.RoundToInt(maxHealth)}";
+        healthTxtp.text = $"{Mathf.RoundToInt(patient.health)}/{Mathf.RoundToInt(patient.maximumHealth)}";
     }
 
 
@@ -274,7 +260,7 @@ public class Patient : NPC
         //while()
         for (int i = 0; i < cardCountInHand; i++)
         {
-            if (patientCurrentAP < Hand[i].actionPoint)//card.actionPoint)
+            if (patient.patientActionPoints < Hand[i].actionPoint)//card.actionPoint)
                 break;
 
             string currentCardID = Hand[i].cardID;
@@ -293,10 +279,10 @@ public class Patient : NPC
 
             Debug.Log($"<color=cyan>Step Started </color>with card -> {currentCardID}");// card.cardID}");
 
-            patientCurrentAP -= Hand[i].actionPoint;// card.actionPoint;
-            actionPointsText.text = patientCurrentAP.ToString() + "/" + patientMaxAP.ToString();
+            patient.patientActionPoints -= Hand[i].actionPoint;
+            SetActionPoint();
 
-            patientCardPlayed = false;
+            bool patientCardPlayed = false;
             UIController.instance.PlayPatientTopCard(() => 
             { 
                 patientCardPlayed = true; 
@@ -312,13 +298,13 @@ public class Patient : NPC
 
             if (Hand.Count > 0)
             {
-                if (Hand[i].cardType /*card.cardType*/ == CardTypes.Attack)
+                if (Hand[i].cardType == CardTypes.Attack)
                 {
                     affect.Invoke(InPhobiaEventType.OnAttack);
                     for (int j = 0; j < nextAttackCount; j++)
                     {
                         Attack();
-                        Debug.Log($"<color=cyan>Attacked</color>_{currentCardID/*card.cardID*/}_");
+                        Debug.Log($"<color=cyan>Attacked</color>_{currentCardID}_");
                         yield return new WaitForSeconds(1f);
                     }
                     nextAttackCount = 1;//is Next Attack count saved, when turn ended?
@@ -326,15 +312,15 @@ public class Patient : NPC
             }
             affect.Invoke(InPhobiaEventType.OnStepEnd);
 
-            Debug.Log($"<color=cyan>Step Ended</color>_{currentCardID/*card.cardID*/}_");
+            Debug.Log($"<color=cyan>Step Ended</color>_{currentCardID}_");
             if (!removeCurrentCardFromDeck && Hand.Count > 0)
             {
-                Debug.Log($"<color=cyan>Patient: </color> The card <color=green>({currentCardID/*card.cardID*/})</color> discarded");
+                Debug.Log($"<color=cyan>Patient: </color> The card <color=green>({currentCardID})</color> discarded");
                 discard.Add(Hand[i]);
             }
             else
             {
-                Debug.Log($"<color=cyan>Patient: </color> The card <color=red>({currentCardID/*card.cardID*/})</color> removed from deck(not discard)");
+                Debug.Log($"<color=cyan>Patient: </color> The card <color=red>({currentCardID})</color> removed from deck(not discard)");
                 if (Hand.Count > 0)
                     Hand.RemoveAt(i);
                 removeCurrentCardFromDeck = false;
@@ -345,7 +331,7 @@ public class Patient : NPC
 
         RemovePlayedCards();
 
-        Phobia.instance.StartTurn(()=>
+        PhobiaManager.instance.StartTurn(()=>
         {
             affect.Invoke(InPhobiaEventType.OnTurnEnd);
 

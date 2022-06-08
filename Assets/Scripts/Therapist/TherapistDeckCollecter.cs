@@ -110,7 +110,7 @@ public class TherapistDeckCollecter : MonoBehaviour
 
         therapistCardsToSelect.Remove(selectedCard);
 
-        Therapist.instance.AddToDeck(selectedCard);
+        TherapistManager.instance.AddToDeck(selectedCard);
 
         PrepareCardsToSelect();
     }

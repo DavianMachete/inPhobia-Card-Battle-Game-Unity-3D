@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b81755c2f53c544b97128e28724cde3, type: 3}
+  m_Name: Palitican
+  m_EditorClassIdentifier: 
+  Name: Palitican
+  image: {fileID: 2800000, guid: 6ef41645722e99d40a79664ff81ab05a, type: 3}
+  maximumHealth: 2
+  health: 0
+  attackForce: 0
+  patientMaximumActionPoints: 0
+  patientActionPoints: 0
+  phobia: {fileID: 11400000, guid: 47f3735891c549048863287f39def643, type: 2}
+  info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas
+    porta arcu, in tempor felis feugiat sed. Proin rhoncus molestie ex, a vestibulum
+    massa pellentesque ut. Donec bibendum tincidunt metus vel accumsan. Sed gravida,
+    libero et consequat mattis, ex urna semper magna, id mollis felis est vel urna.
+    Nunc velit sapien, molestie vel sollicitudin sagittis, venenatis ut neque. Donec
+    ex quam, vehicula sed velit id, tincidunt egestas dui. In hac habitasse platea
+    dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et aliquam
+    lectus, eget pretium elit. Nunc massa augue, aliquam convallis ante sit amet,
+    tempus condimentum lectus. Phasellus nec blandit metus. In bibendum, lectus eu
+    imperdiet suscipit, lacus metus pharetra metus, et varius metus mauris id arcu.
+
+    
+
+    Etiam
+    tempor enim sed cursus pulvinar. Pellentesque facilisis nisl sed quam aliquam,
+    in hendrerit lectus ultrices. Duis viverra tincidunt odio, quis fermentum nisi.
+    Vestibulum ultrices leo eget ipsum facilisis, suscipit eleifend metus placerat.
+    Nam posuere sed elit sed suscipit. Nam aliquet eu risus quis mollis. Etiam at
+    magna vitae est venenatis accumsan eget ut purus. Phasellus gravida maximus lacus,
+    vel lobortis arcu condimentum lacinia. Sed blandit neque ut sagittis dictum.
+    Proin porttitor, tellus non aliquet blandit, arcu lorem tempor magna, ut fringilla
+    ipsum quam ut purus. Integer eget ligula volutpat, lobortis enim non, lobortis
+    nunc. Aenean id velit porttitor, porttitor sapien ac, feugiat orci.
+
+    
+
+    Praesent
+    arcu urna, efficitur eu gravida vitae, viverra in quam. Nullam magna lorem, rutrum
+    in ultricies quis, rutrum at dui. Quisque quis facilisis augue. Etiam eu pretium
+    sapien, et gravida sapien. Interdum et malesuada fames ac ante ipsum primis in
+    faucibus. Nam volutpat rutrum semper. Duis eleifend ut eros ut pulvinar. Donec
+    eget varius mauris. Quisque mattis scelerisque lobortis.
+
+    
+
+    Curabitur
+    ac erat dapibus, luctus augue in, convallis diam. Nam mauris lorem, elementum
+    ut ipsum at, consequat commodo dolor. Vivamus neque leo, porta ut facilisis ac,
+    tristique at leo. Quisque non ipsum quis leo condimentum suscipit. Vestibulum
+    ut orci vitae enim accumsan blandit non sed enim. Morbi tempor imperdiet pellentesque.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+    himenaeos. Proin erat urna, fringilla nec ornare vel, scelerisque et mauris.
+    Maecenas pretium consequat massa, vel aliquet orci.
+
+    
+
+    Vivamus tincidunt
+    arcu sit amet ipsum gravida rutrum. Maecenas est diam, egestas eu porttitor non,
+    euismod ut velit. Donec ut ornare tellus, at tempor lacus. Vivamus imperdiet
+    ornare gravida. Cras maximus hendrerit leo, sed condimentum dolor bibendum ac.
+    Mauris nec sodales risus. Morbi quis nibh dui. Cras pellentesque lorem id purus
+    hendrerit varius. Mauris pellentesque ligula eros, at consectetur massa ornare
+    vel. Duis vitae cursus est. Aenean non lacus et sapien elementum iaculis.'

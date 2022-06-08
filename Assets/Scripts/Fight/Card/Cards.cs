@@ -11,9 +11,9 @@ public static class Cards
         else
             _TherapistCardsToSelect = new List<Card>();
 
-        _TherapistCardsToSelect.Add(new Card("Ram", CardTypes.Attack, Affects.Block(Phobia.instance.AttackForce), "Deal damage equal to your block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Deal damage equal to your block"
+        _TherapistCardsToSelect.Add(new Card("Ram", CardTypes.Attack, Affects.Block(PhobiaManager.instance.phobia.attackForce), "Deal damage equal to your block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Deal damage equal to your block"
 
-        _TherapistCardsToSelect.Add(new Card("Entrench", CardTypes.Skill, Affects.Block(Patient.instance.GetBlock() * 2), "Double your current block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Double your current block"
+        _TherapistCardsToSelect.Add(new Card("Entrench", CardTypes.Skill, Affects.Block(PatientManager.instance.GetBlock() * 2), "Double your current block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Double your current block"
 
         _TherapistCardsToSelect.Add(new Card("Shrug it off", CardTypes.Skill, Affects.Block(8) + Affects.PullCard(1), "Gain 8 block, draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 8 block, draw 1 card"
 
@@ -107,33 +107,33 @@ public static class Cards
     {
         string forWho = forTherapist ? "Therapist" : "Patient";
         Debug.Log($"<color=lightblue>SortDiscardCalled for {forWho}</color>");
-        List<Card> patientDiscard = new List<Card>(Patient.instance.discard);
+        List<Card> patientDiscard = new List<Card>(PatientManager.instance.discard);
         foreach (Card card in patientDiscard)
         {
             if (card.cardBelonging == CardUIType.PatientCard && !forTherapist)
             {
-                Patient.instance.deck.Add(card);
-                Patient.instance.discard.Remove(card);
+                PatientManager.instance.deck.Add(card);
+                PatientManager.instance.discard.Remove(card);
             }
             else if (card.cardBelonging == CardUIType.TherapistCard && forTherapist)
             {
-                Therapist.instance.deck.Add(card);
-                Patient.instance.discard.Remove(card);
+                TherapistManager.instance.deck.Add(card);
+                PatientManager.instance.discard.Remove(card);
             }
         }
 
-        List<Card> therapistDiscard = new List<Card>(Therapist.instance.discard);
+        List<Card> therapistDiscard = new List<Card>(TherapistManager.instance.discard);
         foreach (Card card in therapistDiscard)
         {
             if (card.cardBelonging == CardUIType.PatientCard && !forTherapist)
             {
-                Patient.instance.deck.Add(card);
-                Therapist.instance.discard.Remove(card);
+                PatientManager.instance.deck.Add(card);
+                TherapistManager.instance.discard.Remove(card);
             }
             else if (card.cardBelonging == CardUIType.TherapistCard && forTherapist)
             {
-                Therapist.instance.deck.Add(card);
-                Therapist.instance.discard.Remove(card);
+                TherapistManager.instance.deck.Add(card);
+                TherapistManager.instance.discard.Remove(card);
             }
         }
     }

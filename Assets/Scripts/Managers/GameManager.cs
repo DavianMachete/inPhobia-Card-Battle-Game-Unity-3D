@@ -6,14 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private Phobia phobia;
-    [SerializeField] private Patient patient;
-    [SerializeField] private Therapist therapist;
+    [SerializeField] private PhobiaManager phobia;
+    [SerializeField] private PatientManager patient;
+    [SerializeField] private TherapistManager therapist;
     [SerializeField] private UIController _UIcontroller;
 
     [SerializeField] private TherapistDeckCollecter therapistDeckCollecter;
-
-
 
 
     public void QuitFromGame()
