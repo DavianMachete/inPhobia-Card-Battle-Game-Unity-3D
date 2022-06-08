@@ -3350,7 +3350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6e0a1bed37f4043afec53b9022e897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phobia: {fileID: 0}
+  phobia: {fileID: 11400000, guid: 47f3735891c549048863287f39def643, type: 2}
   healthTxtp: {fileID: 179661923}
   phobiaNextAction: {fileID: 1905456241}
 --- !u!1 &742807350
@@ -5003,7 +5003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac55448ed72362048b096cfce880b81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patient: {fileID: 0}
+  patient: {fileID: 11400000, guid: fc01e3836d8308b47b172cb3147f7b5b, type: 2}
   deck: []
   Hand: []
   discard: []
