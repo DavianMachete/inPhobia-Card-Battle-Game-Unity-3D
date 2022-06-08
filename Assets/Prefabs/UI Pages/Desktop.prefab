@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1867529236}
   - component: {fileID: 1867529239}
-  - component: {fileID: 1867529238}
+  - component: {fileID: 1389235472388866100}
   - component: {fileID: 1867529237}
   m_Layer: 5
-  m_Name: patient_info_txt (1)
+  m_Name: patient_info_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867529235}
   m_CullTransparentMesh: 1
---- !u!114 &1867529238
+--- !u!114 &1389235472388866100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,138 +55,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1867529235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas
-    porta arcu, in tempor felis feugiat sed. Proin rhoncus molestie ex, a vestibulum
-    massa pellentesque ut. Donec bibendum tincidunt metus vel accumsan. Sed gravida,
-    libero et consequat mattis, ex urna semper magna, id mollis felis est vel urna.
-    Nunc velit sapien, molestie vel sollicitudin sagittis, venenatis ut neque. Donec
-    ex quam, vehicula sed velit id, tincidunt egestas dui. In hac habitasse platea
-    dictumst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et aliquam
-    lectus, eget pretium elit. Nunc massa augue, aliquam convallis ante sit amet,
-    tempus condimentum lectus. Phasellus nec blandit metus. In bibendum, lectus eu
-    imperdiet suscipit, lacus metus pharetra metus, et varius metus mauris id arcu.
-
-
-
-    Etiam
-    tempor enim sed cursus pulvinar. Pellentesque facilisis nisl sed quam aliquam,
-    in hendrerit lectus ultrices. Duis viverra tincidunt odio, quis fermentum nisi.
-    Vestibulum ultrices leo eget ipsum facilisis, suscipit eleifend metus placerat.
-    Nam posuere sed elit sed suscipit. Nam aliquet eu risus quis mollis. Etiam at
-    magna vitae est venenatis accumsan eget ut purus. Phasellus gravida maximus lacus,
-    vel lobortis arcu condimentum lacinia. Sed blandit neque ut sagittis dictum.
-    Proin porttitor, tellus non aliquet blandit, arcu lorem tempor magna, ut fringilla
-    ipsum quam ut purus. Integer eget ligula volutpat, lobortis enim non, lobortis
-    nunc. Aenean id velit porttitor, porttitor sapien ac, feugiat orci.
-
-
-
-    Praesent
-    arcu urna, efficitur eu gravida vitae, viverra in quam. Nullam magna lorem, rutrum
-    in ultricies quis, rutrum at dui. Quisque quis facilisis augue. Etiam eu pretium
-    sapien, et gravida sapien. Interdum et malesuada fames ac ante ipsum primis in
-    faucibus. Nam volutpat rutrum semper. Duis eleifend ut eros ut pulvinar. Donec
-    eget varius mauris. Quisque mattis scelerisque lobortis.
-
-
-
-    Curabitur ac
-    erat dapibus, luctus augue in, convallis diam. Nam mauris lorem, elementum ut
-    ipsum at, consequat commodo dolor. Vivamus neque leo, porta ut facilisis ac,
-    tristique at leo. Quisque non ipsum quis leo condimentum suscipit. Vestibulum
-    ut orci vitae enim accumsan blandit non sed enim. Morbi tempor imperdiet pellentesque.
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-    himenaeos. Proin erat urna, fringilla nec ornare vel, scelerisque et mauris.
-    Maecenas pretium consequat massa, vel aliquet orci.
-
-
-
-    Vivamus tincidunt
-    arcu sit amet ipsum gravida rutrum. Maecenas est diam, egestas eu porttitor non,
-    euismod ut velit. Donec ut ornare tellus, at tempor lacus. Vivamus imperdiet
-    ornare gravida. Cras maximus hendrerit leo, sed condimentum dolor bibendum ac.
-    Mauris nec sodales risus. Morbi quis nibh dui. Cras pellentesque lorem id purus
-    hendrerit varius. Mauris pellentesque ligula eros, at consectetur massa ornare
-    vel. Duis vitae cursus est. Aenean non lacus et sapien elementum iaculis.'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6fc91acbb1c93c4a824a3f89b8ec1df, type: 2}
-  m_sharedMaterial: {fileID: -8350260485787491763, guid: d6fc91acbb1c93c4a824a3f89b8ec1df, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8db5f9aa132c02e4ca0803bafd9d74b6, type: 3}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 67
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!114 &1867529237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 777, y: 197}
+  m_AnchoredPosition: {x: 777, y: 679}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1799272594413614449
@@ -424,7 +317,7 @@ RectTransform:
   m_Children:
   - {fileID: 8113007933516326120}
   m_Father: {fileID: 5343880496362322567}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -501,7 +394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 772, y: 684}
+  m_AnchoredPosition: {x: 772, y: 193}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3209506598921902847
@@ -600,7 +493,7 @@ MonoBehaviour:
   m_Content: {fileID: 5401588533321495759}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 2
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -628,17 +521,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 5
+  - eventID: 13
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5343880496362322566}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1025427177}
+          m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+          m_MethodName: OnScrollViewDragBegin
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1025427177}
+          m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+          m_MethodName: OnScrollViewDragEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -764,29 +673,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1025427177}
+        m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+        m_MethodName: MoveScrollViewBy
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 20
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &5343880496185213689
 GameObject:
@@ -820,7 +717,7 @@ RectTransform:
   m_Children:
   - {fileID: 5343880497405397054}
   m_Father: {fileID: 5343880496362322567}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -909,82 +806,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 5343880497821406755}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 5343880496631429956}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1025427177}
+        m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+        m_MethodName: ShowNextPatient
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1025,7 +850,7 @@ RectTransform:
   m_Children:
   - {fileID: 5343880498150290984}
   m_Father: {fileID: 5343880496362322567}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1247,7 +1072,7 @@ RectTransform:
   m_LocalScale: {x: 2.2261004, y: 2.095, z: 1}
   m_Children: []
   m_Father: {fileID: 5343880496793236027}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1308,12 +1133,12 @@ GameObject:
   - component: {fileID: 5343880496330198114}
   - component: {fileID: 5343880496330198117}
   m_Layer: 5
-  m_Name: Image
+  m_Name: patient_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5343880496330198116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1328,10 +1153,10 @@ RectTransform:
   m_Father: {fileID: 5343880496793236027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 0.000011444}
-  m_SizeDelta: {x: 283.0118, y: 303.2282}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5343880496330198114
 CanvasRenderer:
@@ -1402,12 +1227,12 @@ RectTransform:
   - {fileID: 1876568691082047740}
   - {fileID: 3562948442009646619}
   - {fileID: 5343880497697125275}
+  - {fileID: 6138169847405237466}
+  - {fileID: 5343880496793236027}
+  - {fileID: 5343880496796014727}
   - {fileID: 5343880496475188179}
   - {fileID: 5343880496223530135}
   - {fileID: 5343880496185213686}
-  - {fileID: 6138169847405237466}
-  - {fileID: 5343880496796014727}
-  - {fileID: 5343880496793236027}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1428,9 +1253,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7674df66995d7947a9badaf3576da0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patients:
+  - {fileID: 11400000, guid: fc01e3836d8308b47b172cb3147f7b5b, type: 2}
+  - {fileID: 11400000, guid: 73c2bfdb91a5f5a4e9d6108e120e239f, type: 2}
+  infoText: {fileID: 1389235472388866100}
+  patientImage: {fileID: 5343880496330198117}
+  phobiaImage: {fileID: 5343880497821406753}
   top: {fileID: 1876568691082047740}
   bottom: {fileID: 3562948442009646619}
   scrollBar: {fileID: 7219246951253141393}
+  content: {fileID: 5401588533321495759}
+  scrollBarElasticity: 10
+  contentMaxYPos: 655.415
 --- !u!1 &5343880496475188178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,7 +1283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5343880496475188179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1463,7 +1297,7 @@ RectTransform:
   m_Children:
   - {fileID: 5343880496904802103}
   m_Father: {fileID: 5343880496362322567}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1551,178 +1385,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5343880496475188177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 5343880497821406755}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 5343880496330198119}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5343880496631429956}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!1 &5343880496631429956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5343880496631429957}
-  - component: {fileID: 5343880496631429955}
-  - component: {fileID: 5343880496631429954}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &5343880496631429957
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5343880496631429956}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5343880496793236027}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 0.000011444}
-  m_SizeDelta: {x: 283.0118, y: 303.2282}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5343880496631429955
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5343880496631429956}
-  m_CullTransparentMesh: 1
---- !u!114 &5343880496631429954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5343880496631429956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6ef41645722e99d40a79664ff81ab05a, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5343880496793236026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,7 +1399,7 @@ GameObject:
   - component: {fileID: 5343880496793236025}
   - component: {fileID: 5343880496793236024}
   m_Layer: 5
-  m_Name: Window - Patient
+  m_Name: patient_bg_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1751,18 +1414,17 @@ RectTransform:
   m_GameObject: {fileID: 5343880496793236026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -146}
-  m_LocalScale: {x: 1.0626, y: 1.0881, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5343880496330198116}
-  - {fileID: 5343880496631429957}
   - {fileID: 5343880496284712245}
   m_Father: {fileID: 5343880496362322567}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 163, y: 218.51}
-  m_SizeDelta: {x: 410.2792, y: 401.63}
+  m_SizeDelta: {x: 420, y: 430}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5343880496793236022
 CanvasRenderer:
@@ -1883,7 +1545,7 @@ GameObject:
   - component: {fileID: 5343880496796014725}
   - component: {fileID: 5343880496796014724}
   m_Layer: 5
-  m_Name: Window - Phobia
+  m_Name: phobia_bg_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1898,17 +1560,17 @@ RectTransform:
   m_GameObject: {fileID: 5343880496796014726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -146}
-  m_LocalScale: {x: 1.0626, y: 1.0881, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5343880497821406752}
   - {fileID: 5343880496253987296}
   m_Father: {fileID: 5343880496362322567}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 657, y: 218.51}
-  m_SizeDelta: {x: 410.2792, y: 401.63}
+  m_SizeDelta: {x: 420, y: 430}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5343880496796014722
 CanvasRenderer:
@@ -2261,12 +1923,12 @@ GameObject:
   - component: {fileID: 5343880497821406750}
   - component: {fileID: 5343880497821406753}
   m_Layer: 5
-  m_Name: Image
+  m_Name: phobia_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5343880497821406752
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2281,10 +1943,10 @@ RectTransform:
   m_Father: {fileID: 5343880496796014727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 0.000011444}
-  m_SizeDelta: {x: 283.0118, y: 303.2282}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5343880497821406750
 CanvasRenderer:
@@ -2444,27 +2106,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1025427177}
+        m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+        m_MethodName: MoveScrollViewBy
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: -20
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -2559,6 +2209,7 @@ GameObject:
   - component: {fileID: 6290668945678770700}
   - component: {fileID: 4365420003907032619}
   - component: {fileID: 7219246951253141393}
+  - component: {fileID: 921858669}
   m_Layer: 5
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -2668,11 +2319,56 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1834336319377295084}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.14941436
+  m_Size: 0.14941438
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &921858669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475398262397108294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1025427177}
+          m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+          m_MethodName: OnScrollBarDragBegin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1025427177}
+          m_TargetAssemblyTypeName: DesctopController, Assembly-CSharp
+          m_MethodName: OnScrollBarDragEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5724133787081425041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,7 +2530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00024414062}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &538864627232822953

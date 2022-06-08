@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Palitican
   m_EditorClassIdentifier: 
   Name: Palitican
-  image: {fileID: 2800000, guid: 6ef41645722e99d40a79664ff81ab05a, type: 3}
+  image: {fileID: 21300000, guid: 6ef41645722e99d40a79664ff81ab05a, type: 3}
   maximumHealth: 2
   health: 0
   attackForce: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
     tempus condimentum lectus. Phasellus nec blandit metus. In bibendum, lectus eu
     imperdiet suscipit, lacus metus pharetra metus, et varius metus mauris id arcu.
 
-    
+
 
     Etiam
     tempor enim sed cursus pulvinar. Pellentesque facilisis nisl sed quam aliquam,
@@ -44,7 +44,7 @@ MonoBehaviour:
     ipsum quam ut purus. Integer eget ligula volutpat, lobortis enim non, lobortis
     nunc. Aenean id velit porttitor, porttitor sapien ac, feugiat orci.
 
-    
+
 
     Praesent
     arcu urna, efficitur eu gravida vitae, viverra in quam. Nullam magna lorem, rutrum
@@ -53,18 +53,18 @@ MonoBehaviour:
     faucibus. Nam volutpat rutrum semper. Duis eleifend ut eros ut pulvinar. Donec
     eget varius mauris. Quisque mattis scelerisque lobortis.
 
-    
 
-    Curabitur
-    ac erat dapibus, luctus augue in, convallis diam. Nam mauris lorem, elementum
-    ut ipsum at, consequat commodo dolor. Vivamus neque leo, porta ut facilisis ac,
+
+    Curabitur ac
+    erat dapibus, luctus augue in, convallis diam. Nam mauris lorem, elementum ut
+    ipsum at, consequat commodo dolor. Vivamus neque leo, porta ut facilisis ac,
     tristique at leo. Quisque non ipsum quis leo condimentum suscipit. Vestibulum
     ut orci vitae enim accumsan blandit non sed enim. Morbi tempor imperdiet pellentesque.
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
     himenaeos. Proin erat urna, fringilla nec ornare vel, scelerisque et mauris.
     Maecenas pretium consequat massa, vel aliquet orci.
 
-    
+
 
     Vivamus tincidunt
     arcu sit amet ipsum gravida rutrum. Maecenas est diam, egestas eu porttitor non,

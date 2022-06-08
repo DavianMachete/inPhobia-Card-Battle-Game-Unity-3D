@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chris
   m_EditorClassIdentifier: 
   Name: Cris
-  image: {fileID: 2800000, guid: a22734ef5657d904fb9f6631f26b9d4e, type: 3}
+  image: {fileID: 21300000, guid: a22734ef5657d904fb9f6631f26b9d4e, type: 3}
   maximumHealth: 500
   health: 500
   attackForce: 0

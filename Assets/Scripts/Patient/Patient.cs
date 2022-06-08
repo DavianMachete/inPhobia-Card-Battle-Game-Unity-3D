@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Patient : ScriptableObject
 {
     public string Name;
-    public Texture2D image;
+    public Sprite image;
     public float maximumHealth;
     public float health;
     public float attackForce;

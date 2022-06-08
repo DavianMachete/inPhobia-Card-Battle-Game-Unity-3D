@@ -10,27 +10,66 @@ public class DesctopController : MonoBehaviour
     #endregion
 
     #region Serialized Fields
+    [Header("Desctop Info Properties")]
+    [SerializeField] private List<Patient> patients;
+    [SerializeField] private Text infoText;
+    [SerializeField] private Image patientImage;
+    [SerializeField] private Image phobiaImage;
 
+    [Space(20f)]
+    [Header("Scrollview Properties")]
     [SerializeField] private RectTransform top;
     [SerializeField] private RectTransform bottom;
     [SerializeField] private Scrollbar scrollBar;
-
     [SerializeField] private RectTransform content;
-
     [SerializeField] private float scrollBarElasticity = 10f;
+    [SerializeField] private float contentMaxYPos;
 
     #endregion
 
     #region Private Fields
 
-    Vector2 contentAnchordPosition;
+    private int patientIndexHolder;
+    private float contentTargetT;
+    private Vector2 contentAnchordPosition;
 
     #endregion
 
     #region Unity Behaviour
+
+    private void Awake()
+    {
+        patientIndexHolder = 0;
+        ShowNextPatient();
+    }
+
     #endregion
 
     #region Public Methods
+
+    public void ShowNextPatient()
+    {
+        scrollBar.value = 1f;
+
+        Patient patient = patients[patientIndexHolder];
+        infoText.text = patient.info;
+        patientImage.sprite = patient.image;
+        phobiaImage.sprite = patient.phobia.image;
+
+        patientIndexHolder++;
+        if (patientIndexHolder == patients.Count)
+            patientIndexHolder = 0;
+    }
+
+    public void MoveScrollViewBy(float value)
+    {
+        float currentT = scrollBar.value;
+        float currentHeightPos = Mathf.Lerp(0f,contentMaxYPos,currentT);
+        float heightPos = Mathf.Clamp(currentHeightPos + value, 0f, contentMaxYPos);
+
+        contentTargetT = Mathf.InverseLerp(0f, contentMaxYPos, heightPos);
+        StartScrollContentByButton();
+    }
 
     public void OnScrollViewDragBegin()
     {
@@ -56,8 +95,24 @@ public class DesctopController : MonoBehaviour
 
     #region Private Methods
 
+    private void StartScrollContentByButton()
+    {
+        scrollContentByButton = true;
+        if (IScrollContentByButtonHelper == null)
+            IScrollContentByButtonHelper = StartCoroutine(IScrollContentByButton());
+    }
+    private void StopScrollContentByButton()
+    {
+        scrollContentByButton = false;
+        if (IScrollContentByButtonHelper != null)
+            StopCoroutine(IScrollContentByButtonHelper);
+        IScrollContentByButtonHelper = null;
+    }
+
     private void StartDragScrollView()
     {
+        StopScrollContentByButton();
+
         scrollViewDraging = true;
         if (IScrollViewDragHelper == null)
             IScrollViewDragHelper = StartCoroutine(IScrollViewDrag());
@@ -72,6 +127,8 @@ public class DesctopController : MonoBehaviour
 
     private void StartDragScrollBar()
     {
+        StopScrollContentByButton();
+
         scrollBarDraging = true;
         if (IScrollBarDragHelper == null)
             IScrollBarDragHelper = StartCoroutine(IScrollBarDrag());
@@ -122,13 +179,29 @@ public class DesctopController : MonoBehaviour
         while (scrollBarDraging)
         {
             y = Input.mousePosition.y;
-            t = Mathf.InverseLerp(top.anchoredPosition.y, bottom.anchoredPosition.y, y);
+            y *= 1080f / Screen.height;
+            //Debug.Log(y);
+            t = Mathf.InverseLerp(bottom.anchoredPosition.y, top.anchoredPosition.y, y);
 
             scrollBar.value = Mathf.Lerp(scrollBar.value, t, Time.fixedDeltaTime * scrollBarElasticity);
 
             yield return new WaitForFixedUpdate();
         }
         IScrollBarDragHelper = null;
+    }
+
+
+    private bool scrollContentByButton= false;
+    private Coroutine IScrollContentByButtonHelper;
+    private IEnumerator IScrollContentByButton()
+    {
+        while (scrollContentByButton)
+        {
+            scrollBar.value = Mathf.Lerp(scrollBar.value, contentTargetT, Time.fixedDeltaTime * scrollBarElasticity);
+
+            yield return new WaitForFixedUpdate();
+        }
+        IScrollContentByButtonHelper = null;
     }
 
     #endregion
