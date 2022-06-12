@@ -34,32 +34,19 @@ public class PatientManager : MonoBehaviour
 
     private bool removeCurrentCardFromDeck = false;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void InitializePatient()
     {
-        MakeInstance();
-
         if (affect == null)
             affect = new Affect();
         affect.Clear();
 
         patient.Initialize();
 
-        InitializeDeck();
-        UpdateHealthBar();
-        SetActionPoint();
-    }
-
-    public void StartTurn()
-    {
-        UIController.instance.SetInteractable(false);
-        if (IStartTurnHelper == null)
-        {
-            IStartTurnHelper = StartCoroutine(IStartTurn());
-        }
-    }
-
-    public void InitializeDeck()
-    {
         if (Hand == null)
             Hand = new List<Card>();
         Hand.Clear();
@@ -67,11 +54,10 @@ public class PatientManager : MonoBehaviour
         if (discard == null)
             discard = new List<Card>();
         discard.Clear();
-        
+
         deck = new List<Card>(Cards.PatientStandartCards());
-
-
-        PrepareNewTurn();
+        UpdateHealthBar();
+        SetActionPoint();
     }
 
     public void PrepareNewTurn()
@@ -81,7 +67,17 @@ public class PatientManager : MonoBehaviour
         Discard();
         PullCard(3);
 
-        UIController.instance.UpdateCards(true);
+        CardManager.instance.UpdateCards(true);
+    }
+
+    public void StartTurn()
+    {
+        UIManager.instance.SetCanvasGroupActive(false);
+
+        if (IStartTurnHelper == null)
+        {
+            IStartTurnHelper = StartCoroutine(IStartTurn());
+        }
     }
 
     public void PullCard(int count)
@@ -113,7 +109,7 @@ public class PatientManager : MonoBehaviour
     {
         discard.AddRange(Hand);
         Hand.Clear();
-        UIController.instance.Discard(CardUIType.PatientCard);
+        CardManager.instance.Discard(CardUIType.PatientCard);
     }
 
     public void SaveBlock() 
@@ -229,7 +225,7 @@ public class PatientManager : MonoBehaviour
     {
         int index = Random.Range(0, deck.Count);
 
-        UIController.instance.PullCardForPatient(deck[index]);
+        CardManager.instance.PullCardForPatient(deck[index]);
         deck.RemoveAt(index);
         cardsCountInDeck.text = deck.Count.ToString();
     }
@@ -283,7 +279,7 @@ public class PatientManager : MonoBehaviour
             SetActionPoint();
 
             bool patientCardPlayed = false;
-            UIController.instance.PlayPatientTopCard(() => 
+            CardManager.instance.PlayPatientTopCard(() => 
             { 
                 patientCardPlayed = true; 
             });
@@ -335,7 +331,7 @@ public class PatientManager : MonoBehaviour
         {
             affect.Invoke(InPhobiaEventType.OnTurnEnd);
 
-            UIController.instance.SetInteractable(true);
+            UIManager.instance.SetCanvasGroupActive(true);
 
             GameManager.instance.PlayNextTurn();
         });
@@ -357,15 +353,6 @@ public class PatientManager : MonoBehaviour
                     break;
                 }
             }
-        }
-    }
-
-
-    private void MakeInstance()
-    {
-        if (instance == null)
-        {
-            instance = this;
         }
     }
 }

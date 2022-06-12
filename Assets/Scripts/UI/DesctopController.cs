@@ -39,16 +39,17 @@ public class DesctopController : MonoBehaviour
 
     private void Awake()
     {
-        patientIndexHolder = 0;
-        ShowNextPatient();
     }
 
     #endregion
 
     #region Public Methods
 
-    public void ShowNextPatient()
+    public void ShowNextPatient(bool fromFirst)
     {
+        if (fromFirst)
+            patientIndexHolder = 0;
+
         scrollBar.value = 1f;
 
         Patient patient = patients[patientIndexHolder];

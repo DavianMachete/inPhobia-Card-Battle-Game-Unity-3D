@@ -19,14 +19,12 @@ public class TherapistManager: MonoBehaviour
     [SerializeField]
     private TMP_Text actionPointsText;
 
-    public void InitializeTherapist()
+    private void Awake()
     {
-        MakeInstance();
-
-        InitializeTherapistDeck();
+        instance = this;
     }
 
-    public void InitializeTherapistDeck()
+    public void InitializeTherapist()
     {
         if (deck == null)
             deck = new List<Card>();
@@ -58,7 +56,7 @@ public class TherapistManager: MonoBehaviour
         Discard();
         PullCard(4);
 
-        UIController.instance.UpdateCards(true);
+        CardManager.instance.UpdateCards(true);
     }
 
     public void PullCard(int count)
@@ -90,7 +88,7 @@ public class TherapistManager: MonoBehaviour
     {
         discard.AddRange(hand);
         hand.Clear();
-        UIController.instance.Discard(CardUIType.TherapistCard);
+        CardManager.instance.Discard(CardUIType.TherapistCard);
     }
 
     public void RemoveCardFromHand(Card card)
@@ -124,7 +122,7 @@ public class TherapistManager: MonoBehaviour
         int index = Random.Range(0, deck.Count);
         ShuffleDeck();
         //Debug.Log(index);
-        UIController.instance.PullCardForTherapist(deck[index]);
+        CardManager.instance.PullCardForTherapist(deck[index]);
         deck.RemoveAt(index);
         cardsCountInDeck.text = deck.Count.ToString();
     }
@@ -139,13 +137,5 @@ public class TherapistManager: MonoBehaviour
             deck[randomIndex] = temp;
         }
 
-    }
-
-    private void MakeInstance()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
     }
 }

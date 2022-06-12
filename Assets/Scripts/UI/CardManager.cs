@@ -6,9 +6,9 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
-public class UIController : MonoBehaviour
+public class CardManager : MonoBehaviour
 {
-    public static UIController instance;
+    public static CardManager instance;
 
     public List<CardController> therapistCardsInHand;
     public List<CardController> patientCardsInHand;
@@ -19,68 +19,41 @@ public class UIController : MonoBehaviour
     public GameObject bigCardUI;
 
     #region Serialized Fields 
-
-    [Header("                Before Main Game Game UIs            ")]
-    //[SerializeField]
-    //private GameObject backGroundUI;
-    [SerializeField]
-    private GameObject beforStartUI;
-    [SerializeField]
-    private GameObject mainGameUI;
-
-
-    [Header("                The Fight Game UIs            ")]
-    [SerializeField]
-    private GameObject cardPrefab;
-    [SerializeField]
-    private RectTransform therapistCardsParent;
-    [SerializeField]
-    private RectTransform patientCardsParent;
-    [SerializeField]
-    private UISpline therapistHandSpline;
-    [SerializeField]
-    private UISpline patientHandSpline;
+    [Header("The Fight Game UIs")]
+    [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private RectTransform therapistCardsParent;
+    [SerializeField] private RectTransform patientCardsParent;
+    [SerializeField] private UISpline therapistHandSpline;
+    [SerializeField] private UISpline patientHandSpline;
 
     [Space(40f)]
-    [Header("            Card Movement settings        ")]
-    [SerializeField]
-    private List<float> screenPartBoundsOnX;
-    [SerializeField]
-    private float patientAnimationDuration = 1f;
+    [Header("Card Movement settings")]
+    [SerializeField] private GameObject screeenParts;
+    [SerializeField] private RectTransform patientDiscardRect;
+    [SerializeField] private RectTransform therapistDiscardRect;
+    [SerializeField] private float patientAnimationDuration = 1f;
 
-
-    [Space(40f)]
-    [Header("            Game Endings        ")]
-    [SerializeField] GameObject endPanel;
-    [SerializeField] TMPro.TMP_Text levelinfoTxt;
-    [SerializeField] CanvasGroup canvasCG;
     #endregion
 
     #region Private Fields
 
+    [SerializeField]private ScreenPart screenPart;
 
     #endregion
 
+    #region Unity Behaviour
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    #endregion
 
     #region Public Methods
 
-    public void InitializeUIController()
+    public void InitializeCardManager()
     {
-        MakeInstance();
-
-        SetInteractable(true);
-
-
-        if (IFadeMainGameUIHelper != null)
-            StopCoroutine(IFadeMainGameUIHelper);
-
-        CanvasGroup cg = mainGameUI.GetComponent<CanvasGroup>();
-        cg.alpha = 1f;
-
-        endPanel.gameObject.SetActive(false);
-
-
-
         if (therapistCardsInHand == null)
             therapistCardsInHand = new List<CardController>();
         if (patientCardsInHand == null)
@@ -98,60 +71,35 @@ public class UIController : MonoBehaviour
         }
         patientCardsInHand.Clear();
 
-        mainGameUI.SetActive(false);
-        beforStartUI.SetActive(true);
-        //backGroundUI.SetActive(true);
+        SetScreenPartsActive(false);
     }
 
-    public void SetInteractable(bool value)
+    public void SetScreenPartsActive(bool value)
     {
-        canvasCG.interactable = value;
-        canvasCG.blocksRaycasts = value;
+        screeenParts.SetActive(value);
     }
-    public bool GetCanvasInteractable()
-    {
-        //Debug.Log(canvasCG.interactable);
-        return canvasCG.interactable;
-    }
-    public ScreenPart GetScreenPart(Vector2 mousePosition)
-    {
-        float leftBound, rightBound;
 
-        float mouseX = mousePosition.x * 1920f / (float)Screen.width;
-        mouseX -= 1920f / 2f;
-
-        int index = 0;
-        for (int i = 0; i < screenPartBoundsOnX.Count + 1; i++)
+    public void SetScreenPart(int value)//0 - PatientHand, 1 - Middle, 2 - Therapist
+    {
+        switch (value)
         {
-            if (i == 0)
-                leftBound = -1920f / 2f;
-            else
-                leftBound = screenPartBoundsOnX[i - 1];
-
-            if (i == screenPartBoundsOnX.Count)
-                rightBound = 1920f / 2f;
-            else
-                rightBound = screenPartBoundsOnX[i];
-
-            //Debug.Log($"leftBound= {leftBound}, rightBound = {rightBound}, Mouse Posotion.x = {mouseX}");
-
-            if (mouseX >= leftBound && mouseX < rightBound)
-            {
-                index = i;
-                switch (index)
-                {
-                    case 0:
-                        return ScreenPart.PatientHand;
-                    case 1:
-                        return ScreenPart.Middle;
-                    case 2:
-                        return ScreenPart.Therapist;
-                    default:
-                        return ScreenPart.Therapist;
-                }
-            }
+            case 0:
+                screenPart = ScreenPart.PatientHand;
+                break;
+            case 1:
+                screenPart = ScreenPart.Middle;
+                break;
+            case 2:
+                screenPart = ScreenPart.Therapist;
+                break;
+            default:
+                break;
         }
-        return ScreenPart.Therapist;
+    }
+
+    public ScreenPart GetScreenPart()
+    {
+        return screenPart;
     }
 
     public void PlayPatientTopCard(UnityAction onDone)
@@ -498,32 +446,22 @@ public class UIController : MonoBehaviour
     {
         if(cardUIType == CardUIType.PatientCard)
         {
+            SplinePoint sp = new SplinePoint(patientDiscardRect.anchoredPosition, Vector3.up);
             foreach (CardController cardC in patientCardsInHand)
             {
-                cardC.MoveCardToDiscard(new Vector2(80, -580));
+                cardC.MoveCardToDiscard(sp);
             }
             patientCardsInHand.Clear();
         }
         if(cardUIType == CardUIType.TherapistCard)
         {
+            SplinePoint sp = new SplinePoint(therapistDiscardRect.anchoredPosition, Vector3.up);
             foreach (CardController cardC in therapistCardsInHand)
             {
-                cardC.MoveCardToDiscard(new Vector2(-80, -580));
+                cardC.MoveCardToDiscard(sp);
             }
             therapistCardsInHand.Clear();
         }
-    }
-
-    public void OpenEndGamePanel(bool levelCompleted)
-    {
-        if (IFadeMainGameUIHelper != null)
-            StopCoroutine(IFadeMainGameUIHelper);
-
-        IFadeMainGameUIHelper = StartCoroutine(IFadeMainGameUI());
-
-        levelinfoTxt.text = levelCompleted ? "Level Completed!!!" : "Level Faild(((";
-        endPanel.gameObject.SetActive(true);
-        SetInteractable(true);
     }
 
     #endregion
@@ -569,34 +507,25 @@ public class UIController : MonoBehaviour
         });
     }
 
-    private Coroutine IFadeMainGameUIHelper;
-    private IEnumerator IFadeMainGameUI()
-    {
-        CanvasGroup cg = mainGameUI.GetComponent<CanvasGroup>();
-        cg.alpha = 1f;
+    //private Coroutine IFadeMainGameUIHelper;
+    //private IEnumerator IFadeMainGameUI()
+    //{
+    //    CanvasGroup cg = mainGameUI.GetComponent<CanvasGroup>();
+    //    cg.alpha = 1f;
 
-        float t = 0;
-        float duration = 0.5f;
+    //    float t = 0;
+    //    float duration = 0.5f;
 
-        while (t / duration < 1f)
-        {
-            cg.alpha = Mathf.Lerp(1f, 0f, t / duration);
-            t += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
-        }
+    //    while (t / duration < 1f)
+    //    {
+    //        cg.alpha = Mathf.Lerp(1f, 0f, t / duration);
+    //        t += Time.fixedDeltaTime;
+    //        yield return new WaitForFixedUpdate();
+    //    }
 
-        cg.alpha = 0f;
-        IFadeMainGameUIHelper = null;
-    }
+    //    cg.alpha = 0f;
+    //    IFadeMainGameUIHelper = null;
+    //}
 
     #endregion
-
-
-    private void MakeInstance()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
 }

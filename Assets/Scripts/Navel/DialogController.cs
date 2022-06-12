@@ -12,20 +12,22 @@ public class DialogController : MonoBehaviour
     public Button skipButton;
     public Button nextButton;
     public List<TMP_Text> questions;
-    [Space(80)]
     [Header("DIOLOGS")]
     public UnityEvent OnDialogsStarts;
-    public List<Dialog> dialog;
     public UnityEvent OnDialogsEnd;
 
+
+    private List<Dialog> dialog;
     private int dialogIndex = 0;
 
-    private void OnEnable()
+    public void InitializeDiolog()
     {
+        if (dialog == null)
+            dialog = new List<Dialog>();
+        dialog.Clear();
         dialogIndex = 0;
         OnDialogsStarts?.Invoke();
         PrepareNextDialog();
-        
     }
 
     public void PrepareNextDialog()
@@ -75,8 +77,8 @@ public class DialogController : MonoBehaviour
     {
         for (int i = dialogIndex; i < dialog.Count; i++)
         {
-            dialogIndex = dialog.Count; 
-            PrepareNextDialog();
+            //dialogIndex = i; 
+            //PrepareNextDialog();
 
             if (dialog[i].hasQuestion)
             {

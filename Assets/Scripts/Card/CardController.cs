@@ -46,7 +46,7 @@ public class CardController : MonoBehaviour
 
     public void OnPointerDown()
     {
-        if (!UIController.instance.GetCanvasInteractable() || !interactable)
+        if (!interactable)
             return;
 
         draggedTime = Time.time;
@@ -57,7 +57,7 @@ public class CardController : MonoBehaviour
 
     public void OnPointerUP()
     {
-        if (!UIController.instance.GetCanvasInteractable() || !interactable)
+        if (!interactable)
             return;
 
         float deltaT = Mathf.Abs(Time.time - draggedTime);
@@ -65,15 +65,15 @@ public class CardController : MonoBehaviour
             OnClicked(rightButtonClicked);
         else
         {
-            if (UIController.instance.firstSelectedCard != null)
+            if (CardManager.instance.firstSelectedCard != null)
             {
-                UIController.instance.firstSelectedCard.transform.GetChild(0).gameObject.SetActive(false);
-                UIController.instance.firstSelectedCard = null;
+                CardManager.instance.firstSelectedCard.transform.GetChild(0).gameObject.SetActive(false);
+                CardManager.instance.firstSelectedCard = null;
             }
-            if (UIController.instance.secondSelectedCard != null)
+            if (CardManager.instance.secondSelectedCard != null)
             {
-                UIController.instance.secondSelectedCard.transform.GetChild(0).gameObject.SetActive(false);
-                UIController.instance.secondSelectedCard = null;
+                CardManager.instance.secondSelectedCard.transform.GetChild(0).gameObject.SetActive(false);
+                CardManager.instance.secondSelectedCard = null;
             }
         }
         draggedTime = 0f;
@@ -81,58 +81,56 @@ public class CardController : MonoBehaviour
 
     public void OnDrag()
     {
-        if (cardCurrentType != CardUIType.TherapistCard ||
-            !UIController.instance.GetCanvasInteractable() || !interactable)
+        if (cardCurrentType != CardUIType.TherapistCard || !interactable)
             return;
 
         //Debug.Log($"{card.cardID} Draging");
         StopCardMoving();
 
-        cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f);
+        //cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f);
 
-        ScreenPart screenPart = UIController.instance.GetScreenPart(Input.mousePosition);
-
-        if(screenPart == ScreenPart.PatientHand)
+        if(CardManager.instance.GetScreenPart() == ScreenPart.PatientHand)
         {
             Vector2 ap = Input.mousePosition;
-            Debug.Log($"ap before = { ap }");
+            //Debug.Log($"ap before = { ap }");
             ap.y *=  1080f / (float)Screen.height;
             ap.y -= 1080f / 2f;
             ap.x *= 1920f / (float)Screen.width;
             ap.x -= 1920f / 2f;
-            Debug.Log($"ap after = {ap }");
+            //Debug.Log($"ap after = {ap }");
 
-            UIController.instance.AnimatePatientCardsBeforeDrop(ap,this);
+            CardManager.instance.AnimatePatientCardsBeforeDrop(ap,this);
         }
     }
 
     public void OnDragBegin()
     {
-        if (cardCurrentType != CardUIType.TherapistCard ||
-            !UIController.instance.GetCanvasInteractable() || !interactable)
+        if (cardCurrentType != CardUIType.TherapistCard || !interactable)
             return;
+
+        CardManager.instance.SetScreenPartsActive(true);
 
         //Debug.Log($"{card.cardID} Drag Begin");
         StopCardMoving();
+
+        StartFollowMouse();
     }
 
     public void OnDragEnd()
     {
-        if (cardCurrentType != CardUIType.TherapistCard ||
-            !UIController.instance.GetCanvasInteractable() || !interactable)
+        if (cardCurrentType != CardUIType.TherapistCard || !interactable)
             return;
 
-        //Debug.Log($"{card.cardID} Drag End");
+        StopFollowMouse();
+        CardManager.instance.SetScreenPartsActive(false);
 
-        ScreenPart screenPart = UIController.instance.GetScreenPart(Input.mousePosition);
-
-        switch (screenPart)
+        switch (CardManager.instance.GetScreenPart())
         {
             case ScreenPart.PatientHand:
-                UIController.instance.DropCardToPatientHand(this);
+                CardManager.instance.DropCardToPatientHand(this);
                 break;
             case ScreenPart.Middle:
-                UIController.instance.PutCardInRandomPlace(this);
+                CardManager.instance.PutCardInRandomPlace(this);
                 break;
             case ScreenPart.Therapist:
                 break;
@@ -143,7 +141,7 @@ public class CardController : MonoBehaviour
 
     public void AnimateZoomIn()
     {
-        if (!UIController.instance.GetCanvasInteractable() || !interactable)
+        if (!interactable)
             return;
 
         foreach (var item in otherCardsUI)
@@ -153,12 +151,15 @@ public class CardController : MonoBehaviour
 
         ScaleCardIn(animDuration);
         SplinePoint sp = handSpline.GetSplinePoint(GetCardT());
-        MoveCardTo(animDuration, sp.Position + sp.Normal * 40f);
+        sp.Position += sp.Normal * 40f;
+        sp.Normal = Vector3.up;
+
+        MoveCardTo(animDuration, sp);
     }
 
     public void AnimateZoomOut()
     {
-        if (!UIController.instance.GetCanvasInteractable() || !interactable)
+        if (!interactable)
             return;
 
         ScaleCardOut(animDuration);
@@ -239,7 +240,7 @@ public class CardController : MonoBehaviour
             otherCardsUI = new List<CardController>();
         otherCardsUI.Clear();
 
-        List<CardController> currentCards = cardCurrentType == CardUIType.PatientCard ? UIController.instance.patientCardsInHand : UIController.instance.therapistCardsInHand;
+        List<CardController> currentCards = cardCurrentType == CardUIType.PatientCard ? CardManager.instance.patientCardsInHand : CardManager.instance.therapistCardsInHand;
         foreach (CardController cardC in currentCards)
         {
             if (cardC.index != index)
@@ -276,26 +277,29 @@ public class CardController : MonoBehaviour
 
     public void MoveCardToPlace(float duration, UnityAction onDone = null)
     {
-        MoveCardTo(duration, handSpline.GetSplinePoint(GetCardT()).Position, onDone);
+        MoveCardTo(duration, handSpline.GetSplinePoint(GetCardT()), onDone);
     }
 
     public void MoveCardToPlace(float duration,float t, UnityAction onDone = null)
     {
-        MoveCardTo(duration, handSpline.GetSplinePoint(t).Position, onDone);
+        MoveCardTo(duration, handSpline.GetSplinePoint(t), onDone);
     }
 
     public void MoveCardToCenter(UnityAction onDone)
     {
         SetInteractable(false);
-        MoveCardTo(animDuration, new Vector2(800, 0),()=> 
+
+        SplinePoint point = new SplinePoint(Vector3.zero, Vector3.up);
+
+        MoveCardTo(animDuration, point, ()=> 
         {
             FadeCardIn(onDone);
         });
     }
-    public void MoveCardToDiscard(Vector2 toPos)
+    public void MoveCardToDiscard(SplinePoint point)
     {
         SetInteractable(false);
-        MoveCardTo(animDuration, toPos, () =>
+        MoveCardTo(animDuration, point, () =>
         {
             FadeCardIn();
         });
@@ -315,6 +319,7 @@ public class CardController : MonoBehaviour
 
 
 
+    #region Private Methods
 
     private void OnClicked(bool isRightButton)
     {
@@ -334,7 +339,7 @@ public class CardController : MonoBehaviour
             if (active)
             {
                 SetAsSelectedCardUI(this, index);
-                UIController.instance.CheckSelectedCardUIs();
+                CardManager.instance.CheckSelectedCardUIs();
             }
             else
             {
@@ -343,8 +348,8 @@ public class CardController : MonoBehaviour
         }
         else
         {
-            UIController.instance.bigCardUI.SetActive(true);
-            UIController.instance.bigCardUI.transform.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(card);
+            CardManager.instance.bigCardUI.SetActive(true);
+            CardManager.instance.bigCardUI.transform.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(card);
         }
         rightButtonClicked = false;
     }
@@ -355,29 +360,29 @@ public class CardController : MonoBehaviour
         {
             if (cardCurrentType == CardUIType.PatientCard)
             {
-                if (UIController.instance.firstSelectedCard != null)
+                if (CardManager.instance.firstSelectedCard != null)
                 {
-                    if (UIController.instance.firstSelectedCard.index == index)
+                    if (CardManager.instance.firstSelectedCard.index == index)
                     {
-                        UIController.instance.firstSelectedCard = null;
+                        CardManager.instance.firstSelectedCard = null;
                     }
                 }
                 
-                if(UIController.instance.secondSelectedCard != null)
+                if(CardManager.instance.secondSelectedCard != null)
                 {
-                    if (UIController.instance.secondSelectedCard.index == index)
+                    if (CardManager.instance.secondSelectedCard.index == index)
                     {
-                        UIController.instance.secondSelectedCard = null;
+                        CardManager.instance.secondSelectedCard = null;
                     }
                 }
             }
             else
             {
-                if (UIController.instance.secondSelectedCard != null)
+                if (CardManager.instance.secondSelectedCard != null)
                 {
-                    if (UIController.instance.secondSelectedCard.cardCurrentType == CardUIType.TherapistCard)
+                    if (CardManager.instance.secondSelectedCard.cardCurrentType == CardUIType.TherapistCard)
                     {
-                        UIController.instance.secondSelectedCard = null;
+                        CardManager.instance.secondSelectedCard = null;
                     }
                 }
             }
@@ -386,18 +391,18 @@ public class CardController : MonoBehaviour
         {
             if (cardCurrentType == CardUIType.PatientCard)
             {
-                if (UIController.instance.firstSelectedCard == null)
+                if (CardManager.instance.firstSelectedCard == null)
                 {
-                    UIController.instance.firstSelectedCard = cardUI;
+                    CardManager.instance.firstSelectedCard = cardUI;
                 }
                 else
                 {
-                    UIController.instance.secondSelectedCard = cardUI;
+                    CardManager.instance.secondSelectedCard = cardUI;
                 }
             }
             else
             {
-                UIController.instance.secondSelectedCard = cardUI;
+                CardManager.instance.secondSelectedCard = cardUI;
             }
         }
     }
@@ -405,7 +410,7 @@ public class CardController : MonoBehaviour
     private float GetCardT()
     {
         float step, t;
-        int currentCardsCount = cardCurrentType == CardUIType.PatientCard ? UIController.instance.patientCardsInHand.Count : UIController.instance.therapistCardsInHand.Count;
+        int currentCardsCount = cardCurrentType == CardUIType.PatientCard ? CardManager.instance.patientCardsInHand.Count : CardManager.instance.therapistCardsInHand.Count;
         if (currentCardsCount > 1)
         {
             step = 1f / (currentCardsCount - 1f);
@@ -416,15 +421,18 @@ public class CardController : MonoBehaviour
         return t;
     }
 
-    private void MoveCardTo(float duration, Vector2 anchoredPosition, UnityAction OnDone=null)
+    private void MoveCardTo(float duration, SplinePoint point, UnityAction OnDone=null)
     {
         StopCardMoving();
         isCardMoving = true;
 
         if (gameObject.activeInHierarchy)
-            IMoveCardToHelper = StartCoroutine(IMoveCardTo(anchoredPosition, duration, OnDone));
+            IMoveCardToHelper = StartCoroutine(IMoveCardTo(point, duration, OnDone));
         else
-            cardRect.anchoredPosition = anchoredPosition;
+        {
+            cardRect.anchoredPosition = point.Position;
+            cardRect.rotation = Quaternion.LookRotation(Vector3.forward, point.Normal);
+        }
     }
 
     private void StopCardMoving()
@@ -473,7 +481,39 @@ public class CardController : MonoBehaviour
         interactable = value;
     }
 
+    private void StartFollowMouse()
+    {
+        followMouse = true;
+        if (IFollowMouseHelper == null)
+            IFollowMouseHelper = StartCoroutine(IFollowMouse());
+    }
 
+    private void StopFollowMouse()
+    {
+        followMouse = false;
+        if (IFollowMouseHelper != null)
+            StopCoroutine(IFollowMouseHelper);
+        IFollowMouseHelper = null;
+    }
+
+    #endregion
+
+    #region Coroutine
+
+    private bool followMouse = false;
+    private Coroutine IFollowMouseHelper;
+    private IEnumerator IFollowMouse()
+    {
+        while (followMouse)
+        {
+            cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f);
+            cardRect.rotation = Quaternion.Lerp(cardRect.rotation, Quaternion.LookRotation(Vector3.forward, Vector3.up), Time.fixedDeltaTime * 20f);
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    //cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime* 20f);
     private bool isCardScaling = false;
     private Coroutine IScaleCardToHelper;
     private IEnumerator IScaleCardTo(Vector3 scale, float duration, UnityAction onDone = null)
@@ -512,7 +552,7 @@ public class CardController : MonoBehaviour
 
     private bool isCardMoving = false;
     private Coroutine IMoveCardToHelper;
-    private IEnumerator IMoveCardTo(Vector2 anchoredPosition, float duration, UnityAction onDone = null)
+    private IEnumerator IMoveCardTo(SplinePoint point, float duration, UnityAction onDone = null)
     {
         if (duration <= 0f)
         {
@@ -522,11 +562,13 @@ public class CardController : MonoBehaviour
 
         float t = 0f;
         Vector2 startPos = cardRect.anchoredPosition;
+        Quaternion startRot = cardRect.rotation;
 
         while (isCardMoving)
         {
             //yield return new WaitUntil(() => !IsBeingDrag);
-            cardRect.anchoredPosition = Vector2.Lerp(startPos, anchoredPosition, t/ duration);
+            cardRect.anchoredPosition = Vector2.Lerp(startPos, point.Position, t / duration);
+            cardRect.rotation = Quaternion.Lerp(startRot, Quaternion.LookRotation(Vector3.forward, point.Normal), t / duration);
 
             t += Time.fixedDeltaTime;
 
@@ -535,10 +577,11 @@ public class CardController : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        cardRect.anchoredPosition = anchoredPosition;
+        cardRect.anchoredPosition = point.Position;
+        cardRect.rotation = Quaternion.LookRotation(Vector3.forward, point.Normal);
 
-        if (onDone != null)
-            onDone();
+        onDone?.Invoke();
+
         yield return null;
         IMoveCardToHelper = null;
     }
@@ -576,4 +619,6 @@ public class CardController : MonoBehaviour
         yield return null;
         IFadeCardHelper = null;
     }
+
+    #endregion
 }

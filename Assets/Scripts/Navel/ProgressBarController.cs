@@ -10,41 +10,44 @@ public class ProgressBarController : MonoBehaviour
     //[SerializeField] private Image bar;
 
     [SerializeField] private List<Transform> pointsGO;
+    [SerializeField] private int startPointCount = 2;
 
     //[SerializeField] private int maxPointsCount;
 
+    private int currentPointsCount;
     private int maxPointCount;
-    private int currentPointsCoint;
 
-    private void Awake()
-    {
-        InitializeProgressBar();
-    }
-
-    private void InitializeProgressBar()
+    public void InitializeProgressBar()
     {
         maxPointCount = pointsGO.Count;
-        currentPointsCoint = pointsGO.Count;
+        currentPointsCount = startPointCount;
+
+        UpdatePointsBar();
     }
 
     public void AddPoint(int value)
     {
-        currentPointsCoint += value;
+        currentPointsCount += value;
 
-        if (currentPointsCoint > maxPointCount)
+        if (currentPointsCount > maxPointCount)
         {
-            currentPointsCoint = maxPointCount;
+            currentPointsCount = maxPointCount;
             return;
         }
-        if (currentPointsCoint < 0)
+        if (currentPointsCount < 0)
         {
-            currentPointsCoint = 0;
+            currentPointsCount = 0;
             return;
         }
 
+        UpdatePointsBar();
+    }
+
+    private void UpdatePointsBar()
+    {
         for (int i = 0; i < pointsGO.Count; i++)
         {
-            if (i < currentPointsCoint)
+            if (i < currentPointsCount)
                 pointsGO[i].gameObject.SetActive(true);
             else
                 pointsGO[i].gameObject.SetActive(false);

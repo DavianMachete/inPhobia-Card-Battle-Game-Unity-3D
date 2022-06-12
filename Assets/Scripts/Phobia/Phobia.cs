@@ -83,7 +83,7 @@ public class Phobia : ScriptableObject
                         {
                             attackForce = 18;
                             attackCountInAStep = 1;
-                            UIController.instance.AddPsychosisToPatient();
+                            CardManager.instance.AddPsychosisToPatient();
                         }
                         break;
                     default:

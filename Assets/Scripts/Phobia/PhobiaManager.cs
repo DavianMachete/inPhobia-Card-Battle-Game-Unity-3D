@@ -19,11 +19,13 @@ public class PhobiaManager : MonoBehaviour
     [SerializeField]
     private TMP_Text phobiaNextAction;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void InitializePhobia()
     {
-        MakeInstance();
-
         phobia.Initialize();
 
         UpdateHealthBar();
@@ -134,14 +136,5 @@ public class PhobiaManager : MonoBehaviour
         IStartTurnHelper = null;
 
         Debug.Log($"<color=orange>Turn Ended</color>");
-    }
-
-
-    private void MakeInstance()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
     }
 }

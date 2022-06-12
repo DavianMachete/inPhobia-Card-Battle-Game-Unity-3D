@@ -24,7 +24,7 @@ public static class Cards
         _TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) + Affects.Exhaust(), "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
 
         //NEed to change
-        _TherapistCardsToSelect.Add(new Card("Second Wind", CardTypes.Skill, Affects.Block(5 * UIController.instance.patientCardsInHand.Count) + Affects.Discard(), "Discard your hand. For each card discarded: Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//"Discard your hand. For each card discarded: Gain 5 block"
+        _TherapistCardsToSelect.Add(new Card("Second Wind", CardTypes.Skill, Affects.Block(5 * CardManager.instance.patientCardsInHand.Count) + Affects.Discard(), "Discard your hand. For each card discarded: Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//"Discard your hand. For each card discarded: Gain 5 block"
 
         _TherapistCardsToSelect.Add(new Card("Inspiration", CardTypes.Skill, Affects.AddActionPoint(1) + Affects.PullCard(1) + Affects.Exhaust(), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 1 AP, Draw 1 card"
 
