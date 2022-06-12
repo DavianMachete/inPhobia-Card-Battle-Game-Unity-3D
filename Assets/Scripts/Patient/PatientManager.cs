@@ -33,6 +33,7 @@ public class PatientManager : MonoBehaviour
     [SerializeField] private bool attackWhenGetBlock;
 
     private bool removeCurrentCardFromDeck = false;
+    private int patientMaximumAPHolder;
 
     private void Awake()
     {
@@ -57,11 +58,15 @@ public class PatientManager : MonoBehaviour
 
         deck = new List<Card>(Cards.PatientStandartCards());
         UpdateHealthBar();
+
+        patientMaximumAPHolder = patient.patientMaximumActionPoints;
+
         SetActionPoint();
     }
 
     public void PrepareNewTurn()
     {
+        patient.patientActionPoints = patient.patientMaximumActionPoints;
         SetActionPoint();
 
         Discard();
@@ -148,9 +153,10 @@ public class PatientManager : MonoBehaviour
         }
     }
 
-    public int GetBlock()
+    public float GetBlock()
     {
-        return Mathf.RoundToInt(block);
+        Debug.Log($"<color=cyan>Block </color>value = {block}");
+        return block;
     }
 
     public void AddArmor(float armor)
@@ -200,7 +206,12 @@ public class PatientManager : MonoBehaviour
     {
         affect.Invoke(affect.OnDefense);
 
+        float damageHolder = damage;
         damage -= block;
+        block -= damageHolder;
+        if (block < 0)
+            block = 0;
+
         damage -= armor;
 
         if (damage > 0)

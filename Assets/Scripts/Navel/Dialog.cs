@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class Dialog 
 {
     public string Persion;
+    [TextArea()]
     public string text;
     public bool hasQuestion;
     public List<Question> questions;

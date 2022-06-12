@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Patient", menuName = "ScriptableObjects/Patient", order = 1)]
+[Serializable]
 public class Patient : ScriptableObject
 {
     public string Name;

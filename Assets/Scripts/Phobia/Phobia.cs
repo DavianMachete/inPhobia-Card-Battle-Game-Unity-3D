@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "New Phobia", menuName = "ScriptableObjects/Phobia", order = 1)]
+[Serializable]
 public class Phobia : ScriptableObject
 {
     public string Name;

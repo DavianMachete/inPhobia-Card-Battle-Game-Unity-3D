@@ -31,14 +31,21 @@
     /// ---Снижает урон на свое количество.
     /// ---Примичение.---Полностью пропадает в начале хода.
     /// </summary>
-    public static Affect Block(float block)//??
+    public static Affect AddBlock(float block)//??
     {
         Affect affect = new Affect();
-        affect.OnStepStart.Add(new InPhobiaAction($"Block_{block}".ToLower(), () => PatientManager.instance.AddBlock(block), false));
-        affect.OnTurnEnd.Add(new InPhobiaAction($"Block_{-block}".ToLower(), () => PatientManager.instance.AddBlock(-block), false));
+        affect.OnStepStart.Add(new InPhobiaAction($"Add Block_{block}".ToLower(), () => PatientManager.instance.AddBlock(block), false));
+        //affect.OnTurnEnd.Add(new InPhobiaAction($"Block_{-block}".ToLower(), () => PatientManager.instance.AddBlock(-block), false));
         return affect;
     }
 
+    public static Affect MultiplyBlock(float multiplier)
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart.Add(new InPhobiaAction($"Multiply Block_{multiplier}".ToLower(), () => PatientManager.instance.AddBlock(PatientManager.instance.GetBlock() * (multiplier - 1)), false));
+        //affect.OnTurnEnd.Add(new InPhobiaAction($"Block_{-block}".ToLower(), () => PatientManager.instance.AddBlock(-block), false));
+        return affect;
+    }
 
     /// <summary>
     /// ---Снижает урон на свое количество.

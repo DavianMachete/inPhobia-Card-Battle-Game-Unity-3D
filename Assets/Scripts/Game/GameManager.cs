@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         instance = this;
-        InitialiseGame();
+        UIManager.instance.Initialize();
     }
 
     public void QuitFromGame()
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void InitialiseGame()
     {
-        UIManager.instance.Initialize();
+        UIManager.instance.OpenCutScene();
         PatientManager.instance.InitializePatient();
         TherapistManager.instance.InitializeTherapist();
         PhobiaManager.instance.InitializePhobia();

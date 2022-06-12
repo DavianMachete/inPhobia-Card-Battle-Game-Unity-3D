@@ -90,8 +90,8 @@ public class DialogController : MonoBehaviour
         
     }
 
-    public void AddBranch(DialogBranch dialogBrach)
+    public void AddBlock(DialogBlock dialogBlock)
     {
-        dialog.AddRange(dialogBrach.dialog);
+        dialog.AddRange(dialogBlock.dialog);
     }
 }

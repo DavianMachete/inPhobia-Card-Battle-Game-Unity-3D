@@ -337,17 +337,31 @@ public class CardManager : MonoBehaviour
     {
         if (cardController.card.cardType == CardTypes.Equipment)
             return;
-        float t = patientHandSpline.GetClosestT(anchoredPosition, patientCardsInHand.Count + 3);
-        //float indexByT = t * patientCards.Count;
 
-        float step = 1f / patientCardsInHand.Count;
-
-        for (int i = 0; i < patientCardsInHand.Count; i++)
+        if (screenPart == ScreenPart.PatientHand)
         {
-            float tForCard = step * i;
-            if (tForCard >= t)
-                tForCard += step;
-            patientCardsInHand[i].MoveCardToPlace(0.5f, tForCard, () => { });
+            float t = patientHandSpline.GetClosestT(anchoredPosition, patientCardsInHand.Count + 3);
+            //float indexByT = t * patientCards.Count;
+
+            float step = 1f / patientCardsInHand.Count;
+
+            for (int i = 0; i < patientCardsInHand.Count; i++)
+            {
+                float tForCard = step * i;
+                if (tForCard >= t)
+                    tForCard += step;
+                patientCardsInHand[i].MoveCardToPlace(0.5f, tForCard, () => { });
+            }
+        }
+        else
+        {
+            float step = 1f / patientCardsInHand.Count - 1;
+            for (int i = 0; i < patientCardsInHand.Count; i++)
+            {
+                float tForCard = step * i;
+                //tForCard += step;
+                patientCardsInHand[i].MoveCardToPlace(0.5f, tForCard, () => { });
+            }
         }
     }
 
