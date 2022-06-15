@@ -7,6 +7,8 @@ using UnityEngine.Events;
 
 public class DialogController : MonoBehaviour
 {
+    [SerializeField] private ProgressBarController progressBarController;
+
     public TMP_Text persionTmp;
     public TMP_Text textTMP;
     public Button skipButton;
@@ -17,7 +19,8 @@ public class DialogController : MonoBehaviour
     public UnityEvent OnDialogsEnd;
 
 
-    private List<Dialog> dialog;
+    [SerializeField]private List<Dialog> dialog;
+
     private int dialogIndex = 0;
 
     public void InitializeDiolog()
@@ -49,9 +52,10 @@ public class DialogController : MonoBehaviour
         textTMP.text = dialog[dialogIndex].text;
 
         nextButton.onClick.RemoveAllListeners();
+        nextButton.onClick.AddListener(dialog[dialogIndex].onNext.Invoke);
         nextButton.onClick.AddListener(PrepareNextDialog);
 
-        if (dialog[dialogIndex].hasQuestion)
+        if (dialog[dialogIndex].questions.Count > 0)
         {
             skipButton.interactable = false;
             nextButton.interactable = false;
@@ -60,15 +64,32 @@ public class DialogController : MonoBehaviour
             {
                 questions[i].transform.parent.gameObject.SetActive(true);
                 questions[i].text = dialog[dialogIndex].questions[i].question;
-                questions[i].transform.parent.GetComponent<Button>().onClick.RemoveAllListeners();
-                questions[i].transform.parent.GetComponent<Button>().onClick.AddListener(dialog[dialogIndex].questions[i].onQuestion.Invoke);
-                questions[i].transform.parent.GetComponent<Button>().onClick.AddListener(PrepareNextDialog);
-            }
-        }
-        else
-        {
-            nextButton.onClick.AddListener(dialog[dialogIndex].onClick.Invoke);
 
+                Button questionButton = questions[i].transform.parent.GetComponent<Button>();
+
+                int index = i;
+                questionButton.onClick.RemoveAllListeners();
+                questionButton.onClick.AddListener(()=> 
+                {
+                    dialog[dialogIndex - 1].questions[index].onQuestion.Invoke();
+                    if (progressBarController.PointsHavePassedTheLimit())
+                    {
+                        dialog[dialogIndex - 1].onPointsHavePassedTheLimit?.Invoke();
+                        int subscribersCount = dialog[dialogIndex - 1].onPointsHavePassedTheLimit.GetPersistentEventCount();
+                        Debug.Log($"<color=white>DiologController:</color> onPointsHavePassedTheLimit subscribersCount = {subscribersCount}");
+                        
+                        if (subscribersCount > 0)
+                            PrepareNextDialogWithQuestion();
+                        else
+                            PrepareNextDialog();
+                    }
+                    else
+                    {
+                        questionButton.onClick.AddListener(PrepareNextDialog);
+                    }
+                });
+
+            }
         }
         dialogIndex++;
     }
@@ -77,21 +98,23 @@ public class DialogController : MonoBehaviour
     {
         for (int i = dialogIndex; i < dialog.Count; i++)
         {
-            //dialogIndex = i; 
-            //PrepareNextDialog();
-
-            if (dialog[i].hasQuestion)
+            if (dialog[i].questions.Count > 0)
             {
                 dialogIndex = i;
                 PrepareNextDialog();
                 break;
             }
         }
-        
     }
 
     public void AddBlock(DialogBlock dialogBlock)
     {
-        dialog.AddRange(dialogBlock.dialog);
+        dialog.AddRange(dialogBlock.dialogBlock);
+    }
+
+    public void ChangeBlock(DialogBlock dialogBlock)
+    {
+        dialogIndex = 0;
+        dialog = new List<Dialog>(dialogBlock.dialogBlock);
     }
 }

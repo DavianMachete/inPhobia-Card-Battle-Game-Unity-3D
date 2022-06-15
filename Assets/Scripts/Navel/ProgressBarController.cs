@@ -6,23 +6,34 @@ using TMPro;
 
 public class ProgressBarController : MonoBehaviour
 {
-    //[SerializeField] private TMP_Text barText;
-    //[SerializeField] private Image bar;
-
     [SerializeField] private List<Transform> pointsGO;
     [SerializeField] private int startPointCount = 2;
-
-    //[SerializeField] private int maxPointsCount;
+    [SerializeField] private int pointsMinimumLimit = 1;
 
     private int currentPointsCount;
     private int maxPointCount;
 
     public void InitializeProgressBar()
     {
+        pointsMinimumLimit = 1;
+
         maxPointCount = pointsGO.Count;
         currentPointsCount = startPointCount;
 
         UpdatePointsBar();
+    }
+
+    public void SetPointsMinimumLimit(int limit)
+    {
+        pointsMinimumLimit = limit;
+    }
+
+    public bool PointsHavePassedTheLimit()
+    {
+        if (currentPointsCount <= pointsMinimumLimit)
+            return true;
+        else
+            return false;
     }
 
     public void AddPoint(int value)

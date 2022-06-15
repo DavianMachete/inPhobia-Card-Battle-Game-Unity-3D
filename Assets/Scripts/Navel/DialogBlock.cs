@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DialogBlock : MonoBehaviour
 {
-    public List<Dialog> dialog;
+    public List<Dialog> dialogBlock;
 }

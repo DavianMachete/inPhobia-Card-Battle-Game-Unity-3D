@@ -10,9 +10,10 @@ public class Dialog
     public string Persion;
     [TextArea()]
     public string text;
-    public bool hasQuestion;
+
     public List<Question> questions;
-    public UnityEvent onClick;
+    public UnityEvent onPointsHavePassedTheLimit;
+    public UnityEvent onNext;
 }
 
 
