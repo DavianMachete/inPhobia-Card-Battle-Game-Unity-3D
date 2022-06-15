@@ -46,6 +46,7 @@ public class CardController : MonoBehaviour
 
     public void OnPointerDown()
     {
+        Debug.Log($"card OnPointerDown {card.name}");
         if (!interactable)
             return;
 
@@ -57,6 +58,7 @@ public class CardController : MonoBehaviour
 
     public void OnPointerUP()
     {
+        Debug.Log($"card OnPointerUp {card.name}");
         if (!interactable)
             return;
 
