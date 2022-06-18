@@ -21,6 +21,8 @@ public class TherapistDeckCollecter : MonoBehaviour
     [SerializeField] private List<Card> equipmentCards;
     [SerializeField] private List<Card> commonCards;
 
+    //[SerializeField] private List<Card> selectedCards;
+
     #region Public Methods
 
     public void InitializeCollecter()
