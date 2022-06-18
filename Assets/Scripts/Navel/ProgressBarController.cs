@@ -6,6 +6,7 @@ using TMPro;
 
 public class ProgressBarController : MonoBehaviour
 {
+    [SerializeField] private IdeaController ideaController;
     [SerializeField] private List<Transform> pointsGO;
     [SerializeField] private int startPointCount = 2;
     [SerializeField] private int pointsMinimumLimit = 1;
@@ -15,6 +16,8 @@ public class ProgressBarController : MonoBehaviour
 
     public void InitializeProgressBar()
     {
+        ideaController.Initialize();
+
         pointsMinimumLimit = 1;
 
         maxPointCount = pointsGO.Count;

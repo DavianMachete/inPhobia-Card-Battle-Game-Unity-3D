@@ -20,6 +20,9 @@ public class Patient : ScriptableObject
     [TextArea(20,200)]
     public string info;
 
+    [TextArea(20, 200)]
+    public string glossary;
+
     public void Initialize()
     {
         patientMaximumActionPoints = 3;

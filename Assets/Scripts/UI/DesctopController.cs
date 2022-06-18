@@ -12,7 +12,7 @@ public class DesctopController : MonoBehaviour
     #region Serialized Fields
     [Header("Desctop Info Properties")]
     [SerializeField] private List<Patient> patients;
-    [SerializeField] private Text infoText;
+    [SerializeField] private TMPro.TMP_Text infoText;
     [SerializeField] private Image patientImage;
     [SerializeField] private Image phobiaImage;
 
@@ -60,6 +60,33 @@ public class DesctopController : MonoBehaviour
         patientIndexHolder++;
         if (patientIndexHolder == patients.Count)
             patientIndexHolder = 0;
+    }
+
+    public void LeafThrough(int value)
+    {
+        patientIndexHolder += value;
+        if (patientIndexHolder == patients.Count)
+            patientIndexHolder = 0;
+        if (patientIndexHolder < 0)
+            patientIndexHolder = patients.Count - 1;
+        scrollBar.value = 1f;
+
+        Patient patient = patients[patientIndexHolder];
+        infoText.text = patient.info;
+        patientImage.sprite = patient.image;
+        phobiaImage.sprite = patient.phobia.image;
+    }
+
+    public void OpenGlossary()
+    {
+        Patient patient = patients[patientIndexHolder];
+        infoText.text = patient.glossary;
+    }
+
+    public void OpenInfo()
+    {
+        Patient patient = patients[patientIndexHolder];
+        infoText.text = patient.info;
     }
 
     public void MoveScrollViewBy(float value)
