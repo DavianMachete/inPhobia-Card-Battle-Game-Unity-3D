@@ -10,14 +10,10 @@ public class PhobiaManager : MonoBehaviour
 
     public Phobia phobia;
 
-    [SerializeField]
-    private TMP_Text healthTxtp;
+    [SerializeField] private TMP_Text healthTxtp;
 
-    //[SerializeField]
-    //private Image healthBarImage;
-
-    [SerializeField]
-    private TMP_Text phobiaNextAction;
+    [SerializeField] private TMP_Text phobiaNextAction;
+    [SerializeField] UISpline effectSplinePath;
 
     private void Awake()
     {
@@ -45,10 +41,13 @@ public class PhobiaManager : MonoBehaviour
     {
         if (phobia.vulnerablityCount > 0)
         {
-            damage += damage * 0.5f;
+            damage += Mathf.FloorToInt(damage * 0.5f);
         }
         Debug.Log($"<color=#ffa500ff>phobia's</color> gotten damage is {damage} =>  vulnerablityCount = {phobia.vulnerablityCount}");
         phobia.health -= damage;
+
+        UIElementFlow uIElementFlow = Instantiate(CardManager.instance.effectElement, effectSplinePath.transform.parent).GetComponent<UIElementFlow>();
+        uIElementFlow.FlowElement(effectSplinePath, $"-{damage}");
 
         if (phobia.health <= 0)
         {

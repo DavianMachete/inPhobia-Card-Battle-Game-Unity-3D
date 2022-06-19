@@ -1,35 +1,141 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TherapistDeckCollecter : MonoBehaviour
+public class TherapistDeckCollecter : InPhobiaScrollView
 {
-    [SerializeField]
-    private GameObject cardPrefab;
+    #region Serialized Fields
+
+    [SerializeField] private IdeaController ideaController;
+
     [Space(20f)]
-
     [Header("Card Collecter Part")]
-    [SerializeField]
-    private Transform threeCardsParent;
-
-
-    private List<Card> selectedCards;
-
+    [SerializeField] private GameObject cardPrefab;
     [SerializeField] private List<Card> therapistCardsToSelect;
-
     [SerializeField] private List<Card> rareCards;
     [SerializeField] private List<Card> equipmentCards;
     [SerializeField] private List<Card> commonCards;
 
-    //[SerializeField] private List<Card> selectedCards;
+
+    [Space(20f)]
+    [Header("Card Collecter Part")]
+    [SerializeField] private Button removeCardButton;
+    [SerializeField] private CardController removeCardController;
+    [SerializeField] private Button addCardButton;
+    [SerializeField] private TMPro.TMP_Text addCardInfo;
+    [SerializeField] private Transform threeCardsParent;
+    [SerializeField] private GameObject deckBuildingBegin;
+    [SerializeField] private GameObject deckBuildingMain;
+    [SerializeField] private GameObject deckBuildingRemoveCard;
+    [SerializeField] private GameObject deckBuildingAddCard;
+
+    #endregion
+
+    #region Private Fields
+
+    private List<Card> selectedCards;
+    private List<Card> therapistDeck;
+    private List<CardController> deckCardsControllers;
+    private CardController selectedCard;
+    private int ideaCountNeeded;
+
+    #endregion
 
     #region Public Methods
 
+    public void SetAsSelected(CardController cardController)
+    {
+        if(selectedCard==cardController)
+        {
+            removeCardButton.interactable = false;
+            selectedCard = null;
+        }
+        else
+        {
+            selectedCard = cardController;
+            removeCardButton.interactable = true;
+        }
+
+        foreach (CardController cc in deckCardsControllers)
+        {
+            if (cc != selectedCard)
+                cc.SetSelect(false);
+        }
+    }
+
     public void InitializeCollecter()
     {
+        ideaCountNeeded = 1;
+
+        if (deckCardsControllers == null)
+            deckCardsControllers = new List<CardController>();
+        foreach (CardController card in deckCardsControllers)
+        {
+            card.DestroyCard();
+        }
+        deckCardsControllers.Clear();
+
+        if (therapistDeck == null)
+            therapistDeck = new List<Card>();
+        therapistDeck = new List<Card>(Cards.TherapistStandartCards());
+
         therapistCardsToSelect = new List<Card>(Cards.TherapistCardsToSelect());
+        removeCardButton.interactable = false;
 
         PrepareCardsToSelect();
+        ActivateDeckBuildingBegin();
+    }
+
+    public void ActivateDeckBuildingBegin()
+    {
+        RandomizeThreeCards(threeCardsParent);
+
+        deckBuildingBegin.SetActive(true);
+        deckBuildingMain.SetActive(false);
+        deckBuildingRemoveCard.SetActive(false);
+        deckBuildingAddCard.SetActive(false);
+    }
+
+    public void ActivateDeckBuildingMain()
+    {
+        foreach (CardController cardC in deckCardsControllers)
+        {
+            cardC.DestroyCard();
+        }
+        deckCardsControllers.Clear();
+
+        foreach (Card card in therapistDeck)
+        {
+            AddCard(card);
+        }
+
+        addCardButton.interactable = ideaController.CheckIdeaCount(ideaCountNeeded);
+
+        deckBuildingBegin.SetActive(false);
+        deckBuildingMain.SetActive(true);
+        deckBuildingRemoveCard.SetActive(false);
+        deckBuildingAddCard.SetActive(false);
+    }
+
+    public void ActivateDeckBuildingRemoveCard()
+    {
+        removeCardController.SetCardParametersToGameObject(selectedCard.card);
+
+        deckBuildingBegin.SetActive(false);
+        deckBuildingMain.SetActive(false);
+        deckBuildingRemoveCard.SetActive(true);
+        deckBuildingAddCard.SetActive(false);
+    }
+
+    public void ActivateDeckBuildingAddCard()
+    {
+        addCardInfo.text = $"Выбрать карту [-{ideaCountNeeded}    ]";
+
+        deckBuildingBegin.SetActive(false);
+        deckBuildingMain.SetActive(false);
+        deckBuildingRemoveCard.SetActive(false);
+        deckBuildingAddCard.SetActive(true);
     }
 
     public void PrepareCardsToSelect()
@@ -62,7 +168,7 @@ public class TherapistDeckCollecter : MonoBehaviour
         }
     }
 
-    public void RandomizeThreeCards()
+    public void RandomizeThreeCards(Transform cardsParent)
     {
         List<Card> rareAndEquipment = new List<Card>();
         rareAndEquipment.AddRange(rareCards);
@@ -71,17 +177,17 @@ public class TherapistDeckCollecter : MonoBehaviour
         Card leftCard = rareAndEquipment[Random.Range(0, rareAndEquipment.Count)];
         if (leftCard.rarity == Rarity.Rare)
         {
-            rareCards.Remove(leftCard);
+            //rareCards.Remove(leftCard);
         }
         else if(leftCard.rarity==Rarity.Equipment)
         {
             equipmentCards.Remove(leftCard);
         }
-        threeCardsParent.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(leftCard);
+        cardsParent.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(leftCard);
 
         Card medianCard = commonCards[Random.Range(0, commonCards.Count)];
-        commonCards.Remove(medianCard);
-        threeCardsParent.GetChild(1).GetComponent<CardController>().SetCardParametersToGameObject(medianCard);
+        //commonCards.Remove(medianCard);
+        cardsParent.GetChild(1).GetComponent<CardController>().SetCardParametersToGameObject(medianCard);
 
         Card rightCard;
         if (rareCards.Count > 0)
@@ -90,36 +196,73 @@ public class TherapistDeckCollecter : MonoBehaviour
             if (ff == 0)
             {
                 rightCard = rareCards[Random.Range(0, rareCards.Count)];
-                rareCards.Remove(rightCard);
+                //rareCards.Remove(rightCard);
             }
             else
             {
                 rightCard = commonCards[Random.Range(0, commonCards.Count)];
-                commonCards.Remove(rightCard);
+                //commonCards.Remove(rightCard);
             }
         }
         else
         {
             rightCard = commonCards[Random.Range(0, commonCards.Count)];
-            commonCards.Remove(rightCard);
+            //commonCards.Remove(rightCard);
         }
-        threeCardsParent.GetChild(2).GetComponent<CardController>().SetCardParametersToGameObject(rightCard);
+        cardsParent.GetChild(2).GetComponent<CardController>().SetCardParametersToGameObject(rightCard);
+    }
+
+    public void AddCardToTherapistDeckByIdeas(CardController cardGameObject)
+    {
+        Card selectedCard = cardGameObject.card;
+
+        ideaController.AddIdea(-ideaCountNeeded);
+        ideaCountNeeded++;
+
+        therapistDeck.Add(selectedCard);
+
+        PrepareCardsToSelect();
     }
 
     public void AddCardToTherapistDeck(CardController cardGameObject)
     {
         Card selectedCard = cardGameObject.card;
 
-        therapistCardsToSelect.Remove(selectedCard);
+        //therapistCardsToSelect.Remove(selectedCard);
 
-        TherapistManager.instance.AddToDeck(selectedCard);
+        therapistDeck.Add(selectedCard);
 
         PrepareCardsToSelect();
+    }
+
+    public void RemoveCardFromTherapistDeck(CardController cardGameObject)
+    {
+        Card selectedCard = cardGameObject.card;
+
+        therapistDeck.Remove(selectedCard);
+        //need to add points counter;!!!!!!!!!!!
+
+        PrepareCardsToSelect();
+    }
+
+
+    public void SendBuiltDeckToTherapist()
+    {
+        TherapistManager.instance.AddToDeck(therapistDeck);
     }
 
     #endregion
 
     #region Private Methods
+
+    private void AddCard(Card card)
+    {
+        CardController newCC = Instantiate(cardPrefab, content).GetComponent<CardController>();
+        newCC.GetComponent<Button>().onClick.AddListener(() => SetAsSelected(newCC));
+        newCC.SetCardParametersToGameObject(card);
+        deckCardsControllers.Add(newCC);
+
+    }
 
     #endregion
 }

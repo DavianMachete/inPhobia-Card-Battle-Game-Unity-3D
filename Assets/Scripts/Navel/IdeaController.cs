@@ -19,6 +19,14 @@ public class IdeaController : MonoBehaviour
         UpdateCardsToSelect();
     }
 
+    public bool CheckIdeaCount(int count)
+    {
+        if (ideaCount < count)
+            return false;
+        else
+            return true;
+    }
+
     public void AddIdea(int value)
     {
         ideaCount += value;

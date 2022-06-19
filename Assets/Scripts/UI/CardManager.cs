@@ -17,6 +17,7 @@ public class CardManager : MonoBehaviour
     public CardController secondSelectedCard;
 
     public GameObject bigCardUI;
+    public GameObject effectElement;
 
     #region Serialized Fields 
     [Header("The Fight Game UIs")]

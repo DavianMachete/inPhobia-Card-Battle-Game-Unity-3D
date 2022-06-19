@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -365, y: -9}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4905477095083498252
 CanvasRenderer:
@@ -147,5 +147,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a6ddb2ae2e3f94ea26b6a76b47a714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 1
+  animationDuration: 2
   flowMaxOffsetOnSpline: 200
+  elementScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.4444466
+      outSlope: 4.4444466
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.021226406
+    - serializedVersion: 3
+      time: 0.41086218
+      value: 1.2796673
+      inSlope: 1.2318983
+      outSlope: 1.2318983
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.12797132
+    - serializedVersion: 3
+      time: 0.99260163
+      value: 1.5215865
+      inSlope: 0.004055292
+      outSlope: 0.004055292
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16619706
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  elementFadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2895425
+      value: 0.9618558
+      inSlope: 0.933834
+      outSlope: 0.933834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9992139
+      value: 0.009433925
+      inSlope: -3.1363535
+      outSlope: -3.1363535
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03461853
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

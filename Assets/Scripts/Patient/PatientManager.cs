@@ -17,6 +17,8 @@ public class PatientManager : MonoBehaviour
 
     [SerializeField]private Affect affect;
 
+    [SerializeField] private UISpline effectSplinePath;
+
     [SerializeField] private TMP_Text cardsCountInDeck;
     [SerializeField] private TMP_Text actionPointsText;
 
@@ -217,6 +219,8 @@ public class PatientManager : MonoBehaviour
         if (damage > 0)
         {
             patient.health -= damage;
+            UIElementFlow uIElementFlow = Instantiate(CardManager.instance.effectElement, effectSplinePath.transform.parent).GetComponent<UIElementFlow>();
+            uIElementFlow.FlowElement(effectSplinePath, $"-{damage}");
             if (attackWhenDamaged)
             {
                 Attack();

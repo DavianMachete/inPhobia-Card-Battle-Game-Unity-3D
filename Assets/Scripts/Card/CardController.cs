@@ -319,7 +319,22 @@ public class CardController : MonoBehaviour
             }));
     }
 
+    public void SetSelect()
+    {
+        TrySelect();
+    }
 
+    public bool TrySelect()
+    {
+        bool active = !transform.GetChild(0).gameObject.activeSelf;
+        transform.GetChild(0).gameObject.SetActive(active);
+        return active;
+    }
+
+    public void SetSelect(bool active)
+    {
+        transform.GetChild(0).gameObject.SetActive(active);
+    }
 
     #region Private Methods
 
@@ -331,14 +346,11 @@ public class CardController : MonoBehaviour
             {
                 foreach (var cardUI in otherCardsUI)
                 {
-                    cardUI.transform.GetChild(0).gameObject.SetActive(false);
+                    cardUI.SetSelect(false);
                 }
             }
 
-            bool active = !transform.GetChild(0).gameObject.activeSelf;
-            transform.GetChild(0).gameObject.SetActive(active);
-
-            if (active)
+            if (TrySelect())
             {
                 SetAsSelectedCardUI(this, index);
                 CardManager.instance.CheckSelectedCardUIs();

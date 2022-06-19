@@ -38,10 +38,15 @@ public class TherapistManager: MonoBehaviour
             discard = new List<Card>();
         discard.Clear();
 
-        deck = new List<Card>(Cards.TherapistStandartCards());
+        //deck = new List<Card>(Cards.TherapistStandartCards());
 
         therapistMaxAP = 5;
         therapistCurrentAP = 5;
+    }
+
+    public void AddToDeck(List<Card> cards)
+    {
+        deck.AddRange(cards);
     }
 
     public void AddToDeck(Card card)
