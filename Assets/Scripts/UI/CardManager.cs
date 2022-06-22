@@ -457,6 +457,40 @@ public class CardManager : MonoBehaviour
         UpdateCards(true);
     }
 
+    public void PlayEquipment(CardController cardController)
+    {
+        if (TherapistManager.instance.therapistCurrentAP - 1 < 0)
+        {
+            cardController.UpdateCard(true);
+            return;
+        }
+
+        int tookCardIndex = cardController.index;
+
+        therapistCardsInHand.Remove(cardController);
+        TherapistManager.instance.RemoveCardFromHand(cardController.card);
+
+        foreach (CardController cardT in therapistCardsInHand)
+        {
+            if (cardT.index > tookCardIndex)
+                cardT.index--;
+        }
+
+        UpdateCards(true);
+
+        //Update TherapistActionPoints
+        TherapistManager.instance.SetActionPoint(TherapistManager.instance.therapistCurrentAP - 1, TherapistManager.instance.therapistMaxAP - 1);
+
+        cardController.MoveCardToCenter(() =>
+        {
+            Debug.Log($"<color=cyan>Equimpent card {cardController.card.cardID} added</color>");
+            //Initialize Equipment card effect
+            PatientManager.instance.AddAffect(cardController.card.affect);
+
+            IPlayPatientTopCardHelper = null;
+        });
+    }
+
     public void Discard(CardUIType cardUIType)
     {
         if(cardUIType == CardUIType.PatientCard)

@@ -126,18 +126,33 @@ public class CardController : MonoBehaviour
         StopFollowMouse();
         CardManager.instance.SetScreenPartsActive(false);
 
-        switch (CardManager.instance.GetScreenPart())
+        if (card.cardType != CardTypes.Equipment)
         {
-            case ScreenPart.PatientHand:
-                CardManager.instance.DropCardToPatientHand(this);
-                break;
-            case ScreenPart.Middle:
-                //CardManager.instance.PutCardInRandomPlace(this);
-                //break;
-            case ScreenPart.Therapist:
-                break;
-            default:
-                break;
+            switch (CardManager.instance.GetScreenPart())
+            {
+                case ScreenPart.PatientHand:
+                    CardManager.instance.DropCardToPatientHand(this);
+                    break;
+                //case ScreenPart.Middle:
+                //    CardManager.instance.PutCardInRandomPlace(this);
+                //    break;
+                case ScreenPart.Therapist:
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            switch (CardManager.instance.GetScreenPart())
+            {
+                case ScreenPart.PatientHand:
+                case ScreenPart.Middle:
+                    CardManager.instance.PlayEquipment(this);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

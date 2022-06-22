@@ -17,11 +17,11 @@ public static class Cards
 
         _TherapistCardsToSelect.Add(new Card("Shrug it off", CardTypes.Skill, Affects.AddBlock(8) + Affects.PullCard(1), "Gain 8 block, draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 8 block, draw 1 card"
 
-        _TherapistCardsToSelect.Add(new Card("Barricade", CardTypes.Equipment,Affects.SaveBlock() + Affects.Exhaust(), "Block no longer expires at the start of your turn", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Block no longer expires at the start of your turn"
+        _TherapistCardsToSelect.Add(new Card("Barricade", CardTypes.Equipment,Affects.SaveBlock() /*+ Affects.Exhaust()*/, "Block no longer expires at the start of your turn", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Block no longer expires at the start of your turn"
 
-        _TherapistCardsToSelect.Add(new Card("Juggernaut", CardTypes.Equipment, Affects.AttackWhenGetBlock() + Affects.Exhaust(), "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
+        _TherapistCardsToSelect.Add(new Card("Juggernaut", CardTypes.Equipment, Affects.AttackWhenGetBlock() /*+ Affects.Exhaust()*/, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
 
-        _TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) + Affects.Exhaust(), "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
+        _TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) /*+ Affects.Exhaust()*/, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
 
         _TherapistCardsToSelect.Add(new Card("Second Wind", CardTypes.Skill, Affects.AddBlock(5 * CardManager.instance.patientCardsInHand.Count) + Affects.Discard(), "Discard your hand. For each card discarded: Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//"Discard your hand. For each card discarded: Gain 5 block"
 
@@ -56,7 +56,7 @@ public static class Cards
 
         for (int i = 0; i < 4; i++)
         {
-            _TherapistStandartCards.Add(new Card("Support", CardTypes.Skill, Affects.DoubleNextAttack(), "Doubles the next attack", 1, Rarity.Common, CardUIType.TherapistCard));//???ЖЕНЯ
+            _TherapistStandartCards.Add(new Card("Support", CardTypes.Skill, Affects.DoubleNextEffect(), "Doubles the next attack", 1, Rarity.Common, CardUIType.TherapistCard));//???ЖЕНЯ
         }
 
         _TherapistStandartCards.Add(new Card("Steel wall", CardTypes.Skill, Affects.Armor(3f), "Add Armor by 3 points", 2, Rarity.Common, CardUIType.TherapistCard));
@@ -80,7 +80,7 @@ public static class Cards
 
         for (int i = 0; i < 4; i++)
         {
-            _PatientStandartCards.Add(new Card("Shield", CardTypes.Skill,Affects.AddBlock(5), "Gain 5 block", 1, Rarity.Common, CardUIType.PatientCard));
+            _PatientStandartCards.Add(new Card("Shield", CardTypes.Skill, Affects.AddBlock(5), "Gain 5 block", 1, Rarity.Common, CardUIType.PatientCard));
         }
 
         _PatientStandartCards.Add(new Card("Strong beat", CardTypes.Attack, Affects.Attack(8) + Affects.Vulnerablity(2), $"Deal 8 damage and 2 vulnerablity", 2, Rarity.Common, CardUIType.PatientCard));
@@ -95,7 +95,7 @@ public static class Cards
         get
         {
             if (_Psychosis == null)
-                _Psychosis = new Card("Psychosis", CardTypes.Curse, Affects.Exhaust(), "Psychosis", 1, Rarity.Common,CardUIType.defaultCard);
+                _Psychosis = new Card("Psychosis", CardTypes.Curse, Affects.Exhaust(), "Psychosis", 1, Rarity.Common,CardUIType.defaultCard);////????????????????????????
 
             return _Psychosis;
         }

@@ -15,7 +15,7 @@ public class PatientManager : MonoBehaviour
     public List<Card> Hand;
     public List<Card> discard;
 
-    [SerializeField]private Affect affect;
+    [SerializeField] private Affect affect;
 
     [SerializeField] private UISpline effectSplinePath;
 
@@ -24,7 +24,7 @@ public class PatientManager : MonoBehaviour
 
     [SerializeField] private TMP_Text healthTxtp;
 
-    [SerializeField] private int nextAttackCount = 1;
+    [SerializeField] private int nextEffectCount = 1;
 
     [SerializeField] private float armor;
 
@@ -119,6 +119,11 @@ public class PatientManager : MonoBehaviour
         CardManager.instance.Discard(CardUIType.PatientCard);
     }
 
+    public void AddAffect(Affect affect)
+    {
+        this.affect += affect;
+    }
+
     public void SaveBlock() 
     {
         blockSaved = true;
@@ -133,9 +138,9 @@ public class PatientManager : MonoBehaviour
         attackWhenDamaged = true;
     }
 
-    public void DoubleNextAttack()
+    public void DoubleNextEffect()
     {
-        nextAttackCount *= 2;
+        nextEffectCount *= 2;
     }
 
     private void Attack()
@@ -278,11 +283,16 @@ public class PatientManager : MonoBehaviour
 
             Debug.Log($"Current card is {currentCardID}");
             if (i + 1 < cardCountInHand)
-                Debug.Log($"Next card will be {currentCardID}");
+                Debug.Log($"Next card will be {Hand[i + 1].cardID}");
             else
                 Debug.Log($"And itsthe last card in Hand");
 
-            affect += Hand[i].affect;// card.affect;
+            for (int k = 0; k < nextEffectCount; k++)
+            {
+                affect += Hand[i].affect;
+            }
+            nextEffectCount = 1;
+
             //Debug.Break();
             affect.Update();
             yield return new WaitForFixedUpdate();
@@ -312,13 +322,9 @@ public class PatientManager : MonoBehaviour
                 if (Hand[i].cardType == CardTypes.Attack)
                 {
                     affect.Invoke(InPhobiaEventType.OnAttack);
-                    for (int j = 0; j < nextAttackCount; j++)
-                    {
-                        Attack();
-                        Debug.Log($"<color=cyan>Attacked</color>_{currentCardID}_");
-                        yield return new WaitForSeconds(1f);
-                    }
-                    nextAttackCount = 1;//is Next Attack count saved, when turn ended?
+                    Attack();
+                    Debug.Log($"<color=cyan>Attacked</color>_{currentCardID}_");
+                    yield return new WaitForSeconds(1f);
                 }
             }
             affect.Invoke(InPhobiaEventType.OnStepEnd);

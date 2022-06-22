@@ -142,10 +142,10 @@
         return affect;
     }
 
-    public static Affect DoubleNextAttack()
+    public static Affect DoubleNextEffect()
     {
         Affect affect = new Affect();
-        affect.OnStepStart.Add(new InPhobiaAction($"DoubleNextAttack".ToLower(), () => PatientManager.instance.DoubleNextAttack(), false));
+        affect.OnStepStart.Add(new InPhobiaAction($"DoubleNextAttack".ToLower(), () => PatientManager.instance.DoubleNextEffect(), false));
         return affect;
     }
 }
