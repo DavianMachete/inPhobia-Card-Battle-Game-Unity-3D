@@ -31,6 +31,14 @@ public class ProgressBarController : MonoBehaviour
         pointsMinimumLimit = limit;
     }
 
+    public bool HasNeededAmoutOfPointsToUse(int amountNeeded)
+    {
+        if (currentPointsCount < amountNeeded)
+            return false;
+        else
+            return true;
+    }
+
     public bool PointsHavePassedTheLimit()
     {
         if (currentPointsCount <= pointsMinimumLimit)

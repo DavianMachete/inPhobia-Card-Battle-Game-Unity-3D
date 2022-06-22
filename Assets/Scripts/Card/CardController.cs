@@ -132,8 +132,8 @@ public class CardController : MonoBehaviour
                 CardManager.instance.DropCardToPatientHand(this);
                 break;
             case ScreenPart.Middle:
-                CardManager.instance.PutCardInRandomPlace(this);
-                break;
+                //CardManager.instance.PutCardInRandomPlace(this);
+                //break;
             case ScreenPart.Therapist:
                 break;
             default:

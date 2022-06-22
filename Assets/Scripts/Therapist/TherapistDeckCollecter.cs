@@ -8,6 +8,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     #region Serialized Fields
 
     [SerializeField] private IdeaController ideaController;
+    [SerializeField] private ProgressBarController progressBarController;
 
     [Space(20f)]
     [Header("Card Collecter Part")]
@@ -21,6 +22,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     [Space(20f)]
     [Header("Card Collecter Part")]
     [SerializeField] private Button removeCardButton;
+    [SerializeField] private Button removeCardConfirmButton;
     [SerializeField] private CardController removeCardController;
     [SerializeField] private Button addCardButton;
     [SerializeField] private TMPro.TMP_Text addCardInfo;
@@ -28,6 +30,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     [SerializeField] private GameObject deckBuildingBegin;
     [SerializeField] private GameObject deckBuildingMain;
     [SerializeField] private GameObject deckBuildingRemoveCard;
+    [SerializeField] private TMPro.TMP_Text removeCardInfo;
     [SerializeField] private GameObject deckBuildingAddCard;
 
     #endregion
@@ -39,6 +42,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     private List<CardController> deckCardsControllers;
     private CardController selectedCard;
     private int ideaCountNeeded;
+    private int pointCountNeeded;
 
     #endregion
 
@@ -67,6 +71,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     public void InitializeCollecter()
     {
         ideaCountNeeded = 1;
+        pointCountNeeded = 1;
 
         if (deckCardsControllers == null)
             deckCardsControllers = new List<CardController>();
@@ -111,6 +116,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
         }
 
         addCardButton.interactable = ideaController.CheckIdeaCount(ideaCountNeeded);
+        removeCardButton.interactable = false;
 
         deckBuildingBegin.SetActive(false);
         deckBuildingMain.SetActive(true);
@@ -122,6 +128,8 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     {
         removeCardController.SetCardParametersToGameObject(selectedCard.card);
 
+        removeCardConfirmButton.interactable = progressBarController.HasNeededAmoutOfPointsToUse(pointCountNeeded);
+        removeCardInfo.text = $"-{pointCountNeeded}";
         deckBuildingBegin.SetActive(false);
         deckBuildingMain.SetActive(false);
         deckBuildingRemoveCard.SetActive(true);
@@ -240,7 +248,9 @@ public class TherapistDeckCollecter : InPhobiaScrollView
         Card selectedCard = cardGameObject.card;
 
         therapistDeck.Remove(selectedCard);
-        //need to add points counter;!!!!!!!!!!!
+
+        progressBarController.AddPoint(-pointCountNeeded);
+        pointCountNeeded++;
 
         PrepareCardsToSelect();
     }
@@ -261,7 +271,6 @@ public class TherapistDeckCollecter : InPhobiaScrollView
         newCC.GetComponent<Button>().onClick.AddListener(() => SetAsSelected(newCC));
         newCC.SetCardParametersToGameObject(card);
         deckCardsControllers.Add(newCC);
-
     }
 
     #endregion
