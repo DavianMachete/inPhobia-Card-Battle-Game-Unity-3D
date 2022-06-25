@@ -5275,7 +5275,7 @@ GameObject:
   - component: {fileID: 358853645}
   - component: {fileID: 358853644}
   m_Layer: 5
-  m_Name: ------------Canvas---------------- (1)
+  m_Name: '----------Menu_Canvas----------- '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5352,7 +5352,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: -1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &358853648
 RectTransform:
@@ -5367,7 +5367,7 @@ RectTransform:
   m_Children:
   - {fileID: 2050513128}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10653,7 +10653,7 @@ Transform:
   - {fileID: 729546379}
   - {fileID: 1687906386}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721185364
 GameObject:
@@ -25360,7 +25360,7 @@ Transform:
   - {fileID: 793699618}
   - {fileID: 320341400}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1992832748
 GameObject:
