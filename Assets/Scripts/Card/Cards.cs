@@ -17,7 +17,7 @@ public static class Cards
 
         _TherapistCardsToSelect.Add(new Card("Shrug it off", CardTypes.Skill, Affects.AddBlock(8) + Affects.PullCard(1), "Gain 8 block, draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 8 block, draw 1 card"
 
-        _TherapistCardsToSelect.Add(new Card("Гипноз", CardTypes.Skill, Affects.AddActionPoint(1) + Affects.PullCard(1), "Gain 1 AP, Draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 1 AP, Draw 1 card"
+        _TherapistCardsToSelect.Add(new Card("Гипноз", CardTypes.Skill, Affects.AddActionPoints(1,0) + Affects.PullCard(1), "Gain 1 AP, Draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 1 AP, Draw 1 card"
 
         _TherapistCardsToSelect.Add(new Card("Осозннаность", CardTypes.Attack, Affects.Attack(1, 5), "Deal 1 damage 5 times", 0, Rarity.Rare, CardUIType.TherapistCard));
 
@@ -25,11 +25,13 @@ public static class Cards
 
         _TherapistCardsToSelect.Add(new Card("Juggernaut", CardTypes.Equipment, Affects.AttackWhenGetBlock() /*+ Affects.Exhaust()*/, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
 
-        _TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) /*+ Affects.Exhaust()*/, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
+        //_TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) /*+ Affects.Exhaust()*/, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
+
+        _TherapistCardsToSelect.Add(new Card("Компенсация", CardTypes.Equipment, Affects.AddActionPoints(1, 1) /*+ Affects.Exhaust()*/, "Added 1 action point to maximum action points", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
 
         _TherapistCardsToSelect.Add(new Card("Трансформация", CardTypes.Skill, Affects.AddBlock(5 * CardManager.instance.patientCardsInHand.Count) + Affects.Discard(), "Discard your hand. For each card discarded: Gain 5 block", 2, Rarity.Common, CardUIType.TherapistCard));//"Discard your hand. For each card discarded: Gain 5 block"
 
-        _TherapistCardsToSelect.Add(new Card("Когниция", CardTypes.Skill, Affects.AddActionPoint(1) + Affects.PullCard(1) + Affects.Exhaust(), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 1 AP, Draw 1 card"
+        _TherapistCardsToSelect.Add(new Card("Когниция", CardTypes.Skill, Affects.AddActionPoints(1,0) + Affects.PullCard(1) + Affects.Exhaust(), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 1 AP, Draw 1 card"
 
         _TherapistCardsToSelect.Add(new Card("Невроз", CardTypes.Attack, Affects.AddBlock(5) + Affects.Attack(5,1), $" Deal 5 damage \n Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//$" Deal 5 damage \n Gain 5 block"
 
@@ -37,7 +39,7 @@ public static class Cards
 
         _TherapistCardsToSelect.Add(new Card("Wall of Fire", CardTypes.Skill, Affects.AddBlock(12) + Affects.AttackOnDefense(4), "Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage", 2, Rarity.Common, CardUIType.TherapistCard));//"Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage"
 
-        _TherapistCardsToSelect.Add(new Card("Аффект", CardTypes.Skill, Affects.Exhaust() + Affects.AddActionPoint(2), "Exhaust. Gain 2 AP", 1, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Add 2 AP"
+        _TherapistCardsToSelect.Add(new Card("Аффект", CardTypes.Skill, Affects.Exhaust() + Affects.AddActionPoints(2,0), "Exhaust. Gain 2 AP", 1, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Add 2 AP"
 
         _TherapistCardsToSelect.Add(new Card("Мобилизация", CardTypes.Skill, Affects.Exhaust() + Affects.AddBlock(30), "Exhaust. Gain 30 block", 1, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 30 block"
 
