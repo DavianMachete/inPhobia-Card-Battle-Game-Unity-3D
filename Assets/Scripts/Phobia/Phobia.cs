@@ -70,7 +70,7 @@ public class Phobia : ScriptableObject
         {
             block = 4 * power;
 
-            CardManager.instance.AddPsychosisToPatient();
+            //CardManager.instance.AddPsychosisToPatient();
         }
         else if (percent <= 90)
         {
@@ -82,7 +82,7 @@ public class Phobia : ScriptableObject
             attackCountInAStep = 2;
             attackForce = 1f;
 
-            CardManager.instance.AddPsychosisToPatient();
+            //CardManager.instance.AddPsychosisToPatient();
         }
     }
 }
