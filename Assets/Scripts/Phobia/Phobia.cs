@@ -14,13 +14,11 @@ public class Phobia : ScriptableObject
     public float maximumHealth;
     public float health;
     public float attackForce;
+    public float block;
     public int attackCountInAStep;
     public int vulnerablityCount;
     public int weaknessStack;
     public int power = -1;
-    public PhobiaPhase phobiaPhase;
-
-    private bool isFirstStepAtPhaseTwo = false;
 
 
     public void Initialize()
@@ -28,69 +26,63 @@ public class Phobia : ScriptableObject
         power = -1;
         vulnerablityCount = 0;
         weaknessStack = 0;
-        phobiaPhase = PhobiaPhase.FirstPhase;
-        isFirstStepAtPhaseTwo = true;
         maximumHealth = 120;
         health = maximumHealth;
     }
 
     public void PrepareAttack()
     {
-        int r = Random.Range(0, 4);
-        if (phobiaPhase == PhobiaPhase.FirstPhase)
+        power++;
+
+        if (power > 10)
         {
-            power++;
-            switch (r)
+            float percent = Random.Range(0f, 100f);
+
+            if (percent <= 35f)
             {
-                case 0:
-                    {
-                        attackForce = 4;
-                        attackCountInAStep = 6;
-                    }
-                    break;
-                case 1:
-                case 2:
-                case 3:
-                    {
-                        attackForce = 20;
-                        attackCountInAStep = 1;
-                    }
-                    break;
-                default:
-                    break;
+                attackCountInAStep = 5;
+                attackForce = 1f;
+
+                power = Mathf.FloorToInt(power / 2f);
+
+                return;
             }
         }
-        else
+
+        PrepareMainAttack();
+    }
+
+    private void PrepareMainAttack()
+    {
+        float percent = Random.Range(0f, 100f);
+
+        if (percent <= 30f)
         {
-            if (isFirstStepAtPhaseTwo)
-            {
-                attackForce = 40;
-                attackCountInAStep = 1;
-                isFirstStepAtPhaseTwo = false;
-            }
-            else
-            {
-                switch (r)
-                {
-                    case 0:
-                    case 1:
-                        {
-                            attackForce = 3;
-                            attackCountInAStep = 10;
-                        }
-                        break;
-                    case 2:
-                    case 3:
-                        {
-                            attackForce = 18;
-                            attackCountInAStep = 1;
-                            CardManager.instance.AddPsychosisToPatient();
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
+            attackCountInAStep = 1;
+            attackForce = 17f;
+        }
+        else if (percent <= 55)
+        {
+            attackCountInAStep = 3;
+            attackForce = 1f;
+        }
+        else if (percent <= 70)
+        {
+            block = 4 * power;
+
+            CardManager.instance.AddPsychosisToPatient();
+        }
+        else if (percent <= 90)
+        {
+            attackCountInAStep = 2;
+            attackForce = 15f;
+        }
+        else if (percent <= 100)
+        {
+            attackCountInAStep = 2;
+            attackForce = 1f;
+
+            CardManager.instance.AddPsychosisToPatient();
         }
     }
 }

@@ -42,6 +42,9 @@ public class UIManager : MonoBehaviour
     [Header("Canvas Settings")]
     [SerializeField] private CanvasGroup canvasGroup;
 
+    [Header("Fight Scene")]
+    [SerializeField] private RectTransform card_sCanvasRT;
+
     #endregion
 
     #region Unity Behaviour
@@ -59,6 +62,11 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Public Methods
+
+    public RectTransform GetCard_sCanvas()
+    {
+        return card_sCanvasRT;
+    }
 
     public void Initialize()
     {

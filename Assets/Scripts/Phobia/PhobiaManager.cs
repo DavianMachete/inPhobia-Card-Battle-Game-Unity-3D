@@ -43,7 +43,13 @@ public class PhobiaManager : MonoBehaviour
         {
             damage += Mathf.FloorToInt(damage * 0.5f);
         }
-        Debug.Log($"<color=#ffa500ff>phobia's</color> gotten damage is {damage} =>  vulnerablityCount = {phobia.vulnerablityCount}");
+        Debug.Log($"<color=#ffa500ff>phobia's</color> gotten damage is {damage},  vulnerablityCount = {phobia.vulnerablityCount}, block = {phobia.block}");
+
+        float damageHolder = damage;
+        damage -= phobia.block;
+        phobia.block -= damageHolder;
+        if (phobia.block < 0)
+            phobia.block = 0;
         phobia.health -= damage;
 
         UIElementFlow uIElementFlow = Instantiate(CardManager.instance.effectElement, effectSplinePath.transform.parent).GetComponent<UIElementFlow>();
@@ -57,10 +63,7 @@ public class PhobiaManager : MonoBehaviour
                 StopCoroutine(IStartTurnHelper);
             }
 
-            if (phobia.phobiaPhase == PhobiaPhase.FirstPhase)//Error
-                phobia.phobiaPhase = PhobiaPhase.SecondPhase;
-            else
-                GameManager.instance.LevelCompleted();
+            GameManager.instance.LevelCompleted();
         }
 
         UpdateHealthBar();
@@ -131,6 +134,8 @@ public class PhobiaManager : MonoBehaviour
         }
 
         onDone?.Invoke();
+
+        phobia.block = 0;
         PrepareAttack();
         IStartTurnHelper = null;
 

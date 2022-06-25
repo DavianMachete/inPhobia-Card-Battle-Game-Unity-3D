@@ -36,11 +36,11 @@ public enum ScreenPart
     Therapist
 }
 
-public enum PhobiaPhase
-{
-    FirstPhase,
-    SecondPhase
-}
+//public enum PhobiaPhase
+//{
+//    FirstPhase,
+//    SecondPhase
+//}
 
 public enum CurveType
 {

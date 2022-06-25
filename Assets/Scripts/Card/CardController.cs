@@ -525,6 +525,20 @@ public class CardController : MonoBehaviour
         IFollowMouseHelper = null;
     }
 
+    private Vector3 MousePosToCanvasPos(Vector3 mousePosition)
+    {
+        Vector3 card_sCanvasSizes = UIManager.instance.GetCard_sCanvas().sizeDelta;
+
+        float x_T = Mathf.InverseLerp(0f, Screen.width, mousePosition.x);
+        float y_T = Mathf.InverseLerp(0f, Screen.height, mousePosition.y);
+
+        Vector3 canvasPos = Vector3.zero;
+        canvasPos.x = Mathf.Lerp(-card_sCanvasSizes.x / 2f, card_sCanvasSizes.x / 2f, x_T);
+        canvasPos.y = Mathf.Lerp(-card_sCanvasSizes.y / 2f, card_sCanvasSizes.y / 2f, y_T);
+
+        return canvasPos;
+    }
+
     #endregion
 
     #region Coroutine
@@ -533,12 +547,10 @@ public class CardController : MonoBehaviour
     private Coroutine IFollowMouseHelper;
     private IEnumerator IFollowMouse()
     {
-        Vector3 deltaOfMouse = new Vector3(960f, 540f);
-
         while (followMouse)
         {
             Debug.Log(Input.mousePosition);
-            cardRect.anchoredPosition = Vector3.Lerp(cardRect.anchoredPosition, Input.mousePosition - deltaOfMouse, Time.fixedDeltaTime * 20f);
+            cardRect.anchoredPosition = Vector3.Lerp(cardRect.anchoredPosition, MousePosToCanvasPos(Input.mousePosition), Time.fixedDeltaTime * 20f);
             cardRect.rotation = Quaternion.Lerp(cardRect.rotation, Quaternion.LookRotation(Vector3.forward, Vector3.up), Time.fixedDeltaTime * 20f);
 
             yield return new WaitForFixedUpdate();
