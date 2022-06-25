@@ -149,10 +149,12 @@ public class UIManager : MonoBehaviour
     [ContextMenu("Open Card collector (5trust, 9 idea)")]
     public void OpenCardCollecterImmidiatly()
     {
+        GameManager.instance.InitialiseGame();
+
         progressBarController.InitializeProgressBar();
         ideaController.Initialize();
 
-        progressBarController.AddPoint(5);
+        progressBarController.AddPoint(3);
         ideaController.AddIdea(9);
 
         OpenCardCollecter();
