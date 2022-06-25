@@ -533,9 +533,12 @@ public class CardController : MonoBehaviour
     private Coroutine IFollowMouseHelper;
     private IEnumerator IFollowMouse()
     {
+        Vector3 deltaOfMouse = new Vector3(960f, 540f);
+
         while (followMouse)
         {
-            cardRect.position = Vector3.Lerp(cardRect.position, Input.mousePosition, Time.fixedDeltaTime * 20f);
+            Debug.Log(Input.mousePosition);
+            cardRect.anchoredPosition = Vector3.Lerp(cardRect.anchoredPosition, Input.mousePosition - deltaOfMouse, Time.fixedDeltaTime * 20f);
             cardRect.rotation = Quaternion.Lerp(cardRect.rotation, Quaternion.LookRotation(Vector3.forward, Vector3.up), Time.fixedDeltaTime * 20f);
 
             yield return new WaitForFixedUpdate();

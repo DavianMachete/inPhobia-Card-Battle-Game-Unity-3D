@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject novel;
     [SerializeField] private GameObject cardCollecter;
     [SerializeField] private GameObject fight;
+    [SerializeField] private GameObject cardsCanvas;
     [SerializeField] private GameObject gameEnd;
     [SerializeField] private GameObject Bar;
 
@@ -76,6 +77,7 @@ public class UIManager : MonoBehaviour
             novel.SetActive(false);
             cardCollecter.SetActive(false);
             fight.SetActive(false);
+            cardsCanvas.SetActive(false);
             gameEnd.SetActive(false);
             Bar.SetActive(false);
         }
@@ -95,6 +97,7 @@ public class UIManager : MonoBehaviour
         novel.SetActive(false);
         cardCollecter.SetActive(false);
         fight.SetActive(false);
+        cardsCanvas.SetActive(false);
         gameEnd.SetActive(false);
         Bar.SetActive(false);
     }
@@ -109,6 +112,7 @@ public class UIManager : MonoBehaviour
         novel.SetActive(false);
         cardCollecter.SetActive(false);
         fight.SetActive(false);
+        cardsCanvas.SetActive(false);
         gameEnd.SetActive(false);
         Bar.SetActive(false);
     }
@@ -124,6 +128,7 @@ public class UIManager : MonoBehaviour
         novel.SetActive(true);
         cardCollecter.SetActive(false);
         fight.SetActive(false);
+        cardsCanvas.SetActive(false);
         gameEnd.SetActive(false);
         Bar.SetActive(true);
     }
@@ -138,6 +143,7 @@ public class UIManager : MonoBehaviour
         novel.SetActive(false);
         cardCollecter.SetActive(true);
         fight.SetActive(false);
+        cardsCanvas.SetActive(false);
         gameEnd.SetActive(false);
         Bar.SetActive(true);
     }
@@ -150,6 +156,7 @@ public class UIManager : MonoBehaviour
         novel.SetActive(false);
         cardCollecter.SetActive(false);
         fight.SetActive(true);
+        cardsCanvas.SetActive(true);
         gameEnd.SetActive(false);
         Bar.SetActive(false);
     }
@@ -162,6 +169,7 @@ public class UIManager : MonoBehaviour
         novel.SetActive(false);
         cardCollecter.SetActive(false);
         fight.SetActive(false);
+        cardsCanvas.SetActive(false);
         gameEnd.SetActive(false);
         Bar.SetActive(false);
     }
