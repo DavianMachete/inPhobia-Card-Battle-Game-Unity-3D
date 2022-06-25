@@ -249,7 +249,8 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     {
         Card selectedCard = cardGameObject.card;
 
-        therapistDeck.Remove(selectedCard);
+        if (selectedCard.cardType == CardTypes.Equipment)
+            therapistDeck.Remove(selectedCard);
 
         progressBarController.AddPoint(-pointCountNeeded);
         pointCountNeeded++;
