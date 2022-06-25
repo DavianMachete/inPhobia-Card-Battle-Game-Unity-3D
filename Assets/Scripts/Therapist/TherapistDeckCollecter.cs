@@ -178,6 +178,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
 
     public void RandomizeThreeCards(Transform cardsParent)
     {
+        PrepareCardsToSelect();
         List<Card> rareAndEquipment = new List<Card>();
         rareAndEquipment.AddRange(rareCards);
         rareAndEquipment.AddRange(equipmentCards);
@@ -185,7 +186,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
         Card leftCard = rareAndEquipment[Random.Range(0, rareAndEquipment.Count)];
         if (leftCard.rarity == Rarity.Rare)
         {
-            //rareCards.Remove(leftCard);
+            rareCards.Remove(leftCard);
         }
         else if(leftCard.rarity==Rarity.Equipment)
         {
@@ -194,7 +195,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
         cardsParent.GetChild(0).GetComponent<CardController>().SetCardParametersToGameObject(leftCard);
 
         Card medianCard = commonCards[Random.Range(0, commonCards.Count)];
-        //commonCards.Remove(medianCard);
+        commonCards.Remove(medianCard);
         cardsParent.GetChild(1).GetComponent<CardController>().SetCardParametersToGameObject(medianCard);
 
         Card rightCard;
@@ -204,18 +205,18 @@ public class TherapistDeckCollecter : InPhobiaScrollView
             if (ff == 0)
             {
                 rightCard = rareCards[Random.Range(0, rareCards.Count)];
-                //rareCards.Remove(rightCard);
+                rareCards.Remove(rightCard);
             }
             else
             {
                 rightCard = commonCards[Random.Range(0, commonCards.Count)];
-                //commonCards.Remove(rightCard);
+                commonCards.Remove(rightCard);
             }
         }
         else
         {
             rightCard = commonCards[Random.Range(0, commonCards.Count)];
-            //commonCards.Remove(rightCard);
+            commonCards.Remove(rightCard);
         }
         cardsParent.GetChild(2).GetComponent<CardController>().SetCardParametersToGameObject(rightCard);
     }
@@ -223,6 +224,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     public void AddCardToTherapistDeckByIdeas(CardController cardGameObject)
     {
         Card selectedCard = cardGameObject.card;
+        
 
         ideaController.AddIdea(-ideaCountNeeded);
         ideaCountNeeded++;
@@ -236,7 +238,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     {
         Card selectedCard = cardGameObject.card;
 
-        //therapistCardsToSelect.Remove(selectedCard);
+        therapistCardsToSelect.Remove(selectedCard);
 
         therapistDeck.Add(selectedCard);
 

@@ -23,7 +23,9 @@ public static class Cards
 
         _TherapistCardsToSelect.Add(new Card("Самовнушение", CardTypes.Equipment,Affects.SaveBlock() /*+ Affects.Exhaust()*/, "Block no longer expires at the start of your turn", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Block no longer expires at the start of your turn"
 
-        _TherapistCardsToSelect.Add(new Card("Juggernaut", CardTypes.Equipment, Affects.AttackWhenGetBlock() /*+ Affects.Exhaust()*/, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
+        //_TherapistCardsToSelect.Add(new Card("Juggernaut", CardTypes.Equipment, Affects.AttackWhenGetBlock() /*+ Affects.Exhaust()*/, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
+
+        _TherapistCardsToSelect.Add(new Card("Отзеркаливание", CardTypes.Equipment, Affects.AttackWhenGetBlock() /*+ Affects.Exhaust()*/, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
 
         //_TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) /*+ Affects.Exhaust()*/, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
 
