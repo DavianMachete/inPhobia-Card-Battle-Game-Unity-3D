@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
     [Header("Fight Scene")]
     [SerializeField] private RectTransform card_sCanvasRT;
 
+
+
     #endregion
 
     #region Unity Behaviour
@@ -77,7 +79,9 @@ public class UIManager : MonoBehaviour
     {
         mainMenu.SetActive(true);
         if (withPause)
+        {
             continueButton.SetActive(true);
+        }
         else
         {
             cutscene.SetActive(false);

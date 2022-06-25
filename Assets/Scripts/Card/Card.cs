@@ -24,6 +24,18 @@ public class Card //: ScriptableObject
 
     private static int id;
 
+    public Card(Card card)
+    {
+        cardID = card.cardID;//Guid.NewGuid().ToString("N");
+        name = card.name;
+        this.cardType = card.cardType;
+        this.affect = card.affect;
+        this.affectDescription = card.affectDescription;
+        this.actionPoint = card.actionPoint;
+        this.rarity = card.rarity;
+        this.cardBelonging = card.cardBelonging;
+    }
+
     public Card(string cardName, CardTypes cardType, Affect affect, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
     {
         id++;

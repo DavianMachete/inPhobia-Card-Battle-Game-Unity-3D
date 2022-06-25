@@ -163,22 +163,21 @@ public class TherapistDeckCollecter : InPhobiaScrollView
         {
             if (card.rarity == Rarity.Rare)
             {
-                rareCards.Add(card);
+                rareCards.Add(new Card(card));
             }
             else if (card.rarity == Rarity.Equipment)
             {
-                equipmentCards.Add(card);
+                equipmentCards.Add(new Card(card));
             }
             else
             {
-                commonCards.Add(card);
+                commonCards.Add(new Card(card));
             }
         }
     }
 
     public void RandomizeThreeCards(Transform cardsParent)
     {
-        PrepareCardsToSelect();
         List<Card> rareAndEquipment = new List<Card>();
         rareAndEquipment.AddRange(rareCards);
         rareAndEquipment.AddRange(equipmentCards);
@@ -238,7 +237,18 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     {
         Card selectedCard = cardGameObject.card;
 
-        therapistCardsToSelect.Remove(selectedCard);
+
+        if (selectedCard.cardType == CardTypes.Equipment)
+        {
+            foreach (Card card in therapistCardsToSelect)
+            {
+                if (card.name == selectedCard.name)
+                {
+                    therapistCardsToSelect.Remove(card);
+                    break;
+                }
+            }
+        }
 
         therapistDeck.Add(selectedCard);
 
@@ -249,8 +259,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
     {
         Card selectedCard = cardGameObject.card;
 
-        if (selectedCard.cardType == CardTypes.Equipment)
-            therapistDeck.Remove(selectedCard);
+        therapistDeck.Remove(selectedCard);
 
         progressBarController.AddPoint(-pointCountNeeded);
         pointCountNeeded++;
