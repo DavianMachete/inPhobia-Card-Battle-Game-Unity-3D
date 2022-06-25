@@ -1546,10 +1546,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1050, y: -200}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &116400843
 MonoBehaviour:
@@ -2048,10 +2048,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1050, y: -600}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &162025607
 GameObject:
@@ -2929,7 +2929,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041F\u0420\u041E\u041F\u0423\u0421\u0422\u0418\u0422\u042C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d298bb6dcac2b1e4391e8efc27a6bfb1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 5227817211759638969, guid: d298bb6dcac2b1e4391e8efc27a6bfb1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &182084064
@@ -3074,10 +3074,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -200}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188243184
 MonoBehaviour:
@@ -4928,10 +4928,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -200}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264638727
 MonoBehaviour:
@@ -5614,10 +5614,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -600}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331012730
 MonoBehaviour:
@@ -6721,7 +6721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &411078895
@@ -6746,8 +6746,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8000,7 +8000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &494361198
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8882,10 +8882,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -200}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529098505
 MonoBehaviour:
@@ -9791,6 +9791,7 @@ GameObject:
   - component: {fileID: 611162303}
   - component: {fileID: 611162302}
   - component: {fileID: 611162301}
+  - component: {fileID: 611162304}
   m_Layer: 5
   m_Name: newGame_button
   m_TagString: Untagged
@@ -9837,7 +9838,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9912,6 +9913,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611162299}
   m_CullTransparentMesh: 1
+--- !u!95 &611162304
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611162299}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3daf938776e33ee42b21555ddc6660dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &612772826
 GameObject:
   m_ObjectHideFlags: 0
@@ -10030,7 +10050,584 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBlock: []
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0440\u0438\u0441, \u044F \u043F\u043E\u043D\u0438\u043C\u0430\u044E,
+      \u0447\u0442\u043E \u044D\u0442\u043E \u0441\u043B\u043E\u0436\u043D\u043E."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041D\u043E, \u0447\u0430\u0441\u0442\u043E \u0442\u0430\u043A \u0431\u044B\u0432\u0430\u0435\u0442,
+      \u0447\u0442\u043E \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B \u0432
+      \u0440\u0435\u0433\u0443\u043B\u044F\u0446\u0438\u0438 \u043F\u0441\u0438\u0445\u0438\u043A\u0438
+      \u0441\u0432\u044F\u0437\u0430\u043D\u044B \u0441 \u0441\u0430\u043C\u044B\u043C\u0438
+      \u0442\u044F\u0436\u0435\u043B\u044B\u043C\u0438 \u0441\u043E\u0431\u044B\u0442\u0438\u044F\u043C\u0438
+      \u0432 \u043D\u0430\u0448\u0435\u0439 \u0436\u0438\u0437\u043D\u0438. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: " \u042F \u0441\u043C\u043E\u0433\u0443 \u0432\u0430\u043C \u043F\u043E\u043C\u043E\u0447\u044C,
+      \u0435\u0441\u043B\u0438 \u0432\u044B \u0440\u0430\u0441\u0441\u043A\u0430\u0436\u0435\u0442\u0435
+      \u043E \u0442\u043E\u043C, \u0447\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C
+      \u0441 \u0432\u0430\u0448\u0438\u043C \u043E\u0442\u0446\u043E\u043C.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042D\u0442\u043E \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u043E
+      27 \u0430\u043F\u0440\u0435\u043B\u044F. \u0412\u0435\u0440\u043D\u0435\u0435
+      \u0432 \u043D\u043E\u0447\u044C \u0441 27 \u043D\u0430 28"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0423 \u043E\u0442\u0446\u0430 \u0431\u044B\u043B \u0432\u044B\u0445\u043E\u0434\u043D\u043E\u0439,
+      \u043C\u044B \u0432\u0435\u0441\u044C \u0434\u0435\u043D\u044C \u043F\u0440\u043E\u0432\u0435\u043B\u0438
+      \u0432 \u0441\u0442\u0430\u0440\u043E\u043C \u0433\u043E\u0440\u043E\u0434\u0435.
+      \u0413\u0443\u043B\u044F\u043B\u0438 \u043F\u043E \u0442\u043E\u0440\u0433\u043E\u0432\u044B\u043C
+      \u043F\u0435\u0440\u0435\u0443\u043B\u043A\u0430\u043C, \u043F\u043E\u043A\u0443\u043F\u0430\u043B\u0438
+      \u0440\u0430\u0437\u043D\u044B\u0435 \u0431\u0435\u0437\u0434\u0435\u043B\u0443\u0448\u043A\u0438.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0412 \u043F\u043E\u0437\u0434\u043D\u0438\u0445 \u0441\u0443\u043C\u0435\u0440\u043A\u0430\u0445
+      \u043C\u044B \u043F\u043E\u0448\u043B\u0438 \u0434\u043E\u043C\u043E\u0439.
+      \u041D\u0430\u0447\u0430\u043B\u0441\u044F \u0434\u043E\u0436\u0434\u044C,
+      \u043C\u044B \u0440\u0435\u0448\u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u0436\u0434\u0430\u0442\u044C
+      \u0435\u0433\u043E \u0432 \u043A\u0430\u0444\u0435. \u0412\u044B \u0431\u044B\u043B\u0438
+      \u0432 \u0417\u043B\u0430\u0442\u043E\u0432\u0435\u043D\u0441\u043A\u0435?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041D\u0435\u0442, \u043D\u0435 \u0434\u043E\u0432\u0435\u043B\u043E\u0441\u044C."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0422\u0430\u043C \u0435\u0441\u0442\u044C \u0434\u0432\u0443\u0445\u044D\u0442\u0430\u0436\u043D\u043E\u0435
+      \u043A\u0430\u0444\u0435, \u0441 \u043A\u0440\u044B\u0448\u0438 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E
+      \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u0432\u0438\u0434
+      \u043D\u0430 \u0440\u0435\u043A\u0443 \u0438 \u043F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u0443\u044E
+      \u043E\u0431\u043B\u0430\u0441\u0442\u044C."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041C\u044B \u0441\u0438\u0434\u0435\u043B\u0438 \u0432 \u043A\u0430\u0444\u0435,
+      \u0434\u043E\u0436\u0434\u044C \u0443\u0441\u0438\u043B\u0438\u0432\u0430\u043B\u0441\u044F.
+      \u041C\u044B \u0445\u043E\u0442\u0435\u043B\u0438 \u0432\u044B\u0437\u0432\u0430\u0442\u044C
+      \u0442\u0430\u043A\u0441\u0438 \u0434\u043E \u0434\u043E\u043C\u0430, \u043D\u043E
+      \u043E\u0442\u0446\u0443 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u043B\u0438
+      \u0441 \u0440\u0430\u0431\u043E\u0442\u044B."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041E\u043D \u0441\u0440\u0430\u0437\u0443 \u043D\u0430\u0445\u043C\u0443\u0440\u0438\u043B\u0441\u044F,
+      \u043C\u043E\u043B\u0447\u0430 \u0432\u0441\u0451 \u0432\u044B\u0441\u043B\u0443\u0448\u0430\u043B
+      \u0438 \u0441\u043A\u0430\u0437\u0430\u043B, \u0447\u0442\u043E \u0435\u0434\u0435\u0442. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u0441\u043F\u0440\u043E\u0441\u0438\u043B\u0430, \u0447\u0442\u043E
+      \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u043E, \u043D\u043E \u043E\u043D
+      \u0441\u043A\u0430\u0437\u0430\u043B \u043C\u043D\u0435 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C
+      \u0442\u0430\u043A\u0441\u0438 \u0438 \u0435\u0445\u0430\u0442\u044C \u0434\u043E\u043C\u043E\u0439,
+      \u0430 \u0441\u0430\u043C \u0441\u043E\u0440\u0432\u0430\u043B\u0441\u044F
+      \u0438 \u0432\u044B\u0431\u0435\u0436\u0430\u043B \u0438\u0437 \u043A\u0430\u0444\u0435."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u0440\u0435\u0448\u0438\u043B\u0430 \u043D\u0435 \u0435\u0445\u0430\u0442\u044C
+      \u0434\u043E\u043C\u043E\u0439, \u043F\u043E\u0434\u043E\u0436\u0434\u0430\u0442\u044C
+      \u0435\u0433\u043E \u0432 \u043A\u0430\u0444\u0435, \u043E\u043D\u043E \u0431\u044B\u043B\u043E
+      \u043A\u0440\u0443\u0433\u043B\u043E\u0441\u0443\u0442\u043E\u0447\u043D\u044B\u043C.
+      \u042F \u043F\u043E\u0434\u043D\u044F\u043B\u0430\u0441\u044C \u043D\u0430
+      \u043A\u0440\u044B\u0448\u0443 \u0438 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0430
+      \u0432 \u0441\u0442\u043E\u0440\u043E\u043D\u0443 \u0435\u0433\u043E \u043F\u0440\u0435\u0434\u043F\u0440\u0438\u044F\u0442\u0438\u044F."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0410 \u0437\u0430\u0442\u0435\u043C\u2026"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1849280543}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &621251718
 GameObject:
   m_ObjectHideFlags: 0
@@ -12091,7 +12688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &721185366
@@ -12116,8 +12713,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12605,6 +13202,7 @@ GameObject:
   - component: {fileID: 790574791}
   - component: {fileID: 790574790}
   - component: {fileID: 790574789}
+  - component: {fileID: 790574792}
   m_Layer: 5
   m_Name: quit_button
   m_TagString: Untagged
@@ -12651,7 +13249,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -12726,6 +13324,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790574787}
   m_CullTransparentMesh: 1
+--- !u!95 &790574792
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790574787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3daf938776e33ee42b21555ddc6660dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &791676825
 GameObject:
   m_ObjectHideFlags: 0
@@ -13185,10 +13802,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -600}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829070925
 MonoBehaviour:
@@ -13454,10 +14071,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -600}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850020398
 MonoBehaviour:
@@ -14097,6 +14714,7 @@ GameObject:
   - component: {fileID: 888866299}
   - component: {fileID: 888866298}
   - component: {fileID: 888866297}
+  - component: {fileID: 888866300}
   m_Layer: 5
   m_Name: newFight
   m_TagString: Untagged
@@ -14143,7 +14761,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -14218,6 +14836,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888866295}
   m_CullTransparentMesh: 1
+--- !u!95 &888866300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888866295}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3daf938776e33ee42b21555ddc6660dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &899573732
 GameObject:
   m_ObjectHideFlags: 0
@@ -14252,7 +14889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &899573734
@@ -14277,8 +14914,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15326,50 +15963,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &993189862
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 993189863}
-  - component: {fileID: 993189864}
-  m_Layer: 0
-  m_Name: Question block 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &993189863
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993189862}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1849280542}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &993189864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993189862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBlock: []
 --- !u!1 &996239711
 GameObject:
   m_ObjectHideFlags: 0
@@ -15584,7 +16177,692 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBlock: []
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A \u0441\u043B\u043E\u0432\u0443 \u043E \u0432\u0430\u0448\u0435\u0439
+      \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u0438\u2026\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: .....
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0413\u0434\u0435 \u0432\u044B \u0443\u0447\u0438\u043B\u0438\u0441\u044C?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u0436\u0435 \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430,
+      \u0432 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442\u0435 \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0439
+      \u043F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u0438\u2026"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u0440\u0438 \u043A\u0430\u043A\u043E\u043C \u043F\u0440\u0435\u0434\u043F\u0440\u0438\u044F\u0442\u0438\u0438?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: " Johnson\u2019s Cosmetics\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u043E\u043B\u0430\u0433\u0430\u044E, \u0440\u0435\u0447\u044C \u043E
+      \u0444\u0430\u0431\u0440\u0438\u043A\u0435, \u043D\u0435\u0434\u0430\u0432\u043D\u043E
+      \u0432\u043E\u0437\u043E\u0431\u043D\u043E\u0432\u0438\u0432\u0448\u0435\u0439
+      \u0440\u0430\u0431\u043E\u0442\u0443 \u043F\u043E\u0441\u043B\u0435 \u0440\u0435\u043D\u043E\u0432\u0430\u0446\u0438\u0438"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0414\u0430\u2026"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0418 \u043D\u0430\u0445\u043E\u0434\u044F\u0449\u0435\u0439\u0441\u044F
+      \u0432 \u0417\u043B\u0430\u0442\u043E\u0432\u0435\u043D\u0441\u043A\u0435\u2026"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0412\u0441\u0451 \u0432\u0435\u0440\u043D\u043E.\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0412 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 100 \u043A\u0438\u043B\u043E\u043C\u0435\u0442\u0440\u043E\u0432
+      \u043E\u0442 \u0432\u0430\u0448\u0435\u0433\u043E \u0433\u043E\u0440\u043E\u0434\u0430
+      \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F 8 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442\u043E\u0432
+      \u0440\u0430\u0437\u043D\u043E\u0439 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u0438,
+      \u0432 \u0442\u043E\u043C \u0447\u0438\u0441\u043B\u0435 \u0441\u0432\u044F\u0437\u0430\u043D\u043D\u044B\u0445
+      \u0441 \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u043F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u044C\u044E."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041D\u043E \u0432\u044B \u043F\u043E\u0435\u0445\u0430\u043B\u0438 \u0437\u0430
+      400 \u043A\u0438\u043B\u043E\u043C\u0435\u0442\u0440\u043E\u0432, \u0443\u0447\u0438\u0442\u044C\u0441\u044F
+      \u043F\u0440\u0438 \u043F\u0440\u0435\u0434\u043F\u0440\u0438\u044F\u0442\u0438\u0438,
+      \u043D\u0430 \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u043F\u043E\u0433\u0438\u0431
+      \u0432\u0430\u0448 \u043E\u0442\u0435\u0446."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311410771256}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310894898860}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 320341401}
+          m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
+          m_MethodName: AddPoint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: -1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: 
+    text: .....
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1849280543}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1036991658
 GameObject:
   m_ObjectHideFlags: 0
@@ -16568,8 +17846,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0414\u0410\u041B\u0415\u0415"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d298bb6dcac2b1e4391e8efc27a6bfb1, type: 2}
-  m_sharedMaterial: {fileID: 5227817211759638969, guid: d298bb6dcac2b1e4391e8efc27a6bfb1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17154,7 +18432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1077640727
@@ -17179,8 +18457,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17792,6 +19070,7 @@ GameObject:
   - component: {fileID: 1112013867}
   - component: {fileID: 1112013866}
   - component: {fileID: 1112013865}
+  - component: {fileID: 1112013868}
   m_Layer: 5
   m_Name: 'continue _button '
   m_TagString: Untagged
@@ -17913,6 +19192,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112013863}
   m_CullTransparentMesh: 1
+--- !u!95 &1112013868
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112013863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3daf938776e33ee42b21555ddc6660dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1130996071
 GameObject:
   m_ObjectHideFlags: 0
@@ -18032,7 +19330,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 82, y: 0}
-  m_SizeDelta: {x: 1500, y: 800}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137548790
 MonoBehaviour:
@@ -18106,7 +19404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1138623681
@@ -18131,8 +19429,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18750,6 +20048,7 @@ GameObject:
   - component: {fileID: 1215148790}
   - component: {fileID: 1215148789}
   - component: {fileID: 1215148788}
+  - component: {fileID: 1215148791}
   m_Layer: 5
   m_Name: credits_button
   m_TagString: Untagged
@@ -18796,7 +20095,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -18859,6 +20158,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215148786}
   m_CullTransparentMesh: 1
+--- !u!95 &1215148791
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215148786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3daf938776e33ee42b21555ddc6660dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1221152288
 GameObject:
   m_ObjectHideFlags: 0
@@ -18871,6 +20189,7 @@ GameObject:
   - component: {fileID: 1221152292}
   - component: {fileID: 1221152291}
   - component: {fileID: 1221152290}
+  - component: {fileID: 1221152293}
   m_Layer: 5
   m_Name: continue_session_button
   m_TagString: Untagged
@@ -18917,7 +20236,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -18992,6 +20311,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221152288}
   m_CullTransparentMesh: 1
+--- !u!95 &1221152293
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221152288}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3daf938776e33ee42b21555ddc6660dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1225190032
 GameObject:
   m_ObjectHideFlags: 0
@@ -19466,7 +20804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1273766167
@@ -19491,8 +20829,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25497,7 +26835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1784019501
@@ -25522,8 +26860,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26410,8 +27748,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 993189863}
+  m_Children: []
   m_Father: {fileID: 793699618}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26429,7 +27766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBlock:
   - Persion: 
-    text: 
+    text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0435\u043D\u0435\u0438 \u0441\u043B\u0435\u0434\u0443\u0435\u0442...."
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -27841,7 +29178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24.000015}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1957465423
@@ -27866,8 +29203,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30898,7 +32235,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041C\u043E\u0449\u043D\u044B\u0439 \u0423\u0434\u0430\u0440"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -30962,7 +32299,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1654502417071700273
@@ -30987,7 +32324,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041C\u043E\u0449\u043D\u044B\u0439 \u0423\u0434\u0430\u0440"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -31051,7 +32388,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1654502418335504196
@@ -31076,7 +32413,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041C\u043E\u0449\u043D\u044B\u0439 \u0423\u0434\u0430\u0440"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -31140,7 +32477,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1708358798002070966
@@ -31230,7 +32567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 24}
   m_SizeDelta: {x: 275.5, y: 118}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!224 &1876568690360481306
@@ -36007,7 +37344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &4301302312221652137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40539,7 +41876,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: discription 888
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -40603,7 +41940,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7415145518570545781
@@ -40628,7 +41965,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: discription 888
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -40692,7 +42029,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7415145518616641079
@@ -40806,7 +42143,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: discription 888
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -40870,7 +42207,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &7457306024128711103
@@ -40948,10 +42285,10 @@ RectTransform:
   m_Father: {fileID: 1137548789}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1350, y: -200}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7581784732830832446
 MonoBehaviour:
@@ -41257,7 +42594,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -41321,7 +42658,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7949469032612882581
@@ -41435,7 +42772,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -41499,7 +42836,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7949469033405775530
@@ -41524,7 +42861,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -41588,7 +42925,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &8029655045845351680
@@ -42942,8 +44279,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u0435\u0440\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639938df6948a544d8761286c1094f1f, type: 2}
-  m_sharedMaterial: {fileID: -7356647845300286050, guid: 639938df6948a544d8761286c1094f1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
