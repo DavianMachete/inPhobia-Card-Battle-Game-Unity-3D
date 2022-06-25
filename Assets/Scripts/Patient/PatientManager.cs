@@ -155,7 +155,7 @@ public class PatientManager : MonoBehaviour
 
         if (attackWhenGetBlock)
         {
-            SetAttackForce(5);
+            SetAttackForce(5,1);
             Attack();
         }
     }
@@ -203,9 +203,10 @@ public class PatientManager : MonoBehaviour
         actionPointsText.text = patient.patientActionPoints.ToString() + "/" + patient.patientMaximumActionPoints.ToString();
     }
 
-    public void SetAttackForce(float force)
+    public void SetAttackForce(float force, int attackCount)
     {
         patient.attackForce = force;
+        patient.attackCount = attackCount;
         //Debug.Log($"<color=teal>NPC:</color> attackForce =  {force}");
     }
 
@@ -322,9 +323,13 @@ public class PatientManager : MonoBehaviour
                 if (Hand[i].cardType == CardTypes.Attack)
                 {
                     affect.Invoke(InPhobiaEventType.OnAttack);
-                    Attack();
-                    Debug.Log($"<color=cyan>Attacked</color>_{currentCardID}_");
-                    yield return new WaitForSeconds(1f);
+
+                    for (int j = 0; j < patient.attackCount; j++)
+                    {
+                        Attack();
+                        Debug.Log($"<color=cyan>Attacked</color>_{currentCardID}_");
+                        yield return new WaitForSeconds(1f);
+                    }
                 }
             }
             affect.Invoke(InPhobiaEventType.OnStepEnd);

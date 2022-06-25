@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cris
   image: {fileID: 21300000, guid: a22734ef5657d904fb9f6631f26b9d4e, type: 3}
-  maximumHealth: 500
-  health: 500
-  attackForce: 0
+  maximumHealth: 85
+  health: 85
+  attackForce: 5
+  attackCount: 1
   patientMaximumActionPoints: 3
-  patientActionPoints: 3
+  patientActionPoints: 0
   phobia: {fileID: 11400000, guid: 47f3735891c549048863287f39def643, type: 2}
   info: "\u0424\u0418\u041E:\r\n\r\n\u0414\u0430\u0442\u0430 \u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F:
     11/11/2035\r\n\r\n\u0414\u0430\u0442\u0430 \u043E\u0431\u0440\u0430\u0449\u0435\u043D\u0438\u044F:
@@ -76,17 +77,17 @@ MonoBehaviour:
     vitae volutpat metus porttitor. Donec nec odio imperdiet, vestibulum lorem et,
     rutrum velit. Ut nec imperdiet elit, sed lobortis diam.
 
-    
 
-    Phasellus
-    ligula felis, placerat sit amet sem nec, luctus sollicitudin mauris. Nullam consectetur
+
+    Phasellus ligula
+    felis, placerat sit amet sem nec, luctus sollicitudin mauris. Nullam consectetur
     accumsan neque eu tempor. Fusce auctor quam eget massa mollis tempus. Sed auctor
     porttitor velit vitae rutrum. Suspendisse imperdiet, elit tincidunt porta sollicitudin,
     elit nisl ultricies diam, et molestie est massa non dolor. Donec tincidunt eleifend
     laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada
     fames ac turpis egestas. Nullam quis auctor magna, sit amet commodo turpis.
 
-    
+
 
     In
     maximus, erat at placerat ultrices, mi enim dapibus metus, blandit varius diam
@@ -97,28 +98,28 @@ MonoBehaviour:
     at efficitur quam vestibulum eu. Quisque sagittis nisi et nunc tincidunt, in
     congue nulla vulputate. Nullam et nisl justo.
 
-    
 
-    Quisque malesuada
-    posuere feugiat. Nullam iaculis libero elit, quis tristique augue eleifend quis.
-    Phasellus nec mi vel velit vulputate mattis. Curabitur a arcu ut nibh sagittis
-    gravida. Maecenas sed dolor tellus. Ut et enim quis dui congue tincidunt. Suspendisse
+
+    Quisque malesuada posuere
+    feugiat. Nullam iaculis libero elit, quis tristique augue eleifend quis. Phasellus
+    nec mi vel velit vulputate mattis. Curabitur a arcu ut nibh sagittis gravida.
+    Maecenas sed dolor tellus. Ut et enim quis dui congue tincidunt. Suspendisse
     semper ipsum vel est feugiat, ac porttitor nibh posuere. Nam sed neque pharetra
     tellus gravida suscipit. Maecenas fringilla tellus nec odio consequat sollicitudin.
     Morbi tempus mollis augue, ultricies suscipit nunc ullamcorper sit amet. In consequat
     rutrum porttitor. Nunc bibendum metus sodales, scelerisque mauris ut, luctus
     massa.
 
-    
 
-    In commodo felis tortor, quis porta nisl ullamcorper ac.
-    Quisque dignissim tristique quam, quis vestibulum mi condimentum in. Donec ac
-    mauris in nulla volutpat aliquet eget at turpis. Suspendisse euismod magna ac
-    tortor accumsan, quis vehicula nisi tempus. Nullam nec aliquam neque. Lorem ipsum
-    dolor sit amet, consectetur adipiscing elit. Ut eu vehicula tellus, vel posuere
-    nulla. Cras suscipit tellus at diam porttitor, ut consectetur odio tincidunt.
-    In at maximus sem. Phasellus vestibulum lorem et feugiat suscipit. Curabitur
-    nisi sapien, ultricies vitae lorem quis, aliquet viverra leo. Ut aliquam, enim
-    sed vehicula lobortis, sem magna varius ipsum, vel mattis felis eros gravida
-    lacus. Donec eget bibendum quam. Proin semper eros ut accumsan molestie. In sed
-    leo elit. Nam laoreet dui id ex fringilla, ac cursus risus accumsan.'
+
+    In commodo felis tortor, quis porta nisl ullamcorper ac. Quisque
+    dignissim tristique quam, quis vestibulum mi condimentum in. Donec ac mauris
+    in nulla volutpat aliquet eget at turpis. Suspendisse euismod magna ac tortor
+    accumsan, quis vehicula nisi tempus. Nullam nec aliquam neque. Lorem ipsum dolor
+    sit amet, consectetur adipiscing elit. Ut eu vehicula tellus, vel posuere nulla.
+    Cras suscipit tellus at diam porttitor, ut consectetur odio tincidunt. In at
+    maximus sem. Phasellus vestibulum lorem et feugiat suscipit. Curabitur nisi sapien,
+    ultricies vitae lorem quis, aliquet viverra leo. Ut aliquam, enim sed vehicula
+    lobortis, sem magna varius ipsum, vel mattis felis eros gravida lacus. Donec
+    eget bibendum quam. Proin semper eros ut accumsan molestie. In sed leo elit.
+    Nam laoreet dui id ex fringilla, ac cursus risus accumsan.'

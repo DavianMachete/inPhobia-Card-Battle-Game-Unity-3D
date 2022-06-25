@@ -13,6 +13,7 @@ public class Patient : ScriptableObject
     public float maximumHealth;
     public float health;
     public float attackForce;
+    public int attackCount;
     public int patientMaximumActionPoints;
     public int patientActionPoints;
     public Phobia phobia;

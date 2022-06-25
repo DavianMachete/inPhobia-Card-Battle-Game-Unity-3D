@@ -121,10 +121,10 @@
         return affect;
     }
 
-    public static Affect Attack(float attackForce)
+    public static Affect Attack(float attackForce, int attackCount)
     {
         Affect affect = new Affect();
-        affect.OnAttack.Add(new InPhobiaAction($"Attack_{attackForce}".ToLower(), () => PatientManager.instance.SetAttackForce(attackForce), false));
+        affect.OnAttack.Add(new InPhobiaAction($"Attack_{attackForce}".ToLower(), () => PatientManager.instance.SetAttackForce(attackForce, attackCount), false));
         return affect;
     }
 
@@ -138,7 +138,7 @@
     public static Affect AttackOnDefense(float attackForce)
     {
         Affect affect = new Affect();
-        affect.OnDefense.Add(new InPhobiaAction($"AttackOnDefense_{attackForce}".ToLower(), () => { PatientManager.instance.ActivateAttackWhenDamaged(); PatientManager.instance.SetAttackForce(attackForce); }, false));
+        affect.OnDefense.Add(new InPhobiaAction($"AttackOnDefense_{attackForce}".ToLower(), () => { PatientManager.instance.ActivateAttackWhenDamaged(); PatientManager.instance.SetAttackForce(attackForce,1); }, false));
         return affect;
     }
 
