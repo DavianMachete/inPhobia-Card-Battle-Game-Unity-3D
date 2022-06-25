@@ -87,10 +87,10 @@
         affect.OnStepStart.Add(new InPhobiaAction($"SaveBlock".ToLower(), () => PatientManager.instance.SaveBlock(), true));
         return affect;
     }
-    public static Affect AttackWhenGetBlock()
+    public static Affect GiveEnemyWeaknessOnHit()
     {
         Affect affect = new Affect();
-        affect.OnStepStart.Add(new InPhobiaAction($"AttackWhenGetBlock".ToLower(), () => PatientManager.instance.ActivateAttackWhenGetBlock(), true));
+        affect.OnStepStart.Add(new InPhobiaAction($"AttackWhenGetBlock".ToLower(), () => PatientManager.instance.ActivateGiveEnemyWeaknessOnHit(), true));
         return affect;
     }
 

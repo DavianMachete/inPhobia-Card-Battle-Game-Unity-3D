@@ -32,7 +32,7 @@ public class PatientManager : MonoBehaviour
     [SerializeField] private bool blockSaved;
 
     [SerializeField] private bool attackWhenDamaged;
-    [SerializeField] private bool attackWhenGetBlock;
+    [SerializeField] private bool giveEnemyWeakness;
 
     private bool removeCurrentCardFromDeck = false;
     private int patientMaximumAPHolder;
@@ -129,9 +129,9 @@ public class PatientManager : MonoBehaviour
         blockSaved = true;
     }
 
-    public void ActivateAttackWhenGetBlock()
+    public void ActivateGiveEnemyWeaknessOnHit()
     {
-        attackWhenGetBlock = true;
+        giveEnemyWeakness = true;
     }
     public void ActivateAttackWhenDamaged()
     {
@@ -145,6 +145,10 @@ public class PatientManager : MonoBehaviour
 
     private void Attack()
     {
+        if (giveEnemyWeakness)
+        {
+            PhobiaManager.instance.AddWeakness(1);
+        }
         PhobiaManager.instance.MakeTheDamage(Mathf.RoundToInt(patient.attackForce));
     }
 
@@ -152,12 +156,6 @@ public class PatientManager : MonoBehaviour
     {
         Debug.Log($"<color=cyan>Block added </color>value = {block} ");
         this.block += block;
-
-        if (attackWhenGetBlock)
-        {
-            SetAttackForce(5,1);
-            Attack();
-        }
     }
 
     public float GetBlock()
