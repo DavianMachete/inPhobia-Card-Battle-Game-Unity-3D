@@ -897,14 +897,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 5343880496815193185}
-  - {fileID: 4301302312217494664}
-  - {fileID: 494361198}
-  - {fileID: 4301302312482441971}
-  - {fileID: 661349261}
-  - {fileID: 816044701}
   - {fileID: 4905445232585144213}
   - {fileID: 5312677561924930231}
+  - {fileID: 5343880496815193185}
+  - {fileID: 4301302312217494664}
+  - {fileID: 4301302312482441971}
+  - {fileID: 494361198}
+  - {fileID: 1825787669}
+  - {fileID: 661349261}
+  - {fileID: 816044701}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2164,6 +2165,246 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &179454361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179454362}
+  - component: {fileID: 179454363}
+  m_Layer: 0
+  m_Name: Question block 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179454362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179454361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 966353798}
+  m_Father: {fileID: 691447429}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179454363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179454361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0412 \u043E\u0431\u0449\u0435\u043C \u0431\u0435\u0437 \u0434\u043E\u0436\u0434\u0435\u0432\u0438\u043A\u0430
+      \u044F \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435 \u0445\u043E\u0436\u0443.
+      \u0427\u0442\u043E\u0431\u044B \u043D\u0435 \u0431\u0440\u0430\u0442\u044C
+      \u0431\u043E\u043B\u044C\u043D\u0438\u0447\u043D\u044B\u0439, \u043F\u0440\u0438\u0448\u043B\u043E\u0441\u044C
+      \u0443\u0439\u0442\u0438 \u0438\u0437 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442\u0430."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0418 \u0432\u043E\u0442\u2026 \u044F \u043F\u0440\u0438\u0448\u043B\u0430
+      \u043A \u0432\u0430\u043C."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0422\u043E\u0442 \u0441\u043B\u0443\u0447\u0430\u0439, \u043E \u043A\u043E\u0442\u043E\u0440\u043E\u043C
+      \u0432\u044B \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u043B\u0438-
+      \u044D\u0442\u043E \u0431\u044B\u043B \u043F\u0435\u0440\u0432\u044B\u0439
+      \u0440\u0430\u0437, \u043A\u043E\u0433\u0434\u0430 \u0432\u0430\u043C \u0441\u0442\u0430\u043B\u043E
+      \u0441\u0442\u0440\u0430\u0448\u043D\u043E \u043E\u0442 \u043D\u0430\u0434\u0432\u0438\u0433\u0430\u044E\u0449\u0435\u0433\u043E\u0441\u044F
+      \u0434\u043E\u0436\u0434\u044F? \r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042D\u043C... \u0414\u0430, \u0445\u043E\u0442\u044F...\u043D\u0435\u0442,
+      \u044F \u043D\u0435 \u0437\u043D\u0430\u044E, \u043A\u043E\u0433\u0434\u0430
+      \u0438\u043C\u0435\u043D\u043D\u043E \u044D\u0442\u043E \u043D\u0430\u0447\u0430\u043B\u043E\u0441\u044C.
+      \u042F \u0442\u043E\u0433\u0434\u0430 \u0442\u043E\u043B\u044C\u043A\u043E
+      \u043F\u0435\u0440\u0435\u0435\u0445\u0430\u043B\u0430 \u043A \u043C\u0430\u043C\u0435..."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041D\u0430\u0431\u043B\u044E\u0434\u0430\u0439 \u0437\u0430 \u044F\u0437\u044B\u043A\u043E\u043C
+      \u0442\u0435\u043B\u0430! \u041E\u043D\u043E \u043D\u0435 \u0443\u043C\u0435\u0435\u0442
+      \u0432\u0440\u0430\u0442\u044C. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0415\u0441\u043B\u0438 \u0432\u0438\u0434\u0438\u0448\u044C \u0432 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F\u0445
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430 \u0447\u0442\u043E-\u0442\u043E
+      \u044F\u0440\u043A\u043E \u0432\u044B\u0440\u0430\u0436\u0435\u043D\u043D\u043E\u0435
+      \u2013 \u0438\u043C\u0435\u0435\u0442 \u0441\u043C\u044B\u0441\u043B \u0437\u0430\u043E\u0441\u0442\u0440\u0438\u0442\u044C
+      \u043D\u0430 \u044D\u0442\u043E\u043C \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u0435. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442 \u043C\u043E\u0436\u0435\u0442
+      \u043D\u0435 \u0434\u043E\u0433\u0430\u0434\u044B\u0432\u0430\u0442\u044C\u0441\u044F
+      \u043E \u0441\u0432\u044F\u0437\u0438 \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u0439
+      \u0438 \u0432\u043E\u0441\u043F\u043E\u043C\u0438\u043D\u0430\u043D\u0438\u0439,
+      \u043D\u043E \u0435\u0441\u043B\u0438 \u0442\u044B \u0441\u0443\u043C\u0435\u0435\u0448\u044C
+      \u0437\u0430\u043C\u0435\u0442\u0438\u0442\u044C  \u0442\u0430\u043A\u0438\u0435
+      \u0441\u0438\u0433\u043D\u0430\u043B\u044B \u2013 \u0441\u043C\u043E\u0436\u0435\u0448\u044C
+      \u0443\u0437\u043D\u0430\u0442\u044C \u043E \u043D\u0451\u043C \u0447\u0442\u043E-\u0442\u043E
+      \u043D\u043E\u0432\u043E\u0435!"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0421\u0435\u0439\u0447\u0430\u0441 \u0435\u0441\u0442\u044C \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C
+      \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u0432\u0430\u0436\u043D\u044B\u0439
+      \u043C\u043E\u043C\u0435\u043D\u0442, \u043D\u043E \u043F\u0440\u0438 \u044D\u0442\u043E\u043C
+      \u0432\u044B \u043C\u043E\u0436\u0438\u0442\u0435 \u0437\u0430\u0442\u0440\u043E\u043D\u0443\u0442\u044C
+      \u0442\u0435\u043C\u0443, \u043E \u043A\u043E\u0442\u043E\u0440\u043E\u0439
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442 \u0435\u0449\u0435 \u043D\u0435
+      \u0433\u043E\u0442\u043E\u0432 \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions:
+    - question: "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 966353799}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "\u041D\u0435 \u0434\u0430\u0432\u0438\u0442\u044C"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1390585100}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &179661921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 259, y: 332}
+  m_AnchoredPosition: {x: 319, y: 191}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &182084061
@@ -3163,6 +3404,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215307559}
   m_CullTransparentMesh: 1
+--- !u!1 &224262935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224262936}
+  - component: {fileID: 224262937}
+  m_Layer: 0
+  m_Name: Question block 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &224262936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224262935}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2045698038}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &224262937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224262935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: 
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &231546978
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,7 +4699,7 @@ MonoBehaviour:
   - {fileID: 4301302311762123331}
   - {fileID: 4301302311028718773}
   - {fileID: 4301302312130488597}
-  startPointCount: 2
+  startPointCount: 3
   pointsMinimumLimit: 1
 --- !u!1 &329701418
 GameObject:
@@ -6575,7 +6968,7 @@ RectTransform:
   - {fileID: 411159011}
   - {fileID: 1480268736}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6859,7 +7252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -399, y: 135}
+  m_AnchoredPosition: {x: -443, y: 79.00001}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519898862
@@ -6889,7 +7282,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1619959741}
+  - {fileID: 1225190033}
   m_Father: {fileID: 1039759561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6906,11 +7301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBlock:
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u0412\u044B \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u0435 \u043F\u0440\u043E
-      \u0440\u0430\u0431\u043E\u0442\u0443 \u0441 \u0424\u043E\u0431\u0443\u0441\u043E\u043C
-      \u0438\u043B\u0438 \u043F\u0440\u043E \u043F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0438\u044E
-      \u0432 \u0446\u0435\u043B\u043E\u043C?"
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0440\u0438\u0441, \u043F\u043E\u0445\u043E\u0436\u0435, \u0432\u044B
+      \u0441\u0435\u0439\u0447\u0430\u0441 \u0431\u0435\u0441\u043F\u043E\u043A\u043E\u0439\u043D\u044B,
+      \u044D\u0442\u043E \u0442\u0430\u043A? \r"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -6918,12 +7312,123 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u042F \u0438\u043C\u0435\u043B\u0430 \u0432 \u0432\u0438\u0434\u0443
-      \u0424\u043E\u0431\u0443\u0441. \u041D\u0435 \u043E\u0447\u0435\u043D\u044C
-      \u0445\u043E\u0447\u0435\u0442\u0441\u044F \u0434\u043E\u0432\u0435\u0440\u044F\u0442\u044C
-      \u043C\u0430\u0448\u0438\u043D\u0435 \u0441\u0432\u043E\u0438 \u0441\u0442\u0440\u0430\u0445\u0438.."
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F? \u0410... \u043D\u0435\u0442,\u043D\u0435\u0442,, \u0432\u0441\u0451
+      \u043D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E, \u0434\u043E\u043A\u0442\u043E\u0440,
+      \u0441\u043F\u0430\u0441\u0438\u0431\u043E."
     questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0425\u043E\u0442\u0438\u0442\u0435 \u0432\u043E\u0434\u044B \u0438\u043B\u0438
+      \u0447\u0430\u0439?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0425\u043E\u0440\u043E\u0448\u0435\u0435 \u0440\u0435\u0448\u0435\u043D\u0438\u0435
+      \u043F\u0440\u043E\u044F\u0432\u0438\u0442\u044C \u044D\u043C\u043F\u0430\u0442\u0438\u044E
+      \u0438 \u0441\u043E\u0447\u0443\u0432\u0441\u0442\u0432\u0438\u0435, \u0447\u0442\u043E\u0431\u044B
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u043A\u0435 \u0431\u044B\u043B\u043E
+      \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u0435\u0435 \r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042D\u043C\u043C\u043C... "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041E\u043D\u0430 \u043F\u0435\u0440\u0435\u0436\u0438\u0432\u0430\u0435\u0442
+      \u0438 \u0435\u0439 \u0442\u0440\u0443\u0434\u043D\u043E \u043E\u0431 \u044D\u0442\u043E\u043C
+      \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C. \u041D\u0443\u0436\u043D\u043E
+      \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0435
+      \u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0441\u0442\u0432\u043E \u0434\u043B\u044F
+      \u043D\u0435\u0435, \u0447\u0442\u043E\u0431\u044B \u0440\u0430\u0437\u0440\u044F\u0434\u0438\u0442\u044C
+      \u043E\u0431\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0443. \r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions:
+    - question: "\u041B\u0435\u0433\u043A\u043E \u0438 \u043D\u0435\u043F\u0440\u0438\u043D\u0443\u0436\u0434\u0435\u043D\u043D\u043E"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1619959742}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "\u041F\u0440\u044F\u043C\u043E \u0438 \u043A\u043E\u043D\u043A\u0440\u0435\u0442\u043D\u043E "
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1225190034}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
         m_Calls: []
@@ -7792,7 +8297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 360, y: 503}
+  m_AnchoredPosition: {x: 420.00003, y: 361.99994}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &597767933
@@ -8191,6 +8696,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612772826}
   m_CullTransparentMesh: 1
+--- !u!1 &620968214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620968215}
+  - component: {fileID: 620968216}
+  m_Layer: 0
+  m_Name: Question block 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &620968215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620968214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2045698038}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &620968216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620968214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock: []
 --- !u!1 &621251718
 GameObject:
   m_ObjectHideFlags: 0
@@ -8391,8 +8940,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0413\u041B\u041E\u0421\u0421\u0410\u0420\u0418\u0419"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8670,7 +9219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &661349261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8688,7 +9237,7 @@ RectTransform:
   - {fileID: 1836491330}
   - {fileID: 759439751}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8873,8 +9422,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1299893364}
-  - {fileID: 2055504443}
+  - {fileID: 1079515630}
+  - {fileID: 179454362}
+  - {fileID: 1390585101}
+  - {fileID: 2045698038}
   m_Father: {fileID: 793699618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8891,14 +9442,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBlock:
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u0418 \u0442\u0435\u043C \u043D\u0435 \u043C\u0435\u043D\u0435\u0435
-      \u0432\u044B \u043F\u0440\u0438\u0448\u043B\u0438. \u0418 \u0435\u0441\u043B\u0438
-      \u0442\u043E, \u0447\u0442\u043E \u0432\u044B \u043D\u0430\u043F\u0438\u0441\u0430\u043B\u0438
-      \u0432 \u0430\u043D\u043A\u0435\u0442\u0435, \u043F\u0440\u0430\u0432\u0434\u0430
-      - \u044F \u0441\u0447\u0438\u0442\u0430\u044E, \u0447\u0442\u043E \u0432\u044B
-      \u043F\u0440\u0438\u043D\u044F\u043B\u0438 \u0432\u0435\u0440\u043D\u043E\u0435
-      \u0440\u0435\u0448\u0435\u043D\u0438\u0435."
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041F-\u043F-\u043F\u043E\u043D\u0438\u043C\u0430\u0435\u0442\u0435,
+      \u0434\u043E\u043A\u0442\u043E\u0440... \u042F \u0431\u044B \u0441\u044E\u0434\u0430
+      \u043D\u0435 \u043F\u0440\u0438\u0448\u043B\u0430... \u041D\u043E \u043C\u043E\u044F
+      \u043C\u0430\u043C\u0430...\r"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -8906,9 +9454,10 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u0412\u0438\u043A\u0442\u043E\u0440 \u041C\u0438\u0445\u0430\u0439\u043B\u043E\u0432\u0438\u0447,
-      \u043F\u043E\u0439\u043C\u0438\u0442\u0435 \u043C\u0435\u043D\u044F \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E."
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0422\u0432\u043E\u044F \u0437\u0430\u0434\u0430\u0447\u0430 \u0432 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435
+      \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0438 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u044F\u0442\u044C
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430. "
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -8916,8 +9465,13 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u041C\u043E\u0436\u043D\u043E \u043F\u0440\u043E\u0441\u0442\u043E \u0412\u0438\u043A\u0442\u043E\u0440."
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0414\u0435\u043B\u0438\u043A\u0430\u0442\u043D\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B
+      \u0431\u0443\u0434\u0443\u0442 \u043F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E
+      \u0432\u043B\u0438\u044F\u0442\u044C \u043D\u0430 \u0434\u043E\u0432\u0435\u0440\u0438\u0435,
+      \u043D\u043E \u044D\u0442\u043E \u043D\u0435 \u0435\u0434\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435,
+      \u0447\u0442\u043E \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0432 \u0431\u043E\u0440\u044C\u0431\u0435
+      \u0441 \u0444\u043E\u0431\u0438\u0435\u0439."
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -8925,13 +9479,12 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u042F \u043F\u0440\u043E\u0441\u0442\u043E \u0443\u0441\u0442\u0430\u043B\u0430
-      \u043E\u0442 \u043D\u0435\u0443\u0432\u0435\u0440\u0435\u043D\u043D\u043E\u0441\u0442\u0438
-      \u0432 \u0431\u0443\u0434\u0443\u0449\u0435\u043C. \u041D\u0435\u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C
-      \u043F\u043B\u0430\u043D\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u0432\u043E\u044E
-      \u0436\u0438\u0437\u043D\u044C \u0434\u0430\u0436\u0435 \u043D\u0430 \u043D\u0435\u0434\u0435\u043B\u044E
-      \u0432\u043F\u0435\u0440\u0435\u0434 \u043C\u0435\u043D\u044F \u0443\u0431\u0438\u0432\u0430\u0435\u0442."
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0418\u043D\u043E\u0433\u0434\u0430, \u0447\u0442\u043E\u0431\u044B \u0443\u0437\u043D\u0430\u0442\u044C
+      \u043F\u043E\u043B\u0435\u0437\u043D\u0443\u044E \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E,
+      \u0441\u0442\u043E\u0438\u0442 \u0437\u0430\u0434\u0430\u0432\u0430\u0442\u044C
+      \u0441\u0443\u0445\u0438\u0435 \u043F\u0440\u044F\u043C\u043E\u043B\u0438\u043D\u0435\u0439\u043D\u044B\u0435
+      \u0432\u043E\u043F\u0440\u043E\u0441\u044B.. "
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -8939,15 +9492,12 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u041C\u043E\u0433\u0443 \u0441\u0435\u0431\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u044C,
-      \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u0440\u0432\u043E\u0432
-      \u043D\u0430 \u044D\u0442\u043E \u0442\u0440\u0430\u0442\u0438\u0442\u0441\u044F.
-      \u0414\u0430\u0432\u0430\u0439\u0442\u0435 \u043E\u0431\u043E \u0432\u0441\u0435\u043C
-      \u043F\u043E \u043F\u043E\u0440\u044F\u0434\u043A\u0443. \u0412 \u0433\u0440\u0430\u0444\u0435
-      \u201C\u0424\u043E\u0431\u0438\u0438\u201D \u0432\u044B \u043D\u0430\u043F\u0438\u0441\u0430\u043B\u0438
-      \u201C\u0434\u043E\u0436\u0434\u044C\u201D. \u041E\u043C\u0431\u0440\u043E\u0444\u043E\u0431\u0438\u044F
-      \u0443 \u0432\u0430\u0441 \u0441 \u0434\u0435\u0442\u0441\u0442\u0432\u0430?"
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0421\u043B\u0435\u0434\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B
+      \u0434\u043E\u0432\u0435\u0440\u0438\u0435 \u043D\u0435 \u043F\u0430\u0434\u0430\u043B\u043E
+      \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u043D\u0438\u0437\u043A\u043E,
+      \u0438\u043D\u0430\u0447\u0435 \u043F\u0430\u0446\u0438\u0435\u043D\u0442 \u0440\u0430\u0437\u043E\u0447\u0430\u0440\u0443\u0435\u0442\u0441\u044F
+      \u0432 \u0432\u0430\u0441 \u0438 \u0443\u0439\u0434\u0435\u0442 \u0441 \u0442\u0435\u0440\u0430\u043F\u0438\u0438.\r"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -8955,14 +9505,8 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u041D\u0435\u0442, \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435
-      \u043C\u0435\u043D\u044F \u0437\u0430\u0431\u0430\u0432\u043B\u044F\u043B \u0434\u043E\u0436\u0434\u044C.
-      \u041C\u043D\u0435 \u043D\u0440\u0430\u0432\u0438\u043B\u043E\u0441\u044C,
-      \u043A\u0430\u043A \u043A\u0430\u043F\u043B\u0438 \u0437\u0430\u0434\u043E\u0440\u043D\u043E
-      \u0437\u0432\u0435\u043D\u0435\u043B\u0438 \u0438 \u043F\u0435\u0440\u0435\u0441\u0442\u0443\u043A\u0438\u0432\u0430\u043B\u0438\u0441\u044C,
-      \u043E\u0442\u0441\u043A\u0430\u043A\u0438\u0432\u0430\u044F \u043E\u0442 \u0432\u0441\u0435\u0433\u043E
-      \u0432\u043E\u043A\u0440\u0443\u0433."
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435."
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -8970,173 +9514,512 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: 
-    text: 
-    questions:
-    - question: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
-      onQuestion:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 793699619}
-            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-            m_MethodName: AddBlock
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 1279076173}
-              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: AddPoint
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: -1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: SetPointsMinimumLimit
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - question: "\u0417\u0430\u0434\u0430\u0442\u044C \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0449\u0438\u0439
-        \u0432\u043E\u043F\u0440\u043E\u0441"
-      onQuestion:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 793699619}
-            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-            m_MethodName: AddBlock
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 1299893365}
-              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 793699619}
-            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-            m_MethodName: AddBlock
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 1279076173}
-              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: AddPoint
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: SetPointsMinimumLimit
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - question: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0439
-        \u0432\u043E\u043F\u0440\u043E\u0441"
-      onQuestion:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 793699619}
-            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-            m_MethodName: AddBlock
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 2055504442}
-              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 793699619}
-            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-            m_MethodName: AddBlock
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 1279076173}
-              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: AddPoint
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: -1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: SetPointsMinimumLimit
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041C\u0430\u043C\u0430 \u043D\u0430\u0441\u0442\u043E\u044F\u043B\u0430
+      \u043D\u0430 \u0442\u043E\u043C, \u0447\u0442\u043E\u0431\u044B \u044F \u043F\u0440\u0438\u0448\u043B\u0430.
+      \u041C\u043E\u0436\u043D\u043E \u0441\u043A\u0430\u0437\u0430\u0442\u044C,
+      \u0443 \u043C\u0435\u043D\u044F \u043D\u0435 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+      \u0432\u044B\u0431\u043E\u0440\u0430."
+    questions: []
     onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0420\u0430\u0441\u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u043D\u0430\u044F
+      \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F, \u0434\u043E\u0432\u043E\u043B\u044C\u043D\u043E
+      \u0447\u0430\u0441\u0442\u043E \u0440\u043E\u0434\u0438\u0442\u0435\u043B\u0438
+      \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u044E\u0442 \u0440\u0435\u0448\u0435\u043D\u0438\u044F
+      \u0437\u0430 \u0434\u0435\u0442\u0435\u0439. \u041F\u043E\u0437\u0436\u0435
+      \u043C\u043E\u0436\u043D\u043E \u0432\u044B\u044F\u0441\u043D\u0438\u0442\u044C
+      \u043A\u0430\u043A\u0438\u0435 \u0443 \u043D\u0438\u0445 \u0432\u0437\u0430\u0438\u043C\u043E\u043E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u044F\r."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 793699619}
-          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-          m_MethodName: AddBlock
-          m_Mode: 2
+        - m_Target: {fileID: 505594283}
+          m_TargetAssemblyTypeName: IdeaController, Assembly-CSharp
+          m_MethodName: AddIdea
+          m_Mode: 3
           m_Arguments:
-            m_ObjectArgument: {fileID: 1039759562}
-            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041F\u043E\u043B\u0443\u0447\u0435\u043D\u0430\u0434\u0435\u044F \u0418\u0434\u0435\u044F
+      - \u0421\u0443\u043F\u0435\u0440-\u042D\u0433\u043E"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u042D\u0442\u0438 \u0438\u0434\u0435\u0438, \u043A\u0430\u0441\u0430\u044E\u0449\u0438\u0435\u0441\u044F
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430, \u043C\u043E\u0436\u043D\u043E
+      \u0431\u0443\u0434\u0435\u0442 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
+      \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0440\u0430\u0431\u043E\u0442\u044B
+      \u043D\u0430\u0448\u0435\u0433\u043E \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0412 \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0435\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438
+      \u043E\u043D\u0438 \u0441\u043C\u043E\u0433\u0443\u0442 \u043F\u043E\u043C\u043E\u0447\u044C,
+      \u0430 \u0438\u043D\u043E\u0433\u0434\u0430 \u0434\u0430\u0436\u0435 \u0441\u043F\u0430\u0441\u0442\u0438
+      \u0438\u0437 \u0441\u0430\u043C\u043E\u0433\u043E \u0442\u044F\u0436\u0451\u043B\u043E\u0433\u043E
+      \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0414\u0430\u0432\u0430\u0439\u0442\u0435 \u043E\u0431\u043E \u0432\u0441\u0435\u043C
+      \u043F\u043E \u043F\u043E\u0440\u044F\u0434\u043A\u0443. \u0412 \u0430\u043D\u043A\u0435\u0442\u0435,
+      \u0432 \u0433\u0440\u0430\u0444\u0435 \u201C\u0424\u043E\u0431\u0438\u0438\u201D
+      \u0432\u044B \u043D\u0430\u043F\u0438\u0441\u0430\u043B\u0438 \u201C\u0434\u043E\u0436\u0434\u044C\u201D. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041E\u043C\u0431\u0440\u043E\u0444\u043E\u0431\u0438\u044F \u0443 \u0432\u0430\u0441
+      \u0441 \u0434\u0435\u0442\u0441\u0442\u0432\u0430?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0414\u0430, \u0432\u044B \u043F\u0440\u0430\u0432\u044B. \u0423 \u043C\u0435\u043D\u044F...\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0420\u0430\u043D\u044C\u0448\u0435 \u043C\u043D\u0435 \u0431\u044B\u043B\u043E
+      \u043F\u0440\u043E\u0441\u0442\u043E \u043D\u0435 \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u043E
+      \u0432 \u043F\u0430\u0441\u043C\u0443\u0440\u043D\u044B\u0435 \u0434\u043D\u0438,
+      \u043D\u043E \u0441\u0435\u0439\u0447\u0430\u0441 \u044D\u0442\u043E \u043C\u0435\u0448\u0430\u0435\u0442
+      \u043C\u043D\u0435 \u0436\u0438\u0442\u044C. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
     onNext:
       m_PersistentCalls:
         m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041C\u043D\u0435 \u0441\u0442\u0440\u0430\u0448\u043D\u043E, \u0447\u0442\u043E
+      \u0432 \u043B\u044E\u0431\u043E\u0439 \u043C\u043E\u043C\u0435\u043D\u0442
+      \u043C\u043E\u0436\u0435\u0442 \u043D\u0430\u0447\u0430\u0442\u044C\u0441\u044F
+      \u0442\u044F\u0436\u0435\u043B\u044B\u0439 \u0436\u0443\u0442\u043A\u0438\u0439
+      \u043B\u0438\u0432\u0435\u043D\u044C.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0416\u0443\u0442\u043A\u0438\u0439 \u0438 \u0442\u044F\u0436\u0451\u043B\u044B\u0439...
+      \u042D\u0442\u043E \u0430\u0441\u0441\u043E\u0446\u0438\u0430\u0442\u0438\u0432\u043D\u044B\u0439
+      \u0440\u044F\u0434. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0418\u0437 \u0442\u0430\u043A\u0438\u0445 \u0432\u044B\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u043D\u0438\u0439
+      \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u043F\u0440\u0435\u0434\u043F\u043E\u043B\u043E\u0436\u0438\u0442\u044C,
+      \u043A\u0430\u043A\u0438\u0435 \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u044F
+      \u043F\u0440\u0435\u0441\u043B\u0435\u0434\u0443\u044E\u0442 \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430,
+      \u0438 \u043E\u0442 \u044D\u0442\u043E\u0433\u043E \u0438\u0441\u043A\u0430\u0442\u044C
+      \u043F\u0435\u0440\u0432\u043E\u043F\u0440\u0438\u0447\u0438\u043D\u0443.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C,
+      \u043A\u0430\u043A \u0434\u0430\u0432\u043D\u043E \u0441\u0442\u0430\u043B\u0438
+      \u0438\u0441\u043F\u044B\u0442\u044B\u0432\u0430\u0442\u044C \u0442\u0430\u043A\u043E\u0439
+      \u0441\u0438\u043B\u044C\u043D\u044B\u0439 \u0441\u0442\u0440\u0430\u0445 \u0432\u043E
+      \u0432\u0440\u0435\u043C\u044F \u0434\u043E\u0436\u0434\u044F?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041D\u043E \u0441\u0435\u0440\u044C\u0451\u0437\u043D\u043E\u0439 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u043E\u0439
+      \u044D\u0442\u043E \u0441\u0442\u0430\u043B\u043E \u0434\u0432\u0430 \u0433\u043E\u0434\u0430
+      \u043D\u0430\u0437\u0430\u0434. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0441\u0442\u0443\u043F\u0438\u043B\u0430
+      \u0432 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442, \u0438 \u0443\u0436\u0435
+      \u0447\u0435\u0440\u0435\u0437 \u043F\u0430\u0440\u0443 \u043C\u0435\u0441\u044F\u0446\u0435\u0432
+      \u043F\u043E\u043D\u044F\u043B\u0430, \u0447\u0442\u043E \u043D\u0435 \u043C\u043E\u0433\u0443
+      \u043D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E \u0432\u044B\u0445\u043E\u0434\u0438\u0442\u044C
+      \u0438\u0437 \u0434\u043E\u043C\u0430."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u043F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u043E \u043F\u0440\u043E\u0432\u0435\u0440\u044F\u044E
+      \u0447\u0438\u0441\u0442\u043E\u0435 \u043B\u0438 \u043D\u0435\u0431\u043E,
+      \u043D\u0435\u0442 \u043B\u0438 \u0441\u0435\u0440\u044B\u0445 \u043E\u0431\u043B\u0430\u043A\u043E\u0432."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0418\u043D\u043E\u0433\u0434\u0430 \u043C\u043E\u0436\u043D\u043E \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u044C
+      \u0443 \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430 \u0442\u043E, \u0447\u0442\u043E
+      \u043F\u043E\u043A\u0430\u0437\u0430\u043B\u043E\u0441\u044C \u0442\u0435\u0431\u0435
+      \u0432\u0430\u0436\u043D\u044B\u043C. \u041D\u043E \u044D\u0442\u043E \u043C\u043E\u0436\u043D\u043E
+      \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u043D\u0435 \u0432\u0441\u0435\u0433\u0434\u0430."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0415\u0441\u043B\u0438 \u0442\u044B \u0443\u0442\u043E\u0447\u043D\u0438\u0448\u044C
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430 \u0432 \u043D\u0435\u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0439
+      \u043C\u043E\u043C\u0435\u043D\u0442 - \u043E\u043D \u0440\u0435\u0448\u0438\u0442,
+      \u0447\u0442\u043E \u0442\u044B \u043D\u0435 \u0432\u043E\u0441\u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u0448\u044C
+      \u0435\u0433\u043E \u0432\u0441\u0435\u0440\u044C\u0451\u0437, \u0438 \u0441\u0442\u0430\u043D\u0435\u0442
+      \u043C\u0435\u043D\u044C\u0448\u0435 \u0442\u0435\u0431\u0435 \u0434\u043E\u0432\u0435\u0440\u044F\u0442\u044C.
+      \u0412\u043E\u0442 \u0441\u0435\u0439\u0447\u0430\u0441 \u043D\u0435 \u0432\u0440\u0435\u043C\u044F.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041F\u043E\u043D\u0430\u0447\u0430\u043B\u0443 \u044F \u0441\u043F\u0440\u0430\u0432\u043B\u044F\u043B\u0430\u0441\u044C,
+      \u0421\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u043B\u0430 \u044D\u0442\u043E\u0442
+      \u0441\u0442\u0440\u0430\u0445, \u043D\u0430\u0434\u0435\u0432\u0430\u043B\u0430
+      \u043E\u0431\u044B\u0447\u043D\u044B\u0435 \u043A\u0443\u0440\u0442\u043A\u0438
+      \u0432\u043C\u0435\u0441\u0442\u043E \u0434\u043E\u0436\u0434\u0435\u0432\u0438\u043A\u0430,
+      \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u0433\u043B\u044F\u0434\u0435\u0442\u044C...\u043D\u0435
+      \u0442\u0430\u043A \u0441\u0442\u0440\u0430\u043D\u043D\u043E. \u041D\u043E
+      \u043E\u0434\u043D\u0430\u0436\u0434\u044B... "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311661537590}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u0448\u043B\u0430 \u0434\u043E\u043C\u043E\u0439 \u043F\u043E
+      \u0437\u0430\u0433\u043E\u0440\u043E\u0434\u043D\u043E\u0439 \u0434\u043E\u0440\u043E\u0433\u0435,
+      \u0445\u043E\u0442\u0435\u043B\u0430 \u043F\u0440\u043E\u0433\u0443\u043B\u044F\u0442\u044C\u0441\u044F
+      \u0440\u044F\u0434\u043E\u043C \u0441 \u043B\u0435\u0441\u043E\u043C. \u0418..\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0422\u0430\u043A, \u041A\u0440\u0438\u0441, \u0434\u044B\u0448\u0438\u0442\u0435,
+      \u0432\u044B \u0440\u0435\u0448\u0438\u043B\u0438 \u043F\u0440\u043E\u0433\u0443\u043B\u044F\u0442\u044C\u0441\u044F
+      \u0441 \u043B\u0435\u0441\u043E\u043C, \u0447\u0442\u043E \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u043E
+      \u0434\u0430\u043B\u044C\u0448\u0435? \r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0422\u0443\u0447\u0438 \u043F\u043E\u044F\u0432\u0438\u043B\u0438\u0441\u044C
+      \u0442\u0430\u043A \u0431\u044B\u0441\u0442\u0440\u043E, \u0447\u0442\u043E
+      \u044F \u0434\u0430\u0436\u0435 \u043D\u0435 \u0437\u0430\u043C\u0435\u0442\u0438\u043B\u0430.
+      \u042F \u043F\u043E\u0431\u0435\u0436\u0430\u043B\u0430 \u0432 \u0441\u0442\u043E\u0440\u043E\u043D\u0443
+      \u0434\u043E\u043C\u043E\u0432, \u043D\u043E \u0434\u043E\u0436\u0434\u044C
+      \u043F\u043E\u0448\u0451\u043B \u043F\u043E\u0447\u0442\u0438 \u043C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u043E!"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041D\u0430\u0447\u0430\u043B\u0430\u0441\u044C \u0433\u0440\u043E\u0437\u0430
+      \u0438 \u0441\u0438\u043B\u044C\u043D\u044B\u0439 \u043B\u0438\u0432\u0435\u043D\u044C.."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302310811547135}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: " \u042F...\u043F\u044B\u0442\u0430...\u0430\u0430\u0430\u0430...."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041E\u043D\u0430 \u0442\u0435\u0440\u044F\u0435\u0442 \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u0435.
+      \u041F\u043E\u0440\u0430 \u0432\u043C\u0435\u0448\u0430\u0442\u044C\u0441\u044F!\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0440\u0438\u0441, \u043D\u0435 \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0439\u0442\u0435\u0441\u044C!
+      \u0412\u044B \u0432 \u043A\u0430\u0431\u0438\u043D\u0435\u0442\u0435, \u0437\u0434\u0435\u0441\u044C
+      \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E. \u0423 \u043D\u0430\u0441
+      \u0435\u0441\u0442\u044C \u043A\u0440\u044B\u0448\u0430 \u043D\u0430\u0434
+      \u0433\u043E\u043B\u043E\u0432\u043E\u0439 \u0438 \u0434\u043E\u0436\u0434\u044F
+      \u0442\u0443\u0442 \u043D\u0435 \u0431\u0443\u0434\u0435\u0442."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0410? \u0410\u0430\u0430\u0430..."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1079515629}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &696768370
 GameObject:
   m_ObjectHideFlags: 0
@@ -10149,7 +11032,7 @@ RectTransform:
   - {fileID: 1032057693}
   - {fileID: 1800607339}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10828,7 +11711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 104.8999, y: -209.09998}
+  m_AnchoredPosition: {x: 810, y: -1005}
   m_SizeDelta: {x: 150, y: 106.0926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859252486
@@ -11629,6 +12512,204 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &966353797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966353798}
+  - component: {fileID: 966353799}
+  m_Layer: 0
+  m_Name: Question block 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966353798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966353797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 179454362}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &966353799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966353797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041E\u0442\u043A\u0443\u0434\u0430 \u0432\u044B \u043F\u0435\u0440\u0435\u0435\u0445\u0430\u043B\u0438?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0420\u0430\u043D\u044C\u0448\u0435 \u044F \u0436\u0438\u043B\u0430 \u0432
+      \u0417\u043B\u0430\u0442\u043E\u0432\u0435\u043D\u0441\u043A\u0435 \u0441 \u043E\u0442\u0446\u043E\u043C.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0410 \u0432 \u0447\u0451\u043C \u043F\u0440\u0438\u0447\u0438\u043D\u0430
+      \u043F\u0435\u0440\u0435\u0435\u0437\u0434\u0430?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041E\u0442\u0435\u0446 \u043F\u043E\u0433\u0438\u0431 \u0432\u043E \u0432\u0440\u0435\u043C\u044F
+      \u043D\u0435\u0441\u0447\u0430\u0441\u0442\u043D\u043E\u0433\u043E \u0441\u043B\u0443\u0447\u0430\u044F..."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312420982917}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u0440\u043E\u0448\u0443 \u043F\u0440\u043E\u0449\u0435\u043D\u0438\u044F.
+      \u0412\u044B \u0433\u043E\u0442\u043E\u0432\u044B \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u0442\u044C
+      \u0447\u0442\u043E \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u043E?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041D\u0435 \u0441\u0435\u0439\u0447\u0430\u0441."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0425\u043E\u0440\u043E\u0448\u043E, \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E
+      \u043C\u044B \u043F\u043E\u0433\u043E\u0432\u043E\u0440\u0438\u043C \u043E\u0431
+      \u044D\u0442\u043E\u043C \u043F\u043E\u0437\u0436\u0435."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041F\u043E\u043B\u0443\u0447\u0435\u043D \u0444\u0430\u043A\u0442 -
+      \u0413\u0438\u0431\u0435\u043B\u044C \u043E\u0442\u0446\u0430"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302310931817052}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0424\u0430\u043A\u0442\u044B - \u044D\u0442\u043E \u0432\u0430\u0436\u043D\u044B\u0435
+      \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u0438 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438,
+      \u0434\u0430\u044E\u0449\u0438\u0435 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C
+      \u0431\u043E\u043B\u0435\u0435 \u0434\u0435\u0442\u0430\u043B\u044C\u043D\u043E
+      \u043F\u0440\u043E\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u043F\u0440\u0438\u0447\u0438\u043D\u044B
+      \u0432\u043E\u0437\u043D\u0438\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u044F
+      \u0444\u043E\u0431\u0438\u0438. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0424\u0430\u043A\u0442\u044B \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u044E\u0442
+      \u0434\u043E\u0441\u0442\u0443\u043F \u043A \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u044B\u043C
+      \u0432\u043E\u043F\u0440\u043E\u0441\u0430\u043C \u0438 \u0443\u0442\u043E\u0447\u043D\u0435\u043D\u0438\u044F\u043C."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1390585100}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &981054849
 GameObject:
   m_ObjectHideFlags: 0
@@ -11809,7 +12890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -322, y: -103}
+  m_AnchoredPosition: {x: -366, y: -159}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1032057692
@@ -11946,6 +13027,173 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032057692}
   m_CullTransparentMesh: 1
+--- !u!1 &1034596897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034596898}
+  - component: {fileID: 1034596899}
+  m_Layer: 0
+  m_Name: Question block 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034596898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034596897}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2045698038}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034596899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034596897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock: []
+--- !u!1 &1036991658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036991660}
+  - component: {fileID: 1036991659}
+  m_Layer: 0
+  m_Name: Question block 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1036991659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036991658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0422\u0430\u043A \u043B\u0443\u0447\u0448\u0435?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311378584864}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312208808367}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0410? \u2026\u0414\u0430, \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435\u2026
+      \u0421\u043F\u0430\u0441\u0438\u0431\u043E."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 179454363}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+--- !u!4 &1036991660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036991658}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1079515630}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1039352396
 GameObject:
   m_ObjectHideFlags: 0
@@ -12109,6 +13357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519898863}
+  - {fileID: 1446741865}
   m_Father: {fileID: 793699618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12125,25 +13374,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBlock:
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u0412\u0438\u043A\u0442\u043E\u0440 \u041C\u0438\u0445\u0430\u0439\u043B\u043E\u0432\u0438\u0447,
-      \u0437\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u041F\u0440\u043E\u0448\u0443
-      \u043F\u0440\u043E\u0449\u0435\u043D\u0438\u044F, \u043D\u0435 \u0441\u0440\u0430\u0437\u0443
-      \u0441\u043C\u043E\u0433\u043B\u0430 \u043D\u0430\u0439\u0442\u0438 \u0432\u0430\u0448
-      \u043E\u0444\u0438\u0441.\r"
-    questions: []
-    onPointsHavePassedTheLimit:
-      m_PersistentCalls:
-        m_Calls: []
-    onNext:
-      m_PersistentCalls:
-        m_Calls: []
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435,
-      \u041A\u0438\u0440\u0430! \u041D\u0438\u0447\u0435\u0433\u043E \u0441\u0442\u0440\u0430\u0448\u043D\u043E\u0433\u043E.
-      \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
-      \u0432\u0435\u0440\u0445\u043D\u044E\u044E \u043E\u0434\u0435\u0436\u0434\u0443
-      \u0432 \u043F\u0440\u0438\u0445\u043E\u0436\u0435\u0439 \u0438 \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u0442\u044C."
+  - Persion: 
+    text: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442\u043A\u0430 \u043D\u0435\u0443\u0432\u0435\u0440\u0435\u043D\u043D\u044B\u043C\u0438
+      \u0448\u0430\u0436\u043A\u0430\u043C\u0438 \u0437\u0430\u0445\u043E\u0434\u0438\u0442
+      \u0432 \u043A\u0430\u0431\u0438\u043D\u0435\u0442.\r\n"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -12151,23 +13385,109 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 505594283}
-          m_TargetAssemblyTypeName: IdeaController, Assembly-CSharp
-          m_MethodName: AddIdea
-          m_Mode: 3
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 9
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
-  - Persion: "\u041A\u0438\u0440\u0430"
+  - Persion: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442"
+    text: "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435!
+      \u041F\u0440\u043E\u0448\u0443 \u043F\u0440\u043E\u0449\u0435\u043D\u0438\u044F,
+      \u043D\u0435 \u0441\u0440\u0430\u0437\u0443 \u0441\u043C\u043E\u0433\u043B\u0430
+      \u043D\u0430\u0439\u0442\u0438 \u0432\u0430\u0448 \u043E\u0444\u0438\u0441.\r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0412\u044B "
+    text: "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435!
+      \u041D\u0438\u0447\u0435\u0433\u043E \u0441\u0442\u0440\u0430\u0448\u043D\u043E\u0433\u043E.
+      \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
+      \u0432\u0435\u0440\u0445\u043D\u044E\u044E \u043E\u0434\u0435\u0436\u0434\u0443
+      \u0432 \u043F\u0440\u0438\u0445\u043E\u0436\u0435\u0439 \u0438 \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u0442\u044C.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0412\u0430\u043C \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442
+      \u043F\u0440\u043E\u0432\u0435\u0441\u0442\u0438 \u043F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u0438\u0447\u0435\u0441\u043A\u0443\u044E
+      \u0441\u0435\u0441\u0441\u0438\u044E, \u0441\u043E\u0441\u0442\u043E\u044F\u0449\u0443\u044E
+      \u0438\u0437 \u0434\u0432\u0443\u0445 \u0447\u0430\u0441\u0442\u0435\u0439:
+      \n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044F
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430 \u0438 \u0435\u0433\u043E
+      \u043F\u043E\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0435 \u0441\u0440\u0430\u0436\u0435\u043D\u0438\u0435
+      \u0441 \u0444\u043E\u0431\u0438\u0435\u0439.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442"
     text: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u043D\u043E, \u0435\u0441\u043B\u0438
       \u0432\u044B \u043D\u0435 \u043F\u0440\u043E\u0442\u0438\u0432, \u044F \u043E\u0441\u0442\u0430\u043D\u0443\u0441\u044C
       \u0432 \u0434\u043E\u0436\u0434\u0435\u0432\u0438\u043A\u0435. \u041C\u043D\u0435
       \u0442\u0430\u043A \u0431\u0443\u0434\u0435\u0442 \u0441\u043F\u043E\u043A\u043E\u0439\u043D\u0435\u0435."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0412\u044B"
+    text: "\u041A\u043E\u043D\u0435\u0447\u043D\u043E. \u041F\u0440\u043E\u0448\u0443,
+      \u043F\u0440\u0438\u0441\u0430\u0436\u0438\u0432\u0430\u0439\u0442\u0435\u0441\u044C.
+      \u0418 \u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u043D\u0430\u0447\u043D\u0435\u043C.
+      \u0412\u044B \u0440\u0430\u043D\u044C\u0448\u0435 \u0431\u044B\u0432\u0430\u043B\u0438
+      \u0443 \u043F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u0430?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442"
+    text: "\u041D\u0435\u0442, \u043D\u0435 \u0434\u043E\u0432\u043E\u0434\u0438\u043B\u043E\u0441\u044C.
+      \u0417\u043D\u0430\u0435\u0442\u0435, \u044F \u0432\u043E\u043E\u0431\u0449\u0435
+      \u0441 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u043C \u0441\u043A\u0435\u043F\u0442\u0438\u0446\u0438\u0437\u043C\u043E\u043C
+      \u043E\u0442\u043D\u043E\u0448\u0443\u0441\u044C \u043A\u043E \u0432\u0441\u0435\u043C\u0443
+      \u043F\u043E\u0434\u043E\u0431\u043D\u043E\u043C\u0443.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0412\u044B"
+    text: "\u041A\u0430\u043A \u044F \u043C\u043E\u0433\u0443 \u043A \u0432\u0430\u043C
+      \u043E\u0431\u0440\u0430\u0449\u0430\u0442\u044C\u0441\u044F?"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -12187,7 +13507,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 4301302312323352089}
+        - m_Target: {fileID: 4301302311527088392}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -12199,36 +13519,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 4301302311378584864}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 4301302312143308077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u041A\u043E\u043D\u0435\u0447\u043D\u043E. \u041F\u0440\u043E\u0448\u0443,
-      \u043F\u0440\u0438\u0441\u0430\u0436\u0438\u0432\u0430\u0439\u0442\u0435\u0441\u044C.
-      \u0418 \u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u043D\u0430\u0447\u043D\u0435\u043C.
-      \u0412\u044B \u0440\u0430\u043D\u044C\u0448\u0435 \u0431\u044B\u0432\u0430\u043B\u0438
-      \u0443 \u043F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u0430?"
+  - Persion: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442"
+    text: "\u041A\u0440\u0438\u0441... \u041A\u0440\u0438\u0441\u0442\u0438\u0430,
+      \u043D\u043E \u044F \u043F\u0440\u0435\u0434\u043F\u043E\u0447\u0438\u0442\u0430\u044E
+      \u041A\u0440\u0438\u0441"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -12236,12 +13530,10 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u041D\u0435\u0442, \u043D\u0435 \u0434\u043E\u0432\u043E\u0434\u0438\u043B\u043E\u0441\u044C.
-      \u0417\u043D\u0430\u0435\u0442\u0435, \u044F \u0432\u043E\u043E\u0431\u0449\u0435
-      \u0441 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u043C \u0441\u043A\u0435\u043F\u0442\u0438\u0446\u0438\u0437\u043C\u043E\u043C
-      \u043E\u0442\u043D\u043E\u0448\u0443\u0441\u044C \u043A\u043E \u0432\u0441\u0435\u043C\u0443
-      \u043F\u043E\u0434\u043E\u0431\u043D\u043E\u043C\u0443."
+  - Persion: "\u0412\u044B"
+    text: "\u0420\u0430\u0434 \u0437\u043D\u0430\u043A\u043E\u043C\u0441\u0442\u0432\u0443,
+      \u041A\u0440\u0438\u0441. \u041C\u0435\u043D\u044F \u0437\u043E\u0432\u0443\u0442
+      \u041C\u043E\u0440\u0433\u0430\u043D.\r\n"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -12249,11 +13541,48 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: 
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043F\u0440\u043E\u0441\u0438\u0442\u044C,
+      \u0447\u0442\u043E \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430 \u0431\u043E\u043B\u044C\u0448\u0435
+      \u0431\u0435\u0441\u043F\u043E\u043A\u043E\u0438\u0442:"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u043C\u043E\u0437\u0433\u0430
+      \u043A \u0430\u043F\u043F\u0430\u0440\u0430\u0442\u0443, \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u044E\u0449\u0435\u043C\u0443
+      \u0431\u043E\u0440\u043E\u0442\u044C\u0441\u044F \u0441\u043E \u0441\u0432\u043E\u0438\u043C\u0438
+      \u0444\u043E\u0431\u0438\u044F\u043C\u0438, \u0438\u043B\u0438 \u043F\u0441\u0438\u0445\u043E\u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u0438\u0447\u0435\u0441\u043A\u0430\u044F
+      \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044F. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0423\u0442\u043E\u0447\u043D\u044F\u044E\u0449\u0438\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B
+      \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0442 \u0434\u043E\u0431\u0440\u0430\u0442\u044C\u0441\u044F
+      \u0434\u043E \u043F\u043E\u043B\u0435\u0437\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438
+      \u0438 \u043F\u043E\u0432\u044B\u0441\u0438\u0442\u044C \u0434\u043E\u0432\u0435\u0440\u0438\u0435
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430 \u043A \u0432\u0430\u043C.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0412\u044B"
     text: 
     questions:
-    - question: "\u0417\u0430\u0434\u0430\u0442\u044C \u0443\u0442\u043E\u0447\u043D\u044F\u044E\u0449\u0438\u0439
-        \u0432\u043E\u043F\u0440\u043E\u0441"
+    - question: "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043E \u0435\u0451
+        \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0438 "
       onQuestion:
         m_PersistentCalls:
           m_Calls:
@@ -12269,31 +13598,7 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 793699619}
-            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
-            m_MethodName: AddBlock
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 691447430}
-              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: AddPoint
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - question: "\u041D\u0435 \u0437\u0430\u0434\u0430\u0442\u044C \u0432\u043E\u043F\u0440\u043E\u0441"
+    - question: "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043F\u0440\u0438\u0447\u0438\u043D\u0443"
       onQuestion:
         m_PersistentCalls:
           m_Calls:
@@ -12302,21 +13607,9 @@ MonoBehaviour:
             m_MethodName: AddBlock
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 691447430}
+              m_ObjectArgument: {fileID: 1446741866}
               m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
               m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 320341401}
-            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
-            m_MethodName: AddPoint
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: -1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -12795,14 +14088,14 @@ RectTransform:
   m_GameObject: {fileID: 1063685823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.160398, y: 1.160398, z: 1.160398}
   m_Children: []
   m_Father: {fileID: 1836491330}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -178}
+  m_AnchoredPosition: {x: -320, y: -150}
   m_SizeDelta: {x: 148, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063685825
@@ -12902,8 +14195,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041F\u0420\u0415\u0414\u042B\u0414\u0423\u0429\u0418\u0419"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13111,6 +14404,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077640725}
   m_CullTransparentMesh: 1
+--- !u!1 &1079515628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079515630}
+  - component: {fileID: 1079515629}
+  m_Layer: 0
+  m_Name: Question block 1_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1079515629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079515628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions:
+    - question: "\u041F\u043E\u043F\u0435\u0439\u0442\u0435 \u0432\u043E\u0434\u044B"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1299893365}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "\u0421\u0445\u043E\u0434\u0438\u0442\u0435 \u043D\u0430 \u0443\u043B\u0438\u0446\u0443,
+        \u043F\u043E\u0434\u044B\u0448\u0438\u0442\u0435"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 2055504442}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "*\u041F\u0440\u0438\u0433\u043B\u0443\u0448\u0438\u0442\u044C \u0441\u0432\u0435\u0442*"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1036991659}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!4 &1079515630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079515628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1299893364}
+  - {fileID: 2055504443}
+  - {fileID: 1036991660}
+  m_Father: {fileID: 691447429}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082358972
 GameObject:
   m_ObjectHideFlags: 0
@@ -13994,7 +15392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -64, y: 432.6}
+  m_AnchoredPosition: {x: -160, y: 432.6}
   m_SizeDelta: {x: 140, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158716112
@@ -14490,6 +15888,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221152288}
   m_CullTransparentMesh: 1
+--- !u!1 &1225190032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225190033}
+  - component: {fileID: 1225190034}
+  m_Layer: 0
+  m_Name: Question block 1_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225190033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225190032}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519898863}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225190034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225190032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0431\u044B\u0442\u044C
+      \u043E\u0442\u043A\u0440\u043E\u0432\u0435\u043D\u043D\u044B \u0441\u043E \u043C\u043D\u043E\u0439.
+      \r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0438\u0440\u0430"
+    text: " \u041C\u043C\u043C, \u0434\u0430,  \u041C\u043E\u0440\u0433\u0430\u043D.
+      \u0421\u0435\u0439\u0447\u0430\u0441 \u044F \u0441\u043E\u0431\u0435\u0440\u0443\u0441\u044C
+      \u0441 \u043C\u044B\u0441\u043B\u044F\u043C\u0438, \u0434\u0430\u0439\u0442\u0435
+      \u043C\u0438\u043D\u0443\u0442\u043A\u0443.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041D\u0435 \u0441\u0440\u0430\u0431\u043E\u0442\u0430\u043B\u043E. \u041B\u0430\u0434\u043D\u043E,
+      \u0432 \u0434\u0440\u0443\u0433\u043E\u0439 \u0440\u0430\u0437.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 691447430}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1225881095
 GameObject:
   m_ObjectHideFlags: 0
@@ -14900,6 +16399,45 @@ MonoBehaviour:
         m_Calls: []
     onNext:
       m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 505594283}
+          m_TargetAssemblyTypeName: IdeaController, Assembly-CSharp
+          m_MethodName: AddIdea
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
         m_Calls: []
 --- !u!4 &1279076174
 Transform:
@@ -14940,11 +16478,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299893363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 691447429}
+  m_Father: {fileID: 1079515630}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1299893365
@@ -14960,11 +16498,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBlock:
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u0415\u0441\u0442\u044C \u043B\u0438 \u0443 \u0432\u0430\u0441 \u0435\u0449\u0435
-      \u043A\u0430\u043A\u0438\u0435-\u043D\u0438\u0431\u0443\u0434\u044C \u043F\u043E\u0437\u0438\u0442\u0438\u0432\u043D\u044B\u0435
-      \u0432\u043E\u0441\u043F\u043E\u043C\u0438\u043D\u0430\u043D\u0438\u044F, \u0441\u0432\u044F\u0437\u0430\u043D\u043D\u044B\u0435
-      \u0441 \u0434\u043E\u0436\u0434\u0435\u043C \u0438\u0437 \u0434\u0435\u0442\u0441\u0442\u0432\u0430?"
+  - Persion: 
+    text: "\u0414\u0435\u0432\u0443\u0448\u043A\u0430 \u043F\u044C\u0451\u0442 \u0432\u043E\u0434\u0443
+      \u0438\u0437 \u0431\u0443\u0442\u044B\u043B\u043A\u0438. \u0422\u044F\u0436\u0435\u043B\u043E
+      \u0434\u044B\u0448\u0438\u0442, \u0443\u0441\u043F\u043E\u043A\u0430\u0438\u0432\u0430\u0435\u0442\u0441\u044F."
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -14972,24 +16509,12 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u0414\u0430, \u044F \u043F\u043E\u043C\u043D\u044E, \u043A\u0430\u043A
-      \u0431\u044B\u043B\u043E \u0432\u0435\u0441\u0435\u043B\u043E, \u043A\u043E\u0433\u0434\u0430
-      \u043C\u044B \u0441 \u041B\u0451\u0432\u043E\u0439 \u043F\u043E\u0441\u043B\u0435
-      \u0434\u043E\u0436\u0434\u044F \u0431\u0435\u0436\u0430\u043B\u0438, \u0441\u043B\u043E\u043C\u044F
-      \u0433\u043E\u043B\u043E\u0432\u0443, \u043F\u0440\u044B\u0433\u0430\u0442\u044C
-      \u043F\u043E \u043B\u0443\u0436\u0430\u043C. \u041C\u044B \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u043B\u0438,
-      \u0447\u0442\u043E \u044F \u043F\u0440\u0438\u043D\u0446\u0435\u0441\u0441\u0430,
-      \u0430 \u043E\u043D \u0445\u0440\u0430\u0431\u0440\u044B\u0439 \u043F\u0440\u0438\u043D\u0446,
-      \u043A\u043E\u0442\u043E\u0440\u043E\u043C\u0443 \u043D\u0443\u0436\u043D\u043E
-      \u043F\u043E \u0441\u0442\u0435\u043A\u043B\u044F\u043D\u043D\u044B\u043C \u0434\u043E\u0449\u0435\u0447\u043A\u0430\u043C
-      \u0434\u043E\u0431\u0440\u0430\u0442\u044C\u0441\u044F \u0434\u043E \u043C\u0435\u0441\u0442\u0430
-      \u0437\u0430\u0442\u043E\u0447\u0435\u043D\u0438\u044F \u0438 \u0432\u044B\u0437\u0432\u043E\u043B\u0438\u0442\u044C
-      \u043F\u0440\u0438\u043D\u0446\u0435\u0441\u0441\u0443. \u041F\u043E\u043C\u043D\u044E,
-      \u043A\u0430\u043A \u043E\u043D \u043E\u0442\u043A\u0430\u0437\u044B\u0432\u0430\u043B\u0441\u044F
-      \u0443\u0445\u043E\u0434\u0438\u0442\u044C \u0434\u043E\u043C\u043E\u0439,
-      \u043F\u043E\u043A\u0430 \u043D\u0435 \u0441\u043F\u0430\u0441\u0435\u0442
-      \u043C\u0435\u043D\u044F."
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0420\u0430\u0437\u0443\u043C\u043D\u043E\u0435 \u0440\u0435\u0448\u0435\u043D\u0438\u0435.
+      \u041E\u043D\u0430 \u0431\u043E\u0438\u0442\u0441\u044F \u043D\u0435 \u0432\u043E\u0434\u044B,
+      \u0430 \u043E\u0431\u044A\u0451\u043C\u0430. \u0414\u043E\u0436\u0434\u044C
+      \u043F\u043E\u043A\u0440\u044B\u0432\u0430\u0435\u0442 \u0441\u043E\u0431\u043E\u0439
+      \u043E\u0433\u0440\u043E\u043C\u043D\u0443\u044E \u043F\u043B\u043E\u0449\u0430\u0434\u044C."
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -14997,8 +16522,13 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u041A\u0442\u043E \u0442\u0430\u043A\u043E\u0439 \u041B\u0451\u0432\u0430?"
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041C\u043E\u0436\u043D\u043E \u0432\u044B\u044F\u0441\u043D\u0438\u0442\u044C
+      \u0447\u0435\u0433\u043E \u043A\u043E\u043D\u043A\u0440\u0435\u0442\u043D\u043E
+      \u043E\u043D\u0430 \u0431\u043E\u0438\u0442\u0441\u044F - \u0448\u0443\u043C\u0430
+      \u0434\u043E\u0436\u0434\u044F \u0438 \u0433\u0440\u043E\u043C\u0430 \u0438\u043B\u0438
+      \u043A\u043E\u0433\u0434\u0430 \u043A\u0430\u043F\u043B\u0438 \u043A\u0430\u0441\u0430\u044E\u0442\u0441\u044F
+      \u0435\u0435 \u043A\u043E\u0436\u0438. \r"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -15006,40 +16536,50 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u041C\u043E\u0439 \u043C\u043B\u0430\u0434\u0448\u0438\u0439 \u0431\u0440\u0430\u0442"
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041F\u043E\u043B\u0443\u0447\u0435\u043D\u0430 \u0418\u0434\u0435\u044F 
+      - \u041F\u0430\u043C\u044F\u0442\u044C \u043F\u0440\u0435\u0434\u043A\u043E\u0432
+      \r"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
         m_Calls: []
     onNext:
       m_PersistentCalls:
-        m_Calls: []
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u041A\u0438\u0440\u0430, \u0434\u0430\u0442\u044C \u0432\u0430\u043C
-      \u0432\u043E\u0434\u044B? "
+        m_Calls:
+        - m_Target: {fileID: 505594283}
+          m_TargetAssemblyTypeName: IdeaController, Assembly-CSharp
+          m_MethodName: AddIdea
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: 
+    text: 
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
         m_Calls: []
     onNext:
       m_PersistentCalls:
-        m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u0412\u0438\u043A\u0442\u043E\u0440,
-      \u043D\u0435 \u043D\u0430\u0434\u043E. \u041A\u0430\u0436\u0435\u0442\u0441\u044F,
-      \u0442\u0435\u043F\u0435\u0440\u044C \u043C\u043D\u0435 \u043F\u0440\u0438\u0434\u0435\u0442\u0441\u044F
-      \u043E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C\u0441\u044F. \u041D\u0430\u0434\u0435\u044F\u043B\u0430\u0441\u044C
-      \u043E\u0431\u043E\u0439\u0442\u0438\u0441\u044C \u0431\u0435\u0437 \u044D\u0442\u043E\u0439
-      \u0438\u0441\u0442\u043E\u0440\u0438\u0438, \u043D\u043E \u0447\u0442\u043E
-      \u0443\u0436 \u0442\u0435\u043F\u0435\u0440\u044C..."
-    questions: []
-    onPointsHavePassedTheLimit:
-      m_PersistentCalls:
-        m_Calls: []
-    onNext:
-      m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 179454363}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1300222274
 GameObject:
   m_ObjectHideFlags: 0
@@ -15173,7 +16713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!225 &1301579278
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15271,6 +16811,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1308491619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308491620}
+  - component: {fileID: 1308491622}
+  - component: {fileID: 1308491621}
+  m_Layer: 5
+  m_Name: background_image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1308491620
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308491619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1825787669}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1308491621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308491619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 113b854d9403abf47b18797480c25abc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1308491622
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308491619}
+  m_CullTransparentMesh: 1
 --- !u!1 &1313089586
 GameObject:
   m_ObjectHideFlags: 0
@@ -15625,8 +17240,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15940,6 +17555,330 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388054456}
   m_CullTransparentMesh: 1
+--- !u!1 &1390585099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390585101}
+  - component: {fileID: 1390585100}
+  m_Layer: 0
+  m_Name: Question block 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1390585100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390585099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041F\u043E\u043C\u043D\u044E, \u043A\u0430\u043A \u0442\u044F\u0436\u0435\u043B\u043E
+      \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u043B\u043E\u0441\u044C, \u043A\u043E\u0433\u0434\u0430
+      \u043D\u0430\u0441\u0442\u0443\u043F\u0430\u043B\u0430 \u043F\u0430\u0441\u043C\u0443\u0440\u043D\u0430\u044F
+      \u043F\u043E\u0433\u043E\u0434\u0430... "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041E\u0431\u044B\u0447\u043D\u043E \u044F \u043D\u0430\u0447\u0438\u043D\u0430\u043B\u0430
+      \u0443\u0431\u0438\u0440\u0430\u0442\u044C \u0434\u043E\u043C \u0438\u043B\u0438
+      \u0443\u0445\u043E\u0434\u0438\u043B\u0430 \u0432 \u043F\u043E\u0434\u0432\u0430\u043B,
+      \u0432\u043A\u043B\u044E\u0447\u0430\u043B\u0430 \u0441\u0442\u0438\u0440\u0430\u043B\u044C\u043D\u0443\u044E
+      \u043C\u0430\u0448\u0438\u043D\u0443 \u0438 \u0441\u0438\u0434\u0435\u043B\u0430
+      \u0442\u0430\u043C. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0427\u0435\u0440\u0435\u0437 \u043E\u043A\u043D\u043E \u0432 \u043F\u043E\u0434\u0432\u0430\u043B\u0435
+      \u0431\u044B\u043B\u043E \u0432\u0438\u0434\u043D\u043E \u0442\u0443\u0447\u0438.
+      \u0418 \u044F \u0436\u0434\u0430\u043B\u0430, \u043F\u043E\u043A\u0430 \u043D\u0435\u0431\u043E
+      \u043D\u0435 \u043F\u0440\u043E\u044F\u0441\u043D\u0438\u0442\u0441\u044F.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302312221652140}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0414\u0435\u043B\u0430\u043B\u0438 \u043B\u0438 \u0432\u044B \u0447\u0442\u043E-\u0442\u043E
+      \u0435\u0449\u0435, \u0447\u0442\u043E\u0431\u044B \u0441\u0442\u0430\u043B\u043E
+      \u043B\u0435\u0433\u0447\u0435?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041C\u043C\u043C.. \u043D\u0435\u0442, \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435
+      \u044D\u0442\u043E \u0431\u044B\u043B\u043E \u0432\u0441\u0435 \u0447\u0442\u043E
+      \u044F \u043C\u043E\u0433\u043B\u0430\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0427\u0442\u043E \u0434\u0435\u043B\u0430\u043B\u0430 \u0432\u0430\u0448\u0430
+      \u043C\u0430\u043C\u0430, \u043A\u043E\u0433\u0434\u0430 \u0432\u044B \u043D\u0430\u0445\u043E\u0434\u0438\u043B\u0438\u0441\u044C
+      \u0432 \u043F\u043E\u0434\u0432\u0430\u043B\u0435? "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0425\u0430, \u043E\u043D\u0430 \u043D\u0435 \u0437\u0430\u043C\u0435\u0447\u0430\u043B\u0430
+      \u0447\u0442\u043E \u0441\u043E \u043C\u043D\u043E\u0439 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442,
+      \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0434\u0435\u043B\u0430\u043B\u0430"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0425\u043E\u0440\u043E\u0448\u043E, \u044F \u0432\u0430\u0441 \u043F\u043E\u043D\u044F\u043B.
+      \u0412\u044B \u0441\u043A\u0430\u0437\u0430\u043B\u0438, \u0447\u0442\u043E
+      \u043F\u043E\u0441\u043B\u0435 \u043F\u0435\u0440\u0435\u0435\u0437\u0434\u0430
+      \u0432 \u0434\u0440\u0443\u0433\u043E\u0439 \u0433\u043E\u0440\u043E\u0434
+      \u0432\u0430\u043C \u0441\u0442\u0430\u043B\u043E \u0445\u0443\u0436\u0435. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u043E\u0445\u043E\u0436\u0435, \u0432\u0430\u043C \u0441\u0442\u0430\u043B\u043E
+      \u0442\u044F\u0436\u0435\u043B\u0435\u0435 \u0441\u043F\u0440\u0430\u0432\u043B\u044F\u0442\u044C\u0441\u044F
+      \u0441 \u0442\u0440\u0435\u0432\u043E\u0433\u043E\u0439. \u041C\u043E\u0436\u0435\u0442\u0435
+      \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u0430\u0442\u044C \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435
+      \u043F\u0440\u043E \u044D\u0442\u043E\u0442 \u043F\u0435\u0440\u0438\u043E\u0434?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F... \u042F \u043F\u043E\u0441\u0442\u0443\u043F\u0438\u043B\u0430
+      \u0432 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442. \u0423\u0441\u043F\u0435\u043B\u0430
+      \u043E\u0442\u0443\u0447\u0438\u0442\u044C\u0441\u044F \u0442\u043E\u043B\u044C\u043A\u043E
+      \u0442\u0440\u0438 \u043C\u0435\u0441\u044F\u0446\u0430, \u0438 \u0441 \u043A\u0430\u0436\u0434\u044B\u043C
+      \u0434\u043D\u0451\u043C \u043C\u043D\u0435 \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u043B\u043E\u0441\u044C
+      \u0432\u0441\u0451 \u0442\u044F\u0436\u0435\u043B\u0435\u0435 \u0432\u044B\u0445\u043E\u0434\u0438\u0442\u044C
+      \u0438\u0437 \u0434\u043E\u043C\u0430"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311712117448}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041E\u0441\u0435\u043D\u044C\u044E \u0434\u0435\u043D\u044C \u0441\u0442\u0430\u043B
+      \u043A\u043E\u0440\u043E\u0447\u0435, \u0438 \u043A\u043E\u0433\u0434\u0430
+      \u0432\u044B\u0445\u043E\u0434\u0438\u0442\u044C \u043F\u0440\u0438\u0448\u043B\u043E\u0441\u044C
+      \u0435\u0449\u0451 \u0432 \u0442\u0435\u043C\u043D\u043E\u0442\u0435, \u043C\u043D\u0435
+      \u043D\u0430\u0447\u0430\u043B\u043E \u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F,
+      \u0447\u0442\u043E \u0434\u043E\u0436\u0434\u044C \u0443\u0436\u0435 \u0438\u0434\u0451\u0442,
+      \u043F\u0440\u043E\u0441\u0442\u043E \u044F \u0435\u0433\u043E \u043D\u0435
+      \u0432\u0438\u0436\u0443."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0418\u043B\u0438 \u0447\u0442\u043E \u043E\u043D \u043D\u0430\u0447\u043D\u0451\u0442\u0441\u044F
+      \u0432\u043D\u0435\u0437\u0430\u043F\u043D\u043E. \u041F\u043E \u043D\u043E\u0447\u043D\u043E\u043C\u0443
+      \u043D\u0435\u0431\u0443 \u0441\u043B\u043E\u0436\u043D\u043E \u043F\u043E\u043D\u044F\u0442\u044C,
+      \u043A\u0430\u043A\u0430\u044F \u043F\u043E\u0433\u043E\u0434\u0430.\r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0430\u043A\u0438\u0435 \u043E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u044F
+      \u0441 \u043C\u0430\u0442\u0435\u0440\u044C\u044E \u0443 \u0432\u0430\u0441
+      \u0431\u044B\u043B\u0438 \u0432 \u0442\u043E\u0442 \u043F\u0435\u0440\u0438\u043E\u0434?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0425\u0430\u0445, \u043E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u044F
+      \u0431\u044B\u043B\u0438 \u043E\u0442\u043B\u0438\u0447\u043D\u044B\u0435,
+      \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u044F \u0443\u0447\u0438\u043B\u0430\u0441\u044C
+      \u0432 \u0434\u0440\u0443\u0433\u043E\u043C \u0433\u043E\u0440\u043E\u0434\u0435.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0420\u0435\u0437\u043A\u043E\u0435 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435
+      \u0432 \u043F\u043E\u0432\u0435\u0434\u0435\u043D\u0438\u0438 \u2013 \u0442\u043E\u0436\u0435
+      \u043F\u043E\u0432\u043E\u0434 \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C\u0441\u044F
+      \u0438 \u0443\u0442\u043E\u0447\u043D\u0438\u0442\u044C. \u0421 \u043C\u043E\u043C\u0435\u043D\u0442\u0430
+      \u043D\u0430\u0447\u0430\u043B\u0430 \u0441\u0435\u0430\u043D\u0441\u0430 \u043E\u043D\u0430
+      \u0432\u043F\u0435\u0440\u0432\u044B\u0435 \u0433\u043E\u0432\u043E\u0440\u0438\u0442
+      \u0441 \u043E\u0442\u043A\u0440\u044B\u0442\u044B\u043C \u043F\u0440\u0435\u043D\u0435\u0431\u0440\u0435\u0436\u0435\u043D\u0438\u0435\u043C.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions:
+    - question: "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043F\u0440\u043E
+        \u0443\u0447\u0435\u0431\u0443"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1418550945}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 2045698037}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!4 &1390585101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390585099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1418550944}
+  m_Father: {fileID: 691447429}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402333598
 GameObject:
   m_ObjectHideFlags: 0
@@ -16361,6 +18300,211 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411472721}
   m_CullTransparentMesh: 1
+--- !u!1 &1418550943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418550944}
+  - component: {fileID: 1418550945}
+  m_Layer: 0
+  m_Name: Question block 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1418550944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418550943}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1390585101}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1418550945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418550943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041D\u0430 \u043A\u043E\u0433\u043E \u0432\u044B \u0443\u0447\u0438\u043B\u0438\u0441\u044C?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 320341401}
+          m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
+          m_MethodName: AddPoint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: -1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0418\u043D\u0441\u043F\u0435\u043A\u0442\u043E\u0440 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438
+      \u043F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u044B\u0445 \u043F\u0440\u0435\u0434\u043F\u0440\u0438\u044F\u0442\u0438\u0439\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u043E\u0447\u0435\u043C\u0443 \u0432\u044B \u0432\u044B\u0431\u0440\u0430\u043B\u0438
+      \u0438\u043C\u0435\u043D\u043D\u043E \u044D\u0442\u0443 \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u044E?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041D\u0435 \u043C\u043E\u0433\u0443 \u0441\u043A\u0430\u0437\u0430\u0442\u044C,
+      \u0447\u0442\u043E \u043C\u043D\u0435 \u044D\u0442\u043E \u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F.
+      \u041F\u0440\u043E\u0441\u0442\u043E\u2026 \u044D\u0442\u043E \u0440\u0430\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0435
+      \u0440\u0435\u0448\u0435\u043D\u0438\u0435. \u0412\u0437\u0432\u0435\u0448\u0435\u043D\u043D\u043E\u0435."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u042F \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E \u043F\u043E\u043D\u0438\u043C\u0430\u044E,
+      \u0447\u0442\u043E \u0432\u0430\u043C \u043D\u0435 \u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F
+      \u0442\u0430\u043C \u0443\u0447\u0438\u0442\u0441\u044F \u0438 \u0432\u044B
+      \u043F\u043E\u0441\u0442\u0443\u043F\u0438\u043B\u0438 \u0440\u0430\u0434\u0438
+      \u0444\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F
+      \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u044F?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0414\u0430, \u0438\u043C\u0435\u043D\u043D\u043E \u0442\u0430\u043A."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312323352089}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0412\u044B \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0438 \u0434\u043E\u0432\u0435\u0440\u0438\u0435
+      \u0443\u0442\u043E\u0447\u043D\u044F\u044F \u0432\u043E\u043F\u0440\u043E\u0441
+      \u043D\u0435 \u0432 \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0437\u0438\u0439
+      \u043C\u043E\u043C\u0435\u043D\u0442, \u043D\u043E \u0443\u0437\u043D\u0430\u043B\u0438
+      \u043D\u043E\u0432\u044B\u0439 \u0444\u0430\u043A\u0442 \u043E \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0435."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302312245381788}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2045698037}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &1429212882
 GameObject:
   m_ObjectHideFlags: 0
@@ -16646,6 +18790,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443354369}
   m_CullTransparentMesh: 1
+--- !u!1 &1446741864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446741865}
+  - component: {fileID: 1446741866}
+  m_Layer: 0
+  m_Name: Question block 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1446741865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446741864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1039759561}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446741866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446741864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041F\u043E \u043A\u0430\u043A\u043E\u0439 \u043F\u0440\u0438\u0447\u0438\u043D\u0435
+      \u0432\u044B \u0440\u0435\u0448\u0438\u043B\u0438 \u043A\u043E \u043C\u043D\u0435
+      \u043E\u0431\u0440\u0430\u0442\u0438\u0442\u044C\u0441\u044F?\r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0411\u0443\u0434\u044C \u0432\u043D\u0438\u043C\u0430\u0442\u0435\u043B\u044C\u043D\u0435\u0435.
+      \u041E\u043D\u0430 \u044F\u0432\u043D\u043E \u0431\u044B\u043B\u0430 \u043D\u0435
+      \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435, \u0430 \u0442\u044B \u0434\u0430\u0436\u0435
+      \u043D\u0435 \u043F\u044B\u0442\u0430\u043B\u0441\u044F \u0443\u0437\u043D\u0430\u0442\u044C,
+      \u0432 \u0447\u0451\u043C \u0434\u0435\u043B\u043E!\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 691447430}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 320341401}
+          m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
+          m_MethodName: AddPoint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: -1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1449744577
 GameObject:
   m_ObjectHideFlags: 0
@@ -17987,6 +20223,191 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612790395}
   m_CullTransparentMesh: 1
+--- !u!1 &1619959740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1619959741}
+  - component: {fileID: 1619959742}
+  m_Layer: 0
+  m_Name: Question block 1_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1619959741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619959740}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519898863}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619959742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619959740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041D\u0435 \u0431\u043E\u0439\u0442\u0435\u0441\u044C \u0441\u043A\u0430\u0437\u0430\u0442\u044C
+      \u0442\u043E, \u0447\u0442\u043E \u0432\u0430\u043C \u043D\u0443\u0436\u043D\u043E.
+      \u0417\u0434\u0435\u0441\u044C \u0432\u044B \u0432 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0423 \u0432\u0430\u0441 \u0435\u0441\u0442\u044C \u0432\u043E\u0434\u0430
+      \u0432 \u0431\u0443\u0442\u044B\u043B\u043A\u0435? \u0412 \u0442\u0430\u043A\u043E\u0439,
+      \u043A\u043E\u0442\u043E\u0440\u0443\u044E \u0435\u0449\u0451 \u043D\u0438\u043A\u0442\u043E
+      \u043D\u0435 \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u043B.\r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311527088392}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u0421\u0435\u0439\u0447\u0430\u0441 \u0437\u0430\u043A\u0430\u0436\u0443,
+      \u0431\u0443\u0434\u0435\u0442 \u0447\u0435\u0440\u0435\u0437 \u043F\u043E\u043B
+      \u043C\u0438\u043D\u0443\u0442\u044B."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0421-\u0441-\u0441\u043F\u0430\u0441\u0438\u0431\u043E, \u0434\u043E\u043A\u0442\u043E\u0440.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301302311439076008}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4301302311413004659}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Persion: 
+    text: "\u0412 \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0437\u0430\u0435\u0437\u0436\u0430\u0435\u0442
+      \u043C\u0430\u043B\u0435\u043D\u044C\u043A\u0438\u0439 \u0440\u043E\u0431\u043E\u0442-\u0434\u043E\u0441\u0442\u0430\u0432\u0449\u0438\u043A
+      \u0441 \u0431\u0443\u0442\u044B\u043B\u043A\u043E\u0439 \u0432\u043E\u0434\u044B,
+      \u0434\u0435\u0432\u0443\u0448\u043A\u0430 \u0431\u0435\u0440\u0451\u0442 \u0431\u0443\u0442\u044B\u043B\u043A\u0443"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u0442\u044B \u0441\u0443\u043C\u0435\u043B
+      \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0438\u0442\u044C \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u043A\u0443
+      \u043A \u0441\u0435\u0431\u0435 \u0438 \u043D\u0430\u043B\u0430\u0434\u0438\u0442\u044C
+      \u043A\u043E\u043D\u0442\u0430\u043A\u0442. \u041E\u043D\u0430 \u0443\u0436\u0435
+      \u0434\u043E\u0432\u0435\u0440\u044F\u0435\u0442 \u0442\u0435\u0431\u0435 \u0447\u0443\u0442\u044C
+      \u0431\u043E\u043B\u044C\u0448\u0435. \u0422\u0430\u043A \u0434\u0435\u0440\u0436\u0430\u0442\u044C!\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 320341401}
+          m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
+          m_MethodName: AddPoint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 691447430}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1624033221
 GameObject:
   m_ObjectHideFlags: 0
@@ -19683,6 +22104,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808350887}
   m_CullTransparentMesh: 1
+--- !u!1 &1825787668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825787669}
+  - component: {fileID: 1825787670}
+  m_Layer: 5
+  m_Name: Cutscene2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1825787669
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825787668}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1308491620}
+  m_Father: {fileID: 59901634}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1825787670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825787668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae3583809e909a4e95cbbfa001a2043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
+  startOnEnable: 1
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1313089588}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenDesctop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1827663203
 GameObject:
   m_ObjectHideFlags: 0
@@ -20079,8 +22569,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0416\u0423\u0420\u041D\u0410\u041B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21968,7 +24458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: 71}
+  m_AnchoredPosition: {x: 199, y: 71}
   m_SizeDelta: {x: 1076, y: 932.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2019858979
@@ -22400,6 +24890,383 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037046433}
   m_CullTransparentMesh: 1
+--- !u!1 &2045698036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045698038}
+  - component: {fileID: 2045698037}
+  m_Layer: 0
+  m_Name: Question block 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2045698037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045698036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a245356f50e941b2838d168409bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBlock:
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0430\u043A \u0432\u0430\u0448\u0435 \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0435
+      \u0441\u043A\u0430\u0437\u044B\u0432\u0430\u043B\u043E\u0441\u044C \u043D\u0430
+      \u0432\u0430\u0448\u0435\u0439 \u0443\u0447\u0435\u0431\u0435?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u042F \u043F\u0440\u043E\u0441\u0442\u043E \u043D\u0435 \u043C\u043E\u0433\u043B\u0430
+      \u0445\u043E\u0434\u0438\u0442\u044C \u043D\u0430 \u043B\u0435\u043A\u0446\u0438\u0438!
+      \u0418\u043D\u043E\u0433\u0434\u0430 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u043B\u0430
+      \u0432 \u043E\u0431\u0435\u0434 \u0438\u043B\u0438 \u043A \u043A\u043E\u043D\u0446\u0443
+      \u0437\u0430\u043D\u044F\u0442\u0438\u0439. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u0438
+      \u0431\u044B\u043B\u0438 \u043D\u0435\u0434\u043E\u0432\u043E\u043B\u044C\u043D\u044B,
+      \u0434\u0430 \u0438 \u0432 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0438
+      \u044F \u0447\u0430\u0449\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0430
+      \u0432 \u043E\u043A\u043D\u043E, \u0447\u0435\u043C \u0432 \u0442\u0435\u0442\u0440\u0430\u0434\u044C."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041D\u0430\u0431\u043B\u044E\u0434\u0430\u043B\u0438 \u0437\u0430 \u043F\u043E\u0433\u043E\u0434\u043E\u0439?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0417\u0438\u043C\u043E\u0439 \u0431\u044B\u043B\u043E \u043F\u043E\u043B\u0435\u0433\u0447\u0435,
+      \u0441\u0430\u043C\u0438 \u043F\u043E\u043D\u0438\u043C\u0430\u0435\u0442\u0435.
+      \u041D\u043E \u0441 \u043D\u0430\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u0435\u043C
+      \u0432\u0435\u0441\u043D\u044B, \u043A\u043E\u0433\u0434\u0430 \u043D\u0430
+      \u0443\u043B\u0438\u0446\u0435 \u0431\u044B\u0432\u0430\u043B\u043E \u0436\u0430\u0440\u043A\u043E... "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: " \u041D\u0430 \u043C\u043E\u0439 \u0434\u043E\u0436\u0434\u0435\u0432\u0438\u043A
+      \u0438 \u043F\u0435\u0440\u0447\u0430\u0442\u043A\u0438 \u0441\u0442\u0430\u043B\u0438
+      \u0441\u0442\u0440\u0430\u043D\u043D\u043E \u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041D\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0441\u043E\u043A\u0443\u0440\u0441\u043D\u0438\u043A\u0438,
+      \u0434\u0430\u0436\u0435 \u043D\u0430 \u0443\u043B\u0438\u0446\u0435 \u044F
+      \u0438\u043D\u043E\u0433\u0434\u0430 \u043B\u043E\u0432\u0438\u043B\u0430 \u043A\u043E\u0441\u044B\u0435
+      \u0432\u0437\u0433\u043B\u044F\u0434\u044B... \u0434\u043E\u0432\u043E\u043B\u044C\u043D\u043E
+      \u0447\u0430\u0441\u0442\u043E, \u043D\u0430\u0434\u043E \u043F\u0440\u0438\u0437\u043D\u0430\u0442\u044C...\r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0430\u043A \u0441\u043E\u043A\u0443\u0440\u0441\u043D\u0438\u043A\u0438
+      \u043A \u0432\u0430\u043C \u043E\u0442\u043D\u043E\u0441\u0438\u043B\u0438\u0441\u044C,
+      \u043A\u043E\u0433\u0434\u0430 \u0432\u0438\u0434\u0435\u043B\u0438\u0441\u044C
+      \u0432\u0430\u0441 \u0432 \u043E\u0434\u0435\u0436\u0434\u0435 \u043D\u0435
+      \u043F\u043E \u043F\u043E\u0433\u043E\u0434\u0435?"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u0422\u0435, \u0441 \u043A\u0435\u043C \u044F \u0431\u044B\u043B\u0430
+      \u0437\u043D\u0430\u043A\u043E\u043C\u0430, \u043F\u043E\u043D\u0430\u0447\u0430\u043B\u0443
+      \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u043B\u0438, \u043D\u043E
+      \u044F \u043F\u0440\u043E\u0441\u0442\u043E \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430,
+      \u0447\u0442\u043E \u0442\u0430\u043A \u0443\u0434\u043E\u0431\u043D\u043E.
+      \u041C\u043E\u0436\u0435\u0442 \u0438 \u0437\u0440\u044F \u043D\u0435 \u0441\u043A\u0430\u0437\u0430\u043B\u0430
+      \u043A\u0430\u043A \u0435\u0441\u0442\u044C. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041F\u0440\u0430\u0432\u0434\u0430, \u044F \u0434\u0443\u043C\u0430\u044E
+      \u0447\u0442\u043E \u0432\u0441\u0435 \u0437\u0430\u043C\u0435\u0447\u0430\u043B\u0438
+      \u0447\u0442\u043E \u0441\u043E \u043C\u043D\u043E\u0439 \u0447\u0442\u043E-\u0442\u043E
+      \u043D\u0435 \u0442\u043E. \u042F \u043F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u043E
+      \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0430 \u0432 \u043E\u043A\u043D\u043E
+      \u0438 \u043F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u0438
+      \u0434\u0435\u043B\u0430\u043B\u0438 \u0437\u0430\u043C\u0435\u0447\u0430\u043D\u0438\u044F. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041A\u0440\u0438\u0441"
+    text: "\u041D\u0435 \u0437\u043D\u0430\u044E, \u043D\u0430 \u0441\u0430\u043C\u043E\u043C
+      \u0434\u0435\u043B\u0435. \u041D\u043E \u0447\u0443\u0432\u0441\u0442\u0432\u043E\u0432\u0430\u043B\u0430
+      \u0438\u043C\u0435\u043D\u043D\u043E \u0442\u0430\u043A."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041D\u0430 \u0434\u0430\u043D\u043D\u043E\u043C \u044D\u0442\u0430\u043F\u0435
+      \u0442\u0435\u0440\u0430\u043F\u0438\u0438 \u043D\u0430\u0441\u0442\u0443\u043F\u0430\u0435\u0442
+      \u0432\u044B\u0431\u043E\u0440 \u0434\u0430\u043B\u044C\u043D\u0435\u0439\u0448\u0435\u0439
+      \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u0438 \u0432\u0435\u0434\u0435\u043D\u0438\u044F
+      \u0441\u0435\u0441\u0441\u0438\u0438. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0420\u0430\u043D\u0435\u0435 \u0438\u0437 \u0440\u0430\u0437\u0433\u043E\u0432\u043E\u0440\u0430
+      \u0441 \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u043E\u043C \u0432\u044B
+      \u0443\u0437\u043D\u0430\u043B\u0438 \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+      \u0434\u0435\u0442\u0430\u043B\u044C\u043D\u044B\u0445 \u0444\u0430\u043A\u0442\u043E\u0432
+      \u043E \u0435\u0433\u043E \u0436\u0438\u0437\u043D\u0438 \u0438 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u044B\u0445
+      \u043F\u0440\u0438\u0447\u0438\u043D\u0430\u0445 \u0432\u043E\u0437\u043D\u0438\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u044F
+      \u0444\u043E\u0431\u0438\u0438."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: " \u041D\u0443\u0436\u043D\u043E \u0432\u044B\u0431\u0440\u0430\u0442\u044C
+      \u0442\u0435\u043C\u0443, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u043F\u043E\u043A\u0430\u0437\u0430\u043B\u0430\u0441\u044C
+      \u0432\u0430\u043C \u043D\u0430\u0438\u0431\u043E\u043B\u0435\u0435 \u0432\u0430\u0436\u043D\u043E\u0439. "
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0412\u0430\u0436\u043D\u043E \u043F\u043E\u043D\u0438\u043C\u0430\u0442\u044C,
+      \u043A \u0447\u0435\u043C\u0443 \u043C\u043E\u0436\u043D\u043E \u043F\u0440\u0438\u0439\u0442\u0438
+      \u0432 \u0445\u043E\u0434\u0435 \u0431\u0435\u0441\u0435\u0434\u044B, \u0432\u0435\u0434\u044C
+      \u0432\u043E\u043F\u0440\u043E\u0441\u044B \u043E \u0441\u0430\u043C\u043E\u043C
+      \u0431\u043E\u043B\u044C\u043D\u043E\u043C \u043C\u0435\u0441\u0442\u0435 \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430
+      \u043C\u043E\u0433\u0443\u0442 \u0435\u0433\u043E \u0438\u0441\u0442\u043E\u0449\u0438\u0442\u044C
+      \u0438 \u0435\u0433\u043E \u0434\u043E\u0432\u0435\u0440\u0438\u0435 \u043A
+      \u0432\u0430\u043C \u0443\u043F\u0430\u0434\u0435\u0442.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0421 \u0434\u0440\u0443\u0433\u043E\u0439 \u0441\u0442\u043E\u0440\u043E\u043D\u044B,
+      \u0447\u0435\u043C \u0433\u043B\u0443\u0431\u0436\u0435 \u0432\u044B \u0440\u0430\u0437\u0431\u0435\u0440\u0435\u0442\u0435\u0441\u044C
+      \u0432 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0435, \u0442\u0435\u043C
+      \u0431\u043E\u043B\u0435\u0435 \u043F\u043E\u043B\u043D\u043E\u0439 \u0438
+      \u044F\u0441\u043D\u043E\u0439 \u0441\u0442\u0430\u043D\u0435\u0442 \u043A\u0430\u0440\u0442\u0438\u043D\u0430
+      \u0432\u043E\u0437\u043D\u0438\u043A\u043D\u043E\u0432\u0435\u043D\u0438\u044F
+      \u0444\u043E\u0431\u0438\u0438."
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0412\u044B \u0441\u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u043E\u043D\u044F\u0442\u044C
+      \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E \u043F\u043E\u043C\u043E\u0447\u044C
+      \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0443 \u0432 \u0434\u0430\u043B\u044C\u043D\u0435\u0439\u0448\u0435\u0439
+      \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u0435\u0433\u043E \u0441\u0430\u043C\u044B\u043C
+      \u0433\u043B\u0430\u0432\u043D\u044B\u043C \u0441\u0442\u0440\u0430\u0445\u043E\u043C.\r\n"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041E\u0442 \u044D\u0442\u043E\u0433\u043E \u0437\u0430\u0432\u0438\u0441\u0438\u0442
+      \u043D\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u0443\u0441\u043F\u0435\u0445
+      \u0441\u0440\u0430\u0436\u0435\u043D\u0438\u044F \u0441 \u0444\u043E\u0431\u0438\u0435\u0439,
+      \u043D\u043E \u0438 \u0434\u0430\u043B\u044C\u043D\u0435\u0439\u0448\u0430\u044F
+      \u0441\u0443\u0434\u044C\u0431\u0430 \u043F\u0430\u0446\u0438\u0435\u043D\u0442\u0430.
+      \u0414\u0435\u043B\u0430\u0439\u0442\u0435 \u0432\u044B\u0431\u043E\u0440 \u043E\u0441\u043E\u0437\u043D\u0430\u043D\u043D\u043E.\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: "\u041A\u0440\u0438\u0441, \u0443 \u043C\u0435\u043D\u044F \u0435\u0441\u0442\u044C
+      \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0421\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0439 \u043F\u0440\u043E
+      \u0442\u043E, \u0447\u0442\u043E \u043F\u043E\u043A\u0430\u0437\u0430\u043B\u043E\u0441\u044C
+      \u0442\u0435\u0431\u0435 \u043D\u0430\u0438\u0431\u043E\u043B\u0435\u0435 \u0432\u0430\u0436\u043D\u044B\u043C.
+      \u041D\u0430 \u0432\u0441\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B
+      \u043D\u0435 \u0445\u0432\u0430\u0442\u0438\u0442 \u0432\u0440\u0435\u043C\u0435\u043D\u0438.
+      \u0421\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0441 \u0444\u043E\u0431\u0438\u0435\u0439
+      \u043F\u0440\u043E\u0438\u0437\u043E\u0439\u0434\u0435\u0442 \u0432 \u043B\u044E\u0431\u043E\u043C
+      \u0441\u043B\u0443\u0447\u0430\u0435, \u043D\u043E \u043A\u0435\u043C \u043E\u043D\u0430
+      \u0441\u0442\u0430\u043D\u0435\u0442 \u043F\u043E\u0441\u043B\u0435?\r"
+    questions: []
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls: []
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+  - Persion: "\u041C\u043E\u0440\u0433\u0430\u043D"
+    text: 
+    questions:
+    - question: "\u041D\u044B\u043D\u0435\u0448\u043D\u044F\u044F \u0436\u0438\u0437\u043D\u044C"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 320341401}
+            m_TargetAssemblyTypeName: ProgressBarController, Assembly-CSharp
+            m_MethodName: SetPointsMinimumLimit
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 4
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "\u0413\u0438\u0431\u0435\u043B\u044C \u043E\u0442\u0446\u0430"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 620968216}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - question: "\u041E \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u0438"
+      onQuestion:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 793699619}
+            m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+            m_MethodName: AddBlock
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 1034596899}
+              m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    onPointsHavePassedTheLimit:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 224262937}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onNext:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!4 &2045698038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045698036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 224262936}
+  - {fileID: 620968215}
+  - {fileID: 1034596898}
+  m_Father: {fileID: 691447429}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2045963273
 GameObject:
   m_ObjectHideFlags: 0
@@ -22581,11 +25448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBlock:
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u041A\u0438\u0440\u0430, \u0432\u044B \u043D\u0435\u043C\u043D\u043E\u0433\u043E
-      \u043E\u0442\u0432\u043B\u0435\u043A\u043B\u0438\u0441\u044C. \u041A\u0430\u043A
-      \u0434\u0430\u0432\u043D\u043E \u0432\u044B \u0441\u0442\u0440\u0430\u0434\u0430\u0435\u0442\u0435
-      \u041E\u043C\u0431\u0440\u043E\u0444\u043E\u0431\u0438\u0435\u0439?"
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041D\u0435\u0442! \u041D\u0435 \u0432\u0437\u0434\u0443\u043C\u0430\u0439
+      \u0435\u0439 \u044D\u0442\u043E \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u0442\u044C!"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -22593,11 +25458,12 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u041E\u0439, \u0434\u0430. \u0418\u043D\u043E\u0433\u0434\u0430 \u043C\u0435\u043D\u044F
-      \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u044E\u0442 \u0432\u043E\u0441\u043F\u043E\u043C\u0438\u043D\u0430\u043D\u0438\u044F.
-      \u0421 13,  \u0442\u043E \u0435\u0441\u0442\u044C \u0443\u0436\u0435 \u0432\u043E\u0441\u0435\u043C\u044C
-      \u043B\u0435\u0442 \u043A\u0430\u043A."
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u041E\u043D\u0430 \u0442\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u043E
+      \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u043B\u0430 \u0447\u0442\u043E
+      \u0431\u044B\u043B\u0430 \u043D\u0430 \u0443\u043B\u0438\u0446\u0435, \u0438
+      \u0447\u0443\u0442\u044C \u043D\u0435 \u043F\u043E\u0442\u0435\u0440\u044F\u043B\u0430
+      \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044C \u043D\u0430\u0434 \u0441\u043E\u0431\u043E\u0439. "
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
@@ -22605,30 +25471,29 @@ MonoBehaviour:
     onNext:
       m_PersistentCalls:
         m_Calls: []
-  - Persion: "\u0412\u0438\u043A\u0442\u043E\u0440"
-    text: "\u0412 \u044D\u0442\u043E\u043C \u043D\u0435\u0442 \u043D\u0438\u0447\u0435\u0433\u043E
-      \u043F\u043B\u043E\u0445\u043E\u0433\u043E - \u043D\u0430\u043F\u0440\u043E\u0442\u0438\u0432,
-      \u0438\u043D\u043E\u0433\u0434\u0430 \u044D\u0442\u043E \u0434\u0430\u0436\u0435
-      \u043D\u0430 \u043F\u043E\u043B\u044C\u0437\u0443. \u0425\u043E\u0442\u0438\u0442\u0435,
-      \u0441\u0434\u0435\u043B\u0430\u0435\u043C \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439
-      \u043F\u0435\u0440\u0435\u0440\u044B\u0432?"
+  - Persion: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442"
+    text: "\u0415\u0439 \u0441\u0435\u0439\u0447\u0430\u0441 \u043B\u0443\u0447\u0448\u0435
+      \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u0432 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u043C
+      \u043F\u043E\u043C\u0435\u0449\u0435\u043D\u0438\u0438.\r\n"
     questions: []
     onPointsHavePassedTheLimit:
       m_PersistentCalls:
         m_Calls: []
     onNext:
       m_PersistentCalls:
-        m_Calls: []
-  - Persion: "\u041A\u0438\u0440\u0430"
-    text: "\u041D\u0435\u0442, \u0441\u043F\u0430\u0441\u0438\u0431\u043E. \u0412\u0441\u0435
-      \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435, \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435."
-    questions: []
-    onPointsHavePassedTheLimit:
-      m_PersistentCalls:
-        m_Calls: []
-    onNext:
-      m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 793699619}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: AddBlock
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 179454363}
+            m_ObjectArgumentAssemblyTypeName: DialogBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!4 &2055504443
 Transform:
   m_ObjectHideFlags: 0
@@ -22636,11 +25501,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055504441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 691447429}
+  m_Father: {fileID: 1079515630}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077242818
@@ -25267,7 +28132,7 @@ GameObject:
   - component: {fileID: 4301302310552672797}
   - component: {fileID: 4301302310552672798}
   m_Layer: 5
-  m_Name: question text
+  m_Name: question tmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26990,7 +29855,7 @@ GameObject:
   - component: {fileID: 4301302311353453100}
   - component: {fileID: 4301302311353453101}
   m_Layer: 5
-  m_Name: question text
+  m_Name: question tmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28995,7 +31860,7 @@ GameObject:
   - component: {fileID: 4301302312211786454}
   - component: {fileID: 4301302312211786455}
   m_Layer: 5
-  m_Name: question text
+  m_Name: question tmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29017,7 +31882,7 @@ RectTransform:
   - {fileID: 4301302312182151017}
   - {fileID: 4301302312492151723}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -29039,7 +31904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &4301302312221652137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29114,7 +31979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &4301302312245381785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30222,7 +33087,7 @@ RectTransform:
   - {fileID: 2048190268}
   - {fileID: 4301302310677473483}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -31605,7 +34470,7 @@ RectTransform:
   - {fileID: 4905445232773643581}
   - {fileID: 6052199449207265834}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -31858,7 +34723,7 @@ GameObject:
   - component: {fileID: 5312677561924930231}
   - component: {fileID: 5312677561924930185}
   m_Layer: 5
-  m_Name: Cutscene
+  m_Name: Cutscene1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31909,7 +34774,7 @@ RectTransform:
   m_Children:
   - {fileID: 5312677561033337317}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -32322,7 +35187,7 @@ RectTransform:
   - {fileID: 1205215076}
   - {fileID: 438221593}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -32388,8 +35253,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0424\u043E\u0431\u0438\u044F"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32522,8 +35387,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041F\u0430\u0446\u0438\u0435\u043D\u0442"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33102,8 +35967,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041D\u0410\u0427\u0410\u0422\u042C \u041F\u0420\u0418\u0415\u041C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33491,8 +36356,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0421\u041B\u0415\u0414\u0423\u042E\u0429\u0418\u0419"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
+  m_sharedMaterial: {fileID: -3298884470617057490, guid: 4a69da043bb0a074f9aca9f591a793a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33602,7 +36467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 64.22119}
+  m_AnchoredPosition: {x: 0, y: -0.000022888184}
   m_SizeDelta: {x: 31.580872, y: 4386.56}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5448039292053817308
