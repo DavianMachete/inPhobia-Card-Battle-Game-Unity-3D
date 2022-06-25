@@ -900,8 +900,8 @@ RectTransform:
   - {fileID: 5312677561924930231}
   - {fileID: 5343880496815193185}
   - {fileID: 4301302312217494664}
-  - {fileID: 4301302312482441971}
   - {fileID: 494361198}
+  - {fileID: 4301302312482441971}
   - {fileID: 1825787669}
   - {fileID: 661349261}
   - {fileID: 816044701}
@@ -7372,7 +7372,7 @@ RectTransform:
   - {fileID: 411159011}
   - {fileID: 1480268736}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18025,6 +18025,7 @@ MonoBehaviour:
   therapistDeckCollecter: {fileID: 1565016130}
   canvasGroup: {fileID: 59901635}
   card_sCanvasRT: {fileID: 1301579282}
+  ideaController: {fileID: 505594283}
 --- !u!1 &1326374273
 GameObject:
   m_ObjectHideFlags: 0
@@ -34251,7 +34252,7 @@ RectTransform:
   - {fileID: 2048190268}
   - {fileID: 4301302310677473483}
   m_Father: {fileID: 59901634}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}

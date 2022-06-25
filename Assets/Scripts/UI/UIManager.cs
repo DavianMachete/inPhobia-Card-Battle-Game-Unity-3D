@@ -45,7 +45,8 @@ public class UIManager : MonoBehaviour
     [Header("Fight Scene")]
     [SerializeField] private RectTransform card_sCanvasRT;
 
-
+    [Header("Test settings")]
+    [SerializeField] private IdeaController ideaController;
 
     #endregion
 
@@ -143,6 +144,18 @@ public class UIManager : MonoBehaviour
         cardsCanvas.SetActive(false);
         gameEnd.SetActive(false);
         Bar.SetActive(true);
+    }
+
+    [ContextMenu("Open Card collector (5trust, 9 idea)")]
+    public void OpenCardCollecterImmidiatly()
+    {
+        progressBarController.InitializeProgressBar();
+        ideaController.Initialize();
+
+        progressBarController.AddPoint(5);
+        ideaController.AddIdea(9);
+
+        OpenCardCollecter();
     }
 
     public void OpenCardCollecter()
