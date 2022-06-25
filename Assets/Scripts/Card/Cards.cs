@@ -11,31 +11,37 @@ public static class Cards
         else
             _TherapistCardsToSelect = new List<Card>();
 
-        _TherapistCardsToSelect.Add(new Card("Ram", CardTypes.Attack, Affects.AddBlock(PhobiaManager.instance.phobia.attackForce), "Deal damage equal to your block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Deal damage equal to your block"
+        _TherapistCardsToSelect.Add(new Card("Деперсонализация", CardTypes.Attack, Affects.AddBlock(PhobiaManager.instance.phobia.attackForce), "Deal damage equal to your block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Deal damage equal to your block"
 
-        _TherapistCardsToSelect.Add(new Card("Entrench", CardTypes.Skill, Affects.MultiplyBlock(2), "Double your current block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Double your current block"
+        _TherapistCardsToSelect.Add(new Card("Личные границы", CardTypes.Skill, Affects.MultiplyBlock(2), "Double your current block", 1, Rarity.Rare, CardUIType.TherapistCard));//"Double your current block"
 
         _TherapistCardsToSelect.Add(new Card("Shrug it off", CardTypes.Skill, Affects.AddBlock(8) + Affects.PullCard(1), "Gain 8 block, draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 8 block, draw 1 card"
 
-        _TherapistCardsToSelect.Add(new Card("Barricade", CardTypes.Equipment,Affects.SaveBlock() /*+ Affects.Exhaust()*/, "Block no longer expires at the start of your turn", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Block no longer expires at the start of your turn"
+        _TherapistCardsToSelect.Add(new Card("Гипноз", CardTypes.Skill, Affects.AddActionPoint(1) + Affects.PullCard(1), "Gain 1 AP, Draw 1 card", 0, Rarity.Rare, CardUIType.TherapistCard));//"Gain 1 AP, Draw 1 card"
+
+        _TherapistCardsToSelect.Add(new Card("Самовнушение", CardTypes.Equipment,Affects.SaveBlock() /*+ Affects.Exhaust()*/, "Block no longer expires at the start of your turn", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Block no longer expires at the start of your turn"
 
         _TherapistCardsToSelect.Add(new Card("Juggernaut", CardTypes.Equipment, Affects.AttackWhenGetBlock() /*+ Affects.Exhaust()*/, "Each time you gain block - deal 5 damage", 0, Rarity.Equipment, CardUIType.TherapistCard));//"Each time you gain block - deal 5 damage"
 
         _TherapistCardsToSelect.Add(new Card("Steel", CardTypes.Equipment, Affects.SteelBlock(3) /*+ Affects.Exhaust()*/, "At the end of your turn: Gain 3 block", 0, Rarity.Equipment, CardUIType.TherapistCard));//"At the end of your turn: Gain 3 block"
 
-        _TherapistCardsToSelect.Add(new Card("Second Wind", CardTypes.Skill, Affects.AddBlock(5 * CardManager.instance.patientCardsInHand.Count) + Affects.Discard(), "Discard your hand. For each card discarded: Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//"Discard your hand. For each card discarded: Gain 5 block"
+        _TherapistCardsToSelect.Add(new Card("Трансформация", CardTypes.Skill, Affects.AddBlock(5 * CardManager.instance.patientCardsInHand.Count) + Affects.Discard(), "Discard your hand. For each card discarded: Gain 5 block", 2, Rarity.Common, CardUIType.TherapistCard));//"Discard your hand. For each card discarded: Gain 5 block"
 
-        _TherapistCardsToSelect.Add(new Card("Inspiration", CardTypes.Skill, Affects.AddActionPoint(1) + Affects.PullCard(1) + Affects.Exhaust(), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 1 AP, Draw 1 card"
+        _TherapistCardsToSelect.Add(new Card("Когниция", CardTypes.Skill, Affects.AddActionPoint(1) + Affects.PullCard(1) + Affects.Exhaust(), "Exhaust. Gain 1 AP, Draw 1 card", 0, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 1 AP, Draw 1 card"
 
-        _TherapistCardsToSelect.Add(new Card("Parry", CardTypes.Attack, Affects.AddBlock(5) + Affects.Attack(5), $" Deal 5 damage \n Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//$" Deal 5 damage \n Gain 5 block"
-
-        _TherapistCardsToSelect.Add(new Card("Dropkick", CardTypes.Attack, Affects.Attack(5) + Affects.DropKickWithouAttack(), "Deal damage equal to your block", 1, Rarity.Common, CardUIType.TherapistCard));//"Deal damage equal to your block"
+        _TherapistCardsToSelect.Add(new Card("Невроз", CardTypes.Attack, Affects.AddBlock(5) + Affects.Attack(5), $" Deal 5 damage \n Gain 5 block", 1, Rarity.Common, CardUIType.TherapistCard));//$" Deal 5 damage \n Gain 5 block"
 
         _TherapistCardsToSelect.Add(new Card("Wall of Fire", CardTypes.Skill, Affects.AddBlock(12) + Affects.AttackOnDefense(4), "Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage", 2, Rarity.Common, CardUIType.TherapistCard));//"Gain 12 Block. This round: Every time an enemy deals damage, deal 4 damage"
 
-        _TherapistCardsToSelect.Add(new Card("Rage", CardTypes.Skill, Affects.Exhaust() + Affects.AddActionPoint(2), "Exhaust. Gain 2 AP", 1, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Add 2 AP"
+        _TherapistCardsToSelect.Add(new Card("Аффект", CardTypes.Skill, Affects.Exhaust() + Affects.AddActionPoint(2), "Exhaust. Gain 2 AP", 1, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Add 2 AP"
 
-        _TherapistCardsToSelect.Add(new Card("Invulnerability", CardTypes.Skill, Affects.Exhaust() + Affects.AddBlock(30), "Exhaust. Gain 30 block", 0, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 30 block"
+        _TherapistCardsToSelect.Add(new Card("Мобилизация", CardTypes.Skill, Affects.Exhaust() + Affects.AddBlock(30), "Exhaust. Gain 30 block", 1, Rarity.Common, CardUIType.TherapistCard));//"Exhaust. Gain 30 block"
+
+        _TherapistCardsToSelect.Add(new Card("Внутренний ресурс", CardTypes.Attack, Affects.Attack(5) + Affects.PullCard(1), $" Deal 5 damage \n Draw 1 card", 0, Rarity.Common, CardUIType.TherapistCard));//$" Deal 5 damage \n Draw 1 card"
+
+        _TherapistCardsToSelect.Add(new Card("Решительность", CardTypes.Attack, Affects.Attack(10) + Affects.Power(2), $" Deal 10 damage \n Gain 2 power", 2, Rarity.Common, CardUIType.TherapistCard));//$" Deal 10 damage \n Gain 2 power"
+
+        _TherapistCardsToSelect.Add(new Card("Психосоматика", CardTypes.Attack, Affects.Attack(7) + Affects.Weakness(1), $" Deal 7 damage \n Weakens the enemy (1)", 1, Rarity.Common, CardUIType.TherapistCard));//$" Deal 7 damage \n Weakens the enemy (1)"
 
         return _TherapistCardsToSelect;
     }
@@ -51,7 +57,7 @@ public static class Cards
 
         for (int i = 0; i < 5; i++)
         {
-            _TherapistStandartCards.Add(new Card("Helplessness", CardTypes.Skill, Affects.Weakness(2), "Weakens the enemy (2)", 1, Rarity.Common, CardUIType.TherapistCard));
+            _TherapistStandartCards.Add(new Card("Беспомощность", CardTypes.Skill, Affects.Weakness(2), "Weakens the enemy (2)", 1, Rarity.Common, CardUIType.TherapistCard));
         }
 
         for (int i = 0; i < 4; i++)
@@ -59,7 +65,7 @@ public static class Cards
             _TherapistStandartCards.Add(new Card("Support", CardTypes.Skill, Affects.DoubleNextEffect(), "Doubles the next attack", 1, Rarity.Common, CardUIType.TherapistCard));//???ЖЕНЯ
         }
 
-        _TherapistStandartCards.Add(new Card("Steel wall", CardTypes.Skill, Affects.Armor(3f), "Add Armor by 3 points", 2, Rarity.Common, CardUIType.TherapistCard));
+        _TherapistStandartCards.Add(new Card("Независимость", CardTypes.Skill, Affects.Armor(3f), "Add Armor by 3 points", 2, Rarity.Common, CardUIType.TherapistCard));
 
         return _TherapistStandartCards;
     }
@@ -75,15 +81,15 @@ public static class Cards
 
         for (int i = 0; i < 5; i++)
         {
-            _PatientStandartCards.Add(new Card("Hit", CardTypes.Attack, Affects.Attack(5), "Deal 5 damage", 1, Rarity.Common, CardUIType.PatientCard));
+            _PatientStandartCards.Add(new Card("Аффирмация", CardTypes.Attack, Affects.Attack(5), "Deal 5 damage", 1, Rarity.Common, CardUIType.PatientCard));
         }
 
         for (int i = 0; i < 4; i++)
         {
-            _PatientStandartCards.Add(new Card("Shield", CardTypes.Skill, Affects.AddBlock(5), "Gain 5 block", 1, Rarity.Common, CardUIType.PatientCard));
+            _PatientStandartCards.Add(new Card("Самолюбие", CardTypes.Skill, Affects.AddBlock(5), "Gain 5 block", 1, Rarity.Common, CardUIType.PatientCard));
         }
 
-        _PatientStandartCards.Add(new Card("Strong beat", CardTypes.Attack, Affects.Attack(8) + Affects.Vulnerablity(2), $"Deal 8 damage and 2 vulnerablity", 2, Rarity.Common, CardUIType.PatientCard));
+        _PatientStandartCards.Add(new Card("Сепарация", CardTypes.Attack, Affects.Attack(8) + Affects.Weakness(3), $"Deal 8 damage and 3 weakness", 2, Rarity.Common, CardUIType.PatientCard));
 
         return _PatientStandartCards;
     }
