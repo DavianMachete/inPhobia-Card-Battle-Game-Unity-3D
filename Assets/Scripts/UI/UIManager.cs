@@ -49,6 +49,10 @@ public class UIManager : MonoBehaviour
     [Header("Test settings")]
     [SerializeField] private IdeaController ideaController;
 
+    [Header("Game end settings")]
+    [SerializeField] private GameObject gameComplete;
+    [SerializeField] private GameObject gameFailed;
+
     #endregion
 
     #region Unity Behaviour
@@ -227,6 +231,14 @@ public void OpenDesctop()
     {
         canvasGroup.interactable = value;
         canvasGroup.interactable = value;
+    }
+
+    public void OpenGameEndPanel(bool completed)
+    {
+        gameFailed.SetActive(!completed);
+        gameComplete.SetActive(completed);
+
+        gameEnd.SetActive(true);
     }
 
     #endregion

@@ -52,11 +52,11 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        //_UIcontroller.OpenEndGamePanel(true);
+        UIManager.instance.OpenGameEndPanel(true);
     }
 
     public void LevelFailed()
     {
-        //_UIcontroller.OpenEndGamePanel(false);
+        UIManager.instance.OpenGameEndPanel(false);
     }
 }
