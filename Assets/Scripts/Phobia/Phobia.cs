@@ -41,7 +41,7 @@ public class Phobia : ScriptableObject
             if (percent <= 35f)
             {
                 attackCountInAStep = 5;
-                attackForce = 1f;
+                attackForce = 1f + power;
 
                 power = Mathf.FloorToInt(power / 2f);
 
@@ -59,12 +59,12 @@ public class Phobia : ScriptableObject
         if (percent <= 30f)
         {
             attackCountInAStep = 1;
-            attackForce = 17f;
+            attackForce = 17f + power;
         }
         else if (percent <= 55)
         {
             attackCountInAStep = 3;
-            attackForce = 1f;
+            attackForce = 1f + power;
         }
         else if (percent <= 70)
         {
@@ -75,12 +75,12 @@ public class Phobia : ScriptableObject
         else if (percent <= 90)
         {
             attackCountInAStep = 2;
-            attackForce = 15f;
+            attackForce = 15f + power;
         }
         else if (percent <= 100)
         {
             attackCountInAStep = 2;
-            attackForce = 1f;
+            attackForce = 1f + power;
 
             //CardManager.instance.AddPsychosisToPatient();
         }

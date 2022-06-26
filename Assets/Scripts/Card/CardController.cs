@@ -224,19 +224,19 @@ public class CardController : MonoBehaviour
             card.cardType == CardTypes.Equipment)
             return;
 
-        CardUIType cardTypeHolder = card.cardBelonging;
-        card.cardBelonging = cardUIType;
+        //CardUIType cardTypeHolder = card.cardBelonging;
+        //card.cardBelonging = cardUIType;
 
         CanvasGroup turnOffcg = null;
         CanvasGroup turnOncg = null;
-        if (cardTypeHolder == CardUIType.TherapistCard)
+        if (card.cardBelonging == CardUIType.TherapistCard)
         {
             turnOffcg = bgs[0];
             turnOncg = bgs[3];
 
             ChangeCardColor(turnOncg, turnOffcg);
         }
-        else if(cardTypeHolder == CardUIType.PatientCard)
+        else if(card.cardBelonging == CardUIType.PatientCard)
         {
             turnOncg = bgs[0];
             turnOffcg = bgs[3];
@@ -254,6 +254,8 @@ public class CardController : MonoBehaviour
             else
                 bgs[0].alpha = 1f;
         }
+
+        card.cardBelonging = cardUIType;
     }
 
     public void SetCardMetrics(CardController newCardUI)
@@ -569,13 +571,15 @@ public class CardController : MonoBehaviour
             StopCoroutine(IChangeColorHelper);
 
         changeColor = true;
-        if(gameObject.activeInHierarchy)
         IChangeColorHelper = StartCoroutine(IChangeColor(turnOn, turnOff));
-        else
-        {
-            turnOff.alpha = 0f;
-            turnOn.alpha = 1f;
-        }
+
+        //if(gameObject.activeInHierarchy)
+        //IChangeColorHelper = StartCoroutine(IChangeColor(turnOn, turnOff));
+        //else
+        //{
+        //    turnOff.alpha = 0f;
+        //    turnOn.alpha = 1f;
+        //}
     }
 
     #endregion
@@ -602,6 +606,10 @@ public class CardController : MonoBehaviour
                 changeColor = false;
             yield return new WaitForFixedUpdate();
         }
+
+        turnOff.alpha = 0f;
+        turnOn.alpha = 1f;
+
         IChangeColorHelper = null;
     }
 

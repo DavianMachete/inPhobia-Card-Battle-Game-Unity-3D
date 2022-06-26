@@ -116,7 +116,7 @@ public class PhobiaManager : MonoBehaviour
     private void AttackATime()
     {
         Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {phobia.attackForce} attack force, {phobia.weaknessStack} weaknessStack aaand {phobia.power} power");
-        PatientManager.instance.MakeTheDamage(phobia.attackForce - phobia.weaknessStack + phobia.power);
+        PatientManager.instance.MakeTheDamage(phobia.attackForce - phobia.weaknessStack);
     }
 
 
