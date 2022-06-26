@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3281361129206846000}
   - component: {fileID: 8029655045525277012}
   - component: {fileID: 8176481047135488444}
+  - component: {fileID: 8505268147584828329}
   m_Layer: 5
-  m_Name: Purple
+  m_Name: Purple (therapist)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,6 +76,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8505268147584828329
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267201902287223025}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1635563217891874259
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,13 +233,14 @@ GameObject:
   - component: {fileID: 6676292931911214373}
   - component: {fileID: 7457306024885363113}
   - component: {fileID: 6469891891386931124}
+  - component: {fileID: 6253724971118920418}
   m_Layer: 5
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6676292931911214373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -284,6 +298,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &6253724971118920418
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574487415075116434}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3777033817490256506
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,13 +530,14 @@ GameObject:
   - component: {fileID: 349758843388063118}
   - component: {fileID: 8819715819255518397}
   - component: {fileID: 6533076168747675375}
+  - component: {fileID: 8246795302468252942}
   m_Layer: 5
-  m_Name: Yellow
+  m_Name: Yellow (equipment)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &349758843388063118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -568,6 +595,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8246795302468252942
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262029652236643330}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7772179778942012644
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,10 +920,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgOutline: {fileID: 3777033817490256506}
   bgs:
-  - {fileID: 267201902287223025}
-  - {fileID: 3574487415075116434}
-  - {fileID: 7262029652236643330}
-  - {fileID: 8503154480933779148}
+  - {fileID: 8505268147584828329}
+  - {fileID: 6253724971118920418}
+  - {fileID: 8246795302468252942}
+  - {fileID: 4694399575706619614}
   ap: {fileID: 7949469032965816451}
   cardName: {fileID: 1654502416694028653}
   description: {fileID: 7415145518395282977}
@@ -1059,13 +1098,14 @@ GameObject:
   - component: {fileID: 1329945750783056388}
   - component: {fileID: 5882867270283532851}
   - component: {fileID: 2850984087910183648}
+  - component: {fileID: 4694399575706619614}
   m_Layer: 5
-  m_Name: Blue
+  m_Name: Blue (patient)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1329945750783056388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1123,6 +1163,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4694399575706619614
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503154480933779148}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9137509865152765848
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ public class TherapistDeckCollecter : InPhobiaScrollView
 
     public void ActivateDeckBuildingBegin()
     {
-        RandomizeThreeCards(threeCardsParent);
+        //RandomizeThreeCards(threeCardsParent);
 
         deckBuildingBegin.SetActive(true);
         deckBuildingMain.SetActive(false);

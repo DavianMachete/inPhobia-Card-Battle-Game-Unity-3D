@@ -11,7 +11,7 @@ public class CardController : MonoBehaviour
     #region Serialized Fields
 
     [SerializeField] private GameObject bgOutline;
-    [SerializeField] private List<GameObject> bgs;
+    [SerializeField] private List<CanvasGroup> bgs;
     [SerializeField] private TMP_Text ap;
     [SerializeField] private TMP_Text cardName;
     [SerializeField] private TMP_Text description;
@@ -28,8 +28,7 @@ public class CardController : MonoBehaviour
     #endregion
 
     public Card card;
-    [Space(40f)]
-    public CardUIType cardCurrentType = CardUIType.defaultCard;
+    public CardUIType cardCurrentType;
     public int index;//first card is 0
 
     public UISpline handSpline;
@@ -189,7 +188,7 @@ public class CardController : MonoBehaviour
     public void SetCardParametersToGameObject(Card card)
     {
         SetInteractable(true);
-        this.gameObject.name = card.name;
+        gameObject.name = card.name;
         this.card = card;
 
         if (card.cardType == CardTypes.Equipment)
@@ -202,34 +201,59 @@ public class CardController : MonoBehaviour
         }
         cardName.text = card.name;
         //2
-        foreach (GameObject bg in bgs)
+        foreach (CanvasGroup cg in bgs)
         {
-            bg.SetActive(false);
+            cg.alpha = 0f;
         }
-        switch (card.cardType)
-        {
-            case CardTypes.Attack:
-                bgs[1].SetActive(true);
-                break;
-            case CardTypes.Skill:
-                bgs[0].SetActive(true);
-                break;
-            case CardTypes.Equipment:
-                bgs[2].SetActive(true);
-                break;
-            case CardTypes.Curse:
-                bgs[3].SetActive(true);
-                break;
-            default:
-                break;
-        }
-        //transform.GetChild(1).GetChild(3).GetChild(0).GetComponent<TMPro.TMP_Text>().text = card.cardType.ToString();
+        if (card.cardType == CardTypes.Equipment)
+            bgs[2].alpha = 1f;
+        else
+            bgs[0].alpha = 1f;
+
         description.text = card.affectDescription;
     }
 
     public void SetCardCurrentType(CardUIType cardUIType)
     {
         cardCurrentType = cardUIType;
+    }
+
+    public void SetCardType(CardUIType cardUIType)
+    {
+        if (card.cardBelonging == cardUIType||
+            card.cardType == CardTypes.Equipment)
+            return;
+
+        CardUIType cardTypeHolder = card.cardBelonging;
+        card.cardBelonging = cardUIType;
+
+        CanvasGroup turnOffcg = null;
+        CanvasGroup turnOncg = null;
+        if (cardTypeHolder == CardUIType.TherapistCard)
+        {
+            turnOffcg = bgs[0];
+            turnOncg = bgs[3];
+
+            ChangeCardColor(turnOncg, turnOffcg);
+        }
+        else if(cardTypeHolder == CardUIType.PatientCard)
+        {
+            turnOncg = bgs[0];
+            turnOffcg = bgs[3];
+
+            ChangeCardColor(turnOncg, turnOffcg);
+        }
+        else
+        {
+            foreach (CanvasGroup cg in bgs)
+            {
+                cg.alpha = 0f;
+            }
+            if (cardUIType == CardUIType.PatientCard)
+                bgs[3].alpha = 1f;
+            else
+                bgs[0].alpha = 1f;
+        }
     }
 
     public void SetCardMetrics(CardController newCardUI)
@@ -539,9 +563,47 @@ public class CardController : MonoBehaviour
         return canvasPos;
     }
 
+    private void ChangeCardColor(CanvasGroup turnOn, CanvasGroup turnOff)
+    {
+        if (IChangeColorHelper != null)
+            StopCoroutine(IChangeColorHelper);
+
+        changeColor = true;
+        if(gameObject.activeInHierarchy)
+        IChangeColorHelper = StartCoroutine(IChangeColor(turnOn, turnOff));
+        else
+        {
+            turnOff.alpha = 0f;
+            turnOn.alpha = 1f;
+        }
+    }
+
     #endregion
 
     #region Coroutine
+
+    private bool changeColor = false;
+    private Coroutine IChangeColorHelper;
+    private IEnumerator IChangeColor(CanvasGroup turnOn, CanvasGroup turnOff)
+    {
+        for (int i = 1; i < 3; i++)
+        {
+            bgs[i].alpha = 0f;
+        }
+
+        float t = 0f;
+        while (changeColor)
+        {
+            turnOff.alpha = Mathf.Lerp(1f, 0f, t / 0.5f);
+            turnOn.alpha = Mathf.Lerp(0f, 1f, t / 0.5f);
+
+            t += Time.fixedDeltaTime;
+            if (t > 0.5f)
+                changeColor = false;
+            yield return new WaitForFixedUpdate();
+        }
+        IChangeColorHelper = null;
+    }
 
     private bool followMouse = false;
     private Coroutine IFollowMouseHelper;
@@ -549,7 +611,7 @@ public class CardController : MonoBehaviour
     {
         while (followMouse)
         {
-            Debug.Log(Input.mousePosition);
+            //Debug.Log(Input.mousePosition);
             cardRect.anchoredPosition = Vector3.Lerp(cardRect.anchoredPosition, MousePosToCanvasPos(Input.mousePosition), Time.fixedDeltaTime * 20f);
             cardRect.rotation = Quaternion.Lerp(cardRect.rotation, Quaternion.LookRotation(Vector3.forward, Vector3.up), Time.fixedDeltaTime * 20f);
 

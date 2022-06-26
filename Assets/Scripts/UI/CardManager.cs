@@ -172,6 +172,7 @@ public class CardManager : MonoBehaviour
 
         newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.TherapistCard);
+        newCardController.SetCardType(CardUIType.TherapistCard);
         newCardController.SetCardMetrics(rIndex, therapistHandSpline);
         TherapistManager.instance.AddCardToHand(rIndex, newCardController.card);
 
@@ -198,6 +199,7 @@ public class CardManager : MonoBehaviour
 
         newCardController.SetCardParametersToGameObject(card);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
+        newCardController.SetCardType(CardUIType.PatientCard);
         newCardController.SetCardMetrics(rIndex, patientHandSpline);
         PatientManager.instance.AddCardToHand(rIndex, newCardController.card);
 
@@ -304,6 +306,7 @@ public class CardManager : MonoBehaviour
             /////Set Patient card settings as Therapist
             firstSelectedCard.SetCardParametersToGameObject(firstSelectedCard.card);
             firstSelectedCard.SetCardCurrentType(secondSelectedCard.cardCurrentType);
+            firstSelectedCard.SetCardType(secondSelectedCard.card.cardBelonging);
             firstSelectedCard.SetCardMetrics(secondSelectedCard.index, secondSelectedCard.handSpline);
 
             //Debug.Log($"secondSelectedCard.transform.parent name is {transformHolder.parent.gameObject.name}");
@@ -313,6 +316,7 @@ public class CardManager : MonoBehaviour
             /////Set Therapist card settings as Patient
             secondSelectedCard.SetCardParametersToGameObject(secondSelectedCard.card);
             secondSelectedCard.SetCardCurrentType(CardUIType.PatientCard);
+            secondSelectedCard.SetCardType(CardUIType.PatientCard);
             secondSelectedCard.SetCardMetrics(indexHolder, handSpline);
 
             //Debug.Log($"transformHolder.parent name is {transformHolder.parent.gameObject.name}");
