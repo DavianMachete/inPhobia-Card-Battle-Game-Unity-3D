@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     [Header("Main scenes")]
 
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject cutscene;
+    [SerializeField] private GameObject cutscene_1;
+    [SerializeField] private GameObject cutscene_2;
     [SerializeField] private GameObject desctop;
     [SerializeField] private GameObject novel;
     [SerializeField] private GameObject cardCollecter;
@@ -85,7 +86,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            cutscene.SetActive(false);
+            cutscene_1.SetActive(false);
+            cutscene_2.SetActive(false);
             desctop.SetActive(false);
             novel.SetActive(false);
             cardCollecter.SetActive(false);
@@ -102,10 +104,11 @@ public class UIManager : MonoBehaviour
         mainMenu.SetActive(false);
     }
 
-    public void OpenCutScene()
+    public void OpenCutSceneOne()
     {
-        //mainMenu.SetActive(false);
-        cutscene.SetActive(true);
+        mainMenu.SetActive(false);
+        cutscene_1.SetActive(true);
+        cutscene_2.SetActive(false);
         desctop.SetActive(false);
         novel.SetActive(false);
         cardCollecter.SetActive(false);
@@ -115,12 +118,27 @@ public class UIManager : MonoBehaviour
         Bar.SetActive(false);
     }
 
-    public void OpenDesctop()
+    public void OpenCutSceneTwo()
+    {
+        mainMenu.SetActive(false);
+        cutscene_1.SetActive(false);
+        cutscene_2.SetActive(true);
+        desctop.SetActive(false);
+        novel.SetActive(false);
+        cardCollecter.SetActive(false);
+        fight.SetActive(false);
+        cardsCanvas.SetActive(false);
+        gameEnd.SetActive(false);
+        Bar.SetActive(false);
+    }
+
+public void OpenDesctop()
     {
         desctopController.ShowNextPatient(true);
 
         mainMenu.SetActive(false);
-        cutscene.SetActive(false);
+        cutscene_1.SetActive(false);
+        cutscene_2.SetActive(false);
         desctop.SetActive(true);
         novel.SetActive(false);
         cardCollecter.SetActive(false);
@@ -136,7 +154,8 @@ public class UIManager : MonoBehaviour
         dialogController.InitializeDiolog();
 
         mainMenu.SetActive(false);
-        cutscene.SetActive(false);
+        cutscene_1.SetActive(false);
+        cutscene_2.SetActive(false);
         desctop.SetActive(false);
         novel.SetActive(true);
         cardCollecter.SetActive(false);
@@ -165,7 +184,8 @@ public class UIManager : MonoBehaviour
         therapistDeckCollecter.InitializeCollecter();
 
         mainMenu.SetActive(false);
-        cutscene.SetActive(false);
+        cutscene_1.SetActive(false);
+        cutscene_2.SetActive(false);
         desctop.SetActive(false);
         novel.SetActive(false);
         cardCollecter.SetActive(true);
@@ -178,7 +198,8 @@ public class UIManager : MonoBehaviour
     public void OpenFightScene()
     {
         mainMenu.SetActive(false);
-        cutscene.SetActive(false);
+        cutscene_1.SetActive(false);
+        cutscene_2.SetActive(false);
         desctop.SetActive(false);
         novel.SetActive(false);
         cardCollecter.SetActive(false);
@@ -191,7 +212,8 @@ public class UIManager : MonoBehaviour
     public void OpenGameEndScene()
     {
         mainMenu.SetActive(false);
-        cutscene.SetActive(false);
+        cutscene_1.SetActive(false);
+        cutscene_2.SetActive(false);
         desctop.SetActive(false);
         novel.SetActive(false);
         cardCollecter.SetActive(false);

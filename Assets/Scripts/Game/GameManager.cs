@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void InitialiseGame()
     {
-        UIManager.instance.OpenCutScene();
+        UIManager.instance.OpenCutSceneOne();
         PatientManager.instance.InitializePatient();
         TherapistManager.instance.InitializeTherapist();
         PhobiaManager.instance.InitializePhobia();
