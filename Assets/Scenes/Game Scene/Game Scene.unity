@@ -15322,7 +15322,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1313089588}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenCutSceneTwo
+        m_MethodName: OpenCardCollecterImmidiatly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22881,7 +22881,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 570, y: 4386.56}
+  m_SizeDelta: {x: 570, y: 700}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1380907763
 MonoBehaviour:
