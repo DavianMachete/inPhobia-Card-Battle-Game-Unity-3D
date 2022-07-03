@@ -15,13 +15,7 @@ MonoBehaviour:
   cardImageSprite: {fileID: 0}
   cardID: 
   cardType: 0
-  affect:
-    OnTurnStart: []
-    OnTurnEnd: []
-    OnStepStart: []
-    OnStepEnd: []
-    OnAttack: []
-    OnDefense: []
+  affect: {fileID: 0}
   affectDescription: 
   actionPoint: 0
   rarity: 0
