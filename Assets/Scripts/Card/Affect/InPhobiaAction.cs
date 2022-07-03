@@ -1,11 +1,10 @@
-using UnityEngine.Events;
 using System;
-using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class InPhobiaAction
 {
-    public UnityAction onAction;
+    public UnityEvent onEvent;
     //public UnityAction OnAction { get { return onAction; } }
 
     public bool saveAction;
@@ -20,19 +19,19 @@ public class InPhobiaAction
     public int invokedCount = 0;
 
 
-    public InPhobiaAction(string id, UnityAction onAction, bool saveAction)
+    public InPhobiaAction(string id, UnityEvent onEvent, bool saveAction)
     {
         invoked = false;
         invokedCount = 0;
         this.id = id;
-        this.onAction = onAction;
+        this.onEvent = onEvent;
         this.saveAction = saveAction;
     }
 
 
     public void Invoke()
     {
-        onAction();
+        onEvent?.Invoke();
         if (!saveAction)
             invoked = true;
         invokedCount++;

@@ -31,7 +31,7 @@ public class Card : ScriptableObject
         name = card.name;
         cardImageSprite = card.cardImageSprite;
         cardType = card.cardType;
-        affect = card.affect;
+        affects = card.affects;
         affectDescription = card.affectDescription;
         actionPoint = card.actionPoint;
         rarity = card.rarity;

@@ -299,7 +299,7 @@ public class PatientManager : MonoBehaviour
             nextEffectCount = 1;
 
             //Debug.Break();
-            affects.Update();
+     ///////////////////////////////////////////////////////       affects.Update();
             yield return new WaitForFixedUpdate();
             //Debug.Break();
 
