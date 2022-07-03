@@ -80,7 +80,7 @@ public class TherapistManager: MonoBehaviour
             {
                 PullACard();
             }
-            Cards.SortDiscards(true);
+            CardManager.instance.SortDiscards(true);
             for (int i = 0; i < count - deckCount; i++)
             {
                 PullACard();

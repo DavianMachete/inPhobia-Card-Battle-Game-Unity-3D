@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
-//[CreateAssetMenu(fileName ="New card",menuName ="Card")]
+[CreateAssetMenu(fileName ="New card", menuName = "ScriptableObjects/Card", order = 1)]
 [Serializable]
-public class Card //: ScriptableObject
+public class Card : ScriptableObject
 {
-    public string name;
+    public Sprite cardImageSprite;
  
     public string cardID;
 
     public CardTypes cardType;
 
-    public Affect affect; //need work on it;
+    public List<Affect> affects; 
 
     public string affectDescription;
 
@@ -28,22 +29,24 @@ public class Card //: ScriptableObject
     {
         cardID = card.cardID;//Guid.NewGuid().ToString("N");
         name = card.name;
-        this.cardType = card.cardType;
-        this.affect = card.affect;
-        this.affectDescription = card.affectDescription;
-        this.actionPoint = card.actionPoint;
-        this.rarity = card.rarity;
-        this.cardBelonging = card.cardBelonging;
+        cardImageSprite = card.cardImageSprite;
+        cardType = card.cardType;
+        affect = card.affect;
+        affectDescription = card.affectDescription;
+        actionPoint = card.actionPoint;
+        rarity = card.rarity;
+        cardBelonging = card.cardBelonging;
     }
 
-    public Card(string cardName, CardTypes cardType, Affect affect, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
+    public Card(string cardName,Sprite cardImageSprite, CardTypes cardType, List<Affect> affects, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
     {
         id++;
         cardID = cardName.ToLower() + $"_{id}";//Guid.NewGuid().ToString("N");
         //Debug.Log(cardID);
         name = cardName;
+        this.cardImageSprite = cardImageSprite;
         this.cardType = cardType;
-        this.affect = affect;
+        this.affects = affects;
         this.affectDescription = affectDescription;
         this.actionPoint = actionPoint;
         this.rarity = rarity;

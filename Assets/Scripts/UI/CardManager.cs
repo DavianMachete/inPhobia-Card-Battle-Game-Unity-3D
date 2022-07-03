@@ -10,6 +10,14 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager instance;
 
+    [Header("Card Collections")]
+    public List<Card> therapistCardsToSelect;
+    public List<Card> therapistStandartCards;
+    public List<Card> patientStandartCards;
+    public Card psychosis;
+
+    [Space]
+    [Header("Common Fields")]
     public List<CardController> therapistCardsInHand;
     public List<CardController> patientCardsInHand;
 
@@ -497,7 +505,7 @@ public class CardManager : MonoBehaviour
         {
             Debug.Log($"<color=cyan>Equimpent card {cardController.card.cardID} added</color>");
             //Initialize Equipment card effect
-            PatientManager.instance.AddAffect(cardController.card.affect);
+            PatientManager.instance.AddAffects(cardController.card.affects);
 
             IPlayPatientTopCardHelper = null;
         });
@@ -522,6 +530,41 @@ public class CardManager : MonoBehaviour
                 cardC.MoveCardToDiscard(sp);
             }
             therapistCardsInHand.Clear();
+        }
+    }
+
+    public void SortDiscards(bool forTherapist)
+    {
+        string forWho = forTherapist ? "Therapist" : "Patient";
+        Debug.Log($"<color=lightblue>SortDiscardCalled for {forWho}</color>");
+        List<Card> patientDiscard = new List<Card>(PatientManager.instance.discard);
+        foreach (Card card in patientDiscard)
+        {
+            if (card.cardBelonging == CardUIType.PatientCard && !forTherapist)
+            {
+                PatientManager.instance.deck.Add(card);
+                PatientManager.instance.discard.Remove(card);
+            }
+            else if (card.cardBelonging == CardUIType.TherapistCard && forTherapist)
+            {
+                TherapistManager.instance.deck.Add(card);
+                PatientManager.instance.discard.Remove(card);
+            }
+        }
+
+        List<Card> therapistDiscard = new List<Card>(TherapistManager.instance.discard);
+        foreach (Card card in therapistDiscard)
+        {
+            if (card.cardBelonging == CardUIType.PatientCard && !forTherapist)
+            {
+                PatientManager.instance.deck.Add(card);
+                TherapistManager.instance.discard.Remove(card);
+            }
+            else if (card.cardBelonging == CardUIType.TherapistCard && forTherapist)
+            {
+                TherapistManager.instance.deck.Add(card);
+                TherapistManager.instance.discard.Remove(card);
+            }
         }
     }
 

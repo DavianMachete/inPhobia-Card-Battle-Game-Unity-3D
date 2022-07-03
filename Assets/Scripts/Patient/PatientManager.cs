@@ -15,7 +15,7 @@ public class PatientManager : MonoBehaviour
     public List<Card> Hand;
     public List<Card> discard;
 
-    [SerializeField] private Affect affect;
+    [SerializeField] private List<Affect> affects;
 
     [SerializeField] private UISpline effectSplinePath;
 
@@ -44,9 +44,9 @@ public class PatientManager : MonoBehaviour
 
     public void InitializePatient()
     {
-        if (affect == null)
-            affect = new Affect();
-        affect.Clear();
+        if (affects == null)
+            affects = new List<Affect>();
+        affects.Clear();
 
         patient.Initialize();
 
@@ -103,7 +103,7 @@ public class PatientManager : MonoBehaviour
             {
                 PullACard();
             }
-            Cards.SortDiscards(false);
+            CardManager.instance.SortDiscards(false);
             for (int i = 0; i < count - deckCount; i++)
             {
                 PullACard();
@@ -119,9 +119,9 @@ public class PatientManager : MonoBehaviour
         CardManager.instance.Discard(CardUIType.PatientCard);
     }
 
-    public void AddAffect(Affect affect)
+    public void AddAffects(List<Affect> affects)
     {
-        this.affect += affect;
+        this.affects.AddRange(affects);
     }
 
     public void SaveBlock() 
@@ -210,7 +210,10 @@ public class PatientManager : MonoBehaviour
 
     public void MakeTheDamage(float damage)
     {
-        affect.Invoke(affect.OnDefense);
+        foreach (Affect affect in affects)
+        {
+            affect.Invoke(InPhobiaEventType.OnDefense);
+        }
 
         float damageHolder = damage;
         damage -= block;
@@ -265,7 +268,10 @@ public class PatientManager : MonoBehaviour
             block = 0;
         }
 
-        affect.Invoke(InPhobiaEventType.OnTurnStart);
+        foreach (Affect affect in affects)
+        {
+            affect.Invoke(InPhobiaEventType.OnTurnStart);
+        }
         Debug.Log($"<color=cyan>Turn Started</color>");
 
 
@@ -288,12 +294,12 @@ public class PatientManager : MonoBehaviour
 
             for (int k = 0; k < nextEffectCount; k++)
             {
-                affect += Hand[i].affect;
+                affects.AddRange(Hand[i].affects);
             }
             nextEffectCount = 1;
 
             //Debug.Break();
-            affect.Update();
+            affects.Update();
             yield return new WaitForFixedUpdate();
             //Debug.Break();
 
@@ -313,14 +319,20 @@ public class PatientManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
 
 
-            affect.Invoke(InPhobiaEventType.OnStepStart);
+            foreach (Affect affect in affects)
+            {
+                affect.Invoke(InPhobiaEventType.OnStepStart);
+            }
             cardCountInHand = Hand.Count;
 
             if (Hand.Count > 0)
             {
                 if (Hand[i].cardType == CardTypes.Attack)
                 {
-                    affect.Invoke(InPhobiaEventType.OnAttack);
+                    foreach (Affect affect in affects)
+                    {
+                        affect.Invoke(InPhobiaEventType.OnAttack);
+                    }
 
                     for (int j = 0; j < patient.attackCount; j++)
                     {
@@ -330,7 +342,10 @@ public class PatientManager : MonoBehaviour
                     }
                 }
             }
-            affect.Invoke(InPhobiaEventType.OnStepEnd);
+            foreach (Affect affect in affects)
+            {
+                affect.Invoke(InPhobiaEventType.OnStepEnd);
+            }
 
             Debug.Log($"<color=cyan>Step Ended</color>_{currentCardID}_");
             if (!removeCurrentCardFromDeck && Hand.Count > 0)
@@ -353,7 +368,10 @@ public class PatientManager : MonoBehaviour
 
         PhobiaManager.instance.StartTurn(()=>
         {
-            affect.Invoke(InPhobiaEventType.OnTurnEnd);
+            foreach (Affect affect in affects)
+            {
+                affect.Invoke(InPhobiaEventType.OnTurnEnd);
+            }
 
             UIManager.instance.SetCanvasGroupActive(true);
 

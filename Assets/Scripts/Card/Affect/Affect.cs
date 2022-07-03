@@ -1,87 +1,73 @@
+using UnityEngine;
 using System.Collections.Generic;
 using System;
-using UnityEngine;
-using UnityEngine.Events;
-using System.Linq;
 
 [Serializable]
-public class Affect
+[CreateAssetMenu(fileName = "New Affect", menuName = "ScriptableObjects/Affect", order = 1)]
+public class Affect : ScriptableObject
 {
-    public List<InPhobiaAction> OnTurnStart;//The act before patient play first card
-    public List<InPhobiaAction> OnTurnEnd;//The act after patient play the last card
-    public List<InPhobiaAction> OnStepStart;//The act before Patient play card
-    public List<InPhobiaAction> OnStepEnd;//The act after Patient play card
-    public List<InPhobiaAction> OnAttack;//The act before Patient attack
-    public List<InPhobiaAction> OnDefense;//The act before patient attacted by enamy
+    public InPhobiaAction OnTurnStart;//The act before patient play first card
+    public InPhobiaAction OnTurnEnd;//The act after patient play the last card
+    public InPhobiaAction OnStepStart;//The act before Patient play card
+    public InPhobiaAction OnStepEnd;//The act after Patient play card
+    public InPhobiaAction OnAttack;//The act before Patient attack
+    public InPhobiaAction OnDefense;//The act before patient attacted by enamy
 
     private string name;
     private int index;
 
-    public Affect()
-    {
-        CheckForNulls();
-    }
+    //public void Update()
+    //{
+    //    //Debug.Log($"<color=green>Affect: </color>Affect Update Started");
 
-    public void Update()
-    {
-        //Debug.Log($"<color=green>Affect: </color>Affect Update Started");
+    //    name = "";
+    //    index = 0;
 
-        name = "";
-        index = 0;
-
-        UpdateActionList(OnTurnStart);
-        UpdateActionList(OnTurnEnd);
-        UpdateActionList(OnStepStart);
-        UpdateActionList(OnStepEnd);
-        UpdateActionList(OnAttack);
-        UpdateActionList(OnDefense);
+    //    UpdateActionList(OnTurnStart);
+    //    UpdateActionList(OnTurnEnd);
+    //    UpdateActionList(OnStepStart);
+    //    UpdateActionList(OnStepEnd);
+    //    UpdateActionList(OnAttack);
+    //    UpdateActionList(OnDefense);
 
 
-        //Debug.Log($"<color=green>Affect: </color>Affect Updated {name}");
-    }
+    //    //Debug.Log($"<color=green>Affect: </color>Affect Updated {name}");
+    //}
 
-    public void Clear()
-    {
-        OnTurnStart.Clear();
-        OnTurnEnd.Clear();
-        OnStepStart.Clear();
-        OnStepEnd.Clear();
-        OnAttack.Clear();
-        OnDefense.Clear();
-    }
+    //public void Clear()
+    //{
+    //    OnTurnStart.Clear();
+    //    OnTurnEnd.Clear();
+    //    OnStepStart.Clear();
+    //    OnStepEnd.Clear();
+    //    OnAttack.Clear();
+    //    OnDefense.Clear();
+    //}
 
     public void Invoke(InPhobiaEventType type)
     {
         switch (type)
         {
             case InPhobiaEventType.OnTurnStart:
-                Invoke(OnTurnStart);
+                OnTurnStart.Invoke();
                 break;
             case InPhobiaEventType.OnTurnEnd:
-                Invoke(OnTurnEnd);
+                OnTurnEnd.Invoke();
                 break;
             case InPhobiaEventType.OnStepStart:
-                Invoke(OnStepStart);
+                OnStepStart.Invoke();
                 break;
             case InPhobiaEventType.OnStepEnd:
-                Invoke(OnStepEnd);
+                OnStepEnd.Invoke();
                 break;
             case InPhobiaEventType.OnAttack:
-                Invoke(OnAttack);
+                OnAttack.Invoke();
                 break;
             case InPhobiaEventType.OnDefense:
-                Invoke(OnDefense);
+                OnDefense.Invoke();
                 break;
             default:
                 break;
-        }
-    }
-
-    public void Invoke(List<InPhobiaAction> inPhobiaActions)
-    {
-        foreach (InPhobiaAction action in inPhobiaActions)
-        {
-            action.Invoke();
         }
     }
 
@@ -92,7 +78,6 @@ public class Affect
         //remove nulls
         for (int i = 0; i < length; i++)
         {
-            //if (string.IsNullOrEmpty(inPhobiaActions[i].ID)) 
             if (string.IsNullOrEmpty(inPhobiaActions[i].id))
             {
                 inPhobiaActions.RemoveAt(i);
@@ -113,7 +98,6 @@ public class Affect
             }
         }
         //remove similars
-        //inPhobiaActions.Distinct().ToList();
         for (int i = 0; i < length-1; i++)
         {
             for (int j = i+1; j < length; j++)
@@ -138,21 +122,6 @@ public class Affect
         }
     }
 
-    private void CheckForNulls()
-    {
-        if (OnTurnStart == null)
-            OnTurnStart = new List<InPhobiaAction>();
-        if (OnTurnEnd == null)
-            OnTurnEnd = new List<InPhobiaAction>();
-        if (OnStepStart == null)
-            OnStepStart = new List<InPhobiaAction>();
-        if (OnStepEnd == null)
-            OnStepEnd = new List<InPhobiaAction>();
-        if (OnAttack == null)
-            OnAttack = new List<InPhobiaAction>();
-        if (OnDefense == null)
-            OnDefense = new List<InPhobiaAction>();
-    }
 
     private string GetActionsListName(int index)
     {
@@ -173,17 +142,5 @@ public class Affect
             default:
                 return "Wrong index";
         }
-    }
-
-    public static Affect operator +(Affect a, Affect b)
-    {
-        a.OnTurnStart.AddRange(b.OnTurnStart);
-        a.OnTurnEnd.AddRange(b.OnTurnEnd);
-        a.OnStepStart.AddRange(b.OnStepStart);
-        a.OnStepEnd.AddRange(b.OnStepEnd);
-        a.OnAttack.AddRange(b.OnAttack);
-        a.OnDefense.AddRange(b.OnDefense);
-
-        return a;
     }
 }

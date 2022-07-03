@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 
 public class CardController : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private GameObject bgOutline;
     [SerializeField] private List<CanvasGroup> bgs;
+    [SerializeField] private Image cardImage;
     [SerializeField] private TMP_Text ap;
     [SerializeField] private TMP_Text cardName;
     [SerializeField] private TMP_Text description;
@@ -190,6 +191,16 @@ public class CardController : MonoBehaviour
         SetInteractable(true);
         gameObject.name = card.name;
         this.card = card;
+
+        if (card.cardImageSprite == null)
+        {
+            cardImage.enabled = false;
+        }
+        else
+        {
+            cardImage.sprite = card.cardImageSprite;
+            cardImage.enabled = true;
+        }
 
         if (card.cardType == CardTypes.Equipment)
         {

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
             SetPause();
         }
 #if UNITY_EDITOR
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.P))
         {
             Debug.Break();
         }

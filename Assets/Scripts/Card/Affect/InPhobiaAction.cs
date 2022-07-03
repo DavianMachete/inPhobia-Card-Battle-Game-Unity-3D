@@ -14,12 +14,16 @@ public class InPhobiaAction
     public string id;
     //public string ID { get { return id; } }
 
-    public bool invoked;
+    public bool invoked = false;
     //public bool Invoked { get { return invoked; } }
+
+    public int invokedCount = 0;
 
 
     public InPhobiaAction(string id, UnityAction onAction, bool saveAction)
     {
+        invoked = false;
+        invokedCount = 0;
         this.id = id;
         this.onAction = onAction;
         this.saveAction = saveAction;
@@ -31,6 +35,7 @@ public class InPhobiaAction
         onAction();
         if (!saveAction)
             invoked = true;
+        invokedCount++;
     }
 
 
