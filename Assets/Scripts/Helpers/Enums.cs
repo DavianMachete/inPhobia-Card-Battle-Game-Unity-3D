@@ -36,14 +36,29 @@ public enum ScreenPart
     Therapist
 }
 
-//public enum PhobiaPhase
-//{
-//    FirstPhase,
-//    SecondPhase
-//}
-
 public enum CurveType
 {
     Parabola,
     Bezier
+}
+
+public enum AffectType
+{
+    AddActionPoints,
+    AddBlock,
+    Armor,
+    Attack,
+    AttackOnDefense,
+    Discard,
+    DoubleNextAffect,
+    DropKickWithoutAttack,
+    Exhaust,
+    GiveEnemyWeaknessOnHit,
+    MultiplyBlock,
+    Power,
+    PullCard,
+    SaveBlock,
+    SteelBlock,
+    Vulnerability,
+    Weakness
 }

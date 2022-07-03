@@ -12,9 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5a32e1f1777464db9a6babd8625623, type: 3}
   m_Name: Vulnerablity
   m_EditorClassIdentifier: 
-  OnTurnStart: []
-  OnTurnEnd: []
-  OnStepStart: []
-  OnStepEnd: []
-  OnAttack: []
-  OnDefense: []
+  OnTurnStart:
+    onEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    saveAction: 0
+    id: 
+    invoked: 0
+    invokedCount: 0
+  OnTurnEnd:
+    onEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    saveAction: 0
+    id: 
+    invoked: 0
+    invokedCount: 0
+  OnStepStart:
+    onEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    saveAction: 0
+    id: 
+    invoked: 0
+    invokedCount: 0
+  OnStepEnd:
+    onEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    saveAction: 0
+    id: 
+    invoked: 0
+    invokedCount: 0
+  OnAttack:
+    onEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    saveAction: 0
+    id: 
+    invoked: 0
+    invokedCount: 0
+  OnDefense:
+    onEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    saveAction: 0
+    id: 
+    invoked: 0
+    invokedCount: 0

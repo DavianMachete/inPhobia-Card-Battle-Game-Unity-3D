@@ -15,7 +15,8 @@ MonoBehaviour:
   cardImageSprite: {fileID: 0}
   cardID: 
   cardType: 0
-  affect: {fileID: 0}
+  affects:
+  - {fileID: 0}
   affectDescription: 
   actionPoint: 0
   rarity: 0
