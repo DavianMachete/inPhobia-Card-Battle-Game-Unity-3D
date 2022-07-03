@@ -88,7 +88,11 @@ public class DialogController : MonoBehaviour
         //Prepare Next Button
         nextButton.onClick.RemoveAllListeners();
         dialog[dialogIndex].onThisDiologStart?.Invoke();
-        nextButton.onClick.AddListener(() => ShowNextDialog());
+        nextButton.onClick.AddListener(() =>
+        {
+            dialog[dialogIndex].onNext?.Invoke();
+            ShowNextDialog();
+        });
 
         //Reset Diolog parametres
         selectedQuestionIndex = -1;
@@ -123,7 +127,7 @@ public class DialogController : MonoBehaviour
                 questions[i].questionButton.onClick.AddListener(()=>
                 {
                     dialog[dialogIndex].questions[questionIndex].onQuestion?.Invoke();
-                    ShowNextDialog();
+                    nextButton.onClick?.Invoke();
                 });
             }
         }

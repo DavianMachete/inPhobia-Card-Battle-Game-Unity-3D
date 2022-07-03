@@ -19,6 +19,8 @@ public class Dialog
 
     public List<FactChecker> factCheckers = null;
     public List<Question> questions = null;
+
+    public UnityEvent onNext = null;
 }
 
 
