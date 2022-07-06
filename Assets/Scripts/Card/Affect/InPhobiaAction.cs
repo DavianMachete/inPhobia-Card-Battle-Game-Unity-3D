@@ -4,7 +4,7 @@ using UnityEngine.Events;
 [Serializable]
 public class InPhobiaAction
 {
-    public UnityEvent onEvent;
+    public UnityAction action;
     //public UnityAction OnAction { get { return onAction; } }
 
     public bool saveAction;
@@ -19,19 +19,19 @@ public class InPhobiaAction
     public int invokedCount = 0;
 
 
-    public InPhobiaAction(string id, UnityEvent onEvent, bool saveAction)
+    public InPhobiaAction(string id, UnityAction action, bool saveAction)
     {
         invoked = false;
         invokedCount = 0;
         this.id = id;
-        this.onEvent = onEvent;
+        this.action = action;
         this.saveAction = saveAction;
     }
 
 
     public void Invoke()
     {
-        onEvent?.Invoke();
+        action?.Invoke();
         if (!saveAction)
             invoked = true;
         invokedCount++;

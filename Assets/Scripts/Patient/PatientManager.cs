@@ -294,7 +294,7 @@ public class PatientManager : MonoBehaviour
 
             for (int k = 0; k < nextEffectCount; k++)
             {
-                affects.AddRange(Hand[i].affects);
+                affects.AddRange(Hand[i].GetAffects());
             }
             nextEffectCount = 1;
 

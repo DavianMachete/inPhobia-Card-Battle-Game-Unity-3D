@@ -505,7 +505,7 @@ public class CardManager : MonoBehaviour
         {
             Debug.Log($"<color=cyan>Equimpent card {cardController.card.cardID} added</color>");
             //Initialize Equipment card effect
-            PatientManager.instance.AddAffects(cardController.card.affects);
+            PatientManager.instance.AddAffects(cardController.card.GetAffects());
 
             IPlayPatientTopCardHelper = null;
         });

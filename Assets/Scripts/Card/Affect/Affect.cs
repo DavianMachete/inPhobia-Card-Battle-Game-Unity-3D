@@ -2,9 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-[Serializable]
-[CreateAssetMenu(fileName = "New Affect", menuName = "ScriptableObjects/Affect", order = 1)]
-public class Affect : ScriptableObject
+//[Serializable]
+public class Affect 
 {
     public InPhobiaAction OnTurnStart;//The act before patient play first card
     public InPhobiaAction OnTurnEnd;//The act after patient play the last card

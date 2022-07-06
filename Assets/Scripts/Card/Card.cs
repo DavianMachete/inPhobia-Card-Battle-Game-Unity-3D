@@ -13,8 +13,6 @@ public class Card : ScriptableObject
 
     public CardTypes cardType;
 
-    public List<Affect> affects; 
-
     public string affectDescription;
 
     public int actionPoint;
@@ -23,7 +21,11 @@ public class Card : ScriptableObject
 
     public CardUIType cardBelonging = CardUIType.defaultCard;
 
+    public List<AffectHolder> affects;
+
     private static int id;
+
+    private List<Affect> _affects;
 
     public Card(Card card)
     {
@@ -38,7 +40,7 @@ public class Card : ScriptableObject
         cardBelonging = card.cardBelonging;
     }
 
-    public Card(string cardName,Sprite cardImageSprite, CardTypes cardType, List<Affect> affects, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
+    public Card(string cardName,Sprite cardImageSprite, CardTypes cardType, List<AffectHolder> affects, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
     {
         id++;
         cardID = cardName.ToLower() + $"_{id}";//Guid.NewGuid().ToString("N");
@@ -51,5 +53,18 @@ public class Card : ScriptableObject
         this.actionPoint = actionPoint;
         this.rarity = rarity;
         this.cardBelonging = cardBelonging;
+    }
+
+    public List<Affect> GetAffects()
+    {
+        if (_affects == null)
+            _affects = new List<Affect>();
+        _affects.Clear();
+
+        foreach (AffectHolder ah in affects)
+        {
+            _affects.Add(ah.affect);
+        }
+        return _affects;
     }
 }
