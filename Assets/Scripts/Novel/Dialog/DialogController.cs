@@ -27,6 +27,7 @@ public class DialogController : MonoBehaviour
     private bool currentDiologHasQuestion = false;
     private int selectedQuestionIndex = -1;
     private int dialogIndex = 0;
+    private int passedDiologIndex = 0;
 
     private void Update()
     {
@@ -73,9 +74,28 @@ public class DialogController : MonoBehaviour
         onDialogue = true;
     }
 
+    public void ShowPreviousDialog()
+    {
+        if (dialogIndex - 1 < 0)
+            return;
+
+        ShowDiolog(dialogIndex - 1);
+    }
+
+    public void ShowNextDialog()
+    {
+        nextButton.onClick?.Invoke();
+    }
+
     public void ShowDiolog(int index)
     {
+        bool isNext = false;
         dialogIndex = index;
+        if (dialogIndex > passedDiologIndex)
+        {
+            passedDiologIndex = dialogIndex;
+            isNext = true;
+        }
 
         if (dialog.Count <= dialogIndex)
         {
@@ -84,14 +104,23 @@ public class DialogController : MonoBehaviour
             return;
         }
 
+        if (isNext)
+            dialog[dialogIndex].onThisDiologStart?.Invoke();
 
         //Prepare Next Button
         nextButton.onClick.RemoveAllListeners();
-        dialog[dialogIndex].onThisDiologStart?.Invoke();
+
+        Debug.Log($"dialog index = {dialogIndex}, isNext = {isNext}");
+
+        bool newIsNext = isNext;
         nextButton.onClick.AddListener(() =>
         {
-            dialog[dialogIndex].onNext?.Invoke();
-            ShowNextDialog();
+            Debug.Log($"dialogIndex = {dialogIndex}, newIsNext = {newIsNext} OnClick");
+
+            if (newIsNext)
+                dialog[dialogIndex].onNext?.Invoke();
+
+            ShowDiolog(dialogIndex + 1);
         });
 
         //Reset Diolog parametres
@@ -118,21 +147,24 @@ public class DialogController : MonoBehaviour
 
             for(int i = 0; i < dialog[dialogIndex].questions.Count; i++)
             {
-                int questionIndex = i;
-
                 questions[i].questionButton.gameObject.SetActive(true);
                 questions[i].questionText.text = dialog[dialogIndex].questions[i].question;
 
                 questions[i].questionButton.onClick.RemoveAllListeners();
+                int questionIndex = i;
+                int j = dialogIndex;
                 questions[i].questionButton.onClick.AddListener(()=>
                 {
-                    dialog[dialogIndex].questions[questionIndex].onQuestion?.Invoke();
-                    nextButton.onClick?.Invoke();
+                    dialog[j].onNext?.Invoke();
+                    dialog[j].questions[questionIndex].onQuestion?.Invoke();
+
+                    ShowDiolog(dialogIndex + 1);
+                    //nextButton.onClick?.Invoke();
                 });
             }
         }
 
-        if (dialog[dialogIndex].checkTrustPoints)
+        if (dialog[dialogIndex].checkTrustPoints && isNext)
         {
             if (progressBarController.PointsHavePassedTheLimit(dialog[dialogIndex].trustPointsLimit))
             {
@@ -140,7 +172,7 @@ public class DialogController : MonoBehaviour
             }
         }
 
-        if (dialog[dialogIndex].factCheckers.Count>0)
+        if (dialog[dialogIndex].factCheckers.Count>0 && isNext)
         {
             for (int i = 0; i < dialog[dialogIndex].factCheckers.Count; i++)
             {
@@ -166,20 +198,17 @@ public class DialogController : MonoBehaviour
 
     public void PrepareNextDialogWithQuestion()
     {
-        for (int i = dialogIndex; i < dialog.Count; i++)
-        {
-            if (dialog[i].questions.Count > 0)
-            {
-                ShowDiolog(i);
-                break;
-            }
-        }
+        if (ISearchNextDiologWithQuestionHelper == null)
+            ISearchNextDiologWithQuestionHelper = StartCoroutine(ISearchNextDiologWithQuestion());
+
     }
 
     public void SetBlock(DialogBlock dialogBlock)
     {
+        Debug.Log($"SetBlock ---> {dialogBlock.gameObject.name}");
         dialog = new List<Dialog>(dialogBlock.dialogBlock);
         dialogIndex = -1;
+        passedDiologIndex = -1;
     }
 
     #endregion
@@ -219,20 +248,22 @@ public class DialogController : MonoBehaviour
             activeQuestionObjects[selectedQuestionIndex].questionButton.onClick?.Invoke();
     }
 
-    private void ShowPreviousDialog()
+    #endregion
+
+    #region Coroutines
+
+    private Coroutine ISearchNextDiologWithQuestionHelper;
+    private IEnumerator ISearchNextDiologWithQuestion()
     {
-        if (dialogIndex - 1 < 0)
-            return;
+        int counter = 0;
+        while (!currentDiologHasQuestion && onDialogue)
+        {
+            Debug.Log($"Searching diolog with question - {counter++}");
 
-        ShowDiolog(dialogIndex - 1);
-    }
-
-    private void ShowNextDialog()
-    {
-        if (dialogIndex + 1 >= dialog.Count)
-            return;
-
-        ShowDiolog(dialogIndex + 1);
+            ShowNextDialog();
+            yield return new WaitForEndOfFrame();
+        }
+        ISearchNextDiologWithQuestionHelper = null;
     }
 
     #endregion

@@ -6,7 +6,7 @@ public class FactController : MonoBehaviour
 {
     [SerializeField] private Animator factAnimator;
     [SerializeField] private GameObject factUIPrefab;
-    [SerializeField] private RectTransform factUIsParnet;
+    [SerializeField] private RectTransform factUIParnet;
 
     private List<Fact> collectedFacts;
 
@@ -19,7 +19,7 @@ public class FactController : MonoBehaviour
         if (HasFact(fact))
             return;
 
-        Instantiate(factUIPrefab, factUIsParnet);
+        Instantiate(factUIPrefab, factUIParnet);
         //Assign fact to Game Object here
 
         collectedFacts.Add(fact);

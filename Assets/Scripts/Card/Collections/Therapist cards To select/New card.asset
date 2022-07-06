@@ -17,6 +17,7 @@ MonoBehaviour:
   cardType: 0
   affects:
   - {fileID: 0}
+  - {fileID: 0}
   affectDescription: 
   actionPoint: 0
   rarity: 0
