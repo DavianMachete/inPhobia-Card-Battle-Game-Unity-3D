@@ -116,14 +116,14 @@ public static class Affects
         return affect;
     }
 
-    public static Affect AddActionPoints(int _APvalue, int maxAPvalue)
+    public static Affect AddActionPoints(float _APvalue, float maxAPvalue)
     {
         Affect affect = new Affect();
         affect.OnStepStart = new InPhobiaAction($"AddActionPoint_{_APvalue}".ToLower(),
             () =>
             {
-                PatientManager.instance.patient.patientActionPoints += _APvalue;
-                PatientManager.instance.patient.patientMaximumActionPoints += maxAPvalue;
+                PatientManager.instance.patient.patientActionPoints += Mathf.RoundToInt(_APvalue);
+                PatientManager.instance.patient.patientMaximumActionPoints += Mathf.RoundToInt(maxAPvalue);
                 PatientManager.instance.SetActionPoint();
             }, false);
         return affect;

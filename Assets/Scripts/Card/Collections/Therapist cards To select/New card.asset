@@ -15,10 +15,20 @@ MonoBehaviour:
   cardImageSprite: {fileID: 0}
   cardID: 
   cardType: 0
-  affects:
-  - {fileID: 0}
-  - {fileID: 0}
   affectDescription: 
   actionPoint: 0
   rarity: 0
   cardBelonging: 0
+  affects:
+  - affectType: 15
+    firstValue: 0
+    secondValue: 0
+  - affectType: 1
+    firstValue: 0
+    secondValue: 0
+  - affectType: 6
+    firstValue: 0
+    secondValue: 0
+  - affectType: 0
+    firstValue: 0
+    secondValue: 0

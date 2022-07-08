@@ -21,6 +21,7 @@ public class Card : ScriptableObject
 
     public CardUIType cardBelonging = CardUIType.defaultCard;
 
+    [NonReorderable]
     public List<AffectHolder> affects;
 
     private static int id;

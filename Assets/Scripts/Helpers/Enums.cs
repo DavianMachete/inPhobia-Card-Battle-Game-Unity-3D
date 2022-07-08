@@ -44,8 +44,8 @@ public enum CurveType
 
 public enum AffectType
 {
-    AddActionPoints,
-    AddBlock,
+    AddActionPoints =0,
+    AddBlock =1,
     Armor,
     Attack,
     AttackOnDefense,
