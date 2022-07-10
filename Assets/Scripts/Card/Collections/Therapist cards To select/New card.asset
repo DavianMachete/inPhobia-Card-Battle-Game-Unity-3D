@@ -20,15 +20,15 @@ MonoBehaviour:
   rarity: 0
   cardBelonging: 0
   affects:
-  - affectType: 15
+  - affectType: 0
     firstValue: 0
     secondValue: 0
-  - affectType: 1
+  - affectType: 4
     firstValue: 0
     secondValue: 0
   - affectType: 6
     firstValue: 0
     secondValue: 0
-  - affectType: 0
+  - affectType: 2
     firstValue: 0
-    secondValue: 0
+    secondValue: 1.98

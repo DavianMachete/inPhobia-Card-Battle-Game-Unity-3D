@@ -150,7 +150,7 @@ public static class Affects
         return affect;
     }
 
-    public static Affect DoubleNextEffect()
+    public static Affect DoubleNextAffect()
     {
         Affect affect = new Affect();
         affect.OnStepStart = new InPhobiaAction($"DoubleNextAttack".ToLower(), () => PatientManager.instance.DoubleNextEffect(), false);

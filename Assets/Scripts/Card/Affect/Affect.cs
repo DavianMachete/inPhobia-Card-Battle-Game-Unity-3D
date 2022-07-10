@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 
 //[Serializable]
-public class Affect 
+public class Affect : UnityEngine.Object
 {
     public InPhobiaAction OnTurnStart;//The act before patient play first card
     public InPhobiaAction OnTurnEnd;//The act after patient play the last card
