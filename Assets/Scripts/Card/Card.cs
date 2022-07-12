@@ -17,8 +17,7 @@ public class Card : ScriptableObject
 
     public Rarity rarity;
 
-
-    [HideInInspector] public CardUIType cardBelonging = CardUIType.defaultCard;
+    public CardUIType cardBelonging = CardUIType.defaultCard;
 
     [HideInInspector] public string cardID;
 

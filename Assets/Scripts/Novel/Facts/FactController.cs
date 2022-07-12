@@ -37,6 +37,8 @@ public class FactController : MonoBehaviour
 
     public bool HasFact(Fact fact)
     {
+        if(collectedFacts==null)
+            return false;
         foreach (Fact f in collectedFacts)
         {
             if (f.factID == fact.factID)

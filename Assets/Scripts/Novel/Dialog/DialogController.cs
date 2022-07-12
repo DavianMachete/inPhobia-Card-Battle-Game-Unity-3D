@@ -36,11 +36,13 @@ public class DialogController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            ShowPreviousDialog();
+            if (!currentDiologHasQuestion)
+                ShowPreviousDialog();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            ShowNextDialog();
+            if (!currentDiologHasQuestion)
+                ShowNextDialog();
         }
 
         if (currentDiologHasQuestion)

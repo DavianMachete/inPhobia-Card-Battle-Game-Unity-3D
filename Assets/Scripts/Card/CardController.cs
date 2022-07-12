@@ -588,6 +588,10 @@ public class CardController : MonoBehaviour
         }
         else
         {
+            for (int i = 1; i < 3; i++)
+            {
+                bgs[i].alpha = 0f;
+            }
             turnOff.alpha = 0f;
             turnOn.alpha = 1f;
         }
