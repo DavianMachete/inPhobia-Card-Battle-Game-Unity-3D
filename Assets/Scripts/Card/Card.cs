@@ -8,8 +8,6 @@ using UnityEngine;
 public class Card : ScriptableObject
 {
     public Sprite cardImageSprite;
- 
-    public string cardID;
 
     public CardTypes cardType;
 
@@ -19,10 +17,14 @@ public class Card : ScriptableObject
 
     public Rarity rarity;
 
-    public CardUIType cardBelonging = CardUIType.defaultCard;
 
-    [NonReorderable]
-    public List<AffectHolder> affects;
+    [HideInInspector] public CardUIType cardBelonging = CardUIType.defaultCard;
+
+    [HideInInspector] public string cardID;
+
+
+    [NonReorderable] public List<AffectHolder> affects;
+
 
     private static int id;
 

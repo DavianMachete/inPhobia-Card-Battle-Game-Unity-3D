@@ -83,12 +83,56 @@ public static class Affects
         return affect;
     }
 
+    public static Affect AddWeaknessOnDamage(float weaknessStack)
+    {
+        Affect affect = new Affect();
+        affect.OnDefense = new InPhobiaAction($"AddWeaknessOnDmage_{weaknessStack}".ToLower(), () => PhobiaManager.instance.AddWeakness(Mathf.FloorToInt(weaknessStack)), true);
+
+        return affect;
+    }
+
     public static Affect SaveBlock()
     {
         Affect affect = new Affect();
         affect.OnStepStart = new InPhobiaAction($"SaveBlock".ToLower(), () => PatientManager.instance.SaveBlock(), true);
         return affect;
     }
+
+    public static Affect AddHealth(float healthAmount)
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"Addhealth".ToLower(), () => PatientManager.instance.AddHealth(healthAmount), false);
+        return affect;
+    }
+
+    public static Affect AddPoison(float poisons)
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"AddPoison".ToLower(), () => PatientManager.instance.AddPoison(poisons), false);
+        return affect;
+    }
+
+    public static Affect AddPower(float power)
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"AddPower".ToLower(), () => PatientManager.instance.AddPower(power), false);
+        return affect;
+    }
+
+    public static Affect AddSpikes(float spikes)
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"AddSpikes".ToLower(), () => PatientManager.instance.AddSpikes(spikes), false);
+        return affect;
+    }
+
+    public static Affect BlockTheDamage()
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"BlockTheDamage".ToLower(), () => PatientManager.instance.BlockTheDamage(), false);
+        return affect;
+    }
+
     public static Affect GiveEnemyWeaknessOnHit()
     {
         Affect affect = new Affect();
@@ -106,6 +150,13 @@ public static class Affects
     {
         Affect affect = new Affect();
         affect.OnStepStart = new InPhobiaAction($"Discard".ToLower(), () => PatientManager.instance.Discard(), false);
+        return affect;
+    }
+
+    public static Affect DiscardAndAddBlockForEach(int blockCount)
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"DiscardAndAddBlockForEach".ToLower(), () => PatientManager.instance.DiscardAndAddBlockForEach(blockCount), false);
         return affect;
     }
 
@@ -154,6 +205,22 @@ public static class Affects
     {
         Affect affect = new Affect();
         affect.OnStepStart = new InPhobiaAction($"DoubleNextAttack".ToLower(), () => PatientManager.instance.DoubleNextEffect(), false);
+        return affect;
+    }
+
+    public static Affect DoubleTheBlock()
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"DoubleTheBlock".ToLower(), () => PatientManager.instance.AddBlock(PatientManager.instance.GetBlock()),false);
+
+        return affect;
+    }
+
+    public static Affect TurnWeaknessIntoPoison()
+    {
+        Affect affect = new Affect();
+        affect.OnStepStart = new InPhobiaAction($"TurnWeaknessIntoPoison".ToLower(), () => PatientManager.instance.TurnWeaknessIntoPoison(), false);
+
         return affect;
     }
 }

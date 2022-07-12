@@ -32956,6 +32956,7 @@ MonoBehaviour:
   deck: []
   Hand: []
   discard: []
+  affects: []
   effectSplinePath: {fileID: 1882855551}
   cardsCountInDeck: {fileID: 203533535}
   actionPointsText: {fileID: 50021790}
@@ -32964,6 +32965,7 @@ MonoBehaviour:
   armor: 0
   block: 0
   blockSaved: 0
+  blockTheDamage: 0
   attackWhenDamaged: 0
   giveEnemyWeakness: 0
 --- !u!1 &1112013863
@@ -66588,7 +66590,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1580.5625, y: -1240.1453, z: 243.44122}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2077583916}
   m_Father: {fileID: 704377076}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70867,6 +70870,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077242818}
   m_CullTransparentMesh: 1
+--- !u!1 &2077583915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2077583916}
+  - component: {fileID: 2077583917}
+  m_Layer: 0
+  m_Name: Cards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2077583916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077583915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1935349383}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2077583917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077583915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64a15b74d23fa14d8aaafa9e5868ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TherapistCardsToSelect:
+  - {fileID: 11400000, guid: 43e3ff2bfa6a5406799e78fbf89c17d6, type: 2}
+  - {fileID: 11400000, guid: b5117b0a85b4e4f7b8647b12ccb1db6b, type: 2}
+  - {fileID: 11400000, guid: 820cb57f7d56e4067a60754e11774c1c, type: 2}
+  - {fileID: 11400000, guid: cdae8935ba8c248e79fdeafa24dd1043, type: 2}
+  - {fileID: 11400000, guid: 38cbbef7afeac4aa1b3af6aa63faa0b6, type: 2}
+  - {fileID: 11400000, guid: c5589a11f5c034db38a287781a6aacf6, type: 2}
+  - {fileID: 11400000, guid: 41c7130f8125440b695c0bda7ed33522, type: 2}
+  - {fileID: 11400000, guid: 7a0a53a0e7e474624a1b93d21fc3972f, type: 2}
+  - {fileID: 11400000, guid: 5165583f17c274f2e912dba65e1e64e9, type: 2}
+  - {fileID: 11400000, guid: 659ca60ee807447e1a77663de76594b2, type: 2}
+  - {fileID: 11400000, guid: 3c29aeea254a04ce88e2a0b8b2d5f29c, type: 2}
+  - {fileID: 11400000, guid: 9f11095251058474981225b26480b932, type: 2}
+  - {fileID: 11400000, guid: 83633aba7874a47e28578f3b49992589, type: 2}
+  - {fileID: 11400000, guid: d8d3ace871fdf4520ada3dacccd816e7, type: 2}
+  - {fileID: 11400000, guid: 93a8a488d2e6c41a7a242545aca4ff00, type: 2}
+  - {fileID: 11400000, guid: d76706830e33b4e9ea2d45fb05c8f24b, type: 2}
+  - {fileID: 11400000, guid: fff2f897291f54bf18c2c7d666ae34f3, type: 2}
+  - {fileID: 11400000, guid: 013e0d33550864cffa7dee28f2829a11, type: 2}
+  - {fileID: 11400000, guid: 87106184f86344b9b8c861842e21a393, type: 2}
+  - {fileID: 11400000, guid: ffaa1270fddc34035abc426b43ee9024, type: 2}
+  - {fileID: 11400000, guid: 57d1765247d4b4c7e9c8718cdb7cd468, type: 2}
+  TherapistStandartCards:
+  - {fileID: 11400000, guid: 833f82092dfb74d49ba2ac92f16d27b0, type: 2}
+  - {fileID: 11400000, guid: 833f82092dfb74d49ba2ac92f16d27b0, type: 2}
+  - {fileID: 11400000, guid: 833f82092dfb74d49ba2ac92f16d27b0, type: 2}
+  - {fileID: 11400000, guid: 833f82092dfb74d49ba2ac92f16d27b0, type: 2}
+  - {fileID: 11400000, guid: 833f82092dfb74d49ba2ac92f16d27b0, type: 2}
+  - {fileID: 11400000, guid: 7caaf2a662954425d96f382a7ebee9d3, type: 2}
+  - {fileID: 11400000, guid: 7caaf2a662954425d96f382a7ebee9d3, type: 2}
+  - {fileID: 11400000, guid: 7caaf2a662954425d96f382a7ebee9d3, type: 2}
+  - {fileID: 11400000, guid: 7caaf2a662954425d96f382a7ebee9d3, type: 2}
+  - {fileID: 11400000, guid: 7af8874706d744a93867b54fd4ad1657, type: 2}
+  PatientStandartCards:
+  - {fileID: 11400000, guid: 7bb4bf414f19043bfaf002fcd0aa837e, type: 2}
+  - {fileID: 11400000, guid: 7bb4bf414f19043bfaf002fcd0aa837e, type: 2}
+  - {fileID: 11400000, guid: 7bb4bf414f19043bfaf002fcd0aa837e, type: 2}
+  - {fileID: 11400000, guid: 7bb4bf414f19043bfaf002fcd0aa837e, type: 2}
+  - {fileID: 11400000, guid: 8995db27ab89848ee8020efa5af783a8, type: 2}
+  - {fileID: 11400000, guid: 8995db27ab89848ee8020efa5af783a8, type: 2}
+  - {fileID: 11400000, guid: 8995db27ab89848ee8020efa5af783a8, type: 2}
+  - {fileID: 11400000, guid: 82726392b3a554b39af55ca093db6dc5, type: 2}
+  - {fileID: 11400000, guid: 82726392b3a554b39af55ca093db6dc5, type: 2}
+  - {fileID: 11400000, guid: 2f638029bb84e45ffbc4ffd9cddbfe4b, type: 2}
+  Psychosis: {fileID: 11400000, guid: 3cc82bb249acc4141acb4365b403fe07, type: 2}
 --- !u!1 &2082263421
 GameObject:
   m_ObjectHideFlags: 0

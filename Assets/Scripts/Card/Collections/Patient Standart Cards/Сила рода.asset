@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
-  m_Name: New card
+  m_Name: "\u0421\u0438\u043B\u0430 \u0440\u043E\u0434\u0430"
   m_EditorClassIdentifier: 
   cardImageSprite: {fileID: 0}
-  cardID: 
-  cardType: 0
-  affectDescription: 
-  actionPoint: 0
-  rarity: 0
+  cardType: 1
+  affectDescription: "10 \u0431\u043B\u043E\u043A\u0430. \u0428\u0438\u043F\u044B
+    3"
+  actionPoint: 2
+  rarity: 2
   cardBelonging: 0
+  cardID: 
   affects:
-  - affectType: 0
-    firstValue: 0
+  - affectType: 1
+    affect: {fileID: 0}
+    firstValue: 10
     secondValue: 0
-  - affectType: 4
-    firstValue: 0
+  - affectType: 5
+    affect: {fileID: 0}
+    firstValue: 3
     secondValue: 0
-  - affectType: 6
-    firstValue: 0
-    secondValue: 0
-  - affectType: 2
-    firstValue: 0
-    secondValue: 1.98

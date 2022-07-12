@@ -581,16 +581,16 @@ public class CardController : MonoBehaviour
         if (IChangeColorHelper != null)
             StopCoroutine(IChangeColorHelper);
 
-        changeColor = true;
-        IChangeColorHelper = StartCoroutine(IChangeColor(turnOn, turnOff));
-
-        //if(gameObject.activeInHierarchy)
-        //IChangeColorHelper = StartCoroutine(IChangeColor(turnOn, turnOff));
-        //else
-        //{
-        //    turnOff.alpha = 0f;
-        //    turnOn.alpha = 1f;
-        //}
+        if (gameObject.activeInHierarchy)
+        {
+            changeColor = true;
+            IChangeColorHelper = StartCoroutine(IChangeColor(turnOn, turnOff));
+        }
+        else
+        {
+            turnOff.alpha = 0f;
+            turnOn.alpha = 1f;
+        }
     }
 
     #endregion

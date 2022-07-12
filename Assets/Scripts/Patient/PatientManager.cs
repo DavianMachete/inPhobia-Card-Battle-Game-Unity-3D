@@ -31,6 +31,7 @@ public class PatientManager : MonoBehaviour
     [SerializeField] private float block;
     [SerializeField] private bool blockSaved;
 
+    [SerializeField] private bool blockTheDamage;
     [SerializeField] private bool attackWhenDamaged;
     [SerializeField] private bool giveEnemyWeakness;
 
@@ -58,7 +59,7 @@ public class PatientManager : MonoBehaviour
             discard = new List<Card>();
         discard.Clear();
 
-        deck = new List<Card>(Cards.PatientStandartCards());
+        deck = new List<Card>(Cards.instance.PatientStandartCards);
         UpdateHealthBar();
 
         patientMaximumAPHolder = patient.patientMaximumActionPoints;
@@ -85,6 +86,17 @@ public class PatientManager : MonoBehaviour
         {
             IStartTurnHelper = StartCoroutine(IStartTurn());
         }
+    }
+
+    public void AddHealth(float health)
+    {
+        patient.health += health;
+        UpdateHealthBar();
+    }
+
+    public void AddPower(float power)
+    {
+        patient.power += power;
     }
 
     public void PullCard(int count)
@@ -119,6 +131,14 @@ public class PatientManager : MonoBehaviour
         CardManager.instance.Discard(CardUIType.PatientCard);
     }
 
+
+    public void DiscardAndAddBlockForEach(int blockCount)
+    {
+        int handCardsCount = Hand.Count;
+        Discard();
+        AddBlock(blockCount * handCardsCount);
+    }
+
     public void AddAffects(List<Affect> affects)
     {
         this.affects.AddRange(affects);
@@ -149,7 +169,7 @@ public class PatientManager : MonoBehaviour
         {
             PhobiaManager.instance.AddWeakness(1);
         }
-        PhobiaManager.instance.MakeTheDamage(Mathf.RoundToInt(patient.attackForce));
+        PhobiaManager.instance.MakeTheDamage(Mathf.RoundToInt(patient.attackForce + patient.power));
     }
 
     public void AddBlock(float block)
@@ -162,6 +182,17 @@ public class PatientManager : MonoBehaviour
     {
         Debug.Log($"<color=cyan>Block </color>value = {block}");
         return block;
+    }
+
+    public void BlockTheDamage()
+    {
+        blockTheDamage = true;
+    }
+
+    public void TurnWeaknessIntoPoison()
+    {
+        patient.poison = PhobiaManager.instance.phobia.weaknessStack;
+        PhobiaManager.instance.phobia.weaknessStack = 0;
     }
 
     public void AddArmor(float armor)
@@ -196,6 +227,16 @@ public class PatientManager : MonoBehaviour
         removeCurrentCardFromDeck = true;
     }
 
+    public void AddSpikes(float spikesCount)
+    {
+        patient.spikes += Mathf.FloorToInt(spikesCount);
+    }
+
+    public void AddPoison(float poisonCount)
+    {
+        patient.poison += Mathf.FloorToInt(poisonCount);
+    }
+
     public void SetActionPoint()
     {
         actionPointsText.text = patient.patientActionPoints.ToString() + "/" + patient.patientMaximumActionPoints.ToString();
@@ -215,6 +256,12 @@ public class PatientManager : MonoBehaviour
             affect.Invoke(InPhobiaEventType.OnDefense);
         }
 
+        if (blockTheDamage)
+        {
+            blockTheDamage = false;
+            return;
+        }
+
         float damageHolder = damage;
         damage -= block;
         block -= damageHolder;
@@ -231,6 +278,13 @@ public class PatientManager : MonoBehaviour
             if (attackWhenDamaged)
             {
                 Attack();
+            }
+
+            if (patient.spikes > 0)
+            {
+                SetAttackForce(patient.spikes, 1);
+                Attack();
+                patient.spikes--;
             }
         }
         if (patient.health <= 0)
@@ -268,11 +322,20 @@ public class PatientManager : MonoBehaviour
             block = 0;
         }
 
+
+        Debug.Log($"<color=cyan>Turn Started</color>");
+
+        if (patient.poison > 0)
+        {
+            SetAttackForce(patient.poison, 1);
+            Attack();
+            patient.poison--;
+        }
+
         foreach (Affect affect in affects)
         {
             affect.Invoke(InPhobiaEventType.OnTurnStart);
         }
-        Debug.Log($"<color=cyan>Turn Started</color>");
 
 
 
@@ -299,7 +362,7 @@ public class PatientManager : MonoBehaviour
             nextEffectCount = 1;
 
             //Debug.Break();
-     ///////////////////////////////////////////////////////       affects.Update();
+            ///////////////////////////////////////////////////////       affects.Update();
             yield return new WaitForFixedUpdate();
             //Debug.Break();
 

@@ -458,7 +458,7 @@ public class CardManager : MonoBehaviour
         GameObject newCard = Instantiate(cardPrefab, patientCardsParent);
         newCard.GetComponent<RectTransform>().localScale = 0.4f * Vector3.one;
         CardController newCardController = newCard.GetComponent<CardController>();
-        newCardController.SetCardParametersToGameObject(Cards.Psychosis);
+        newCardController.SetCardParametersToGameObject(Cards.instance.Psychosis);
         newCardController.SetCardCurrentType(CardUIType.PatientCard);
         newCardController.SetCardMetrics(index, patientHandSpline);
 

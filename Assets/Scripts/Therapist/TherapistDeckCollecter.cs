@@ -83,9 +83,9 @@ public class TherapistDeckCollecter : InPhobiaScrollView
 
         if (therapistDeck == null)
             therapistDeck = new List<Card>();
-        therapistDeck = new List<Card>(Cards.TherapistStandartCards());
+        therapistDeck = new List<Card>(Cards.instance.TherapistStandartCards);
 
-        therapistCardsToSelect = new List<Card>(Cards.TherapistCardsToSelect());
+        therapistCardsToSelect = new List<Card>(Cards.instance.TherapistCardsToSelect);
         removeCardButton.interactable = false;
 
         PrepareCardsToSelect();

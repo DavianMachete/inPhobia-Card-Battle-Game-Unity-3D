@@ -13,9 +13,12 @@ public class Patient : ScriptableObject
     public float maximumHealth;
     public float health;
     public float attackForce;
+    public float power;
     public int attackCount;
     public int patientMaximumActionPoints;
     public int patientActionPoints;
+    public int spikes;
+    public int poison;
     public Phobia phobia;
 
     [TextArea(20,200)]
@@ -28,6 +31,8 @@ public class Patient : ScriptableObject
     {
         patientMaximumActionPoints = 3;
         patientActionPoints = 3;
+
+        power = 0f;
 
         health = maximumHealth;
     }
