@@ -12,7 +12,7 @@ public class Affect : UnityEngine.Object
     public InPhobiaAction OnAttack;//The act before Patient attack
     public InPhobiaAction OnDefense;//The act before patient attacted by enamy
 
-    private string name;
+    //private string name;
     private int index;
 
     //public void Update()
@@ -43,27 +43,81 @@ public class Affect : UnityEngine.Object
     //    OnDefense.Clear();
     //}
 
+    public bool IsInvoked()
+    {
+        bool invoked = true;
+        if (OnTurnStart != null)
+        {
+            if (!OnTurnStart.invoked)
+                invoked = false;
+            else
+                OnTurnStart = null;
+        }
+
+        if (OnTurnEnd != null)
+        {
+            if (!OnTurnEnd.invoked)
+                invoked = false;
+            else
+                OnTurnEnd = null;
+        }
+
+        if (OnStepStart != null)
+        {
+            if (!OnStepStart.invoked)
+                invoked = false;
+            else
+                OnStepStart = null;
+        }
+
+        if (OnStepEnd != null)
+        {
+            if (!OnStepEnd.invoked)
+                invoked = false;
+            else
+                OnStepEnd = null;
+        }
+
+        if (OnAttack != null)
+        {
+            if (!OnAttack.invoked)
+                invoked = false;
+            else
+                OnAttack = null;
+        }
+
+        if (OnDefense != null)
+        {
+            if (!OnDefense.invoked)
+                invoked = false;
+            else
+                OnDefense = null;
+        }
+
+        return invoked;
+    }
+
     public void Invoke(InPhobiaEventType type)
     {
         switch (type)
         {
             case InPhobiaEventType.OnTurnStart:
-                OnTurnStart.Invoke();
+                OnTurnStart?.Invoke();
                 break;
             case InPhobiaEventType.OnTurnEnd:
-                OnTurnEnd.Invoke();
+                OnTurnEnd?.Invoke();
                 break;
             case InPhobiaEventType.OnStepStart:
-                OnStepStart.Invoke();
+                OnStepStart?.Invoke();
                 break;
             case InPhobiaEventType.OnStepEnd:
-                OnStepEnd.Invoke();
+                OnStepEnd?.Invoke();
                 break;
             case InPhobiaEventType.OnAttack:
-                OnAttack.Invoke();
+                OnAttack?.Invoke();
                 break;
             case InPhobiaEventType.OnDefense:
-                OnDefense.Invoke();
+                OnDefense?.Invoke();
                 break;
             default:
                 break;

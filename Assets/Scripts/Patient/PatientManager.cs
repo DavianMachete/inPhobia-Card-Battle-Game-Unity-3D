@@ -64,6 +64,9 @@ public class PatientManager : MonoBehaviour
 
         patientMaximumAPHolder = patient.patientMaximumActionPoints;
 
+        blockSaved = false;
+        giveEnemyWeakness = false;
+
         SetActionPoint();
     }
 
@@ -207,7 +210,7 @@ public class PatientManager : MonoBehaviour
     {
         if (!Hand.Contains(card))
         {
-            Debug.Log($"<color=red>Can't</color> remove card({card.cardID}) from patient in hand cards cause it doesnt contain that");
+            Debug.Log($"<color=red>Can't</color> remove card({card.name}) from patient in hand cards cause it doesnt contain that");
             return;
         }
         Hand.Remove(card);   
@@ -217,7 +220,7 @@ public class PatientManager : MonoBehaviour
     {
         if (index < 0 || index >= Hand.Count+1)
         {
-            Debug.Log($"<color=red>Can't</color> add card ({card.cardID}) to patient in hand cards by index {index}");
+            Debug.Log($"<color=red>Can't</color> add card ({card.name}) to patient in hand cards by index {index}");
         }
         Hand.Insert(index,card);
     }
@@ -269,6 +272,8 @@ public class PatientManager : MonoBehaviour
             block = 0;
 
         damage -= armor;
+        if (armor > 0)
+            armor--;
 
         if (damage > 0)
         {
@@ -337,7 +342,7 @@ public class PatientManager : MonoBehaviour
             affect.Invoke(InPhobiaEventType.OnTurnStart);
         }
 
-
+        Affects.UpdateAffects(affects);
 
         //foreach (Card card in Hand)
         int cardCountInHand = Hand.Count;
@@ -347,11 +352,11 @@ public class PatientManager : MonoBehaviour
             if (patient.patientActionPoints < Hand[i].actionPoint)//card.actionPoint)
                 break;
 
-            string currentCardID = Hand[i].cardID;
+            string currentCardID = Hand[i].name;
 
             Debug.Log($"Current card is {currentCardID}");
             if (i + 1 < cardCountInHand)
-                Debug.Log($"Next card will be {Hand[i + 1].cardID}");
+                Debug.Log($"Next card will be {Hand[i + 1].name}");
             else
                 Debug.Log($"And itsthe last card in Hand");
 
@@ -386,7 +391,7 @@ public class PatientManager : MonoBehaviour
             {
                 affect.Invoke(InPhobiaEventType.OnStepStart);
             }
-            cardCountInHand = Hand.Count;
+
 
             if (Hand.Count > 0)
             {
@@ -419,15 +424,17 @@ public class PatientManager : MonoBehaviour
             else
             {
                 Debug.Log($"<color=cyan>Patient: </color> The card <color=red>({currentCardID})</color> removed from deck(not discard)");
-                if (Hand.Count > 0)
-                    Hand.RemoveAt(i);
+                
                 removeCurrentCardFromDeck = false;
             }
+            Hand.Remove(Hand[i]);
+            cardCountInHand = Hand.Count;
+            i--;
         }
 
         Debug.Log($"<color=cyan>Turn Ended</color>");
 
-        RemovePlayedCards();
+        //RemovePlayedCards();
 
         PhobiaManager.instance.StartTurn(()=>
         {
@@ -452,7 +459,7 @@ public class PatientManager : MonoBehaviour
         {
             foreach (var cardInHand in Hand)
             {
-                if (playedCard.cardID == cardInHand.cardID)
+                if (playedCard == cardInHand)
                 {
                     Hand.Remove(playedCard);
                     break;

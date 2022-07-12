@@ -503,7 +503,7 @@ public class CardManager : MonoBehaviour
 
         cardController.MoveCardToCenter(() =>
         {
-            Debug.Log($"<color=cyan>Equimpent card {cardController.card.cardID} added</color>");
+            Debug.Log($"<color=cyan>Equimpent card {cardController.card.name} added</color>");
             //Initialize Equipment card effect
             PatientManager.instance.AddAffects(cardController.card.GetAffects());
 

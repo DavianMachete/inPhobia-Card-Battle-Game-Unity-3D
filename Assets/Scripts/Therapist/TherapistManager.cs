@@ -100,7 +100,7 @@ public class TherapistManager: MonoBehaviour
     {
         if (!hand.Contains(card))
         {
-            Debug.Log($"<color=red>Can't</color> remove card({card.cardID}) from therapist in hand cards cause it doesnt contain that");
+            Debug.Log($"<color=red>Can't</color> remove card({card.name}) from therapist in hand cards cause it doesnt contain that");
             return;
         }
         hand.Remove(card);
@@ -110,7 +110,7 @@ public class TherapistManager: MonoBehaviour
     {
         if (index < 0 || index >= hand.Count + 1)
         {
-            Debug.Log($"<color=red>Can't</color> add card ({card.cardID}) to therapist in hand cards by index {index}");
+            Debug.Log($"<color=red>Can't</color> add card ({card.name}) to therapist in hand cards by index {index}");
         }
         hand.Insert(index, card);
     }

@@ -117,6 +117,8 @@ public class PhobiaManager : MonoBehaviour
     {
         Debug.Log($"<color=orange>PHOBIA: </color>Attackpatient with {phobia.attackForce} attack force, {phobia.weaknessStack} weaknessStack aaand {phobia.power} power");
         PatientManager.instance.MakeTheDamage(phobia.attackForce - phobia.weaknessStack);
+        if (phobia.weaknessStack > 0)
+            phobia.weaknessStack--;
     }
 
 
@@ -132,6 +134,9 @@ public class PhobiaManager : MonoBehaviour
             AttackATime();
             yield return new WaitForSeconds(0.5f);
         }
+
+        if (phobia.vulnerablityCount > 0)
+            phobia.vulnerablityCount--;
 
         onDone?.Invoke();
 

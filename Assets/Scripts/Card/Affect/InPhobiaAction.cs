@@ -87,6 +87,8 @@ public class InPhobiaAction
     }
     public static bool operator !=(InPhobiaAction a, InPhobiaAction b)
     {
+        if (a is null || b is null)
+            return false;
         return a.id != b.id;
     }
     public override int GetHashCode()

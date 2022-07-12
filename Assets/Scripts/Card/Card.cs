@@ -19,19 +19,19 @@ public class Card : ScriptableObject
 
     public CardUIType cardBelonging = CardUIType.defaultCard;
 
-    [HideInInspector] public string cardID;
+    //[HideInInspector] public string cardID;
 
 
     [NonReorderable] public List<AffectHolder> affects;
 
 
-    private static int id;
+    //private static int id;
 
     private List<Affect> _affects;
 
     public Card(Card card)
     {
-        cardID = card.cardID;//Guid.NewGuid().ToString("N");
+        //cardID = card.cardID;//Guid.NewGuid().ToString("N");
         name = card.name;
         cardImageSprite = card.cardImageSprite;
         cardType = card.cardType;
@@ -44,8 +44,8 @@ public class Card : ScriptableObject
 
     public Card(string cardName,Sprite cardImageSprite, CardTypes cardType, List<AffectHolder> affects, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
     {
-        id++;
-        cardID = cardName.ToLower() + $"_{id}";//Guid.NewGuid().ToString("N");
+        //id++;
+        //cardID = cardName.ToLower() + $"_{id}";//Guid.NewGuid().ToString("N");
         //Debug.Log(cardID);
         name = cardName;
         this.cardImageSprite = cardImageSprite;

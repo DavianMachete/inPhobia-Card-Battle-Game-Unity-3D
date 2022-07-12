@@ -36,19 +36,6 @@ public class AffectHolderDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
 
-    private void DrawAffectTypeProparty(Rect rect, SerializedProperty property,out AffectType affectType)
-    {
-        SerializedProperty affectTypeProp = property.FindPropertyRelative("affectType");
-        EditorGUI.PropertyField(rect, affectTypeProp, GUIContent.none);
-
-        affectType = (AffectType)affectTypeProp.enumValueIndex;
-    }
-
-    private void DrawProperty(Rect rect,string name,float value)
-    {
-        EditorGUI.FloatField(rect, new GUIContent(name), value);
-    }
-
     private void DrawAffectParametres(AffectType affectType, Rect rect, SerializedProperty property)
     {
         SerializedProperty firstValueProperty = property.FindPropertyRelative("firstValue");
@@ -218,7 +205,7 @@ public class AffectHolderDrawer : PropertyDrawer
                 break;
             case AffectType.SteelBlock:
                 {
-                    EditorGUI.LabelField(GetFirstValueNameRect(rect), "Damage");
+                    EditorGUI.LabelField(GetFirstValueNameRect(rect), "ERORRRRRRRR");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
                     affect.objectReferenceValue = Affects.SteelBlock(firstValue);
