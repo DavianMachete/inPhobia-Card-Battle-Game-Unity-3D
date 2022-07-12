@@ -231,8 +231,7 @@ public class CardController : MonoBehaviour
 
     public void SetCardType(CardUIType cardUIType)
     {
-        if (card.cardBelonging == cardUIType||
-            card.cardType == CardTypes.Equipment)
+        if (card.cardType == CardTypes.Equipment)
             return;
 
         //CardUIType cardTypeHolder = card.cardBelonging;
