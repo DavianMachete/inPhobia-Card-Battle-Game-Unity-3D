@@ -31,10 +31,14 @@ public class InPhobiaAction
 
     public void Invoke()
     {
-        action?.Invoke();
+        if (!invoked)
+        {
+            action?.Invoke();
+            invokedCount++;
+        }
         if (!saveAction)
             invoked = true;
-        invokedCount++;
+
     }
 
 

@@ -5,6 +5,7 @@ using System;
 [Serializable]
 public class Affect
 {
+    public string name;
     public InPhobiaAction OnTurnStart;//The act before patient play first card
     public InPhobiaAction OnTurnEnd;//The act after patient play the last card
     public InPhobiaAction OnStepStart;//The act before Patient play card
@@ -12,7 +13,6 @@ public class Affect
     public InPhobiaAction OnAttack;//The act before Patient attack
     public InPhobiaAction OnDefense;//The act before patient attacted by enamy
 
-    private string name;
     private int index;
 
     public Affect (string name)
