@@ -294,6 +294,7 @@ public class PatientManager : MonoBehaviour
         }
         if (patient.health <= 0)
         {
+            patient.health = 0;
             GameManager.instance.LevelFailed();
         }
         UpdateHealthBar();
@@ -342,7 +343,7 @@ public class PatientManager : MonoBehaviour
             affect.Invoke(InPhobiaEventType.OnTurnStart);
         }
 
-        Affects.UpdateAffects(affects);
+        affects = Affects.UpdateAffects(affects);
 
         //foreach (Card card in Hand)
         int cardCountInHand = Hand.Count;
