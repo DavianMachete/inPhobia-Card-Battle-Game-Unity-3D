@@ -1,9 +1,9 @@
-using UnityEngine;
+//using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-//[Serializable]
-public class Affect : UnityEngine.Object
+[Serializable]
+public class Affect// : UnityEngine.Object
 {
     public InPhobiaAction OnTurnStart;//The act before patient play first card
     public InPhobiaAction OnTurnEnd;//The act after patient play the last card
@@ -12,7 +12,7 @@ public class Affect : UnityEngine.Object
     public InPhobiaAction OnAttack;//The act before Patient attack
     public InPhobiaAction OnDefense;//The act before patient attacted by enamy
 
-    //private string name;
+    private string name;
     private int index;
 
     //public void Update()

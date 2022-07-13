@@ -56,8 +56,8 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.PropertyField(GetSecondValueFieldRect(rect),secondValueProperty, GUIContent.none);
                     //DrawProperty(rect, "Maximum Action Points",secondValue);
 
-                    affect.objectReferenceValue = Affects.AddActionPoints(firstValue, secondValue);
-                    //affect.objectReferenceValue = (object)Affects.AddActionPoints(firstValue, secondValue);
+                    affect.SetValue(Affects.AddActionPoints(firstValue, secondValue));
+                    //Debug.Log(affect.GetValue<Affect>());
                 }
                 break;
             case AffectType.AddBlock:
@@ -65,7 +65,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Block Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AddBlock(firstValue);
+                    affect.SetValue(Affects.AddBlock(firstValue));
                 }
                 break;
             case AffectType.AddHealth:
@@ -73,7 +73,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Health Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AddHealth(firstValue);
+                    affect.SetValue(Affects.AddHealth(firstValue));
                 }
                 break;
             case AffectType.AddPoison:
@@ -81,7 +81,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Poison Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AddPoison(firstValue);
+                    affect.SetValue(Affects.AddPoison(firstValue));
                 }
                 break;
             case AffectType.AddPower:
@@ -89,7 +89,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Power Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AddPower(firstValue);
+                    affect.SetValue(Affects.AddPower(firstValue));
                 }
                 break;
             case AffectType.AddSpikes:
@@ -97,7 +97,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Spikes Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AddSpikes(firstValue);
+                    affect.SetValue(Affects.AddSpikes(firstValue));
                 }
                 break;
             case AffectType.AddWeaknessOnDefense:
@@ -107,7 +107,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Weakness Stack");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AddWeaknessOnDamage(ws);
+                    affect.SetValue(Affects.AddWeaknessOnDamage(ws));
                 }
                 break;
             case AffectType.Armor:
@@ -115,7 +115,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Armor Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.Armor(firstValue);
+                    affect.SetValue(Affects.Armor(firstValue));
                 }
                 break;
             case AffectType.Attack:
@@ -130,7 +130,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.PropertyField(GetSecondValueFieldRect(rect), secondValueProperty, GUIContent.none);
                     //DrawProperty(rect, "Maximum Action Points",secondValue);
 
-                    affect.objectReferenceValue = Affects.Attack(firstValue, ac);
+                    affect.SetValue(Affects.Attack(firstValue, ac));
 
                 }
                 break;
@@ -139,14 +139,14 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Attack force");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.AttackOnDefense(firstValue);
+                    affect.SetValue(Affects.AttackOnDefense(firstValue));
                 }
                 break;
             case AffectType.BlockTheDamage:
-                affect.objectReferenceValue = Affects.BlockTheDamage();
+                affect.SetValue(Affects.BlockTheDamage());
                 break;
             case AffectType.Discard:
-                affect.objectReferenceValue = Affects.Discard();
+                affect.SetValue(Affects.Discard());
                 break;
             case AffectType.DiscardAndAddBlockForEach:
                 {
@@ -156,30 +156,30 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Block Amount");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.DiscardAndAddBlockForEach(bc);
+                    affect.SetValue(Affects.DiscardAndAddBlockForEach(bc));
                 }
                 break;
             case AffectType.DoubleNextAffect:
-                affect.objectReferenceValue = Affects.DoubleNextAffect();
+                affect.SetValue(Affects.DoubleNextAffect());
                 break;
             case AffectType.DoubleBlock:
-                affect.objectReferenceValue = Affects.DoubleTheBlock();
+                affect.SetValue(Affects.DoubleTheBlock());
                 break;
             case AffectType.DropKickWithoutAttack:
-                affect.objectReferenceValue = Affects.DropKickWithouAttack();
+                affect.SetValue(Affects.DropKickWithouAttack());
                 break;
             case AffectType.Exhaust:
-                affect.objectReferenceValue = Affects.Exhaust();
+                affect.SetValue(Affects.Exhaust());
                 break;
             case AffectType.GiveEnemyWeaknessOnHit:
-                affect.objectReferenceValue = Affects.GiveEnemyWeaknessOnHit();
+                affect.SetValue(Affects.GiveEnemyWeaknessOnHit());
                 break;
             case AffectType.MultiplyBlock:
                 {
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Block multiplier");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.MultiplyBlock(firstValue);
+                    affect.SetValue(Affects.MultiplyBlock(firstValue));
                 }
                 break;
             case AffectType.Power:
@@ -187,7 +187,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Damage");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.MultiplyBlock(firstValue);
+                    affect.SetValue(Affects.MultiplyBlock(firstValue));
                 }
                 break;
             case AffectType.PullCard:
@@ -197,22 +197,22 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Count");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.PullCard(cc);
+                    affect.SetValue(Affects.PullCard(cc));
                 }
                 break;
             case AffectType.SaveBlock:
-                affect.objectReferenceValue = Affects.SaveBlock();
+                affect.SetValue(Affects.SaveBlock());
                 break;
             case AffectType.SteelBlock:
                 {
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "ERORRRRRRRR");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.SteelBlock(firstValue);
+                    affect.SetValue(Affects.SteelBlock(firstValue));
                 }
                 break;
             case AffectType.TurnWeaknessIntoPoison:
-                affect.objectReferenceValue = Affects.TurnWeaknessIntoPoison();
+                affect.SetValue(Affects.TurnWeaknessIntoPoison());
                 break;
             case AffectType.Vulnerability:
                 {
@@ -221,7 +221,7 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Count");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.Vulnerablity(vc);
+                    affect.SetValue(Affects.Vulnerablity(vc));
                 }
                 break;
             case AffectType.Weakness:
@@ -231,12 +231,13 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Count");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    affect.objectReferenceValue = Affects.Weakness(wc);
+                    affect.SetValue(Affects.Weakness(wc));
                 }
                 break;
             default:
                 break;
-        }   
+        }
+       // Debug.Log(affect.GetValue());
     }
 
     public Rect GetFirstValueNameRect(Rect position)
