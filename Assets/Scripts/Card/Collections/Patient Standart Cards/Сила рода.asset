@@ -18,14 +18,73 @@ MonoBehaviour:
     3"
   actionPoint: 2
   rarity: 2
-  cardBelonging: 0
-  cardID: 
+  cardBelonging: 1
   affects:
   - affectType: 1
-    affect: {fileID: 0}
+    affect:
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: add block_10
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
     firstValue: 10
     secondValue: 0
   - affectType: 5
-    affect: {fileID: 0}
+    affect:
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: addspikes_3
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
     firstValue: 3
     secondValue: 0

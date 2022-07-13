@@ -19,7 +19,6 @@ MonoBehaviour:
   actionPoint: 0
   rarity: 0
   cardBelonging: 0
-  cardID: 
   affects:
   - affectType: 0
     affect: {fileID: 0}

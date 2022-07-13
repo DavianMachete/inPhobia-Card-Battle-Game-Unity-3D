@@ -20,11 +20,71 @@ MonoBehaviour:
   rarity: 2
   cardBelonging: 0
   affects:
-  - affectType: 0
-    affect: {fileID: 0}
-    firstValue: 0
-    secondValue: 0
-  - affectType: 0
-    affect: {fileID: 0}
-    firstValue: 0
+  - affectType: 8
+    affect:
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: attack_5_1
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+    firstValue: 5
+    secondValue: 1
+  - affectType: 20
+    affect:
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: dropkickwithoutattack
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+    firstValue: 1
     secondValue: 0

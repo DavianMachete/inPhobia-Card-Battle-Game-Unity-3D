@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 
 [Serializable]
-public class Affect// : UnityEngine.Object
+public class Affect
 {
     public InPhobiaAction OnTurnStart;//The act before patient play first card
     public InPhobiaAction OnTurnEnd;//The act after patient play the last card
@@ -15,6 +15,10 @@ public class Affect// : UnityEngine.Object
     private string name;
     private int index;
 
+    public Affect (string name)
+    {
+        this.name = name;
+    }
     //public void Update()
     //{
     //    //Debug.Log($"<color=green>Affect: </color>Affect Update Started");

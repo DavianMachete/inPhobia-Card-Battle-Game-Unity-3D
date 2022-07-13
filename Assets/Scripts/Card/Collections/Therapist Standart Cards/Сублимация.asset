@@ -18,9 +18,38 @@ MonoBehaviour:
   actionPoint: 0
   rarity: 2
   cardBelonging: 0
-  cardID: 
   affects:
   - affectType: 7
-    affect: {fileID: 0}
+    affect:
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: armor_3
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
     firstValue: 3
     secondValue: 0

@@ -20,9 +20,38 @@ MonoBehaviour:
   actionPoint: 1
   rarity: 2
   cardBelonging: 0
-  cardID: 
   affects:
   - affectType: 13
-    affect: {fileID: 0}
+    affect:
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: doublenextattack
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
     firstValue: 0
     secondValue: 0
