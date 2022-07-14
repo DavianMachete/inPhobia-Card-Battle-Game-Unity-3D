@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u0413\u0438\u043F\u043D\u043E\u0437"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: a84e39db6f7f4c541b23a8d0fd4284d7, type: 3}
   cardType: 1
   affectDescription: "\u0422\u044F\u043D\u0438 1 \u043A\u0430\u0440\u0442\u0443,
     \u043F\u043E\u043B\u0443\u0447\u0438 +1 \u043E\u0434"
@@ -21,10 +21,72 @@ MonoBehaviour:
   cardBelonging: 0
   affects:
   - affectType: 0
-    affect: {fileID: 0}
+    affect:
+      name: addactionpoint_5_0
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: addactionpoint_5_0
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
     firstValue: 5
     secondValue: 0
   - affectType: 20
-    affect: {fileID: 0}
+    affect:
+      name: dropkickwithoutattack
+      OnTurnStart:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnTurnEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnStepStart:
+        saveAction: 0
+        id: dropkickwithoutattack
+        invoked: 0
+        invokedCount: 0
+      OnStepEnd:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnAttack:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
+      OnDefense:
+        saveAction: 0
+        id: 
+        invoked: 0
+        invokedCount: 0
     firstValue: 1
     secondValue: 0

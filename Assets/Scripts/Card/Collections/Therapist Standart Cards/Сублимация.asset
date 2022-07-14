@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u0421\u0443\u0431\u043B\u0438\u043C\u0430\u0446\u0438\u044F"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: 5e760a6cd636e904299da97b139fc9d9, type: 3}
   cardType: 1
   affectDescription: "3 \u0431\u0440\u043E\u043D\u044F"
   actionPoint: 0
@@ -21,6 +21,7 @@ MonoBehaviour:
   affects:
   - affectType: 7
     affect:
+      name: armor_3
       OnTurnStart:
         saveAction: 0
         id: 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u0412\u044B\u0442\u0435\u0441\u043D\u0435\u043D\u0438\u0435"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: e8becd99229779c42b29a11507c09e14, type: 3}
   cardType: 1
   affectDescription: "\u043F\u043E\u043B\u0443\u0447\u0438 \u0448\u0438\u043F\u044B
     2"
@@ -22,6 +22,7 @@ MonoBehaviour:
   affects:
   - affectType: 5
     affect:
+      name: addspikes_5
       OnTurnStart:
         saveAction: 0
         id: 

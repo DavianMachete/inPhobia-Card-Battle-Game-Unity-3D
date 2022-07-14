@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u041B\u0438\u0447\u043D\u044B\u0435 \u0433\u0440\u0430\u043D\u0438\u0446\u044B"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: 680d24f286188f3459c7b85b575e981c, type: 3}
   cardType: 1
   affectDescription: "\u0423\u0434\u0432\u043E\u0438\u0442\u044C \u0431\u043B\u043E\u043A"
   actionPoint: 1
@@ -21,6 +21,7 @@ MonoBehaviour:
   affects:
   - affectType: 14
     affect:
+      name: doubletheblock
       OnTurnStart:
         saveAction: 0
         id: 

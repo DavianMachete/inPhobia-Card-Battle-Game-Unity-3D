@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u041C\u043E\u0431\u0438\u043B\u0438\u0437\u0430\u0446\u0438\u044F"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: bdd2cb87a7b0a654ebb242b7597b81d7, type: 3}
   cardType: 1
   affectDescription: "30 \u0431\u043B\u043E\u043A\u0430. \u0418\u0441\u0442\u043E\u0449\u0435\u043D\u0438\u0435"
   actionPoint: 1
@@ -21,6 +21,7 @@ MonoBehaviour:
   affects:
   - affectType: 1
     affect:
+      name: add block_5
       OnTurnStart:
         saveAction: 0
         id: 
@@ -55,6 +56,7 @@ MonoBehaviour:
     secondValue: 0
   - affectType: 16
     affect:
+      name: dropkickwithoutattack
       OnTurnStart:
         saveAction: 0
         id: 

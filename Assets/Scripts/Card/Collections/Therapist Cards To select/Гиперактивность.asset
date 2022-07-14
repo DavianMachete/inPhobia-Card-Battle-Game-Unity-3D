@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u0413\u0438\u043F\u0435\u0440\u0430\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: 42f83e7e1373d8547be8202e797143dc, type: 3}
   cardType: 0
   affectDescription: "3 \u0430\u0442\u0430\u043A\u0438 \u043F\u043E 2"
   actionPoint: 1
@@ -21,6 +21,7 @@ MonoBehaviour:
   affects:
   - affectType: 8
     affect:
+      name: attack_5_3
       OnTurnStart:
         saveAction: 0
         id: 

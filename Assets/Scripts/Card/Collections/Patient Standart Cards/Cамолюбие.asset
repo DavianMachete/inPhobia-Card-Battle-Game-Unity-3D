@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "C\u0430\u043C\u043E\u043B\u044E\u0431\u0438\u0435"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: 68ab3fcc5d03b764e95a551d748ba455, type: 3}
   cardType: 1
   affectDescription: "5 \u0431\u043B\u043E\u043A\u0430"
   actionPoint: 1
@@ -21,6 +21,7 @@ MonoBehaviour:
   affects:
   - affectType: 1
     affect:
+      name: add block_5
       OnTurnStart:
         saveAction: 0
         id: 

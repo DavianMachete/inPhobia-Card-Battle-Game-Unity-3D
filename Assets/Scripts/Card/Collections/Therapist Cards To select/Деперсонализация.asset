@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820c4a6eda75f54429307da913153b0d, type: 3}
   m_Name: "\u0414\u0435\u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F"
   m_EditorClassIdentifier: 
-  cardImageSprite: {fileID: 0}
+  cardImageSprite: {fileID: 21300000, guid: 4b3a05a8f4971f746b77dd9e62a2cc30, type: 3}
   cardType: 0
   affectDescription: "(\u0431\u043B\u043E\u043A) \u0423\u0440\u043E\u043D\u0430"
   actionPoint: 1
@@ -21,6 +21,7 @@ MonoBehaviour:
   affects:
   - affectType: 10
     affect:
+      name: blockthedamage
       OnTurnStart:
         saveAction: 0
         id: 
