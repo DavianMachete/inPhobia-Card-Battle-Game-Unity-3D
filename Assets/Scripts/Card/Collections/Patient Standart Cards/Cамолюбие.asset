@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImageSprite: {fileID: 21300000, guid: 68ab3fcc5d03b764e95a551d748ba455, type: 3}
   cardType: 1
-  affectDescription: "5 \u0431\u043B\u043E\u043A\u0430"
+  affectDescription: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 5 \u0431\u043B\u043E\u043A\u0430"
   actionPoint: 1
   rarity: 2
   cardBelonging: 1
