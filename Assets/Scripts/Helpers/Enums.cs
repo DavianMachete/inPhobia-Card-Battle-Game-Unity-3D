@@ -20,7 +20,8 @@ public enum InPhobiaEventType
     OnStepStart,
     OnStepEnd,
     OnAttack,
-    OnDefense
+    OnDefense,
+    //OnPlayed
 }
 
 public enum CardUIType

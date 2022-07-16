@@ -12,10 +12,11 @@ public class Affect
     public InPhobiaAction OnStepEnd;//The act after Patient play card
     public InPhobiaAction OnAttack;//The act before Patient attack
     public InPhobiaAction OnDefense;//The act before patient attacted by enamy
+    //public InPhobiaAction OnPlayed;//added only for equipment cards
 
     private int index;
 
-    public Affect (string name)
+    public Affect(string name)
     {
         this.name = name;
     }
@@ -98,7 +99,26 @@ public class Affect
                 OnDefense = null;
         }
 
+        //if (OnPlayed != null)
+        //{
+        //    if (!OnPlayed.invoked)
+        //        invoked = false;
+        //    else
+        //        OnPlayed = null;
+        //}
+
         return invoked;
+    }
+
+
+    public void InvokeAll()
+    {
+        OnTurnStart?.Invoke();
+        OnTurnEnd?.Invoke();
+        OnStepStart?.Invoke();
+        OnStepEnd?.Invoke();
+        OnAttack?.Invoke();
+        OnDefense?.Invoke();
     }
 
     public void Invoke(InPhobiaEventType type)
@@ -123,6 +143,9 @@ public class Affect
             case InPhobiaEventType.OnDefense:
                 OnDefense?.Invoke();
                 break;
+            //case InPhobiaEventType.OnPlayed:
+            //    OnPlayed?.Invoke();
+            //    break;
             default:
                 break;
         }
@@ -155,11 +178,11 @@ public class Affect
             }
         }
         //remove similars
-        for (int i = 0; i < length-1; i++)
+        for (int i = 0; i < length - 1; i++)
         {
-            for (int j = i+1; j < length; j++)
+            for (int j = i + 1; j < length; j++)
             {
-                if(inPhobiaActions[i]== inPhobiaActions[j])
+                if (inPhobiaActions[i] == inPhobiaActions[j])
                 {
                     inPhobiaActions.RemoveAt(i);
                     i--;
@@ -182,22 +205,16 @@ public class Affect
 
     private string GetActionsListName(int index)
     {
-        switch (index)
+        return index switch
         {
-            case 0:
-                return "OnTurnStart";
-            case 1:
-                return "OnTurnEnd";
-            case 2:
-                return "OnStepStart";
-            case 3:
-                return "OnStepEnd";
-            case 4:
-                return "OnAttack";
-            case 5:
-                return "OnDefense";
-            default:
-                return "Wrong index";
-        }
+            0 => "OnTurnStart",
+            1 => "OnTurnEnd",
+            2 => "OnStepStart",
+            3 => "OnStepEnd",
+            4 => "OnAttack",
+            5 => "OnDefense",
+            6 => "OnPlayed",
+            _ => "Wrong index",
+        };
     }
 }

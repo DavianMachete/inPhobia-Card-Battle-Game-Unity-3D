@@ -150,6 +150,7 @@ public class PatientManager : MonoBehaviour
 
     public void SaveBlock() 
     {
+        Debug.Log($"<color=cyan>Block will be saved </color>");
         blockSaved = true;
     }
 
@@ -245,6 +246,17 @@ public class PatientManager : MonoBehaviour
         Debug.Log($"<color=cyan>poison added </color>added poison count " +
             $"= {poisonCount}, current spikes count = {patient.poison} ");
         patient.poison += Mathf.FloorToInt(poisonCount);
+    }
+
+    public void AddActionPoint(int toAP,int toMaxAP)
+    {
+        Debug.Log($"<color=cyan>AP added </color>added AP count " +
+            $"= {toAP}, maxAP count = {toMaxAP} ");
+
+        patient.patientActionPoints += toAP;
+        patient.patientMaximumActionPoints += toMaxAP;
+
+        SetActionPoint();
     }
 
     public void SetActionPoint()

@@ -49,9 +49,13 @@ public class AffectHolderDrawer : PropertyDrawer
         {
             case AffectType.AddActionPoints:
                 {
+                    int ap = Mathf.FloorToInt(firstValue);
+                    firstValueProperty.floatValue = ap;
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Action Points");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
+                    int maxAp = Mathf.FloorToInt(secondValue);
+                    secondValueProperty.floatValue = maxAp;
                     EditorGUI.LabelField(GetSecondValueNameRect(rect), "Maximum AP");
                     EditorGUI.PropertyField(GetSecondValueFieldRect(rect),secondValueProperty, GUIContent.none);
                     //DrawProperty(rect, "Maximum Action Points",secondValue);
@@ -107,7 +111,6 @@ public class AffectHolderDrawer : PropertyDrawer
                     EditorGUI.LabelField(GetFirstValueNameRect(rect), "Weakness Stack");
                     EditorGUI.PropertyField(GetFirstValueFieldRect(rect), firstValueProperty, GUIContent.none);
 
-                    //affect.SetValue(Affects.AddWeaknessOnDamage(ws));
                 }
                 break;
             case AffectType.Armor:

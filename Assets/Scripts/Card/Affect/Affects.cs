@@ -118,7 +118,7 @@ public static class Affects
     public static Affect AddPoison(float poisons)
     {
         Affect affect = new Affect($"AddPoison_{poisons}".ToLower());
-        affect.OnTurnEnd = new InPhobiaAction($"AddPoison_{poisons}".ToLower(),
+        affect.OnStepStart = new InPhobiaAction($"AddPoison_{poisons}".ToLower(),
             () => PatientManager.instance.AddPoison(poisons), false);
         return affect;
     }
@@ -186,16 +186,11 @@ public static class Affects
         return affect;
     }
 
-    public static Affect AddActionPoints(float _APvalue, float maxAPvalue)
+    public static Affect AddActionPoints(int _APvalue, int maxAPvalue)
     {
         Affect affect = new Affect($"AddActionPoint_{_APvalue}_{maxAPvalue}".ToLower());
         affect.OnStepStart = new InPhobiaAction($"AddActionPoint_{_APvalue}_{maxAPvalue}".ToLower(),
-            () =>
-            {
-                PatientManager.instance.patient.patientActionPoints += Mathf.RoundToInt(_APvalue);
-                PatientManager.instance.patient.patientMaximumActionPoints += Mathf.RoundToInt(maxAPvalue);
-                PatientManager.instance.SetActionPoint();
-            }, false);
+            () => PatientManager.instance.AddActionPoint(_APvalue, maxAPvalue), false);
         return affect;
     }
 
@@ -214,7 +209,7 @@ public static class Affects
             () => {
                 if (PhobiaManager.instance.IsPhobiaHaveVulnerablity())
                 {
-                    PatientManager.instance.patient.patientActionPoints++;
+                    PatientManager.instance.AddActionPoint(1, 0);
                     PatientManager.instance.PullCard(1);
                 }
             }, false);
@@ -235,9 +230,11 @@ public static class Affects
 
     public static Affect DoubleNextAffect()
     {
-        Affect affect = new Affect($"DoubleNextAttack".ToLower());
-        affect.OnStepStart = new InPhobiaAction($"DoubleNextAttack".ToLower(),
-            () => PatientManager.instance.DoubleNextEffect(), false);
+        Affect affect = new Affect($"DoubleNextAttack".ToLower())
+        {
+            OnStepStart = new InPhobiaAction($"DoubleNextAttack".ToLower(),
+            () => PatientManager.instance.DoubleNextEffect(), false)
+        };
         return affect;
     }
 
@@ -245,7 +242,7 @@ public static class Affects
     {
         Affect affect = new Affect($"DoubleTheBlock".ToLower());
         affect.OnStepStart = new InPhobiaAction($"DoubleTheBlock".ToLower(),
-            () => PatientManager.instance.AddBlock(PatientManager.instance.GetBlock()),false);
+            () => PatientManager.instance.AddBlock(PatientManager.instance.GetBlock()), false);
 
         return affect;
     }
@@ -263,7 +260,7 @@ public static class Affects
     {
         for (int i = affects.Count - 1; i >= 0; i--)
         {
-            if(affects[i].IsInvoked())
+            if (affects[i].IsInvoked())
                 affects.RemoveAt(i);
         }
         return affects;

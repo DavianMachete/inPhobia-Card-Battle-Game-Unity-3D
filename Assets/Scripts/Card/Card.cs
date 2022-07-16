@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName ="New card", menuName = "ScriptableObjects/Card", order = 1)]
+[CreateAssetMenu(fileName = "New card", menuName = "ScriptableObjects/Card", order = 1)]
 [Serializable]
 public class Card : ScriptableObject
 {
@@ -42,7 +42,7 @@ public class Card : ScriptableObject
         cardBelonging = card.cardBelonging;
     }
 
-    public Card(string cardName,Sprite cardImageSprite, CardTypes cardType, List<AffectHolder> affects, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
+    public Card(string cardName, Sprite cardImageSprite, CardTypes cardType, List<AffectHolder> affects, string affectDescription, int actionPoint, Rarity rarity, CardUIType cardBelonging)
     {
         //id++;
         //cardID = cardName.ToLower() + $"_{id}";//Guid.NewGuid().ToString("N");
@@ -68,7 +68,7 @@ public class Card : ScriptableObject
             switch (ah.affectType)
             {
                 case AffectType.AddActionPoints:
-                    ah.affect = Affects.AddActionPoints(ah.firstValue, ah.secondValue);
+                    ah.affect = Affects.AddActionPoints(Mathf.FloorToInt(ah.firstValue), Mathf.FloorToInt(ah.secondValue));
                     continue;
                 case AffectType.AddBlock:
                     ah.affect = Affects.AddBlock(ah.firstValue);
@@ -149,7 +149,7 @@ public class Card : ScriptableObject
                     continue;
             }
         }
-            for(int i=0;i<affects.Count;i++)
+        for (int i = 0; i < affects.Count; i++)
         {
             _affects.Add(affects[i].affect);
         }
