@@ -47,6 +47,8 @@ public class PhobiaManager : MonoBehaviour
 
         float damageHolder = damage;
         damage -= phobia.block;
+        if (damage < 0f)
+            damage = 0f;
         phobia.block -= damageHolder;
         if (phobia.block < 0)
             phobia.block = 0;

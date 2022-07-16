@@ -16,6 +16,7 @@ public class PatientManager : MonoBehaviour
     public List<Card> discard;
 
     [SerializeField] [NonReorderable] private List<Affect> affects;
+    
 
     [SerializeField] private UISpline effectSplinePath;
 

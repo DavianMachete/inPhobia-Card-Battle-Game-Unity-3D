@@ -24,7 +24,7 @@ MonoBehaviour:
     multiplyMaterials: []
     screenMaterials: []
   skeletonDataModifiers:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 22c0225612a65ee4fb15bad49f644762, type: 2}
   fromAnimation: []
   toAnimation: []
   duration: []
