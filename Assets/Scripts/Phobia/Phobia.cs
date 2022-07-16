@@ -40,6 +40,7 @@ public class Phobia : ScriptableObject
 
             if (percent <= 35f)
             {
+                block = 0;
                 attackCountInAStep = 5;
                 attackForce = 1f + power;
 
@@ -58,11 +59,13 @@ public class Phobia : ScriptableObject
 
         if (percent <= 30f)
         {
+            block = 0;
             attackCountInAStep = 1;
             attackForce = 17f + power;
         }
         else if (percent <= 55)
         {
+            block = 0;
             attackCountInAStep = 3;
             attackForce = 1f + power;
         }
@@ -74,11 +77,13 @@ public class Phobia : ScriptableObject
         }
         else if (percent <= 90)
         {
+            block = 0;
             attackCountInAStep = 2;
             attackForce = 15f + power;
         }
         else if (percent <= 100)
         {
+            block = 0;
             attackCountInAStep = 2;
             attackForce = 1f + power;
 
