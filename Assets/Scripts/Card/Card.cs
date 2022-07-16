@@ -65,7 +65,93 @@ public class Card : ScriptableObject
 
         foreach (AffectHolder ah in affects)
         {
-            _affects.Add(ah.affect);
+            switch (ah.affectType)
+            {
+                case AffectType.AddActionPoints:
+                    ah.affect = Affects.AddActionPoints(ah.firstValue, ah.secondValue);
+                    continue;
+                case AffectType.AddBlock:
+                    ah.affect = Affects.AddBlock(ah.firstValue);
+                    continue;
+                case AffectType.AddHealth:
+                    ah.affect = Affects.AddHealth(ah.firstValue);
+                    continue;
+                case AffectType.AddPoison:
+                    ah.affect = Affects.AddPoison(ah.firstValue);
+                    continue;
+                case AffectType.AddPower:
+                    ah.affect = Affects.AddPower(ah.firstValue);
+                    continue;
+                case AffectType.AddSpikes:
+                    ah.affect = Affects.AddSpikes(ah.firstValue);
+                    continue;
+                case AffectType.AddWeaknessOnDefense:
+                    ah.affect = Affects.AddWeaknessOnDamage(ah.firstValue);
+                    continue;
+                case AffectType.Armor:
+                    ah.affect = Affects.Armor(ah.firstValue);
+                    continue;
+                case AffectType.Attack:
+                    ah.affect = Affects.Attack(ah.firstValue, Mathf.FloorToInt(ah.secondValue));
+                    continue;
+                case AffectType.AttackOnDefense:
+                    ah.affect = Affects.AttackOnDefense(ah.firstValue);
+                    continue;
+                case AffectType.BlockTheDamage:
+                    ah.affect = Affects.BlockTheDamage();
+                    continue;
+                case AffectType.Discard:
+                    ah.affect = Affects.Discard();
+                    continue;
+                case AffectType.DiscardAndAddBlockForEach:
+                    ah.affect = Affects.DiscardAndAddBlockForEach(Mathf.FloorToInt(ah.firstValue));
+                    continue;
+                case AffectType.DoubleNextAffect:
+                    ah.affect = Affects.DoubleNextAffect();
+                    continue;
+                case AffectType.DoubleBlock:
+                    ah.affect = Affects.DoubleTheBlock();
+                    continue;
+                case AffectType.DropKickWithoutAttack:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.Exhaust:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.GiveEnemyWeaknessOnHit:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.MultiplyBlock:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.Power:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.PullCard:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.SaveBlock:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.SteelBlock:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.TurnWeaknessIntoPoison:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.Vulnerability:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                case AffectType.Weakness:
+                    ah.affect = Affects.DropKickWithouAttack();
+                    continue;
+                default:
+                    continue;
+            }
+        }
+            for(int i=0;i<affects.Count;i++)
+        {
+            _affects.Add(affects[i].affect);
         }
         return _affects;
     }
