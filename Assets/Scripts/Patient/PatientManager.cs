@@ -190,11 +190,13 @@ public class PatientManager : MonoBehaviour
 
     public void BlockTheDamage()
     {
+        Debug.Log($"<color=cyan>The damage will be blocked</color>");
         blockTheDamage = true;
     }
 
     public void TurnWeaknessIntoPoison()
     {
+        Debug.Log($"<color=cyan>The weakness turned into poison </color>");
         patient.poison = PhobiaManager.instance.phobia.weaknessStack;
         PhobiaManager.instance.phobia.weaknessStack = 0;
     }
@@ -233,11 +235,15 @@ public class PatientManager : MonoBehaviour
 
     public void AddSpikes(float spikesCount)
     {
+        Debug.Log($"<color=cyan>spikess added </color>added spikes count " +
+            $"= {spikesCount}, current spikes count = {patient.spikes} ");
         patient.spikes += Mathf.FloorToInt(spikesCount);
     }
 
     public void AddPoison(float poisonCount)
     {
+        Debug.Log($"<color=cyan>poison added </color>added poison count " +
+            $"= {poisonCount}, current spikes count = {patient.poison} ");
         patient.poison += Mathf.FloorToInt(poisonCount);
     }
 

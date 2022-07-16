@@ -118,7 +118,7 @@ public static class Affects
     public static Affect AddPoison(float poisons)
     {
         Affect affect = new Affect($"AddPoison_{poisons}".ToLower());
-        affect.OnStepStart = new InPhobiaAction($"AddPoison_{poisons}".ToLower(),
+        affect.OnTurnEnd = new InPhobiaAction($"AddPoison_{poisons}".ToLower(),
             () => PatientManager.instance.AddPoison(poisons), false);
         return affect;
     }
