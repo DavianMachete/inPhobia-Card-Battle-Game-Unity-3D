@@ -54,5 +54,5 @@ MonoBehaviour:
         id: addweaknessondmage_5
         invoked: 0
         invokedCount: 0
-    firstValue: 5
+    firstValue: 1
     secondValue: 0

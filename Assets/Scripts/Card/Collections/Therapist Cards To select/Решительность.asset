@@ -53,7 +53,7 @@ MonoBehaviour:
         id: 
         invoked: 0
         invokedCount: 0
-    firstValue: 5
+    firstValue: 2
     secondValue: 0
   - affectType: 8
     affect:
