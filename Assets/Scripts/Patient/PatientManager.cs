@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Spine;
+using Spine.Unity;
+using Spine.Collections;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -11,12 +14,14 @@ public class PatientManager : MonoBehaviour
 
     public Patient patient;
 
+
     public List<Card> deck;
     public List<Card> Hand;
     public List<Card> discard;
 
     [SerializeField] [NonReorderable] private List<Affect> affects;
-    
+
+    [SerializeField] private PatientAnimationController patientAnimationController;
 
     [SerializeField] private UISpline effectSplinePath;
 
@@ -68,6 +73,7 @@ public class PatientManager : MonoBehaviour
         saveBlock = false;
         giveEnemyWeakness = false;
 
+        patientAnimationController.SetPatientSitting();
         SetActionPoint();
     }
 
@@ -297,6 +303,7 @@ public class PatientManager : MonoBehaviour
 
         if (damage > 0)
         {
+            patientAnimationController.SetPatientGetHit();
             patient.health -= damage;
             UIElementFlow uIElementFlow = Instantiate(CardManager.instance.effectElement, effectSplinePath.transform.parent).GetComponent<UIElementFlow>();
             uIElementFlow.FlowElement(effectSplinePath, $"-{damage}");
@@ -353,6 +360,7 @@ public class PatientManager : MonoBehaviour
 
 
         Debug.Log($"<color=cyan>Turn Started</color>");
+        patientAnimationController.SetPatientInteractAnimations();
 
         if (patient.poison > 0)
         {
@@ -431,9 +439,12 @@ public class PatientManager : MonoBehaviour
                     for (int j = 0; j < patient.attackCount; j++)
                     {
                         Attack();
+                        patientAnimationController.SetPatientAttack();
                         Debug.Log($"<color=cyan>Attacked</color>_{currentCardID}_");
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(1.5f);
                     }
+                    patientAnimationController.SetPatientInteractAnimations();
+
                     patient.attackForce = 0f;
                     patient.attackCount = 0;
                 }
@@ -475,6 +486,7 @@ public class PatientManager : MonoBehaviour
             CardManager.instance.SetHandCardsInteractable(true);
 
             GameManager.instance.PlayNextTurn();
+            patientAnimationController.SetPatientSitting();
         });
 
 
