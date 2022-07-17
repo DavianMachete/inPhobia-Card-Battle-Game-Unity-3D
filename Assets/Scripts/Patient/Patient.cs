@@ -29,6 +29,9 @@ public class Patient : ScriptableObject
 
     public void Initialize()
     {
+        attackForce = 0f;
+        attackCount = 0;
+
         patientMaximumActionPoints = 3;
         patientActionPoints = 3;
 
