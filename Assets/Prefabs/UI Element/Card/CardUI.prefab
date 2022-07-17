@@ -699,7 +699,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.95
+  m_fontSize: 28.85
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1008,21 +1008,7 @@ MonoBehaviour:
   cardMinScale: {x: 0.5, y: 0.5, z: 0.5}
   cardAnimationSpeed: 2
   animDuration: 0.8
-  card:
-    name: 
-    cardID: 
-    cardType: 0
-    affect:
-      OnTurnStart: []
-      OnTurnEnd: []
-      OnStepStart: []
-      OnStepEnd: []
-      OnAttack: []
-      OnDefense: []
-    affectDescription: 
-    actionPoint: 0
-    rarity: 0
-    cardBelonging: 0
+  card: {fileID: 0}
   cardCurrentType: 2
   index: 0
   handSpline: {fileID: 0}

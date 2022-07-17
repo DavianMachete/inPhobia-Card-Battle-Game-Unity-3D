@@ -190,6 +190,7 @@ public void OpenDesctop()
 
     public void OpenCardCollecter()
     {
+        AudioManager.instance.PlayDeckBuildingPhaseAudios();
         therapistDeckCollecter.InitializeCollecter();
 
         mainMenu.SetActive(false);
