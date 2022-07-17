@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cloudlet
   image: {fileID: 21300000, guid: 624c948636302bf4a93f81e0d6117ca3, type: 3}
-  maximumHealth: 300
-  health: 300
-  attackForce: 17
-  block: 0
-  attackCountInAStep: 1
+  maximumHealth: 10
+  health: 0
+  attackForce: 2
+  block: 8
+  attackCountInAStep: 3
   vulnerablityCount: 0
   weaknessStack: 0
-  power: 0
+  poison: 0
+  power: 2

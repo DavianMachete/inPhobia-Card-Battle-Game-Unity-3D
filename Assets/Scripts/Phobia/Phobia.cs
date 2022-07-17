@@ -28,7 +28,7 @@ public class Phobia : ScriptableObject
         power = -1;
         vulnerablityCount = 0;
         weaknessStack = 0;
-        maximumHealth = 120;
+        maximumHealth = 160;
         health = maximumHealth;
     }
 
