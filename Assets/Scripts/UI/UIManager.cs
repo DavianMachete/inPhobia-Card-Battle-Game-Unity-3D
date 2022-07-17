@@ -83,6 +83,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenMainMenu(bool withPause)
     {
+        AudioManager.instance.PlayMainMenuPhaseAudios();
         mainMenu.SetActive(true);
         if (withPause)
         {
@@ -110,6 +111,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenCutSceneOne()
     {
+        AudioManager.instance.StopAll();
         mainMenu.SetActive(false);
         cutscene_1.SetActive(true);
         cutscene_2.SetActive(false);
@@ -124,6 +126,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenCutSceneTwo()
     {
+        AudioManager.instance.StopAll();
         mainMenu.SetActive(false);
         cutscene_1.SetActive(false);
         cutscene_2.SetActive(true);
@@ -138,6 +141,7 @@ public class UIManager : MonoBehaviour
 
 public void OpenDesctop()
     {
+        AudioManager.instance.PlayMainMenuPhaseAudios();
         desctopController.ShowNextPatient(true);
 
         mainMenu.SetActive(false);
@@ -154,6 +158,7 @@ public void OpenDesctop()
 
     public void OpenNovel()
     {
+        AudioManager.instance.PlayNovelPhaseAudios();
         progressBarController.InitializeProgressBar();
         dialogController.InitializeDiolog();
 
@@ -201,6 +206,7 @@ public void OpenDesctop()
 
     public void OpenFightScene()
     {
+        AudioManager.instance.PlayBattlePhaseAudios();
         mainMenu.SetActive(false);
         cutscene_1.SetActive(false);
         cutscene_2.SetActive(false);
@@ -235,6 +241,9 @@ public void OpenDesctop()
 
     public void OpenGameEndPanel(bool completed)
     {
+        if(completed)
+            AudioManager.instance.PlayGameEndAudios();
+
         gameFailed.SetActive(!completed);
         gameComplete.SetActive(completed);
 
