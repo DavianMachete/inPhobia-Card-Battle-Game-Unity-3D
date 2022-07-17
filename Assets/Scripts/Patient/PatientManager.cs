@@ -85,6 +85,7 @@ public class PatientManager : MonoBehaviour
     public void StartTurn()
     {
         UIManager.instance.SetCanvasGroupActive(false);
+        CardManager.instance.SetHandCardsInteractable(false);
 
         if (IStartTurnHelper == null)
         {
@@ -471,6 +472,7 @@ public class PatientManager : MonoBehaviour
             }
 
             UIManager.instance.SetCanvasGroupActive(true);
+            CardManager.instance.SetHandCardsInteractable(true);
 
             GameManager.instance.PlayNextTurn();
         });

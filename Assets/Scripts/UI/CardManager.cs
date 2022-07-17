@@ -46,7 +46,7 @@ public class CardManager : MonoBehaviour
 
     #region Private Fields
 
-    [SerializeField]private ScreenPart screenPart;
+    [SerializeField] private ScreenPart screenPart;
 
     #endregion
 
@@ -81,6 +81,18 @@ public class CardManager : MonoBehaviour
         patientCardsInHand.Clear();
 
         SetScreenPartsActive(false);
+    }
+
+    public void SetHandCardsInteractable(bool value)
+    {
+        foreach (CardController cct in therapistCardsInHand)
+        {
+            cct.SetInteractable(value);
+        }
+        foreach (CardController ccp in patientCardsInHand)
+        {
+            ccp.SetInteractable(value);
+        }
     }
 
     public void SetScreenPartsActive(bool value)
@@ -354,7 +366,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    public void AnimatePatientCardsBeforeDrop(Vector2 anchoredPosition, CardController cardController) 
+    public void AnimatePatientCardsBeforeDrop(Vector2 anchoredPosition, CardController cardController)
     {
         if (cardController.card.cardType == CardTypes.Equipment)
             return;
@@ -412,17 +424,17 @@ public class CardManager : MonoBehaviour
         }
 
         //detect index
-        float t = patientHandSpline.GetClosestT(cardController.GetComponent<RectTransform>().anchoredPosition, patientCardsInHand.Count+3);
+        float t = patientHandSpline.GetClosestT(cardController.GetComponent<RectTransform>().anchoredPosition, patientCardsInHand.Count + 3);
         //Debug.Log($"<color=maroon>UIController: </color> t of current card = {t} ");
         float step = 1f / patientCardsInHand.Count;
         int index = 0;
-        for (int i = 0; i < patientCardsInHand.Count+1; i++)
+        for (int i = 0; i < patientCardsInHand.Count + 1; i++)
         {
             float tForCard = step * i;
             //Debug.Log($"<color=maroon>UIController: </color> t For {i}-th Card = {tForCard} ");
             if (t > tForCard && t <= tForCard + step)
             {
-                index = i+1;
+                index = i + 1;
                 //Debug.Log($"<color=maroon>UIController: </color> index of current card = {index} ");
             }
         }
@@ -517,7 +529,7 @@ public class CardManager : MonoBehaviour
 
     public void Discard(CardUIType cardUIType)
     {
-        if(cardUIType == CardUIType.PatientCard)
+        if (cardUIType == CardUIType.PatientCard)
         {
             SplinePoint sp = new SplinePoint(patientDiscardRect.anchoredPosition, Vector3.up);
             foreach (CardController cardC in patientCardsInHand)
@@ -526,7 +538,7 @@ public class CardManager : MonoBehaviour
             }
             patientCardsInHand.Clear();
         }
-        if(cardUIType == CardUIType.TherapistCard)
+        if (cardUIType == CardUIType.TherapistCard)
         {
             SplinePoint sp = new SplinePoint(therapistDiscardRect.anchoredPosition, Vector3.up);
             foreach (CardController cardC in therapistCardsInHand)
@@ -577,7 +589,7 @@ public class CardManager : MonoBehaviour
 
     #region Private Methods
 
-    private void ResetSelectedes() 
+    private void ResetSelectedes()
     {
         foreach (CardController card in patientCardsInHand)
         {
@@ -608,7 +620,7 @@ public class CardManager : MonoBehaviour
 
         UpdateCards(true);
 
-        patientTopCard.MoveCardToCenter(() => 
+        patientTopCard.MoveCardToCenter(() =>
         {
             onDone();
             IPlayPatientTopCardHelper = null;

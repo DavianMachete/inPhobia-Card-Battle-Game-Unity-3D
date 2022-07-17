@@ -44,6 +44,11 @@ public class CardController : MonoBehaviour
 
 
 
+    public void SetInteractable(bool value)
+    {
+        interactable = value;
+    }
+
     public void OnPointerDown()
     {
         //Debug.Log($"card OnPointerDown {card.name}");
@@ -540,11 +545,6 @@ public class CardController : MonoBehaviour
         if (IScaleCardToHelper != null)
             StopCoroutine(IScaleCardToHelper);
     } 
-
-    private void SetInteractable(bool value)
-    {
-        interactable = value;
-    }
 
     private void StartFollowMouse()
     {
