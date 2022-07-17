@@ -198,7 +198,7 @@ public static class Affects
     {
         Affect affect = new Affect($"Attack_{attackForce}_{attackCount}".ToLower());
         affect.OnAttack = new InPhobiaAction($"Attack_{attackForce}_{attackCount}".ToLower(),
-            () => PatientManager.instance.AddAttackForce(attackForce, attackCount), false);
+            () => PatientManager.instance.SetAttackForce(attackForce, attackCount), false);
         return affect;
     }
 
@@ -223,7 +223,7 @@ public static class Affects
             () =>
             {
                 PatientManager.instance.ActivateAttackWhenDamaged();
-                PatientManager.instance.AddAttackForce(attackForce, 1);
+                PatientManager.instance.SetAttackForce(attackForce, 1);
             }, false);
         return affect;
     }
