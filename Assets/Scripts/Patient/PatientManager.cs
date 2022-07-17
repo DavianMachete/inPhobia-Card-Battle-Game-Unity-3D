@@ -264,9 +264,9 @@ public class PatientManager : MonoBehaviour
         actionPointsText.text = patient.patientActionPoints.ToString() + "/" + patient.patientMaximumActionPoints.ToString();
     }
 
-    public void AddAttackForce(float force, int attackCount)
+    public void SetAttackForce(float force, int attackCount)
     {
-        patient.attackForce += force;
+        patient.attackForce = force;
         patient.attackCount += attackCount;
         //Debug.Log($"<color=teal>NPC:</color> attackForce =  {force}");
     }
@@ -306,7 +306,7 @@ public class PatientManager : MonoBehaviour
 
             if (patient.spikes > 0)
             {
-                AddAttackForce(patient.spikes, 1);
+                SetAttackForce(patient.spikes, 1);
                 Attack();
 
                 patient.attackForce = 0f;
@@ -355,7 +355,7 @@ public class PatientManager : MonoBehaviour
 
         if (patient.poison > 0)
         {
-            AddAttackForce(patient.poison, 1);
+            SetAttackForce(patient.poison, 1);
             Attack();
             patient.attackForce = 0f;
             patient.attackCount = 0;
