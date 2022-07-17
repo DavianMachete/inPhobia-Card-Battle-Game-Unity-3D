@@ -112,38 +112,38 @@ public class Card : ScriptableObject
                 case AffectType.DoubleBlock:
                     ah.affect = Affects.DoubleTheBlock();
                     continue;
-                case AffectType.DropKickWithoutAttack:
+                case AffectType.DropKickWithoutAttack://skaaaaaaaaaa ya zabil
                     ah.affect = Affects.DropKickWithouAttack();
                     continue;
                 case AffectType.Exhaust:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.Exhaust();
                     continue;
                 case AffectType.GiveEnemyWeaknessOnHit:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.GiveEnemyWeaknessOnHit();
                     continue;
                 case AffectType.MultiplyBlock:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.MultiplyBlock(ah.firstValue);
                     continue;
                 case AffectType.Power:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.AddPower(ah.firstValue);
                     continue;
                 case AffectType.PullCard:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.PullCard(Mathf.FloorToInt(ah.firstValue));
                     continue;
                 case AffectType.SaveBlock:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.SaveBlock();
                     continue;
                 case AffectType.SteelBlock:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.SteelBlock(ah.firstValue);
                     continue;
                 case AffectType.TurnWeaknessIntoPoison:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.TurnWeaknessIntoPoison();
                     continue;
                 case AffectType.Vulnerability:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.Vulnerablity(Mathf.FloorToInt(ah.firstValue));
                     continue;
                 case AffectType.Weakness:
-                    ah.affect = Affects.DropKickWithouAttack();
+                    ah.affect = Affects.Weakness(Mathf.FloorToInt(ah.firstValue));
                     continue;
                 default:
                     continue;

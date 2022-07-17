@@ -30,7 +30,7 @@ public class PatientManager : MonoBehaviour
     [SerializeField] private float armor;
 
     [SerializeField] private float block;
-    [SerializeField] private bool blockSaved;
+    [SerializeField] private bool saveBlock;
 
     [SerializeField] private bool blockTheDamage;
     [SerializeField] private bool attackWhenDamaged;
@@ -65,7 +65,7 @@ public class PatientManager : MonoBehaviour
 
         patientMaximumAPHolder = patient.patientMaximumActionPoints;
 
-        blockSaved = false;
+        saveBlock = false;
         giveEnemyWeakness = false;
 
         SetActionPoint();
@@ -151,7 +151,7 @@ public class PatientManager : MonoBehaviour
     public void SaveBlock() 
     {
         Debug.Log($"<color=cyan>Block will be saved </color>");
-        blockSaved = true;
+        saveBlock = true;
     }
 
     public void ActivateGiveEnemyWeaknessOnHit()
@@ -342,10 +342,10 @@ public class PatientManager : MonoBehaviour
     private Coroutine IStartTurnHelper;
     private IEnumerator IStartTurn()
     {
-        if (!blockSaved)
-        {
+        if (!saveBlock)
             block = 0;
-        }
+        else
+            Debug.Log($"<color=cyan>Block saved</color>");
 
 
         Debug.Log($"<color=cyan>Turn Started</color>");

@@ -82,13 +82,13 @@ public static class Affects
     /// <summary>
     /// ---Увеличивает урон на x, где x - значение силы.
     /// </summary>
-    public static Affect Power(float damage)
-    {
-        Affect affect = new Affect($"Power_{damage}".ToLower());
-        affect.OnStepStart = new InPhobiaAction($"Power_{damage}".ToLower(),
-            () => PatientManager.instance.patient.attackForce += damage, false);
-        return affect;
-    }
+    //public static Affect Power(float damage)
+    //{
+    //    Affect affect = new Affect($"Power_{damage}".ToLower());
+    //    affect.OnStepStart = new InPhobiaAction($"Power_{damage}".ToLower(),
+    //        () => PatientManager.instance.patient.attackForce += damage, false);
+    //    return affect;
+    //}
 
     public static Affect AddWeaknessOnDamage(float weaknessStack)
     {
