@@ -18,11 +18,13 @@ public class Phobia : ScriptableObject
     public int attackCountInAStep;
     public int vulnerablityCount;
     public int weaknessStack;
+    public int poison;
     public int power = -1;
 
 
     public void Initialize()
     {
+        poison = 0;
         power = -1;
         vulnerablityCount = 0;
         weaknessStack = 0;

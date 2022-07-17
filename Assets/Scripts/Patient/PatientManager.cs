@@ -29,6 +29,9 @@ public class PatientManager : MonoBehaviour
     [SerializeField] private TMP_Text actionPointsText;
 
     [SerializeField] private TMP_Text healthTxtp;
+    [SerializeField] private TMP_Text spikesTmp;
+    [SerializeField] private TMP_Text armorTmp;
+    [SerializeField] private TMP_Text blockTmp;
 
     [SerializeField] private int nextEffectCount = 1;
 
@@ -47,6 +50,7 @@ public class PatientManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        patientMaximumAPHolder = patient.patientMaximumActionPoints;
     }
 
     public void InitializePatient()
@@ -68,7 +72,13 @@ public class PatientManager : MonoBehaviour
         deck = new List<Card>(Cards.instance.PatientStandartCards);
         UpdateHealthBar();
 
-        patientMaximumAPHolder = patient.patientMaximumActionPoints;
+        UpdateSpikesTMP();
+
+        UpdateArmorTMP();
+
+        UpdateBlockTMP();
+
+        patient.patientMaximumActionPoints = patientMaximumAPHolder;
 
         saveBlock = false;
         giveEnemyWeakness = false;
@@ -188,6 +198,7 @@ public class PatientManager : MonoBehaviour
     {
         Debug.Log($"<color=cyan>Block added </color>value = {block} ");
         this.block += block;
+        UpdateBlockTMP();
     }
 
     public float GetBlock()
@@ -202,19 +213,13 @@ public class PatientManager : MonoBehaviour
         blockTheDamage = true;
     }
 
-    public void TurnWeaknessIntoPoison()
-    {
-        Debug.Log($"<color=cyan>The weakness turned into poison </color>");
-        patient.poison = PhobiaManager.instance.phobia.weaknessStack;
-        PhobiaManager.instance.phobia.weaknessStack = 0;
-    }
-
     public void AddArmor(float armor)
     {
         Debug.Log($"<color=cyan>Armor added </color>value = {armor} ");
         this.armor += armor;
         if (this.armor < 0)
             this.armor = 0;
+        UpdateArmorTMP();
     }
 
     public void RemoveCardFromHand(Card card)
@@ -246,13 +251,7 @@ public class PatientManager : MonoBehaviour
         Debug.Log($"<color=cyan>spikess added </color>added spikes count " +
             $"= {spikesCount}, current spikes count = {patient.spikes} ");
         patient.spikes += Mathf.FloorToInt(spikesCount);
-    }
-
-    public void AddPoison(float poisonCount)
-    {
-        Debug.Log($"<color=cyan>poison added </color>added poison count " +
-            $"= {poisonCount}, current spikes count = {patient.poison} ");
-        patient.poison += Mathf.FloorToInt(poisonCount);
+        UpdateSpikesTMP();
     }
 
     public void AddActionPoint(int toAP,int toMaxAP)
@@ -296,10 +295,12 @@ public class PatientManager : MonoBehaviour
         block -= damageHolder;
         if (block < 0)
             block = 0;
+        UpdateBlockTMP();
 
         damage -= armor;
         if (armor > 0)
             armor--;
+        UpdateArmorTMP();
 
         if (damage > 0)
         {
@@ -327,6 +328,7 @@ public class PatientManager : MonoBehaviour
             patient.health = 0;
             GameManager.instance.LevelFailed();
         }
+        UpdateSpikesTMP();
         UpdateHealthBar();
     }
 
@@ -362,14 +364,15 @@ public class PatientManager : MonoBehaviour
         Debug.Log($"<color=cyan>Turn Started</color>");
         patientAnimationController.SetPatientInteractAnimations();
 
-        if (patient.poison > 0)
+        if (patient.phobia.poison > 0)
         {
-            SetAttackForce(patient.poison, 1);
+            SetAttackForce(patient.phobia.poison, 1);
             Attack();
             patient.attackForce = 0f;
             patient.attackCount = 0;
-            patient.poison--;
+            patient.phobia.poison--;
         }
+        PhobiaManager.instance.UpdatePoisonTMP();
 
         foreach (Affect affect in affects)
         {
@@ -493,6 +496,20 @@ public class PatientManager : MonoBehaviour
         IStartTurnHelper = null;
     }
 
+    private void UpdateBlockTMP()
+    {
+        blockTmp.text = block.ToString();
+    }
+
+    private void UpdateArmorTMP()
+    {
+        armorTmp.text = armor.ToString();
+    }
+
+    private void UpdateSpikesTMP()
+    {
+        spikesTmp.text = patient.spikes.ToString();
+    }
 
     private void RemovePlayedCards()
     {

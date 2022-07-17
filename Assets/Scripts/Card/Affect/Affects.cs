@@ -119,7 +119,7 @@ public static class Affects
     {
         Affect affect = new Affect($"AddPoison_{poisons}".ToLower());
         affect.OnStepStart = new InPhobiaAction($"AddPoison_{poisons}".ToLower(),
-            () => PatientManager.instance.AddPoison(poisons), false);
+            () => PhobiaManager.instance.AddPoison(poisons), false);
         return affect;
     }
 
@@ -251,7 +251,7 @@ public static class Affects
     {
         Affect affect = new Affect("TurnWeaknessIntoPoison".ToLower());
         affect.OnStepStart = new InPhobiaAction($"TurnWeaknessIntoPoison".ToLower(),
-            () => PatientManager.instance.TurnWeaknessIntoPoison(), false);
+            () => PhobiaManager.instance.TurnWeaknessIntoPoison(), false);
 
         return affect;
     }

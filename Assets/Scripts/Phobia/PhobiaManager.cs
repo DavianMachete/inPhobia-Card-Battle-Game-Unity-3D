@@ -10,7 +10,11 @@ public class PhobiaManager : MonoBehaviour
 
     public Phobia phobia;
 
-    [SerializeField] private TMP_Text healthTxtp;
+    [SerializeField] private TMP_Text healthTmp;
+    [SerializeField] private TMP_Text poisonTmp;
+    [SerializeField] private TMP_Text blockTmp;
+    [SerializeField] private TMP_Text weakTmp;
+
 
     [SerializeField] private TMP_Text phobiaNextAction;
     [SerializeField] UISpline effectSplinePath;
@@ -25,6 +29,12 @@ public class PhobiaManager : MonoBehaviour
         phobia.Initialize();
 
         UpdateHealthBar();
+
+        UpdateWeakTMP();
+
+        UpdatePoisonTMP();
+
+        UpdateBlockTMP();
 
         PrepareAttack();
     }
@@ -52,6 +62,9 @@ public class PhobiaManager : MonoBehaviour
         phobia.block -= damageHolder;
         if (phobia.block < 0)
             phobia.block = 0;
+
+        UpdateBlockTMP();
+
         phobia.health -= damage;
 
         UIElementFlow uIElementFlow = Instantiate(CardManager.instance.effectElement, effectSplinePath.transform.parent).GetComponent<UIElementFlow>();
@@ -98,6 +111,24 @@ public class PhobiaManager : MonoBehaviour
             Debug.Log($"<color=#ffa500ff>phobia's</color> weakness stack is less or equal to 0 ");
             phobia.weaknessStack = 0;
         }
+        UpdateWeakTMP();
+    }
+
+    public void AddPoison(float poisonCount)
+    {
+        Debug.Log($"<color=cyan>poison added </color>added poison count " +
+            $"= {poisonCount}, current spikes count = {phobia.poison} ");
+        phobia.poison += Mathf.FloorToInt(poisonCount);
+        UpdatePoisonTMP();
+    }
+
+    public void TurnWeaknessIntoPoison()
+    {
+        Debug.Log($"<color=#ffa500ff>The weakness turned into poison </color>");
+        phobia.poison = phobia.weaknessStack;
+        phobia.weaknessStack = 0;
+        UpdateWeakTMP();
+        UpdatePoisonTMP();
     }
 
 
@@ -105,13 +136,29 @@ public class PhobiaManager : MonoBehaviour
     private void UpdateHealthBar()
     {
         //healthBarImage.fillAmount = Health / maxHealth;
-        healthTxtp.text = $"{Mathf.RoundToInt(phobia.health)}/{Mathf.RoundToInt(phobia.maximumHealth)}";
+        healthTmp.text = $"{Mathf.RoundToInt(phobia.health)}/{Mathf.RoundToInt(phobia.maximumHealth)}";
+    }
+
+    private void UpdateBlockTMP()
+    {
+        blockTmp.text = phobia.block.ToString();
+    }
+
+    public void UpdatePoisonTMP()
+    {
+        poisonTmp.text = phobia.poison.ToString();
+    }
+
+    private void UpdateWeakTMP()
+    {
+        weakTmp.text = phobia.weaknessStack.ToString();
     }
 
     private void PrepareAttack()
     {
         phobia.PrepareAttack();
 
+        UpdateBlockTMP();
         phobiaNextAction.text = $"{phobia.attackCountInAStep}<color=#6b61fe>X</color>{phobia.attackForce}";
     }
 
@@ -121,6 +168,7 @@ public class PhobiaManager : MonoBehaviour
         PatientManager.instance.MakeTheDamage(phobia.attackForce - phobia.weaknessStack);
         if (phobia.weaknessStack > 0)
             phobia.weaknessStack--;
+        UpdateWeakTMP();
     }
 
 

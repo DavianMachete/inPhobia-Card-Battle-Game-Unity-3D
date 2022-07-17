@@ -18,7 +18,6 @@ public class Patient : ScriptableObject
     public int patientMaximumActionPoints;
     public int patientActionPoints;
     public int spikes;
-    public int poison;
     public Phobia phobia;
 
     [TextArea(20,200)]
